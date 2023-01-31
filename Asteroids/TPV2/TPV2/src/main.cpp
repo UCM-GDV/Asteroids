@@ -1,5 +1,7 @@
 // This file is part of the course TPV2@UCM - Samir Genaim
 
+// Yi (Laura) Wang Qiu & Cristina Mora Velasco (Grupo 20)
+
 #include <iostream>
 
 #include "sdlutils/sdlutils_demo.h"
