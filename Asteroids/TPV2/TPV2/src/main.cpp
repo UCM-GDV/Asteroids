@@ -1,15 +1,13 @@
-// This file is part of the course TPV2@UCM - Samir Genaim
-
 // Yi (Laura) Wang Qiu & Cristina Mora Velasco (Grupo 20)
 
 #include <iostream>
-
-#include "sdlutils/sdlutils_demo.h"
-#include "sdlutils/Game.h"
+#include "game/Game.h"
 
 int main(int ac, char **av) {
+	Game* game = nullptr;
 	try {
-		Game();
+		game = new Game();
+		game->run();
 	} catch (const std::string &e) { // catch exceptions thrown as strings
 		std::cerr << e << std::endl;
 	} catch (const char *e) { // catch exceptions thrown as char*
@@ -19,6 +17,8 @@ int main(int ac, char **av) {
 	} catch (...) {
 		std::cerr << "Caught and exception of unknown type ...";
 	}
+
+	delete game;
 
 	return 0;
 }

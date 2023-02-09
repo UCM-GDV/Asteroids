@@ -19,15 +19,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Component.h" />
-    <ClInclude Include="ecs_def.h" />
-    <ClInclude Include="Entity.h" />
-    <ClInclude Include="Manager.h" />
+    <ClInclude Include="constants.h" />
+    <ClInclude Include="src\components\Image.h" />
+    <ClInclude Include="src\components\Transform.h" />
+    <ClInclude Include="src\ecs\Component.h" />
+    <ClInclude Include="src\ecs\Entity.h" />
+    <ClInclude Include="src\ecs\Manager.h" />
+    <ClInclude Include="src\game\ecs_def.h" />
+    <ClInclude Include="src\game\Game.h" />
+    <ClInclude Include="src\game\GameState.h" />
+    <ClInclude Include="src\game\GameStateMachine.h" />
     <ClInclude Include="src\json\JSON.h" />
     <ClInclude Include="src\json\JSONValue.h" />
     <ClInclude Include="src\json\json_demo.h" />
     <ClInclude Include="src\sdlutils\Font.h" />
-    <ClInclude Include="src\sdlutils\Game.h" />
     <ClInclude Include="src\sdlutils\InputHandler.h" />
     <ClInclude Include="src\sdlutils\macros.h" />
     <ClInclude Include="src\sdlutils\Music.h" />
@@ -38,13 +43,17 @@
     <ClInclude Include="src\sdlutils\SoundEffect.h" />
     <ClInclude Include="src\sdlutils\Texture.h" />
     <ClInclude Include="src\sdlutils\VirtualTimer.h" />
+    <ClInclude Include="src\states\PauseState.h" />
+    <ClInclude Include="src\states\PlayState.h" />
     <ClInclude Include="src\utils\Collisions.h" />
     <ClInclude Include="src\utils\mpl.h" />
     <ClInclude Include="src\utils\Singleton.h" />
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="src\game\Game.cpp" />
+    <ClCompile Include="src\game\GameState.cpp" />
+    <ClCompile Include="src\game\GameStateMachine.cpp" />
     <ClCompile Include="src\json\JSON.cpp" />
     <ClCompile Include="src\json\JSONValue.cpp" />
     <ClCompile Include="src\json\json_demo.cpp" />
@@ -53,6 +62,8 @@
     <ClCompile Include="src\sdlutils\sdlutils_demo.cpp" />
     <ClCompile Include="src\sdlutils\SoundEffect.cpp" />
     <ClCompile Include="src\sdlutils\Texture.cpp" />
+    <ClCompile Include="src\states\PauseState.cpp" />
+    <ClCompile Include="src\states\PlayState.cpp" />
     <ClCompile Include="src\utils\Collisions.cpp" />
     <ClCompile Include="src\utils\Vector2D.cpp" />
   </ItemGroup>

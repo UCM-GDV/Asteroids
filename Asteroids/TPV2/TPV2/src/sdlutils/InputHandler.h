@@ -176,8 +176,7 @@ private:
 	std::pair<Sint32, Sint32> mousePos_;
 	std::array<bool, 3> mbState_;
 	const Uint8 *kbState_;
-}
-;
+};
 
 // This macro defines a compact way for using the singleton InputHandler, instead of
 // writing InputHandler::instance()->method() we write ih().method()

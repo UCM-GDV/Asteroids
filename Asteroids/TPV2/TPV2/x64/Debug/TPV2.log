@@ -1,3 +1,28 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(520,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(503,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
   Game.cpp
-  TPV2.vcxproj -> C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\bin\TPV2Debug.exe
+  GameState.cpp
+C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\ecs\Entity.h(81,26): error C2061: error de sintaxis: identificador 'SDL_Event'
+C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\ecs\Manager.h(52,19): error C2061: error de sintaxis: identificador 'SDL_Event'
+C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\ecs\Manager.h(55,26): error C2065: 'event': identificador no declarado
+C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\GameState.h(24,30): error C2061: error de sintaxis: identificador 'SDL_Event'
+C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\GameState.cpp(31,17): error C2511: 'void GameState::handleEvent(SDL_Event)': la función miembro sobrecargada no se ha encontrado en 'GameState'
+C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\GameState.h(10,7): message : vea la declaración de 'GameState'
+  GameStateMachine.cpp
+C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\ecs\Entity.h(81,26): error C2061: error de sintaxis: identificador 'SDL_Event'
+C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\ecs\Manager.h(52,19): error C2061: error de sintaxis: identificador 'SDL_Event'
+C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\ecs\Manager.h(55,26): error C2065: 'event': identificador no declarado
+C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\GameState.h(24,30): error C2061: error de sintaxis: identificador 'SDL_Event'
+  main.cpp
+  PauseState.cpp
+C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\ecs\Entity.h(81,26): error C2061: error de sintaxis: identificador 'SDL_Event'
+C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\ecs\Manager.h(52,19): error C2061: error de sintaxis: identificador 'SDL_Event'
+C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\ecs\Manager.h(55,26): error C2065: 'event': identificador no declarado
+C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\GameState.h(24,30): error C2061: error de sintaxis: identificador 'SDL_Event'
+  PlayState.cpp
+C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\ecs\Entity.h(81,26): error C2061: error de sintaxis: identificador 'SDL_Event'
+C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\ecs\Manager.h(52,19): error C2061: error de sintaxis: identificador 'SDL_Event'
+C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\ecs\Manager.h(55,26): error C2065: 'event': identificador no declarado
+C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\GameState.h(24,30): error C2061: error de sintaxis: identificador 'SDL_Event'
+  Collisions.cpp
+  Vector2D.cpp
+  Generando código...
