@@ -49,6 +49,12 @@
     <Filter Include="Header Files\states">
       <UniqueIdentifier>{a03d9b91-943e-49d6-9d7b-103a4b4f596a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\entities">
+      <UniqueIdentifier>{85d46f74-458c-4e50-beec-32381ee0d609}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\entities">
+      <UniqueIdentifier>{194580b3-4646-47e8-b8ad-de4869b3363e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\json\JSONValue.h">
@@ -126,9 +132,6 @@
     <ClInclude Include="src\game\GameStateMachine.h">
       <Filter>Header Files\game</Filter>
     </ClInclude>
-    <ClInclude Include="src\game\GameState.h">
-      <Filter>Header Files\game</Filter>
-    </ClInclude>
     <ClInclude Include="src\states\PauseState.h">
       <Filter>Header Files\states</Filter>
     </ClInclude>
@@ -140,6 +143,9 @@
     </ClInclude>
     <ClInclude Include="src\components\Image.h">
       <Filter>Source Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entities\fighter.h">
+      <Filter>Header Files\entities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -179,14 +185,14 @@
     <ClCompile Include="src\game\GameStateMachine.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
-    <ClCompile Include="src\game\GameState.cpp">
-      <Filter>Source Files\game</Filter>
-    </ClCompile>
     <ClCompile Include="src\states\PlayState.cpp">
       <Filter>Source Files\states</Filter>
     </ClCompile>
     <ClCompile Include="src\states\PauseState.cpp">
       <Filter>Source Files\states</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entities\fighter.cpp">
+      <Filter>Source Files\entities</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

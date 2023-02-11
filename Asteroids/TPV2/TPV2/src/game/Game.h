@@ -1,6 +1,7 @@
 #pragma once
 #ifndef GAME_H_
 #define GAME_H_
+#include <SDL.h>
 #include "constants.h"
 #include "../sdlutils/Texture.h"
 #include "GameStateMachine.h"
@@ -33,7 +34,9 @@ public:
 	// Actualiza el juego
 	void update();
 	// Actualiza el juego en función al evento actual
-	void handleEvents();
+	void refresh();
+	// Devuelve un renderer
+	SDL_Renderer* getRenderer();
 	// Devuelve la textura pedida
 	//Texture* getTexture(TextureName texture) const;
 };

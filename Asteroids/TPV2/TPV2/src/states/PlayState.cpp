@@ -1,7 +1,7 @@
 #include "PlayState.h"
 
 // Constructora
-PlayState::PlayState(Game* _game) : GameState(_game) {
+PlayState::PlayState(Game* _game) : Manager() {
 
 }
 

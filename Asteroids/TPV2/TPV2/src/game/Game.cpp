@@ -1,4 +1,3 @@
-#include <SDL.h>
 #include "Game.h"
 #include "../sdlutils/InputHandler.h"
 #include "../sdlutils/macros.h"
@@ -7,13 +6,18 @@ using namespace std;
 
 // Constructora
 Game::Game() {
-	SDL_Init(SDL_INIT_EVERYTHING);
+	/*SDL_Init(SDL_INIT_EVERYTHING);
 	window = SDL_CreateWindow("Asteroids", SDL_WINDOWPOS_CENTERED,
 		SDL_WINDOWPOS_CENTERED, WIN_WIDTH, WIN_HEIGHT, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	if (window == nullptr || renderer == nullptr) {
 		throw "Could not load the window.";
-	}
+	}*/
+
+	// Crea la ventana
+	SDLUtils::init();
+	renderer = SDLUtils::instance()->renderer();
+	window = SDLUtils::instance()->window();
 
 	// Carga de texturas
 	/*
@@ -38,9 +42,10 @@ Game::Game() {
 	}
 	*/
 
+	exit = false;
 	gameStateMachine = new GameStateMachine();
 	gameStateMachine->pushState(new PauseState(this));
-	exit = false;
+	
 }
 
 // Destructora
@@ -64,7 +69,7 @@ void Game::run() {
 			render();
 			startTime = SDL_GetTicks();
 		}
-		handleEvents();
+		refresh();
 	}
 	gameStateMachine->clearStates();
 }
@@ -83,12 +88,11 @@ void Game::update() {
 }
 
 // Actualiza el juego en función al evento actual
-void Game::handleEvents() {
-	SDL_Event event;
-	while (SDL_PollEvent(&event)) {
-		gameStateMachine->currentState()->handleEvent(event);
-	}
+void Game::refresh() {
+	gameStateMachine->currentState()->refresh();
 }
+
+SDL_Renderer* Game::getRenderer() { return SDLUtils::instance()->renderer(); }
 
 /*
 Texture* getTexture(TextureName texture) const {

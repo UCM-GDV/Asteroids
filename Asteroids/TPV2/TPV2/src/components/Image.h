@@ -3,6 +3,7 @@
 #define IMAGE_H_
 #include "../sdlutils/Texture.h"
 #include "Transform.h" 
+#include "../ecs/Entity.h"
 
 class Image: public Component {
 public:
@@ -11,13 +12,13 @@ public:
 	// Destructora
 	virtual ~Image() { }
 	// Inicializa el componente
-	void initComponent() override;
+	//void initComponent() override;
 	// Dibuja
-	void render() override;
+	//void render() override;
 	// Inicializa el componente
 	void initComponent() {
-		//tr_ = ent_->getComponent<Transform>(_TRANSFORM);
-		//assert( tr_ != nullptr );
+		tr_ = ent_->getComponent<Transform>(_TRANSFORM);
+		assert( tr_ != nullptr );
 	}
 	// Dibuja en escena
 	void render() {

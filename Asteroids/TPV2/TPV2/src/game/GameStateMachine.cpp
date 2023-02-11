@@ -10,7 +10,7 @@ GameStateMachine::~GameStateMachine() {
 }
 
 // Anade un estado a la pila
-void GameStateMachine::pushState(GameState* newState) { gameStates.push(newState); }
+void GameStateMachine::pushState(Manager* newState) { gameStates.push(newState); }
 
 // Borra el estado de la cima de la pila
 void GameStateMachine::popState() {
@@ -24,10 +24,10 @@ void GameStateMachine::clearStates() {
 }
 
 // Devuelve el estado actual
-GameState* GameStateMachine::currentState() { return gameStates.top(); }
+Manager* GameStateMachine::currentState() { return gameStates.top(); }
 
 // Borra la pila y anade un nuevo estado
-void GameStateMachine::changeState(GameState* newState) {
+void GameStateMachine::changeState(Manager* newState) {
     clearStates();
     pushState(newState);
 }

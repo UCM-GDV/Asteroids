@@ -78,10 +78,10 @@ public:
 			currCmps_[i]->render();
 	}
 	// Manejo de los eventos a traves del InputHandler
-	inline void handleEvent(SDL_Event event) {
+	//inline void handleEvent(SDL_Event event) {
 
-		//if (InputHandler::instance()->isKeyDown(SDLK_a)) {
-		//}
-	}
+	//	//if (InputHandler::instance()->isKeyDown(SDLK_a)) {
+	//	//}
+	//}
 };
 #endif
