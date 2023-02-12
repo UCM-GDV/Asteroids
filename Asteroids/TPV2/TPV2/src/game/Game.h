@@ -2,8 +2,11 @@
 #ifndef GAME_H_
 #define GAME_H_
 #include <SDL.h>
+#include <unordered_map>
+#include <fstream>
 #include "constants.h"
 #include "../sdlutils/Texture.h"
+#include "../sdlutils/SDLUtils.h"
 #include "GameStateMachine.h"
 #include "../states/PauseState.h"
 #include "../states/PlayState.h"
@@ -18,6 +21,7 @@ typedef struct {
 
 class Game {
 private:
+	SDLUtils* sdl = nullptr;
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
 	GameStateMachine* gameStateMachine = nullptr;

@@ -19,13 +19,23 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="constants.h" />
+    <ClInclude Include="src\components\asteroidsComponents\Follow.h" />
+    <ClInclude Include="src\components\asteroidsComponents\FramedImage.h" />
+    <ClInclude Include="src\components\asteroidsComponents\Generations.h" />
+    <ClInclude Include="src\components\bulletComponents\DisableOnExit.h" />
+    <ClInclude Include="src\components\fighterComponents\DeAcceleration.h" />
+    <ClInclude Include="src\components\fighterComponents\FighterControl.h" />
+    <ClInclude Include="src\components\fighterComponents\Gun.h" />
+    <ClInclude Include="src\components\fighterComponents\Health.h" />
     <ClInclude Include="src\components\Image.h" />
+    <ClInclude Include="src\components\ShowAtOppositeSide.h" />
     <ClInclude Include="src\components\Transform.h" />
     <ClInclude Include="src\ecs\Component.h" />
     <ClInclude Include="src\ecs\Entity.h" />
     <ClInclude Include="src\ecs\Manager.h" />
+    <ClInclude Include="src\entities\asteroid.h" />
     <ClInclude Include="src\entities\fighter.h" />
+    <ClInclude Include="src\game\constants.h" />
     <ClInclude Include="src\game\ecs_def.h" />
     <ClInclude Include="src\game\Game.h" />
     <ClInclude Include="src\game\GameStateMachine.h" />
@@ -51,6 +61,7 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\entities\asteroid.cpp" />
     <ClCompile Include="src\entities\fighter.cpp" />
     <ClCompile Include="src\game\Game.cpp" />
     <ClCompile Include="src\game\GameStateMachine.cpp" />

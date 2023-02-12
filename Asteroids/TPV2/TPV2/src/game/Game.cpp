@@ -1,46 +1,17 @@
 #include "Game.h"
 #include "../sdlutils/InputHandler.h"
 #include "../sdlutils/macros.h"
-#include "../sdlutils/SDLUtils.h"
 using namespace std;
 
 // Constructora
 Game::Game() {
-	/*SDL_Init(SDL_INIT_EVERYTHING);
-	window = SDL_CreateWindow("Asteroids", SDL_WINDOWPOS_CENTERED,
-		SDL_WINDOWPOS_CENTERED, WIN_WIDTH, WIN_HEIGHT, SDL_WINDOW_SHOWN);
-	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-	if (window == nullptr || renderer == nullptr) {
-		throw "Could not load the window.";
-	}*/
-
 	// Crea la ventana
-	SDLUtils::init();
-	renderer = SDLUtils::instance()->renderer();
-	window = SDLUtils::instance()->window();
+	SDLUtils::init(GAME_NAME, WIN_WIDTH, WIN_HEIGHT,
+		"resources/config/game.resources.json");
 
-	// Carga de texturas
-	/*
-	ifstream file(TEXTURES_FILE);
-	if (!file) {
-		file.close();
-		throw "Could not find file: " + TEXTURES_FILE;
-	}
-	try {
-		string key, path; uint hframes, vframes;
-		file >> key;
-		while (!file.eof()) {
-			file >> path >> vframes >> hframes;
-			texturesMap[key] = new Texture(renderer, path, hframes, vframes);
-			file >> key;
-		}
-		file.close();
-	}
-	catch (string error) {
-		file.close();
-		throw "File format error. Invalid textures file. " + error;
-	}
-	*/
+	sdl = SDLUtils::instance();
+	renderer = sdl->renderer();
+	window = sdl->window();
 
 	exit = false;
 	gameStateMachine = new GameStateMachine();

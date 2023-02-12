@@ -3,6 +3,7 @@
 #define PAUSE_STATE_H_
 #include "../ecs/Manager.h"
 #include "../entities/fighter.h"
+#include "../entities/asteroid.h"
 
 class PauseState : public Manager {
 private:

@@ -55,6 +55,15 @@
     <Filter Include="Header Files\entities">
       <UniqueIdentifier>{194580b3-4646-47e8-b8ad-de4869b3363e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\components\fighterComponents">
+      <UniqueIdentifier>{4f335860-280b-49bd-8a2c-b094fc56d16d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\components\asteroidsComponents">
+      <UniqueIdentifier>{af28250b-39eb-4294-8d1d-3887718c84b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\components\bulletComponents">
+      <UniqueIdentifier>{bb260af2-4c48-4544-af31-3938d170e734}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\json\JSONValue.h">
@@ -111,9 +120,6 @@
     <ClInclude Include="src\sdlutils\SDLNetUtils.h">
       <Filter>Header Files\sdlutil</Filter>
     </ClInclude>
-    <ClInclude Include="constants.h">
-      <Filter>Source Files\game</Filter>
-    </ClInclude>
     <ClInclude Include="src\game\ecs_def.h">
       <Filter>Source Files\game</Filter>
     </ClInclude>
@@ -145,6 +151,39 @@
       <Filter>Source Files\components</Filter>
     </ClInclude>
     <ClInclude Include="src\entities\fighter.h">
+      <Filter>Header Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\constants.h">
+      <Filter>Source Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\fighterComponents\Health.h">
+      <Filter>Source Files\components\fighterComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\fighterComponents\DeAcceleration.h">
+      <Filter>Source Files\components\fighterComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\fighterComponents\FighterControl.h">
+      <Filter>Source Files\components\fighterComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\fighterComponents\Gun.h">
+      <Filter>Source Files\components\fighterComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\asteroidsComponents\FramedImage.h">
+      <Filter>Source Files\components\asteroidsComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\asteroidsComponents\Generations.h">
+      <Filter>Source Files\components\asteroidsComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\asteroidsComponents\Follow.h">
+      <Filter>Source Files\components\asteroidsComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\bulletComponents\DisableOnExit.h">
+      <Filter>Source Files\components\bulletComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\ShowAtOppositeSide.h">
+      <Filter>Source Files\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entities\asteroid.h">
       <Filter>Header Files\entities</Filter>
     </ClInclude>
   </ItemGroup>
@@ -192,6 +231,9 @@
       <Filter>Source Files\states</Filter>
     </ClCompile>
     <ClCompile Include="src\entities\fighter.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entities\asteroid.cpp">
       <Filter>Source Files\entities</Filter>
     </ClCompile>
   </ItemGroup>

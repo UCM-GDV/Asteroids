@@ -5,6 +5,7 @@
 #include "../game/Game.h"
 #include "../game/ecs_def.h"
 #include "../components/Image.h"
+#include "../sdlutils/SDLUtils.h"
 
 class Fighter : public Entity {
 private:

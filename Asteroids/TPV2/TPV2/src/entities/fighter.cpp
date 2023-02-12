@@ -1,16 +1,11 @@
 #include "fighter.h"
 
 Fighter::Fighter(Game* _game) : Entity() {
-	
-	Texture* texture = new Texture(_game->getRenderer(), "resources/images/fighter.png");
 
-	cmpId_type transform = int(_TRANSFORM);
-
-	addComponent<Transform>(transform, Vector2D(100, 100), Vector2D(0,0), 50, 50, 0);
-	
-	cmpId_type image = int(_IMAGE);
-
-	addComponent<Image>(image, texture);
+	// TRANSFORM COMPONENT
+	addComponent<Transform>((int)(_TRANSFORM), Vector2D(WIN_WIDTH / 2, WIN_HEIGHT / 2), FIGHTER_VELOCITY, FIGHTER_WIDTH, FIGHTER_HEIGHT, FIGHTER_ROTATION);
+	// IMAGE COMPONENT
+	addComponent<Image>((int)(_IMAGE), &SDLUtils::instance()->images().at("Fighter"));
 }
 
 Fighter::~Fighter() {}
