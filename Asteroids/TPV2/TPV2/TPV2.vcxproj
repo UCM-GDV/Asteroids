@@ -34,6 +34,7 @@
     <ClInclude Include="src\ecs\Entity.h" />
     <ClInclude Include="src\ecs\Manager.h" />
     <ClInclude Include="src\entities\asteroid.h" />
+    <ClInclude Include="src\entities\bullet.h" />
     <ClInclude Include="src\entities\fighter.h" />
     <ClInclude Include="src\game\constants.h" />
     <ClInclude Include="src\game\ecs_def.h" />
@@ -62,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\entities\asteroid.cpp" />
+    <ClCompile Include="src\entities\bullet.cpp" />
     <ClCompile Include="src\entities\fighter.cpp" />
     <ClCompile Include="src\game\Game.cpp" />
     <ClCompile Include="src\game\GameStateMachine.cpp" />

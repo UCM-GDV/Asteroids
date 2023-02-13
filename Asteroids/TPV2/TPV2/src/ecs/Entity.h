@@ -66,7 +66,7 @@ public:
 		return cmps_[cId] != nullptr;
 	}
 	// Actualiza recorriendo la lista de componetes que tienes 
-	inline void update() {
+	virtual inline void update() {
 		auto n = currCmps_.size();
 		for (auto i = 0u; i < n; i++)
 			currCmps_[i]->update();
@@ -78,10 +78,6 @@ public:
 			currCmps_[i]->render();
 	}
 	// Manejo de los eventos a traves del InputHandler
-	//inline void handleEvent(SDL_Event event) {
-
-	//	//if (InputHandler::instance()->isKeyDown(SDLK_a)) {
-	//	//}
-	//}
+	virtual inline void handleEvent() {}
 };
 #endif

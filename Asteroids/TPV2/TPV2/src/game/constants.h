@@ -26,7 +26,7 @@ const int DIGITS_NUMB = 4;
 // FIGHTER
 const float FIGHTER_WIDTH = 50;
 const float FIGHTER_HEIGHT = 50;
-const Vector2D FIGHTER_VELOCITY = Vector2D(3, 3);
+const Vector2D FIGHTER_VELOCITY = Vector2D(0, 0);
 const float FIGHTER_ROTATION = 0;
 
 // ASTEROID

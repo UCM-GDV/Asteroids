@@ -14,6 +14,18 @@ public:
 		 height_= h;
 		 rotation_ = r;
 	}
+	void setPos(Vector2D p) {
+		position_ = p;
+	}
+	void setVel(Vector2D v) {
+		velocity_ = v;
+	}
+	void changeVel(float v) {
+		velocity_ = Vector2D(0, v);
+	}
+	void changeRot(float r) {
+		rotation_ += r;
+	}
 	// Destructora
 	virtual ~Transform() { }
 	// Devuelve su posicion
@@ -26,6 +38,7 @@ public:
 	inline float getH() { return height_; }
 	// Devuelve su rotacion
 	inline float getR() { return rotation_; }
+	
 private:
 	Vector2D position_, velocity_;
 	float width_, height_, rotation_;

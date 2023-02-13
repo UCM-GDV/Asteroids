@@ -9,9 +9,12 @@
 
 class Fighter : public Entity {
 private:
+	Transform* transform;
 public:
 	// Constructora
 	Fighter(Game* _game);
+	void update();
+	void handleEvent();
 	// Destructora
 	~Fighter();
 protected:

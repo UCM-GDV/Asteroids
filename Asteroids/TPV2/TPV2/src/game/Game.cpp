@@ -12,6 +12,9 @@ Game::Game() {
 	sdl = SDLUtils::instance();
 	renderer = sdl->renderer();
 	window = sdl->window();
+	sdl->showCursor();
+
+	inputHandler = InputHandler::instance();
 
 	exit = false;
 	gameStateMachine = new GameStateMachine();
@@ -34,13 +37,14 @@ void Game::run() {
 	startTime = SDL_GetTicks();
 
 	while (!exit) {
+		refresh();
 		update();
 		frameTime = SDL_GetTicks() - startTime;
 		if (frameTime >= DELAY_TIME) {
 			render();
 			startTime = SDL_GetTicks();
 		}
-		refresh();
+		handleEvents();
 	}
 	gameStateMachine->clearStates();
 }
@@ -60,12 +64,13 @@ void Game::update() {
 
 // Actualiza el juego en función al evento actual
 void Game::refresh() {
+	inputHandler->refresh();
 	gameStateMachine->currentState()->refresh();
 }
 
-SDL_Renderer* Game::getRenderer() { return SDLUtils::instance()->renderer(); }
+//Controla los eventos
+void Game::handleEvents() {
+	gameStateMachine->currentState()->handleEvent();
+}
 
-/*
-Texture* getTexture(TextureName texture) const {
-	return texture
-}*/
+SDL_Renderer* Game::getRenderer() { return SDLUtils::instance()->renderer(); }

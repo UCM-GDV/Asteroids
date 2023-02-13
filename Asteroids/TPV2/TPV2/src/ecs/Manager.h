@@ -51,11 +51,11 @@ public:
 			ents_[i]->render();
 	}
 	// Manejo de los eventos de todas las entidades
-	/*void handleEvent(SDL_Event event) {
+	void handleEvent() {
 		auto n = ents_.size();
 		for (auto i = 0u; i < n; i++)
-			ents_[i]->handleEvent(event);
-	}*/
+			ents_[i]->handleEvent();
+	}
 private:
 	vector<Entity*> ents_;
 };

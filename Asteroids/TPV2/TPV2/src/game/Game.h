@@ -10,20 +10,15 @@
 #include "GameStateMachine.h"
 #include "../states/PauseState.h"
 #include "../states/PlayState.h"
+#include "../sdlutils/InputHandler.h"
 using namespace std;
-
-using TextureName = string;
-
-typedef struct {
-	string filename;
-	uint hframes, vframes;
-} TextureDescription;
 
 class Game {
 private:
 	SDLUtils* sdl = nullptr;
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
+	InputHandler* inputHandler = nullptr;
 	GameStateMachine* gameStateMachine = nullptr;
 	bool exit;
 public:
@@ -39,9 +34,8 @@ public:
 	void update();
 	// Actualiza el juego en función al evento actual
 	void refresh();
+	void handleEvents();
 	// Devuelve un renderer
 	SDL_Renderer* getRenderer();
-	// Devuelve la textura pedida
-	//Texture* getTexture(TextureName texture) const;
 };
 #endif
