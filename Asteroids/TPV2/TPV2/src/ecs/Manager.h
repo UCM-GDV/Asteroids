@@ -45,7 +45,7 @@ public:
 			ents_[i]->update();
 	}
 	// Dibuja todas las entidades
-	void render() {
+	void render() const {
 		auto n = ents_.size();
 		for (auto i = 0u; i < n; i++)
 			ents_[i]->render();

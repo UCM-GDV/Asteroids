@@ -10,15 +10,15 @@ Fighter::Fighter(Game* _game) : Entity() {
 
 void Fighter::update() {
 	if (transform->getVel().getY() >= 0) {
-		Vector2D vel = Vector2D(0.0f, -1.0f).rotate(transform->getR()) * (transform->getVel().magnitude() + 5.0f);
+		Vector2D vel = transform->getVel() +Vector2D(0.0f, -1.0f).rotate(transform->getR()) * 0.2f;
 		transform->setVel(vel);
-		Vector2D pos = transform->getPos()
+		/*Vector2D pos = transform->getPos()
 			+ Vector2D(transform->getW() / 2.0f, transform->getH() / 2.0f)
 			- Vector2D(0.0f, transform->getH() / 2.0f + 5.0f + 12.0f).rotate(transform->getR())
-			- Vector2D(2.0f, 10.0f);
+			- Vector2D(2.0f, 10.0f);*/
 
 		cout << transform->getVel() << endl;
-		transform->setPos(pos);
+		//transform->setPos(pos);
 	}
 
 	
