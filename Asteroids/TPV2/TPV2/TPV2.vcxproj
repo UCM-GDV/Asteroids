@@ -62,6 +62,14 @@
     <ClInclude Include="src\utils\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\components\asteroidsComponents\Follow.cpp" />
+    <ClCompile Include="src\components\asteroidsComponents\Generations.cpp" />
+    <ClCompile Include="src\components\bulletComponents\DisableOnExit.cpp" />
+    <ClCompile Include="src\components\fighterComponents\DeAcceleration.cpp" />
+    <ClCompile Include="src\components\fighterComponents\FighterControl.cpp" />
+    <ClCompile Include="src\components\fighterComponents\Gun.cpp" />
+    <ClCompile Include="src\components\fighterComponents\Health.cpp" />
+    <ClCompile Include="src\components\ShowAtOppositeSide.cpp" />
     <ClCompile Include="src\entities\asteroid.cpp" />
     <ClCompile Include="src\entities\bullet.cpp" />
     <ClCompile Include="src\entities\fighter.cpp" />

@@ -1,24 +1,6 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(520,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
-  asteroid.cpp
+  Health.cpp
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\sdlutils\SDLUtils.h(192): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\ecs\Entity.h(33,27): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
-          with
-          [
-              _Ty=int
-          ]
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\entities\asteroid.cpp(6): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D,Vector2D,const float&,const float&,int>(cmpId_type,Vector2D &&,Vector2D &&,const float &,const float &,int &&)" que se está compilando
-          with
-          [
-              T=Transform
-          ]
-  fighter.cpp
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\sdlutils\SDLUtils.h(192): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
-  Game.cpp
-  main.cpp
-  PauseState.cpp
-  Generando código...
   TPV2.vcxproj -> C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\bin\TPV2Debug.exe
