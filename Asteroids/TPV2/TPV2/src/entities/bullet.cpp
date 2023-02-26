@@ -6,3 +6,20 @@
 //
 //cout << velocity_.getX() << " " << velocity_.getY() << endl;
 //cout << position_.getX() << " " << position_.getY() << endl;
+
+#include "bullet.h"
+
+// Constructora
+Bullet::Bullet(Fighter* fighter) {
+
+	Transform* fighterTransform = fighter->getComponent<Transform>();
+
+	transform = addComponent<Transform>((int)_TRANSFORM, fighterTransform->getPos(), fighterTransform->getVel, BULLET_WIDTH, BULLET_HEIGHT, fighterTransform->getRot());
+	addComponent<Image>((int)_IMAGE, &SDLUtils::instance()->images().at("Bullet"));
+	addComponent<DisableOnExit>((int)_DISABLEONEXIT);
+}
+
+// Destructora
+Bullet::~Bullet() {
+	transform = nullptr;
+}

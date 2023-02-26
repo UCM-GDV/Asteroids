@@ -1,6 +1,4 @@
 #pragma once
-#ifndef FRAMED_IMAGE_H_
-#define FRAMED_IMAGE_H_
 #include "../../game/Game.h"
 #include "../../sdlutils/Texture.h"
 #include "../Transform.h" 
@@ -10,9 +8,6 @@ class FramedImage: public Component{
 private:
 	Transform* tr_; // Consulta las caracteristicas fisicas
 	Texture* tex_;	// Imagen a rederizar
-    //SDL_Renderer* renderer;
-    //int w;
-    //int h;
     int fw; // Frame width
     int fh; // Frame height
     int numCols;
@@ -28,7 +23,6 @@ public:
     void _free() {
         delete tex_;
         tex_ = nullptr;
-       // w = h = 0;
     }
     // Inicializa el componente
     void initComponent() {
@@ -48,13 +42,8 @@ public:
     void update() {
         currentframe = (currentframe + 1) % (numCols* numRows - 1);
     }
-    // Returns the width of the texture
-    //int getW() const { return w; };
-    // Returns the height of the texture
-    //int getH() const { return h; };
     // Returns the number of columns
     uint getNumCols() const { return numCols; };
     // Returns the texture pointer
     Texture* getTexture() const { return tex_; };
-}; 
-#endif // !FRAMED_IMAGE_H_
+};

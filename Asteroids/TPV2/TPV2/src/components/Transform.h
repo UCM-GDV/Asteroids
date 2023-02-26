@@ -1,6 +1,4 @@
 #pragma once
-#ifndef TRANSFORM_H_
-#define TRANSFORM_H_
 #include "../utils/Vector2D.h"
 #include "../ecs/Component.h"
 
@@ -20,11 +18,9 @@ public:
 	void setVel(Vector2D v) {
 		velocity_ = v;
 	}
-	void changeVel(float v) {
-		velocity_ = Vector2D(0, v);
-	}
 	void changeRot(float r) {
 		rotation_ += r;
+
 	}
 	// Destructora
 	virtual ~Transform() { }
@@ -38,9 +34,12 @@ public:
 	inline float getH() { return height_; }
 	// Devuelve su rotacion
 	inline float getR() { return rotation_; }
-	
+	virtual void update() {
+		position_ = position_ + velocity_;
+		//cout << position_ <<" velocity: "<< velocity_<< endl;
+
+	}
 private:
 	Vector2D position_, velocity_;
 	float width_, height_, rotation_;
 };
-#endif

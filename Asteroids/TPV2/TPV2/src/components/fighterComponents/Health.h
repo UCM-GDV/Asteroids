@@ -1,6 +1,4 @@
 #pragma once 
-#ifndef HEALTH_H_
-#define HEALTH_H_
 #include "../../ecs/Component.h"
 #include "../../sdlutils/Texture.h"
 #include "../../sdlutils/SDLUtils.h"
@@ -10,9 +8,11 @@ private:
 	int lives;
 	Texture* texture;
 public:
-	Health() : texture(nullptr), lives(3) {};
+	Health() : texture(nullptr), lives(NUMBER_LIVES) {};
 	void initComponent();
 	void render();
+	int getLives();
+	void setLives(int lives_);
+	void resetLives();
 	virtual ~Health() {};
 };
-#endif // !HEALTH_H_

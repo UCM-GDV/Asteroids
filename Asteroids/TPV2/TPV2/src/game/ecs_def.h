@@ -5,7 +5,6 @@
 using cmpId_type = int;
 enum cmpId : cmpId_type {
 	_TRANSFORM = 0,
-	// ... (compoment ids)
 	_IMAGE = 1,
 	_FRAMEDIMAGE = 2,
 	_DEACCELERATION = 3,

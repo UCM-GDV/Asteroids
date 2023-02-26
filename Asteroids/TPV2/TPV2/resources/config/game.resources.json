@@ -20,7 +20,8 @@
   
   "sounds" : [
     { "id" : "wall_hit", "file" : "resources/sound/wall_hit.wav" },
-    { "id" : "explosion", "file" : "resources/sound/explosion.wav" }
+    { "id" : "explosion","file" : "resources/sound/explosion.wav" },
+    { "id" : "thrust",   "file": "resources/sound/thrust.wav"}
   ],
 
   "musics" : [

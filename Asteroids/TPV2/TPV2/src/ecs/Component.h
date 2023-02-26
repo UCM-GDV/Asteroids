@@ -1,7 +1,6 @@
 #pragma once
-#ifndef COMPONENT_H_
-#define COMPONENT_H_
 #include "../game/ecs_def.h"
+#include "../game/constants.h"
 class Manager;
 class Entity;
 using namespace std;
@@ -27,4 +26,3 @@ protected:
 	Entity* ent_;
 	Manager* mngr_;
 };
-#endif

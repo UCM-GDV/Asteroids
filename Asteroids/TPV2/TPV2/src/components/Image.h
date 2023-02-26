@@ -1,6 +1,4 @@
 #pragma once
-#ifndef IMAGE_H_
-#define IMAGE_H_
 #include "../sdlutils/Texture.h"
 #include "Transform.h" 
 #include "../ecs/Entity.h"
@@ -11,10 +9,6 @@ public:
 	Image(Texture* tex) : tr_(nullptr), tex_(tex) { }
 	// Destructora
 	virtual ~Image() { }
-	// Inicializa el componente
-	//void initComponent() override;
-	// Dibuja
-	//void render() override;
 	// Inicializa el componente
 	void initComponent() {
 		tr_ = ent_->getComponent<Transform>(_TRANSFORM);
@@ -29,4 +23,3 @@ private:
 	Transform* tr_; // Consulta las caracteristicas fisicas
 	Texture* tex_;	// Imagen a rederizar
 };
-#endif

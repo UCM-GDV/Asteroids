@@ -4,7 +4,6 @@
 #include <SDL.h>
 #include <unordered_map>
 #include <fstream>
-#include "constants.h"
 #include "../sdlutils/Texture.h"
 #include "../sdlutils/SDLUtils.h"
 #include "GameStateMachine.h"

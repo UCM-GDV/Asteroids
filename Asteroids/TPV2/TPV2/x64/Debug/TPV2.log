@@ -1,6 +1,73 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(520,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
+  DisableOnExit.cpp
+  DeAcceleration.cpp
+  FighterControl.cpp
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "SoundEffect &SDLUtils::map_access_wrapper<SoundEffect>::at(std::string)"
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\sdlutils\SDLUtils.h(194): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\components\fighterComponents\FighterControl.cpp(28,19): warning C4244: 'return': conversión de 'double' a 'float'; posible pérdida de datos
+  Gun.cpp
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.h(11,9): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.h(11,9): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.h(11,18): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\entities\fighter.h(17,5): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\entities\fighter.h(17,5): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\entities\fighter.h(17,10): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\components\fighterComponents\Gun.cpp(17,34): error C2059: error de sintaxis: ';'
   Health.cpp
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\sdlutils\SDLUtils.h(192): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
-  TPV2.vcxproj -> C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\bin\TPV2Debug.exe
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\components\fighterComponents\Health.cpp(10,28): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\components\fighterComponents\Health.cpp(11,31): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  asteroid.cpp
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\entities\bullet.h(21,9): error C2061: error de sintaxis: identificador 'Fighter'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.h(11,9): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.h(11,9): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.h(11,18): error C2238: símbolos (token) inesperados delante de ';'
+  bullet.cpp
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.h(11,9): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.h(11,9): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.h(11,18): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\entities\bullet.cpp(15,65): error C2672: 'Entity::getComponent': no se encontró una función sobrecargada que coincida
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\ecs\Entity.h(59,12): message : puede ser 'T *Entity::getComponent(cmpId_type)'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\entities\bullet.cpp(15,39): message : 'T *Entity::getComponent(cmpId_type)': se esperan 1 argumentos; 0 proporcionados
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\ecs\Entity.h(59): message : vea la declaración de 'Entity::getComponent'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\entities\bullet.cpp(17,107): error C3867: 'Transform::getVel': sintaxis no estándar; utilice '&' para crear un puntero al miembro
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\entities\bullet.cpp(17,156): error C2039: "getRot": no es un miembro de "Transform"
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\components\Transform.h(5): message : vea la declaración de 'Transform'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\entities\bullet.cpp(17,164): error C2672: 'Entity::addComponent': no se encontró una función sobrecargada que coincida
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\ecs\Entity.h(30,12): message : puede ser 'T *Entity::addComponent(cmpId_type,Ts &&...)'
+  fighter.cpp
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.h(11,9): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.h(11,9): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.h(11,18): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\entities\bullet.h(21,9): error C2061: error de sintaxis: identificador 'Fighter'
+  Game.cpp
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\entities\bullet.h(21,9): error C2061: error de sintaxis: identificador 'Fighter'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.h(11,9): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.h(11,9): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.h(11,18): error C2238: símbolos (token) inesperados delante de ';'
+  GameStateMachine.cpp
+  main.cpp
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\entities\bullet.h(21,9): error C2061: error de sintaxis: identificador 'Fighter'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.h(11,9): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.h(11,9): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.h(11,18): error C2238: símbolos (token) inesperados delante de ';'
+  PauseState.cpp
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.h(11,9): error C2143: error de sintaxis: falta ';' delante de '*'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.h(11,9): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.h(11,18): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\entities\bullet.h(21,9): error C2061: error de sintaxis: identificador 'Fighter'
+  PlayState.cpp
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\entities\bullet.h(21,9): error C2061: error de sintaxis: identificador 'Fighter'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.cpp(16,31): error C2665: 'Bullet::Bullet': ninguna de las 2 sobrecargas pudo convertir todos los tipos de argumento
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\entities\bullet.h(24,1): message : puede ser 'Bullet::Bullet(const Bullet &)'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.cpp(16,22): message : 'Bullet::Bullet(const Bullet &)': el argumento 1 no puede convertirse de 'Fighter *' a 'const Bullet &'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.cpp(16,31): message : Razón: no se puede realizar la conversión de 'Fighter *' a 'const Bullet'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.cpp(16,31): message : Ningún constructor ha podido aceptar el tipo de origen o bien la resolución de sobrecarga del constructor era ambigua
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\entities\bullet.h(24,1): message : vea la declaración de 'Bullet::Bullet'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.cpp(16,31): message : al hacer coincidir la lista de argumentos '(Fighter *)'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.cpp(16,31): error C2672: 'Manager::addEntity': no se encontró una función sobrecargada que coincida
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\ecs\Manager.h(19,5): message : puede ser 'T *Manager::addEntity(T *)'
+  Generando código...

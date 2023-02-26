@@ -1,6 +1,4 @@
 #pragma once
-#ifndef MANAGER_H_
-#define MANAGER_H_
 #include <vector>
 #include "Entity.h"
 class Game;
@@ -59,4 +57,3 @@ public:
 private:
 	vector<Entity*> ents_;
 };
-#endif

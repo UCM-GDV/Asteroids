@@ -28,6 +28,7 @@ const float FIGHTER_WIDTH = 50;
 const float FIGHTER_HEIGHT = 50;
 const Vector2D FIGHTER_VELOCITY = Vector2D(0, 0);
 const float FIGHTER_ROTATION = 0;
+const Vector2D SPEED_LIMIT = { 0, 3.0f };
 
 // ASTEROID
 const float ASTEROID_WIDTH_1 = 50;
@@ -36,4 +37,14 @@ const float ASTEROID_WIDTH_2 = 25;
 const float ASTEROID_HEIGHT_2 = 25;
 const float ASTEROID_WIDTH_3 = 12;
 const float ASTEROID_HEIGHT_3 = 12;
+
+// HEALTH
+const int NUMBER_LIVES = 3;
+const int LIVES_WIDTH = 46;
+const int LIVES_HEIGHT = 46;
+const Vector2D LIVES_POSITION = { 10, 160 };
+
+// BULLET
+const int BULLET_WIDTH = 4;
+const int BULLET_HEIGHT = 2;
 #endif

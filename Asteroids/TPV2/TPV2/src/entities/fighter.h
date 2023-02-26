@@ -8,10 +8,13 @@
 #include "../components/fighterComponents/DeAcceleration.h"
 #include "../components/fighterComponents/Health.h"
 #include "../sdlutils/SDLUtils.h"
-
+#include "../components/fighterComponents/FighterControl.h"
+#include "../components/fighterComponents/Gun.h"
 class Fighter : public Entity {
 private:
 	Transform* transform;
+	FighterControl* fightercontrol;
+	Gun* gun;
 public:
 	// Constructora
 	Fighter(Game* _game);

@@ -1,6 +1,4 @@
 #pragma once
-#ifndef ENTITY_H_
-#define ENTITY_H_
 #include "Component.h"
 #include <vector>
 #include <array>
@@ -80,4 +78,3 @@ public:
 	// Manejo de los eventos a traves del InputHandler
 	virtual inline void handleEvent() {}
 };
-#endif

@@ -38,9 +38,9 @@ void Game::run() {
 
 	while (!exit) {
 		refresh();
-		update();
 		frameTime = SDL_GetTicks() - startTime;
 		if (frameTime >= DELAY_TIME) {
+			update();
 			render();
 			startTime = SDL_GetTicks();
 		}
