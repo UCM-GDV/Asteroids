@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <array>
 #include "Entity.h"
 class Game;
 using namespace std;
@@ -22,6 +23,10 @@ public:
 		 ents_.push_back(e);
 		return e;
 	}
+	// Devuelve el vector de entidades
+	inline const auto& getEntities() { return ents_; }
+	// Devuelve el vector de entidades por ID de grupo
+	//inline const auto& getEntitiesByGroup(grpId_type gId) { return entsByGroup_[gId]; }
     // Borra entidades no vivas
 	void refresh(){
 		// Erase borra todos los elementos desde un inicio a un fin 
@@ -49,11 +54,12 @@ public:
 			ents_[i]->render();
 	}
 	// Manejo de los eventos de todas las entidades
-	void handleEvent() {
+	virtual void handleEvent() {
 		auto n = ents_.size();
 		for (auto i = 0u; i < n; i++)
 			ents_[i]->handleEvent();
 	}
 private:
 	vector<Entity*> ents_;
+	//array<vector<Entity*>, maxGroupId> entsByGroup_;
 };

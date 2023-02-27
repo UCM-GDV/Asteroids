@@ -10,13 +10,40 @@ FighterControl::~FighterControl() {
 void FighterControl::initComponent() {
 	transform = ent_->getComponent<Transform>(_TRANSFORM);
 	assert(transform != nullptr);
-	&SDLUtils::instance()->soundEffects().at("thrust");
+	//&SDLUtils::instance()->soundEffects().at("thrust");
 }
 
 void FighterControl::rotate(float r_) {
 	transform->changeRot(degreesToRadians(r_));
 }
+void FighterControl::handleEvent(SDL_Event event) {
+	InputHandler::instance()->update(event);
 
+	if (InputHandler::instance()->keyDownEvent()) {
+		if (InputHandler::instance()->isKeyDown(SDLK_LEFT)) {
+			rotate(-50);
+		}
+		else if (InputHandler::instance()->isKeyDown(SDLK_RIGHT)) {
+			rotate(50);
+		}
+		else if (InputHandler::instance()->isKeyDown(SDLK_UP)) {
+			acelerate();
+		}
+	}
+	
+	//if (InputHandler::instance()->isKeyDown(SDLK_LEFT)) {
+	//	fighterControl->rotate(-50);
+	//}
+	//else if (InputHandler::instance()->isKeyDown(SDLK_RIGHT)) {
+	//	fighterControl->rotate(50);
+	//}
+	//else if (InputHandler::instance()->isKeyDown(SDLK_UP)) {
+	//	fighterControl->acelerate();
+	//}
+	//else if (InputHandler::instance()->isKeyDown(SDLK_s)) {
+	//	//gun->addBullet();
+	//}
+}
 void FighterControl::acelerate() {
 	// reproducir sonido
 	

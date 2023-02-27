@@ -18,7 +18,7 @@ Game::Game() {
 
 	exit = false;
 	gameStateMachine = new GameStateMachine();
-	gameStateMachine->pushState(new PauseState(this));
+	gameStateMachine->pushState(new PlayState());
 	
 }
 

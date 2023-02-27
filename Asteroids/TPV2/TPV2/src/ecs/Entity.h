@@ -2,12 +2,15 @@
 #include "Component.h"
 #include <vector>
 #include <array>
+#include <bitset>
 using namespace std;
 
 class Entity {
+protected:
+	Manager* mngr_;
 private:
 	bool alive_;
-	Manager* mngr_;
+	bitset<maxGroupId> groups_;
 	vector<Component*> currCmps_;
 	array<Component*, maxComponentId> cmps_;
 public:
@@ -76,5 +79,14 @@ public:
 			currCmps_[i]->render();
 	}
 	// Manejo de los eventos a traves del InputHandler
-	virtual inline void handleEvent() {}
+	virtual void handleEvent() {}
+	inline void addToGroup(grpId_type gId) {
+		if (!groups_[gId]) groups_[gId] = true;
+	}
+	inline void removeFromGroup(grpId_type gId) {
+		if (groups_[gId]) groups_[gId] = false;
+	}
+	inline bool hasGroup(grpId_type gId) {
+		return groups_[gId];
+	}
 };

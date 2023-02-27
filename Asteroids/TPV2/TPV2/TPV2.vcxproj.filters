@@ -156,9 +156,6 @@
     <ClInclude Include="src\states\PlayState.h">
       <Filter>Header Files\states</Filter>
     </ClInclude>
-    <ClInclude Include="src\entities\fighter.h">
-      <Filter>Header Files\entities</Filter>
-    </ClInclude>
     <ClInclude Include="src\game\constants.h">
       <Filter>Source Files\game</Filter>
     </ClInclude>
@@ -185,12 +182,6 @@
     </ClInclude>
     <ClInclude Include="src\components\bulletComponents\DisableOnExit.h">
       <Filter>Header Files\components\bulletComponents</Filter>
-    </ClInclude>
-    <ClInclude Include="src\entities\asteroid.h">
-      <Filter>Header Files\entities</Filter>
-    </ClInclude>
-    <ClInclude Include="src\entities\bullet.h">
-      <Filter>Header Files\entities</Filter>
     </ClInclude>
     <ClInclude Include="src\components\Transform.h">
       <Filter>Header Files\components</Filter>
@@ -244,15 +235,6 @@
     </ClCompile>
     <ClCompile Include="src\states\PauseState.cpp">
       <Filter>Source Files\states</Filter>
-    </ClCompile>
-    <ClCompile Include="src\entities\fighter.cpp">
-      <Filter>Source Files\entities</Filter>
-    </ClCompile>
-    <ClCompile Include="src\entities\asteroid.cpp">
-      <Filter>Source Files\entities</Filter>
-    </ClCompile>
-    <ClCompile Include="src\entities\bullet.cpp">
-      <Filter>Source Files\entities</Filter>
     </ClCompile>
     <ClCompile Include="src\components\fighterComponents\DeAcceleration.cpp">
       <Filter>Source Files\components\fighterComponents</Filter>
