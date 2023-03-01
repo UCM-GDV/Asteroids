@@ -8,7 +8,7 @@ class PlayState;
 class Gun : public Component {
 private:
 	Transform* transform;
-	//PlayState* playState;
+	int startTime;
 public:
 	// Constructora
 	Gun();

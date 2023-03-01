@@ -17,17 +17,11 @@ public:
 	}
 	// Anade una entidad
 	template<typename T>
-	Entity* addEntity(T* e){
-		e->setAlive(true);
-		e->setContext(this);
-		 ents_.push_back(e);
-		return e;
-	}
-	Entity* addEntity(grpId_type gId = _grp_GENERAL) {
-		Entity* e = new Entity();
+	Entity* addEntity(T* e, grpId_type gId = _grp_GENERAL){
 		e->setAlive(true);
 		e->setContext(this);
 		entsByGroup_[gId].push_back(e);
+		ents_.push_back(e);
 		return e;
 	}
 	// Devuelve el vector de entidades
@@ -53,7 +47,7 @@ public:
         ents_.end());
 	}
 	// Actualiza todas las entidades
-	void update() {
+	virtual void update() {
 		auto n = ents_.size();
 		for (auto i = 0u; i < n; i++)
 			ents_[i]->update();

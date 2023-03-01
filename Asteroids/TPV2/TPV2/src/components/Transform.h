@@ -18,9 +18,11 @@ public:
 	void setVel(Vector2D v) {
 		velocity_ = v;
 	}
+	void setRot(int r) {
+		rotation_ = r;
+	}
 	void changeRot(float r) {
 		rotation_ += r;
-
 	}
 	// Destructora
 	virtual ~Transform() { }

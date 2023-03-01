@@ -1,7 +1,7 @@
 #pragma once
 #include "Gun.h"
 #include "../../states/PlayState.h"
-Gun::Gun() : transform(nullptr) {}
+Gun::Gun() : transform(nullptr), startTime(SDL_GetTicks()) {}
 
 Gun::~Gun() {
 	transform = nullptr;
@@ -17,7 +17,12 @@ void Gun::initComponent() {
 void Gun::handleEvent(SDL_Event event) {
 	if (InputHandler::instance()->keyDownEvent()) {
 		if (InputHandler::instance()->isKeyDown(SDLK_s)) {
-			tryShoot();
+			int frameTime = SDL_GetTicks() - startTime;
+			if (frameTime >= 250) {
+				tryShoot();
+				SDLUtils::instance()->soundEffects().at("fire").play();
+				startTime = SDL_GetTicks();
+			}
 		}
 	}
 }

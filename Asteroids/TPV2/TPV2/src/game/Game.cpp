@@ -73,4 +73,4 @@ void Game::handleEvents() {
 	gameStateMachine->currentState()->handleEvent();
 }
 
-SDL_Renderer* Game::getRenderer() { return SDLUtils::instance()->renderer(); }
+SDL_Renderer* Game::getRenderer() { return sdlutils().renderer(); }

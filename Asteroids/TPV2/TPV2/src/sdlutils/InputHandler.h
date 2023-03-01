@@ -13,6 +13,7 @@
 
 class InputHandler: public Singleton<InputHandler> {
 
+
 	friend Singleton<InputHandler> ;
 
 public:

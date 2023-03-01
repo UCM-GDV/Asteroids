@@ -23,6 +23,8 @@ void Health::setLives(int lives_) {
 	lives = lives_;
 }
 
+void Health::decreaseLive() { --lives; }
+
 void Health::resetLives() {
 	lives = NUMBER_LIVES;
 }

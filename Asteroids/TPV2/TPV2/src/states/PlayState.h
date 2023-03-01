@@ -16,13 +16,15 @@
 #include "../components/asteroidsComponents/Generations.h"
 #include "../components/asteroidsComponents/Follow.h"
 #include "../game/AsteroidsManager.h"
+#include "../game/CollisionsManager.h"
+
 class PlayState : public Manager {
 private:
-	Entity* fighter = nullptr;
-	Transform* fighterTransform = nullptr;
-	Gun* fighterGun = nullptr;
-	FighterControl* fighterControl = nullptr;
-	Entity* bullet = nullptr;
+	Entity* fighter;
+	Transform* fighterTransform;
+	Gun* fighterGun;
+	FighterControl* fighterControl;
+	Entity* bullet;
 	
 public:
 	// Constructora
@@ -38,7 +40,9 @@ public:
 			fighterControl->handleEvent(event);
 			fighterGun->handleEvent(event);
 		}
-	};//teneis que hacer el handle event de vustro componente
+	};
+	void update();
+	Entity* getFighter();
 
 };
 #endif

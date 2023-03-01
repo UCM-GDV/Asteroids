@@ -13,6 +13,7 @@ public:
 	void render();
 	int getLives();
 	void setLives(int lives_);
+	void decreaseLive();
 	void resetLives();
 	virtual ~Health() {};
 };

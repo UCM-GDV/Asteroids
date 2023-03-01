@@ -11,6 +11,6 @@
     "\\TPV2\\TPV2\\src\\game",
     "\\TPV2\\TPV2\\src\\states"
   ],
-  "SelectedNode": "\\TPV2\\TPV2\\src\\components\\asteroidsComponents\\Follow.h",
+  "SelectedNode": "\\TPV2\\TPV2\\src\\game\\CollisionsManager.cpp",
   "PreviewInSolutionExplorer": false
 }

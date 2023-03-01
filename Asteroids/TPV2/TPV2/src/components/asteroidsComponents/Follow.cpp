@@ -1,24 +1,26 @@
 #include "Follow.h"
 #include "../../ecs/Entity.h"
 // Constructora
-Follow::Follow(Transform* followObjectTransform_) {
-	transform = ent_->getComponent<Transform>(_TRANSFORM);
+Follow::Follow(Transform* followObjectTransform_): transform(nullptr) {
 	followObjectTransform = followObjectTransform_;
+	assert(followObjectTransform != nullptr);
 }
 
 // Destructora
 Follow::~Follow() {
 	transform = nullptr;
+	followObjectTransform = nullptr;
 }
 
 // Inicializa el componente
-void Follow::initComponent() {}
+void Follow::initComponent() {
+	transform = ent_->getComponent<Transform>(_TRANSFORM);
+}
 
-//
+// Actualiza su vector de velocidad para perseguir al fighter
 void Follow::update() {
-	//Para los asteroides de tipo B, el componente Follow tiene que girar el vector de
-	//	velocidad en un grado en cada iteración para que el asteroide vaya hacia el caza.Si v es
-	//	el vector de velocidad del asteroide, p su posición, y q la posición del caza, se puede
-	//	conseguir este efecto cambiando el vector de velocidad del asteroide a
-	//	v.rotate(v.angle(q - p) > 0 ? 1.0f : -1.0f)
+	Vector2D v = transform->getVel();
+	Vector2D p = transform->getPos();
+	Vector2D q = followObjectTransform->getPos();
+	transform->setVel(transform->getVel().rotate(v.angle(q - p) > 0 ? 1.0f : -1.0f));
 }
