@@ -13,9 +13,10 @@ private:
     int numCols;
     int numRows;
     int currentframe;
+    int currentTime;
 public:
 	// Constructora
-	FramedImage(Texture* tex) : tr_(nullptr), tex_(tex), fw(0), fh(0), numCols(1), numRows(0), currentframe(0){};
+	FramedImage(Texture* tex) : tr_(nullptr), tex_(tex), fw(0), fh(0), numCols(1), numRows(0), currentframe(0), currentTime(0) {};
     FramedImage(Texture* tex, int fwidth, int fheight, int numRows = 1, int numCols = 1) : tex_(tex), fw(fwidth), 
                fh(fheight), numCols(numCols), numRows(numRows), currentframe(0) {};
 	// Destructora
@@ -40,10 +41,15 @@ public:
         tex_->render(src, dest);
     }
     void update() {
-        currentframe = (currentframe + 1) % (numCols* numRows - 1);
+		//if (currentTime >= (50)) {
+            //cout << currentTime << endl;
+			currentframe = (currentframe + 1) % (numCols * numRows - 1);
+            currentTime = 0;
+        //}
+        //currentTime += SDLUtils::instance()->currRealTime();
     }
     // Returns the number of columns
-    uint getNumCols() const { return numCols; };
+    int getNumCols() const { return numCols; };
     // Returns the texture pointer
     Texture* getTexture() const { return tex_; };
 };

@@ -23,10 +23,21 @@ public:
 		 ents_.push_back(e);
 		return e;
 	}
+	Entity* addEntity(grpId_type gId = _grp_GENERAL) {
+		Entity* e = new Entity();
+		e->setAlive(true);
+		e->setContext(this);
+		entsByGroup_[gId].push_back(e);
+		return e;
+	}
 	// Devuelve el vector de entidades
-	inline const auto& getEntities() { return ents_; }
-	// Devuelve el vector de entidades por ID de grupo
-	//inline const auto& getEntitiesByGroup(grpId_type gId) { return entsByGroup_[gId]; }
+	inline const auto& getEntities(grpId_type gId = _grp_GENERAL) {
+		return entsByGroup_[gId];
+	}
+	//// Devuelve el vector de entidades por ID de grupo
+	//inline const auto& getEntitiesByGroup(grpId_type gId) { 
+	//	return entsByGroup_[gId]; 
+	//}
     // Borra entidades no vivas
 	void refresh(){
 		// Erase borra todos los elementos desde un inicio a un fin 
@@ -61,5 +72,5 @@ public:
 	}
 private:
 	vector<Entity*> ents_;
-	//array<vector<Entity*>, maxGroupId> entsByGroup_;
+	array<vector<Entity*>, maxGroupId> entsByGroup_;
 };

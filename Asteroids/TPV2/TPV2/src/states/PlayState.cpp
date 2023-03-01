@@ -14,15 +14,7 @@ PlayState::PlayState(): Manager()  {
 	fighterGun = fighter->addComponent<Gun>(_GUN);
 	fighter->addComponent<ShowAtOppositeSide>(_SHOWATOPPOSIDESIDE);
 	addEntity(fighter);
-	// ASTEROIDES
-	asteroid = new Entity();
-	asteroid->setContext(this);
-	// TRANSFORM COMPONENT
-	asteroid->addComponent<Transform>((int)(_TRANSFORM), Vector2D(WIN_WIDTH / 2, WIN_HEIGHT / 2), Vector2D(0, 0), ASTEROID_WIDTH_1, ASTEROID_HEIGHT_1, 0);
-	// IMAGE COMPONENT
-	asteroid->addComponent<FramedImage>((int)(_FRAMEDIMAGE), &SDLUtils::instance()->images().at("WhiteAsteroid"), ASTEROID_WHITE_WIDTH, ASTEROID_WHITE_HEIGHT, ASTEROID_WHITE_NUMCOLS, ASTEROID_WHITE_NUMROWS);
-	addEntity(asteroid);
-	asteroid->addToGroup(_grp_ASTEROIDS);
+	
 
 }
 
@@ -36,7 +28,16 @@ PlayState::~PlayState() {
 
 void PlayState::addBullet() {
 	Entity* bullet = new Entity();
-	bullet->addComponent<Transform>(_TRANSFORM, Vector2D(fighterTransform->getPos().getX() + FIGHTER_WIDTH / 2, fighterTransform->getPos().getY() + 50), fighterTransform->getVel(), BULLET_WIDTH, BULLET_HEIGHT, fighterTransform->getR());
+	Vector2D bPos, bVel;
+	bPos = fighterTransform->getPos()
+		+ Vector2D(FIGHTER_WIDTH / 2.0f, FIGHTER_HEIGHT / 2.0f)
+		- Vector2D(0.0f, FIGHTER_HEIGHT / 2.0f + 5.0f + 12.0f).rotate(fighterTransform->getR())
+		- Vector2D(2.0f, 10.0f);
+	bVel = Vector2D(0.0f, -1.0f).rotate(fighterTransform->getR()) * (fighterTransform->getVel().magnitude() + 5.0f);
+
+	bullet->addComponent<Transform>(_TRANSFORM, bPos, bVel, BULLET_WIDTH, BULLET_HEIGHT, fighterTransform->getR());
 	bullet->addComponent<Image>(_IMAGE, &SDLUtils::instance()->images().at("Bullet"));
+	bullet->addComponent<DisableOnExit>(_DISABLEONEXIT);
+	bullet->addToGroup(_grp_BULLETS);
 	addEntity(bullet);
 }

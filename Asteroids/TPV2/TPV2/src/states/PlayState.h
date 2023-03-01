@@ -12,7 +12,10 @@
 #include "../components/fighterComponents/FighterControl.h"
 #include "../components/fighterComponents/Gun.h"
 #include "../components/ShowAtOppositeSide.h"
-
+#include "../components/bulletComponents/DisableOnExit.h"
+#include "../components/asteroidsComponents/Generations.h"
+#include "../components/asteroidsComponents/Follow.h"
+#include "../game/AsteroidsManager.h"
 class PlayState : public Manager {
 private:
 	Entity* fighter = nullptr;
@@ -20,7 +23,7 @@ private:
 	Gun* fighterGun = nullptr;
 	FighterControl* fighterControl = nullptr;
 	Entity* bullet = nullptr;
-	Entity* asteroid = nullptr;
+	
 public:
 	// Constructora
 	PlayState();

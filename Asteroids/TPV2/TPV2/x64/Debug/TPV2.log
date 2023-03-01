@@ -1,10 +1,18 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(520,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
   Gun.cpp
-  Game.cpp
-  GameStateMachine.cpp
-  main.cpp
-  PauseState.cpp
-  PlayState.cpp
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\constants.h(11,25): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\constants.h(11,25): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\constants.h(12,26): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\constants.h(12,26): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+  AsteroidsManager.cpp
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\constants.h(11,25): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\constants.h(11,25): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\constants.h(12,26): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\constants.h(12,26): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\AsteroidsManager.cpp(24,68): warning C4244: 'argumento': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\AsteroidsManager.cpp(27,48): warning C4244: 'argumento': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\AsteroidsManager.cpp(30,48): warning C4244: 'argumento': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\AsteroidsManager.cpp(33,58): warning C4244: 'argumento': conversión de 'const float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\sdlutils\SDLUtils.h(192): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
@@ -13,13 +21,48 @@ C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\ec
           [
               _Ty=int
           ]
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.cpp(21): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D,Vector2D,const float&,const float&,int>(cmpId_type,Vector2D &&,Vector2D &&,const float &,const float &,int &&)" que se está compilando
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\AsteroidsManager.cpp(40): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,Vector2D&,float&,float&,int>(cmpId_type,Vector2D &,Vector2D &,float &,float &,int &&)" que se está compilando
           with
           [
               T=Transform
           ]
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\ecs\Entity.h(34,27): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\AsteroidsManager.cpp(45): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<FramedImage,Texture*,float&,float&,const int&,const int&>(cmpId_type,Texture *&&,float &,float &,const int &,const int &)" que se está compilando
+          with
+          [
+              T=FramedImage
+          ]
+  Game.cpp
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\constants.h(11,25): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\constants.h(11,25): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\constants.h(12,26): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\constants.h(12,26): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\utils\Singleton.h(57,44): warning C4244: 'argumento': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\Game.cpp(10): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Singleton<T>::init<const std::string&,const float&,const float&,const char(&)[37]>(const std::string &,const float &,const float &,const char (&)[37])" que se está compilando
+          with
+          [
+              T=SDLUtils
+          ]
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\Game.cpp(9): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Singleton<T>::init<const std::string&,const float&,const float&,const char(&)[37]>(const std::string &,const float &,const float &,const char (&)[37])" que se está compilando
+          with
+          [
+              T=SDLUtils
+          ]
+  main.cpp
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\constants.h(11,25): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\constants.h(11,25): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\constants.h(12,26): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\constants.h(12,26): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+  PlayState.cpp
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\constants.h(11,25): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\constants.h(11,25): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\constants.h(12,26): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\game\constants.h(12,26): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "Texture &SDLUtils::map_access_wrapper<Texture>::at(std::string)"
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\sdlutils\SDLUtils.h(192): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Texture>" que se está compilando
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\ecs\Entity.h(34,27): warning C4244: 'argumento': conversión de 'const int' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.cpp(39): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D,Vector2D&,const int&,const int&,float>(cmpId_type,Vector2D &&,Vector2D &,const int &,const int &,float &&)" que se está compilando
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids\TPV2\TPV2\src\states\PlayState.cpp(38): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Entity::addComponent<Transform,Vector2D&,Vector2D&,const int&,const int&,float>(cmpId_type,Vector2D &,Vector2D &,const int &,const int &,float &&)" que se está compilando
           with
           [
               T=Transform

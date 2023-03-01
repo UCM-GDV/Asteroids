@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AsteroidsManager.h" />
     <ClInclude Include="src\components\asteroidsComponents\Follow.h" />
     <ClInclude Include="src\components\asteroidsComponents\FramedImage.h" />
     <ClInclude Include="src\components\asteroidsComponents\Generations.h" />
@@ -33,6 +34,7 @@
     <ClInclude Include="src\ecs\Component.h" />
     <ClInclude Include="src\ecs\Entity.h" />
     <ClInclude Include="src\ecs\Manager.h" />
+    <ClInclude Include="src\game\AsteroidsManager.h" />
     <ClInclude Include="src\game\constants.h" />
     <ClInclude Include="src\game\ecs_def.h" />
     <ClInclude Include="src\game\Game.h" />
@@ -67,6 +69,7 @@
     <ClCompile Include="src\components\fighterComponents\Gun.cpp" />
     <ClCompile Include="src\components\fighterComponents\Health.cpp" />
     <ClCompile Include="src\components\ShowAtOppositeSide.cpp" />
+    <ClCompile Include="src\game\AsteroidsManager.cpp" />
     <ClCompile Include="src\game\Game.cpp" />
     <ClCompile Include="src\game\GameStateMachine.cpp" />
     <ClCompile Include="src\json\JSON.cpp" />

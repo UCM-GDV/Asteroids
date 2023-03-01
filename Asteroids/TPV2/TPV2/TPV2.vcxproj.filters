@@ -192,6 +192,12 @@
     <ClInclude Include="src\components\ShowAtOppositeSide.h">
       <Filter>Header Files\components</Filter>
     </ClInclude>
+    <ClInclude Include="AsteroidsManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\AsteroidsManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\json\JSONValue.cpp">
@@ -259,6 +265,9 @@
     </ClCompile>
     <ClCompile Include="src\components\fighterComponents\Health.cpp">
       <Filter>Source Files\components\fighterComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\AsteroidsManager.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

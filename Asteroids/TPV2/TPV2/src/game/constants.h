@@ -5,12 +5,11 @@
 #include <iostream>
 #include "../utils/Vector2D.h"
 using namespace std;
-using uint = unsigned int;
 
 // WINDOW
 const string GAME_NAME = "Asteroids";
-const uint WIN_WIDTH = 1000;
-const uint WIN_HEIGHT = 600;
+const float WIN_WIDTH = 1000;
+const float WIN_HEIGHT = 600;
 const SDL_Rect FULLWINDOW = { 0, 0, WIN_WIDTH, WIN_HEIGHT };
 
 // FRAME TIMES
@@ -31,6 +30,7 @@ const float FIGHTER_ROTATION = 0;
 const Vector2D SPEED_LIMIT = { 0, 3.0f };
 
 // ASTEROID
+const int ASTEROIDS_DELAY_TIME = 5;
 const float ASTEROID_WIDTH_1 = 50;
 const float ASTEROID_HEIGHT_1 = 50;
 const float ASTEROID_WIDTH_2 = 25;
@@ -53,6 +53,6 @@ const int LIVES_HEIGHT = 46;
 const Vector2D LIVES_POSITION = { 10, WIN_HEIGHT/LIVES_HEIGHT };
 
 // BULLET
-const int BULLET_WIDTH = 10;
-const int BULLET_HEIGHT = 30;
+const int BULLET_WIDTH = 5;
+const int BULLET_HEIGHT = 20;
 #endif
