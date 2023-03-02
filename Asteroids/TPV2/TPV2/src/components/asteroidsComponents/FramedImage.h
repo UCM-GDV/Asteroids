@@ -22,7 +22,7 @@ public:
 	// Destructora
     virtual ~FramedImage() { _free(); }
     void _free() {
-        delete tex_;
+       // delete tex_;
         tex_ = nullptr;
     }
     // Inicializa el componente

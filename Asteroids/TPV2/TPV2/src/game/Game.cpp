@@ -13,19 +13,17 @@ Game::Game() {
 	renderer = sdl->renderer();
 	window = sdl->window();
 	sdl->showCursor();
-
+	
 	inputHandler = InputHandler::instance();
 
 	exit = false;
-	gameStateMachine = new GameStateMachine();
-	gameStateMachine->pushState(new PlayState());
-	
+	GameStateMachine::instance()->pushState(new PlayState());
+	GameStateMachine::instance()->pushState(new PauseState());
+
 }
 
 // Destructora
 Game::~Game() {
-	delete(gameStateMachine);
-
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
@@ -46,31 +44,32 @@ void Game::run() {
 		}
 		handleEvents();
 	}
-	gameStateMachine->clearStates();
+	GameStateMachine::instance()->clearStates();
 }
 
 // Dibuja el juego
 void Game::render() const {
+	SDL_SetRenderDrawColor(sdlutils().renderer(), 0, 30, 50, 0);
 	SDL_RenderClear(renderer);
-	gameStateMachine->currentState()->render();
+	GameStateMachine::instance()->currentState()->render();
 	SDL_RenderPresent(renderer);
 }
 
 // Actualiza el juego
 void Game::update() {
-	gameStateMachine->currentState()->update();
-	gameStateMachine->clearStatesToErase();
+	GameStateMachine::instance()->currentState()->update();
+	GameStateMachine::instance()->clearStatesToErase();
 }
 
 // Actualiza el juego en función al evento actual
 void Game::refresh() {
 	inputHandler->refresh();
-	gameStateMachine->currentState()->refresh();
+	GameStateMachine::instance()->currentState()->refresh();
 }
 
 //Controla los eventos
 void Game::handleEvents() {
-	gameStateMachine->currentState()->handleEvent();
+	GameStateMachine::instance()->currentState()->handleEvent();
 }
 
 SDL_Renderer* Game::getRenderer() { return sdlutils().renderer(); }

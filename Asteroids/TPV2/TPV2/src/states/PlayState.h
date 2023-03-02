@@ -1,6 +1,4 @@
 #pragma once
-#ifndef PLAY_STATE_H_
-#define PLAY_STATE_H_
 #include "../ecs/Manager.h"
 #include "../ecs/Entity.h"
 #include "../game/ecs_def.h"
@@ -25,7 +23,6 @@ private:
 	Gun* fighterGun;
 	FighterControl* fighterControl;
 	Entity* bullet;
-	
 public:
 	// Constructora
 	PlayState();
@@ -33,16 +30,14 @@ public:
 	~PlayState();
 	// Anade bala a la escena dependiendo de la posicion del fighter
 	void addBullet();
-	void handleEvent() { 
-		SDL_Event event;
-		while (SDL_PollEvent(&event))
-		{
-			fighterControl->handleEvent(event);
-			fighterGun->handleEvent(event);
-		}
-	};
+    // Control del fighter y de los disparos
+	void handleEvent();
+    // Actualiza el vector de entidades, anade asteroides y comprueba las colisiones
 	void update();
+	// Devuelve el puntero al fighter
 	Entity* getFighter();
-
+	// Para el juego
+	void pauseGame();
+	// Fin del juego
+    void endGame(string result);
 };
-#endif

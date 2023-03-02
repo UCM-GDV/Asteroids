@@ -38,8 +38,6 @@ public:
 	inline float getR() { return rotation_; }
 	virtual void update() {
 		position_ = position_ + velocity_;
-		//cout << position_ <<" velocity: "<< velocity_<< endl;
-
 	}
 private:
 	Vector2D position_, velocity_;

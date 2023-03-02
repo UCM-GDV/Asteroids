@@ -13,6 +13,7 @@ private:
 		void initComponent();
 		inline void setGeneration(int gen_) { numGen = gen_; }
 		inline int getGenerations() { return numGen; }
+		inline void decreaseGeneration() { --numGen; }
 		virtual ~Generations();
 
 };

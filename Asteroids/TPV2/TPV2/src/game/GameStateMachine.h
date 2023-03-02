@@ -3,9 +3,11 @@
 #define GAME_STATE_MACHINE_H_
 #include <stack>
 #include "../ecs/Manager.h"
+#include "../utils/Singleton.h"
 using namespace std;
 
-class GameStateMachine {
+class GameStateMachine : public Singleton<GameStateMachine> {
+    friend Singleton<GameStateMachine>;
 private:
     stack<Manager*> gameStates;
     stack<Manager*> gameStatesToErase;

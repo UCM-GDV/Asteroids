@@ -28,6 +28,16 @@ PlayState::~PlayState() {
 	fighterControl = nullptr;
 }
 
+// Control del fighter y de los disparos
+void PlayState::handleEvent() {
+	SDL_Event event;
+	if (SDL_PollEvent(&event)) {
+		fighterControl->handleEvent(event);
+		fighterGun->handleEvent(event);
+	}
+}
+
+// Anade bala a la escena dependiendo de la posicion del fighter
 void PlayState::addBullet() {
 	Vector2D bPos, bVel;
 	bPos = fighterTransform->getPos()
@@ -43,10 +53,22 @@ void PlayState::addBullet() {
 	addEntity(bullet, _grp_BULLETS);
 }
 
+// Actualiza el vector de entidades, anade asteroides y comprueba las colisiones
 void PlayState::update() {
 	Manager::update();
 	AsteroidsManager::instance()->addAsteroidFrequently();
 	CollisionsManager::instance()->checkCollision();
 }
 
+// Devuelve el puntero al fighter
 Entity* PlayState::getFighter() { return fighter; }
+
+// Para el juego
+void PlayState::pauseGame() {
+	GameStateMachine::instance()->pushState(new PauseState());
+}
+
+// Fin del juego
+void PlayState::endGame(string result) {
+    GameStateMachine::instance()->pushState(new EndState(result));
+}

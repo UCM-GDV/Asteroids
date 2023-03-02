@@ -9,6 +9,7 @@
 #include "GameStateMachine.h"
 #include "../states/PauseState.h"
 #include "../states/PlayState.h"
+#include "../states/EndState.h"
 #include "../sdlutils/InputHandler.h"
 using namespace std;
 
@@ -18,7 +19,6 @@ private:
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
 	InputHandler* inputHandler = nullptr;
-	GameStateMachine* gameStateMachine = nullptr;
 	bool exit;
 public:
 	// Constructora
@@ -33,6 +33,7 @@ public:
 	void update();
 	// Actualiza el juego en función al evento actual
 	void refresh();
+	//
 	void handleEvents();
 	// Devuelve un renderer
 	SDL_Renderer* getRenderer();

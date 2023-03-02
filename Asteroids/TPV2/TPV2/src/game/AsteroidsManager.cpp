@@ -2,7 +2,7 @@
 #include "../states/PlayState.h"
 
 // Constructora
-AsteroidsManager::AsteroidsManager() : numasteroids(ASTEROIDS_INITIAL_NUMBER), startTime(SDL_GetTicks()), asteroid(nullptr) {}
+AsteroidsManager::AsteroidsManager() : numasteroids(0), startTime(SDL_GetTicks()), asteroid(nullptr) {}
 
 // Inicializa
 void AsteroidsManager::init(PlayState* m) {
@@ -19,45 +19,66 @@ AsteroidsManager::~AsteroidsManager() {
 void AsteroidsManager::createAsteroids(int n) {
 	for (int i = 0; i < n; i++) {
 		if (numasteroids <= ASTEROIDS_MAX_NUMBER) {
-			int g, b;
-			float width, height, speed;
-			Vector2D p, c;
-			
 			// Elige una generacion aleatoria entre 1 y 3
-			g = sdlutils().rand().nextInt(1, 4);
+			int g = sdlutils().rand().nextInt(1, 4);
+			float width, height;
 			width = height = 10.0f + 5.0f * g;
+			Vector2D p = choosePosition(width, height);
+			Vector2D v = chooseVelocity(p);
 
-			// Elegimos su posición p de manera aleatoria en los bordes de la ventana
-			b = sdlutils().rand().nextInt(0, 4);
-			switch (b) {
-			case 0: p = { WIN_WIDTH + width , (float)(sdlutils().rand().nextInt(0, WIN_HEIGHT)) }; break;
-			case 1: p = { (float)(sdlutils().rand().nextInt(0, WIN_WIDTH)) , -(height) }; break;
-			case 2: p = { (float)(sdlutils().rand().nextInt(0, WIN_WIDTH)) , WIN_HEIGHT + width }; break;
-			case 3: p = { -(width), (float)(sdlutils().rand().nextInt(0, WIN_HEIGHT)) }; break;
-			}
-			
-			c = { WIN_HALF_WIDTH + (float)(sdlutils().rand().nextInt(-100, 101)), WIN_HALF_HEIGHT + (float)(sdlutils().rand().nextInt(-100, 101)) };
-			speed = (float)(sdlutils().rand().nextInt(1, 10) / 10.0f);
-			Vector2D v = (c - p).normalize() * speed;
-
-			asteroid = new Entity();
-			asteroid->setContext(mngr);
-			asteroid->addComponent<Transform>(_TRANSFORM, p, v, width, height, 0);
-			asteroid->addComponent<Generations>(_GENERATIONS, g);
-			asteroid->addComponent<ShowAtOppositeSide>(_SHOWATOPPOSIDESIDE);
-			//tipo b
-			if (sdlutils().rand().nextInt(0, 10) < 3) {
-				asteroid->addComponent<FramedImage>(_FRAMEDIMAGE, &SDLUtils::instance()->images().at("YellowAsteroid"), ASTEROID_GOLD_FRAME_WIDTH, ASTEROID_GOLD_FRAME_HEIGHT, ASTEROID_WHITE_NUMCOLS, ASTEROID_WHITE_NUMROWS);
-				asteroid->addComponent<Follow>(_FOLLOW, mngr->getFighter()->getComponent<Transform>(_TRANSFORM));
-			}
-			//tipo a
-			else {
-				asteroid->addComponent<FramedImage>(_FRAMEDIMAGE, &SDLUtils::instance()->images().at("WhiteAsteroid"), ASTEROID_WHITE_FRAME_WIDTH, ASTEROID_WHITE_FRAME_HEIGHT, ASTEROID_WHITE_NUMCOLS, ASTEROID_WHITE_NUMROWS);
-			}
-			mngr->addEntity(asteroid, _grp_ASTEROIDS);
-			numasteroids++;
+			// Crea un tipo de asteroide dependiendo de una probabilidad
+			(sdlutils().rand().nextInt(0, 10) < 3) ? createYellowAsteroid(p, v, width, height, g) : createWhiteAsteroid(p, v,width, height, g);
 		}
-	}	
+	}
+
+}
+
+// Devuelve una posicion aletoria
+Vector2D AsteroidsManager::choosePosition(float width, float height) {
+	Vector2D p;
+
+	// Elegimos su posición p de manera aleatoria en los bordes de la ventana
+	int b = sdlutils().rand().nextInt(0, 4);
+	switch (b) {
+		case 0: p = { WIN_WIDTH + width , (float)(sdlutils().rand().nextInt(0, WIN_HEIGHT)) }; break;
+		case 1: p = { (float)(sdlutils().rand().nextInt(0, WIN_WIDTH)) , -(height) }; break;
+		case 2: p = { (float)(sdlutils().rand().nextInt(0, WIN_WIDTH)) , WIN_HEIGHT + width }; break;
+		case 3: p = { -(width), (float)(sdlutils().rand().nextInt(0, WIN_HEIGHT)) }; break;
+	}
+
+	return p;
+}
+
+// Devuelve una velocidad aleatoria
+Vector2D AsteroidsManager::chooseVelocity(Vector2D p) {
+	Vector2D c = { WIN_HALF_WIDTH + (float)(sdlutils().rand().nextInt(-100, 101)), WIN_HALF_HEIGHT + (float)(sdlutils().rand().nextInt(-100, 101)) };
+	float speed = (float)(sdlutils().rand().nextInt(1, 10) / 10.0f);
+	return ((c - p).normalize() * speed);
+}
+
+// Crea un asteroide blanco con sus componentes
+void AsteroidsManager::createWhiteAsteroid(Vector2D pos, Vector2D vel, float width, float height, int g) {
+	asteroid = new Entity();
+	asteroid->setContext(mngr);
+	asteroid->addComponent<Transform>(_TRANSFORM, pos, vel, width, height, 0);
+	asteroid->addComponent<Generations>(_GENERATIONS, g);
+	asteroid->addComponent<ShowAtOppositeSide>(_SHOWATOPPOSIDESIDE);
+	asteroid->addComponent<FramedImage>(_FRAMEDIMAGE, &SDLUtils::instance()->images().at("WhiteAsteroid"), ASTEROID_WHITE_FRAME_WIDTH, ASTEROID_WHITE_FRAME_HEIGHT, ASTEROID_WHITE_NUMCOLS, ASTEROID_WHITE_NUMROWS);
+	mngr->addEntity(asteroid, _grp_ASTEROIDS);
+	numasteroids++;
+}
+
+// Crea un asteroide amarillo con sus componentes
+void AsteroidsManager::createYellowAsteroid(Vector2D pos, Vector2D vel, float width, float height, int g) {
+	asteroid = new Entity();
+	asteroid->setContext(mngr);
+	asteroid->addComponent<Transform>(_TRANSFORM, pos, vel, width, height, 0);
+	asteroid->addComponent<Generations>(_GENERATIONS, g);
+	asteroid->addComponent<ShowAtOppositeSide>(_SHOWATOPPOSIDESIDE);
+	asteroid->addComponent<FramedImage>(_FRAMEDIMAGE, &SDLUtils::instance()->images().at("YellowAsteroid"), ASTEROID_GOLD_FRAME_WIDTH, ASTEROID_GOLD_FRAME_HEIGHT, ASTEROID_WHITE_NUMCOLS, ASTEROID_WHITE_NUMROWS);
+	asteroid->addComponent<Follow>(_FOLLOW, mngr->getFighter()->getComponent<Transform>(_TRANSFORM));
+	mngr->addEntity(asteroid, _grp_ASTEROIDS);
+	numasteroids++;
 }
 
 // Reutiliza el metodo de createAsteroids para instanciar 1 asteroide cada cierto tiempo
@@ -76,40 +97,36 @@ void AsteroidsManager::destroyAllAsteroids() {
 	for (auto& ents : v) {
 		ents->setAlive(false);
 	}
+	numasteroids = 0;
 }
 
 // Cuando exista una colision con un asteroide, se generan 2 mas dependiendo de su numGen 
 // y teniendo en cuenta el numero de asteroides en escena
 void AsteroidsManager::onCollision(Entity* a) {
-	//lo desactiva 
+	// Lo desactiva 
 	a->setAlive(false);
-	
+	numasteroids--;
 	Generations* g = a->getComponent<Generations>(_GENERATIONS);
-	if (g != nullptr) {
-		int gens = g->getGenerations();
-		if (gens == 3 || gens == 2) {
-			if (numasteroids < ASTEROIDS_MAX_NUMBER) {
+	g->decreaseGeneration();
+	Transform* at =  a->getComponent<Transform>(_TRANSFORM);
 
+	int gens = g->getGenerations();
+	float width, height;
+	width = height = 10.0f + 5.0f * gens;
+
+	if (g != nullptr && gens >= 1) {
+		for (int i = 0; i < 2; i++) {
+			if (numasteroids < ASTEROIDS_MAX_NUMBER) {
+				int r = sdlutils().rand().nextInt(0, 360);
+				Vector2D pos = at->getPos() + at->getVel().rotate(r) * 2 * max(width, height);
+				Vector2D vel = at->getVel() * 1.1f;
+				(sdlutils().rand().nextInt(0, 10) < 3) ? createYellowAsteroid(pos, vel, width, height, gens) : createWhiteAsteroid(pos, vel, width, height, gens);
 			}
-			//genera otros 2 asteroides dependiendo de su número de generaciones.Recuerda que no pueden existir más de 30
-			//asteroides a la vez en la pantalla.
 		}
 	}
-}
-//onCollision(Entity* a) : recibe una entidad representando un asteroide que haya
-//chocado con una bala, lo desactiva y genera otros 2 asteroides dependiendo de
-//su número de generaciones.Recuerda que no pueden existir más de 30
-//asteroides a la vez en la pantalla.
 
-//En el método onCollision(Entity* a), al destruir un asteroide a la idea es
-//desactivarlo y crear otros dos con generación como la de a menos uno(si el número de
-//	generaciones de a es 0 no se genera nada).La posición de cada nuevo asteroide tiene
-//	que ser cercana a la de a y tiene que moverse en una dirección aleatoria.
-//	Por ejemplo, suponiendo que p y v son la velocidad y la posición de a, w su anchura, h
-//	su altura, se puede usar el siguiente código para calcular la posición y velocidad de cada
-//	asteroide nuevo :
-//auto r = sdlutils().rand().nextInt(0, 360);
-//auto pos = p + v.rotate(r) * 2 * std::max(w, h).
-//auto vel = v.rotate(r) * 1.1f
-//Recuerda que la anchura y altura del nuevo asteroide dependen de su número de
-//generaciones.
+	// Condicion de victoria
+	if (numasteroids == 0) {
+		GameStateMachine::instance()->pushState(new EndState("win"));
+	}
+}

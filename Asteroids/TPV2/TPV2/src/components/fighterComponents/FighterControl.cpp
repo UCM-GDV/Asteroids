@@ -20,10 +20,10 @@ void FighterControl::handleEvent(SDL_Event event) {
 
 	if (InputHandler::instance()->keyDownEvent()) {
 		if (InputHandler::instance()->isKeyDown(SDLK_LEFT)) {
-			rotate(-50);
+			rotate(-(FIGHTER_ROTATION_SPEED));
 		}
 		else if (InputHandler::instance()->isKeyDown(SDLK_RIGHT)) {
-			rotate(50);
+			rotate(FIGHTER_ROTATION_SPEED);
 		}
 		else if (InputHandler::instance()->isKeyDown(SDLK_UP)) {
 			acelerate();
