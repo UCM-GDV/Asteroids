@@ -71,6 +71,9 @@ void CollisionsManager::fighterOnCollision() {
 	// Pausa o finaliza el juego
 	(fighterHealthComponent->getLives() <= 0) ? mngr->endGame("lose") : mngr->pauseGame();
 
+	// Sonido de explosion del fighter
+	sdlutils().soundEffects().at("explosion").play();
+
 	// Pone al caza en el centro de la ventana con velocidad cero y rotación cero
 	resetFighter();
 }

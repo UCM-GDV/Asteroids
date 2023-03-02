@@ -15,6 +15,7 @@
 #include "../components/asteroidsComponents/Follow.h"
 #include "../game/AsteroidsManager.h"
 #include "../game/CollisionsManager.h"
+#include "../game/Game.h"
 
 class PlayState : public Manager {
 private:
@@ -23,19 +24,22 @@ private:
 	Gun* fighterGun;
 	FighterControl* fighterControl;
 	Entity* bullet;
+	Game* game;
 public:
 	// Constructora
-	PlayState();
+	PlayState(Game* game);
 	// Destructora
 	~PlayState();
 	// Anade bala a la escena dependiendo de la posicion del fighter
 	void addBullet();
-    // Control del fighter y de los disparos
+    // Recoge el input del usuario
 	void handleEvent();
     // Actualiza el vector de entidades, anade asteroides y comprueba las colisiones
 	void update();
 	// Devuelve el puntero al fighter
-	Entity* getFighter();
+	inline Entity* getFighter() { return fighter; }
+	// Devuelve el puntero al game
+	inline Game* getGame() { return game; }
 	// Para el juego
 	void pauseGame();
 	// Fin del juego

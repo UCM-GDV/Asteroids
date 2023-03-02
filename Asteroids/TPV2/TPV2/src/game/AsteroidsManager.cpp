@@ -2,17 +2,17 @@
 #include "../states/PlayState.h"
 
 // Constructora
-AsteroidsManager::AsteroidsManager() : numasteroids(0), startTime(SDL_GetTicks()), asteroid(nullptr) {}
-
-// Inicializa
-void AsteroidsManager::init(PlayState* m) {
-	mngr = m;
-}
+AsteroidsManager::AsteroidsManager() : numasteroids(0), startTime(SDL_GetTicks()), mngr(nullptr), asteroid(nullptr) {}
 
 // Destructora
 AsteroidsManager::~AsteroidsManager() {
 	mngr = nullptr;
 	asteroid = nullptr;
+}
+
+// Inicializa 
+void AsteroidsManager::init(PlayState* m) {
+	mngr = m;
 }
 
 // Crea n asteroides
@@ -30,7 +30,6 @@ void AsteroidsManager::createAsteroids(int n) {
 			(sdlutils().rand().nextInt(0, 10) < 3) ? createYellowAsteroid(p, v, width, height, g) : createWhiteAsteroid(p, v,width, height, g);
 		}
 	}
-
 }
 
 // Devuelve una posicion aletoria
@@ -127,6 +126,6 @@ void AsteroidsManager::onCollision(Entity* a) {
 
 	// Condicion de victoria
 	if (numasteroids == 0) {
-		GameStateMachine::instance()->pushState(new EndState("win"));
+		GameStateMachine::instance()->pushState(new EndState(mngr->getGame(), "win"));
 	}
 }

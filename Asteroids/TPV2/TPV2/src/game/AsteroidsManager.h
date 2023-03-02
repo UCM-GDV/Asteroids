@@ -17,9 +17,10 @@ private:
 public:
 	// Constructora
 	AsteroidsManager();
-	void init(PlayState* m);
 	// Destructora
 	virtual ~AsteroidsManager();
+	// Inicializa
+	void init(PlayState* m);	
 	// Crea n asteroides
 	void createAsteroids(int n);
 	// Reutiliza el metodo de createAsteroids para instanciar 1 asteroide cada cierto tiempo

@@ -1,21 +1,23 @@
 #pragma once
+#include "../game/Game.h"
+#include "../game/GameStateMachine.h"
 #include "../ecs/Manager.h"
 #include "../ecs/Entity.h"
-#include "PauseState.h"
-//#include "../components/Transform.h"
-//#include "../components/Image.h"
 #include "../sdlutils/InputHandler.h"
-#include "../game/GameStateMachine.h"
+#include "PauseState.h"
 
 class EndState : public Manager {
 private:
 	Entity* fighter;
+	Entity* result;
+	Entity* pressToStart;
+	Game* game;
 public:
 
 	// Constructora
-	EndState(string result);
-	// 
-	void handleEvent();
+	EndState(Game* game, string resultString);
 	// Destructora
-	~EndState();
+	virtual ~EndState();
+	// Recoge el input del usuario
+	void handleEvent();
 };

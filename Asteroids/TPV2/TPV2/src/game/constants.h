@@ -5,6 +5,9 @@
 #include "../utils/Vector2D.h"
 using namespace std;
 
+// BASICS
+const Vector2D VECTOR_ZERO = Vector2D(0, 0);
+
 // WINDOW
 const string GAME_NAME = "Asteroids";
 const float WIN_WIDTH = 1000;
@@ -55,3 +58,21 @@ const Vector2D LIVES_POSITION = { 10, WIN_HEIGHT/LIVES_HEIGHT };
 // BULLET
 const int BULLET_WIDTH = 5;
 const int BULLET_HEIGHT = 20;
+
+// TEXTS
+const string PRESS_TO_CONTINUE_TEXT = "Press space to continue";
+const int PRESS_TO_CONTINUE_TEXT_WIDTH = 400;
+const int PRESS_TO_CONTINUE_TEXT_HEIGHT = 40;
+const Vector2D PRESS_TO_CONTINUE_TEXT_POSITION = Vector2D(WIN_HALF_WIDTH - PRESS_TO_CONTINUE_TEXT_WIDTH / 2, WIN_HEIGHT * 2 / 3);
+const string PRESS_TO_START_TEXT = "Press space to start";
+const int PRESS_TO_START_TEXT_WIDTH = 400;
+const int PRESS_TO_START_TEXT_HEIGHT = 40;
+const Vector2D PRESS_TO_START_TEXT_POSITION = Vector2D(WIN_HALF_WIDTH - PRESS_TO_START_TEXT_WIDTH / 2, WIN_HEIGHT * 2 / 3);
+const string GAME_OVER_LOSE_TEXT = "Game Over: Loser!";
+const int GAME_OVER_LOSE_TEXT_WIDTH = 400;
+const int GAME_OVER_LOSE_TEXT_HEIGHT = 40;
+const Vector2D GAME_OVER_LOSE_TEXT_POSITION = Vector2D(WIN_HALF_WIDTH - GAME_OVER_LOSE_TEXT_WIDTH / 2, WIN_HEIGHT / 3);
+const string GAME_OVER_WIN_TEXT = "Game Over: Win!";
+const int GAME_OVER_WIN_TEXT_WIDTH = 400;
+const int GAME_OVER_WIN_TEXT_HEIGHT = 40;
+const Vector2D GAME_OVER_WIN_TEXT_POSITION = Vector2D(WIN_HALF_WIDTH - GAME_OVER_WIN_TEXT_WIDTH / 2, WIN_HEIGHT / 3);

@@ -16,8 +16,9 @@ public:
 	// Destructora
 	virtual ~Manager() {
 		for (auto& ents : entsByGroup_) {
-			for (auto e : ents)
+			for (auto e : ents) {
 				delete e;
+			}
 		}
 	}
 	// Anade una entidad

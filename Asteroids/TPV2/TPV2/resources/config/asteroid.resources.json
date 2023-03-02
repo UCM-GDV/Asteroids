@@ -1,0 +1,25 @@
+{
+  "fonts" : [
+    { "id" : "ARIAL24", "file" : "resources/fonts/ARIAL.ttf", "size": 24 }
+  ],
+  
+  "images" : [
+    { "id" : "Fighter", "file" : "resources/images/fighter.png" },
+    { "id" : "WhiteAsteroid", "file" : "resources/images/asteroid.png" },
+    { "id" : "YellowAsteroid", "file" : "resources/images/asteroid_gold.png" },
+    { "id" : "Bullet", "file" : "resources/images/fire.png" },
+    { "id" : "Life", "file" : "resources/images/heart.png" }
+  ],
+  
+  "messages" : [
+  ],
+  
+  "sounds" : [
+    { "id" : "explosion", "file": "resources/sound/explosion.wav"}, 
+    { "id" : "thrust", "file": "resources/sound/thrust.wav"}, 
+    { "id" : "fire", "file": "resources/sound/fire.wav"}
+  ],
+
+  "musics" : [
+  ]
+}

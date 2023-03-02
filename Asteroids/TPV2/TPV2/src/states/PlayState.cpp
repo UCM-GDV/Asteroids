@@ -1,7 +1,7 @@
 #include "PlayState.h"
 
 // Constructora
-PlayState::PlayState(): Manager(), bullet(nullptr) {
+PlayState::PlayState(Game* game): Manager(), bullet(nullptr), game(game) {
 
 	// FIGHTER
 	fighter = new Entity();
@@ -34,6 +34,9 @@ void PlayState::handleEvent() {
 	if (SDL_PollEvent(&event)) {
 		fighterControl->handleEvent(event);
 		fighterGun->handleEvent(event);
+		if (InputHandler::instance()->isKeyDown(SDLK_ESCAPE)) {
+			pauseGame();
+		}
 	}
 }
 
@@ -60,15 +63,12 @@ void PlayState::update() {
 	CollisionsManager::instance()->checkCollision();
 }
 
-// Devuelve el puntero al fighter
-Entity* PlayState::getFighter() { return fighter; }
-
 // Para el juego
 void PlayState::pauseGame() {
-	GameStateMachine::instance()->pushState(new PauseState());
+	GameStateMachine::instance()->pushState(new PauseState(game));
 }
 
 // Fin del juego
 void PlayState::endGame(string result) {
-    GameStateMachine::instance()->pushState(new EndState(result));
+    GameStateMachine::instance()->pushState(new EndState(game, result));
 }
