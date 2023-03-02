@@ -11,9 +11,11 @@ private:
 public:
 	// Constructora
 	ShowAtOppositeSide();
-	
-	void initComponent();
-	void update();
 	// Destructora
 	virtual ~ShowAtOppositeSide();
+	// Inicializa el componente
+	void initComponent();
+	// Actualiza el componente
+	void update();
+	
 };

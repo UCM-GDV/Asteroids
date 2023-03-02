@@ -7,9 +7,12 @@ class DisableOnExit : public Component {
 private:
 	Transform* transform;
 public:
+	// Constructora
 	DisableOnExit();
-	void initComponent();
-	void update();
+	// Destructora
 	virtual ~DisableOnExit();
-protected:
+	// Inicializa el componente
+	void initComponent();
+	// Actualiza el componente
+	void update();
 };

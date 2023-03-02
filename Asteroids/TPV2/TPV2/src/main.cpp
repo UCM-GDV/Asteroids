@@ -2,22 +2,24 @@
 
 #include <iostream>
 #include "game/Game.h"
+#include "utils/checkML.h"
 
 int main(int ac, char **av) {
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+
 	Game* game = nullptr;
 	try {
 		game = new Game();
 		game->run();
-	} catch (const std::string &e) { // catch exceptions thrown as strings
+	} catch (const std::string &e) {
 		std::cerr << e << std::endl;
-	} catch (const char *e) { // catch exceptions thrown as char*
+	} catch (const char *e) {
 		std::cerr << e << std::endl;
-	} catch (const std::exception &e) { // catch exceptions thrown as a sub-type of std::exception
+	} catch (const std::exception &e) {
 		std::cerr << e.what();
 	} catch (...) {
 		std::cerr << "Caught and exception of unknown type ...";
 	}
-
 	delete game;
 
 	return 0;

@@ -1,5 +1,4 @@
 #include "PauseState.h"
-
 // Constructora
 PauseState::PauseState() : Manager() {
 	fighter = new Entity();
@@ -8,7 +7,21 @@ PauseState::PauseState() : Manager() {
 	fighter->addComponent<Image>(_IMAGE, &SDLUtils::instance()->images().at("Fighter"));
 	fighter->addComponent<Health>(_HEALTH);
 	addEntity(fighter);
+
+	//Texture(SDL_Renderer * renderer, const std::string & text, const Font & font,
+	//	const SDL_Color & fgColor)
+	//auto& sdl = *SDLUtils::instance();
+	//SDL_Renderer* renderer = sdl.renderer();
+	//const Font* a = &SDLUtils::instance()->fonts().at("ARIAL24");
+	//const string text = "Press space to continue";
+
+	//Texture(SDL_Renderer * renderer, const std::string & text, const Font & font,
+		//const SDL_Color & fgColor);
+	//Texture pressAnyKey(renderer, text,
+	//	a, build_sdlcolor(0x112233ff),
+	//	build_sdlcolor(0xffffffff));
 }
+
 void PauseState::handleEvent() {
 	SDL_Event event;
 	if (SDL_PollEvent(&event))
@@ -22,6 +35,11 @@ void PauseState::handleEvent() {
         }
 	}
 };
+
+void PauseState::render() const {
+	//pressSpaceToContinue.render(0,0);
+}
+
 // Destructora
 PauseState::~PauseState() {
 }

@@ -57,6 +57,7 @@
     <ClInclude Include="src\states\EndState.h" />
     <ClInclude Include="src\states\PauseState.h" />
     <ClInclude Include="src\states\PlayState.h" />
+    <ClInclude Include="src\utils\checkML.h" />
     <ClInclude Include="src\utils\Collisions.h" />
     <ClInclude Include="src\utils\mpl.h" />
     <ClInclude Include="src\utils\Singleton.h" />

@@ -16,6 +16,8 @@ public:
 	virtual ~Gun();
 	// Inicializa el componente
 	void initComponent();
+    // Recoge el input del jugador
 	void handleEvent(SDL_Event event);
+    // Confirma que se trata de la escena de PlayState y anade una bala a la escena
 	void tryShoot();
 };

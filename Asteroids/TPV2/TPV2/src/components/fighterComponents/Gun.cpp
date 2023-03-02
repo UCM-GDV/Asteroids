@@ -1,19 +1,22 @@
 #pragma once
 #include "Gun.h"
 #include "../../states/PlayState.h"
+
+// Constructora
 Gun::Gun() : transform(nullptr), startTime(SDL_GetTicks()) {}
 
+// Destructora
 Gun::~Gun() {
 	transform = nullptr;
 }
 
+// Inicializa el componente
 void Gun::initComponent() {
 	transform = ent_->getComponent<Transform>(_TRANSFORM);
 	assert(transform != nullptr);
-	//playState = static_cast<PlayState*>(mngr_);
-	//assert(playState != nullptr);
 }
 
+// Recoge el input del jugador
 void Gun::handleEvent(SDL_Event event) {
 	if (InputHandler::instance()->keyDownEvent()) {
 		if (InputHandler::instance()->isKeyDown(SDLK_s)) {
@@ -27,8 +30,8 @@ void Gun::handleEvent(SDL_Event event) {
 	}
 }
 
+// Confirma que se trata de la escena de PlayState y anade una bala a la escena
 void Gun::tryShoot() {
-	//mngr_->addEntity(new Bullet();
 	static_cast<PlayState*>(mngr_)->addBullet();
 }
 

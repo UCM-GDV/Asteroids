@@ -1,14 +1,13 @@
 #pragma once
 #include "../sdlutils/Texture.h"
-#include "Transform.h" 
-#include "../ecs/Entity.h"
+#include "Transform.h"
 
 class Image: public Component {
 public:
 	// Constructora
-	Image(Texture* tex) : tr_(nullptr), tex_(tex) { }
+	Image(Texture* tex) : tr_(nullptr), tex_(tex) {}
 	// Destructora
-	virtual ~Image() { }
+	virtual ~Image() {}
 	// Inicializa el componente
 	void initComponent() {
 		tr_ = ent_->getComponent<Transform>(_TRANSFORM);
@@ -20,6 +19,8 @@ public:
 		tex_->render(dest, tr_->getR());
 	}
 private:
-	Transform* tr_; // Consulta las caracteristicas fisicas
-	Texture* tex_;	// Imagen a rederizar
+	// Consulta las caracteristicas fisicas
+	Transform* tr_; 
+	// Imagen a rederizar
+	Texture* tex_;	
 };

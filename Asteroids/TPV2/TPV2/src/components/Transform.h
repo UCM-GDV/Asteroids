@@ -5,27 +5,12 @@
 class Transform: public Component {
 public:
 	// Constructora
-	Transform(Vector2D pos, Vector2D vel, float w, float h, float r){
-		 position_ = pos; 
-		 velocity_ = vel;
-		 width_ = w;
-		 height_= h;
-		 rotation_ = r;
-	}
-	void setPos(Vector2D p) {
-		position_ = p;
-	}
-	void setVel(Vector2D v) {
-		velocity_ = v;
-	}
-	void setRot(int r) {
-		rotation_ = r;
-	}
-	void changeRot(float r) {
-		rotation_ += r;
-	}
+	Transform(Vector2D pos, Vector2D vel, float w, float h, float r) :
+		position_(pos), velocity_(vel), width_(w), height_(h), rotation_(r) {};
 	// Destructora
-	virtual ~Transform() { }
+	virtual ~Transform() {}
+	// Actualiza la posicion
+	virtual void update() { position_ = position_ + velocity_; }
 	// Devuelve su posicion
 	inline Vector2D& getPos() { return position_; }
 	// Devuelve su velocidad
@@ -36,10 +21,17 @@ public:
 	inline float getH() { return height_; }
 	// Devuelve su rotacion
 	inline float getR() { return rotation_; }
-	virtual void update() {
-		position_ = position_ + velocity_;
-	}
+	// Establece la posicion
+	inline void setPos(Vector2D p) { position_ = p; }
+	// Establece la velocidad
+	inline void setVel(Vector2D v) { velocity_ = v; }
+	// Establece la rotacion
+	inline void setRot(int r) { rotation_ = r; }
+	// Cambia la rotacion
+	inline void changeRot(float r) { rotation_ += r; }
 private:
+	// Vectores de posicion y velocidad
 	Vector2D position_, velocity_;
+	// Ancho, alto y rotacion
 	float width_, height_, rotation_;
 };

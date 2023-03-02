@@ -6,29 +6,37 @@
 
 class FramedImage: public Component{
 private:
-	Transform* tr_; // Consulta las caracteristicas fisicas
-	Texture* tex_;	// Imagen a rederizar
-    int fw; // Frame width
-    int fh; // Frame height
+    // Consulta las caracteristicas fisicas
+	Transform* tr_; 
+    // Imagen a rederizar
+	Texture* tex_;	
+    // Frame width
+    int fw;
+    // Frame height
+    int fh; 
     int numCols;
     int numRows;
     int currentframe;
     int currentTime;
 public:
 	// Constructora
-	FramedImage(Texture* tex) : tr_(nullptr), tex_(tex), fw(0), fh(0), numCols(1), numRows(0), currentframe(0), currentTime(0) {};
     FramedImage(Texture* tex, int fwidth, int fheight, int numRows = 1, int numCols = 1) : tex_(tex), fw(fwidth), 
                fh(fheight), numCols(numCols), numRows(numRows), currentframe(0) {};
 	// Destructora
     virtual ~FramedImage() { _free(); }
+    // Libera puntero a tex_
     void _free() {
-       // delete tex_;
         tex_ = nullptr;
     }
     // Inicializa el componente
     void initComponent() {
         tr_ = ent_->getComponent<Transform>(_TRANSFORM);
         assert(tr_ != nullptr);
+    }
+    // Acutlualiza el currentframe
+    void update() {
+        currentframe = (currentframe + 1) % (numCols * numRows - 1);
+        currentTime = 0;
     }
     // Dibuja en escena
     void render() {
@@ -40,16 +48,9 @@ public:
         src.h = fh;
         tex_->render(src, dest);
     }
-    void update() {
-		//if (currentTime >= (50)) {
-            //cout << currentTime << endl;
-			currentframe = (currentframe + 1) % (numCols * numRows - 1);
-            currentTime = 0;
-        //}
-        //currentTime += SDLUtils::instance()->currRealTime();
-    }
-    // Returns the number of columns
-    int getNumCols() const { return numCols; };
-    // Returns the texture pointer
-    Texture* getTexture() const { return tex_; };
+    
+    // Devuelve el numero de columnas
+    inline int getNumCols() const { return numCols; };
+    // Devuelve la textura
+    inline Texture* getTexture() const { return tex_; };
 };

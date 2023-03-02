@@ -8,12 +8,20 @@ private:
 	int lives;
 	Texture* texture;
 public:
-	Health() : texture(nullptr), lives(NUMBER_LIVES) {};
+	// Constructora
+	Health();
+	// Destructora
+    virtual ~Health();
+	// Inicializa el componente
 	void initComponent();
+	// Renderiza las vidas
 	void render();
-	int getLives();
-	void setLives(int lives_);
-	void decreaseLive();
-	void resetLives();
-	virtual ~Health() {};
+	// Devuelve el numero de vidas actual
+	inline int getLives() { return lives; }
+	// Establece el numero de vidas actual
+	inline void setLives(int lives_) { lives = lives_; }
+	// Decrementa el numero de vidas actual
+	inline void decreaseLive() { --lives; }
+	// Reestable el numero de vidas actual
+	inline void resetLives() { lives = NUMBER_LIVES; }
 };
