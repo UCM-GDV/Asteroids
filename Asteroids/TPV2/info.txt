@@ -1,0 +1,18 @@
+Cristina Mora Velasco
+Yi (Laura) Wang Qiu
+
+Opcionales:
+- Carga de archivos por medio del .json
+- Maquina de estados
+- Inclusión de todos los sonidos 
+
+Correctamente:
+- Colisiones
+- Cambio escena (maquina de estados)
+- Movimientos
+- Generaciones
+- Grupos 
+- Estructura por componentes
+- Input jugador
+- Sonidos
+

@@ -2,6 +2,7 @@
 #include <cassert>
 #include "../utils/Collisions.h"
 #include "../components/Transform.h"
+#include "../components/fighterComponents/Health.h"
 #include "../utils/Singleton.h"
 class PlayState;
 
@@ -9,9 +10,10 @@ class CollisionsManager: public Singleton<CollisionsManager> {
 
 	friend Singleton<CollisionsManager>; 
 private:
-	Collisions* col;
 	PlayState* mngr;
 	Transform* fighterTransform;
+	Health* fighterHealth;
+    Collisions* col;
 public:
 	// Constructora
 	CollisionsManager();

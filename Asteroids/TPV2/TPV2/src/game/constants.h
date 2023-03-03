@@ -1,5 +1,4 @@
 #pragma once
-
 #include <SDL.h>
 #include <iostream>
 #include "../utils/Vector2D.h"
@@ -32,9 +31,9 @@ const float FIGHTER_HEIGHT = 50;
 const float FIGHTER_HALF_WIDTH = FIGHTER_WIDTH / 2;
 const float FIGHTER_HALF_HEIGHT = FIGHTER_HEIGHT / 2;
 const Vector2D FIGHTER_VELOCITY = Vector2D(0, 0);
-const int FIGHTER_ROTATION_SPEED = 70;
+const int FIGHTER_ROTATION_SPEED = 140;
 const float FIGHTER_ROTATION = 0;
-const Vector2D SPEED_LIMIT = { 0, 3.0f };
+const Vector2D SPEED_LIMIT = Vector2D(0, 3.0f);
 
 // ASTEROID
 const int ASTEROIDS_INITIAL_NUMBER = 10;
@@ -53,7 +52,7 @@ const int ASTEROID_GOLD_NUMROWS = 6;
 const int NUMBER_LIVES = 3;
 const int LIVES_WIDTH = 46;
 const int LIVES_HEIGHT = 46;
-const Vector2D LIVES_POSITION = { 10, WIN_HEIGHT/LIVES_HEIGHT };
+const Vector2D LIVES_POSITION = Vector2D(10, WIN_HEIGHT/LIVES_HEIGHT);
 
 // BULLET
 const int BULLET_WIDTH = 5;

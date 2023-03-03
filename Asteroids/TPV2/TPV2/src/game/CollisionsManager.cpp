@@ -2,13 +2,13 @@
 #include "../states/PlayState.h"
 
 // Constructora
-CollisionsManager::CollisionsManager() {}
+CollisionsManager::CollisionsManager() : mngr(nullptr), fighterTransform(nullptr), col(nullptr) {}
 
 // Destructora
 CollisionsManager::~CollisionsManager() {
-	col = nullptr;
 	mngr = nullptr;
 	fighterTransform = nullptr;
+	col = nullptr;
 }
 
 // Inicializa
@@ -64,23 +64,25 @@ bool CollisionsManager::bulletCollision(Transform* bulletTransform, Transform* a
 
 // Quita una vida, resetea y gestiona si se pausa o se finaliza el juego
 void CollisionsManager::fighterOnCollision() {
-	// Le quita una vida al fighter
-	Health* fighterHealthComponent = mngr->getFighter()->getComponent<Health>(_HEALTH);
-	fighterHealthComponent->decreaseLive();
-
-	// Pausa o finaliza el juego
-	(fighterHealthComponent->getLives() <= 0) ? mngr->endGame("lose") : mngr->pauseGame();
-
 	// Sonido de explosion del fighter
 	sdlutils().soundEffects().at("explosion").play();
 
 	// Pone al caza en el centro de la ventana con velocidad cero y rotación cero
-	resetFighter();
-}
+	mngr->resetFighter();
 
-// Reestablece la posicion, velocidad y rotacion del fighter
-void CollisionsManager::resetFighter() {
-	fighterTransform->setPos({ WIN_HALF_WIDTH, WIN_HALF_HEIGHT });
-	fighterTransform->setVel(FIGHTER_VELOCITY);
-	fighterTransform->setRot(0);
+	// Le quita una vida al fighter
+	mngr->decreaseLives();
+
+	// Finaliza el juego
+	if (mngr->getLives() <= 0) {
+		// Se le resetean las vidas
+		mngr->resetLives();
+		// Menu de Game Over
+		mngr->endGame("lose");
+	}
+	// Pausa del juego
+	else {
+		// Menu de pausa
+		mngr->pauseGame();
+	}
 }

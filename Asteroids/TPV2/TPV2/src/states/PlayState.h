@@ -23,6 +23,7 @@ private:
 	Transform* fighterTransform;
 	Gun* fighterGun;
 	FighterControl* fighterControl;
+	Health* fighterHealth;
 	Entity* bullet;
 	Game* game;
 public:
@@ -40,6 +41,17 @@ public:
 	inline Entity* getFighter() { return fighter; }
 	// Devuelve el puntero al game
 	inline Game* getGame() { return game; }
+	// Reestablece la posicion, velocidad y rotacion del fighter
+    inline void resetFighter() {
+        fighterTransform->setPos({ WIN_HALF_WIDTH, WIN_HALF_HEIGHT });
+        fighterTransform->setVel(FIGHTER_VELOCITY);
+        fighterTransform->setRot(0);
+	}
+	inline int getLives() { return fighterHealth->getLives(); }
+	// Decrementa el numero de vidas actual
+	inline void decreaseLives() { fighterHealth->decreaseLive(); }
+	// Resetea el numero de vidas actual
+	inline void resetLives() { fighterHealth->setLives(NUMBER_LIVES); }
 	// Para el juego
 	void pauseGame();
 	// Fin del juego

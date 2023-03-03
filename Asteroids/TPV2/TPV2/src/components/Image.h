@@ -3,6 +3,11 @@
 #include "Transform.h"
 
 class Image: public Component {
+private:
+	// Consulta las caracteristicas fisicas
+	Transform* tr_;
+	// Imagen a rederizar
+	Texture* tex_;
 public:
 	// Constructora
 	Image(Texture* tex) : tr_(nullptr), tex_(tex) {}
@@ -18,9 +23,5 @@ public:
 		SDL_Rect dest = build_sdlrect(tr_->getPos(),tr_->getW(),tr_->getH());
 		tex_->render(dest, tr_->getR());
 	}
-private:
-	// Consulta las caracteristicas fisicas
-	Transform* tr_; 
-	// Imagen a rederizar
-	Texture* tex_;	
+
 };

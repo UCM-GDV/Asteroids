@@ -12,8 +12,6 @@ class FighterControl : public Component {
 	private:
 		// Coge el componente transofrm
 		Transform* transform;
-		// Coge el componente gun
-		Gun* gun;
 	public:
 		// Constructora
 		FighterControl();

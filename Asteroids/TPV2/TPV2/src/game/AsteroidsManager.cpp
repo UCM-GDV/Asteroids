@@ -18,7 +18,7 @@ void AsteroidsManager::init(PlayState* m) {
 // Crea n asteroides
 void AsteroidsManager::createAsteroids(int n) {
 	for (int i = 0; i < n; i++) {
-		if (numasteroids <= ASTEROIDS_MAX_NUMBER) {
+		if (numasteroids < ASTEROIDS_MAX_NUMBER) {
 			// Elige una generacion aleatoria entre 1 y 3
 			int g = sdlutils().rand().nextInt(1, 4);
 			float width, height;
@@ -102,6 +102,7 @@ void AsteroidsManager::destroyAllAsteroids() {
 // Cuando exista una colision con un asteroide, se generan 2 mas dependiendo de su numGen 
 // y teniendo en cuenta el numero de asteroides en escena
 void AsteroidsManager::onCollision(Entity* a) {
+	sdlutils().soundEffects().at("asteroidexplosion").play();
 	// Lo desactiva 
 	a->setAlive(false);
 	numasteroids--;
@@ -123,9 +124,15 @@ void AsteroidsManager::onCollision(Entity* a) {
 			}
 		}
 	}
-
 	// Condicion de victoria
 	if (numasteroids == 0) {
-		GameStateMachine::instance()->pushState(new EndState(mngr->getGame(), "win"));
+		// Pone al caza en el centro de la ventana con velocidad cero y rotación cero
+		mngr->resetFighter();
+
+		// Se le resetean las vidas
+		mngr->resetLives();
+
+		// Menu de victoria
+		mngr->endGame("win");
 	}
 }

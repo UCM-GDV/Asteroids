@@ -34,8 +34,6 @@ void FighterControl::handleEvent(SDL_Event event) {
 }
 // Acelera al fighter
 void FighterControl::acelerate() {
-	// reproducir sonido
-	
 	Vector2D newVel = transform->getVel() +Vector2D(0.0f, -1.0f).rotate(transform->getR()) * 0.7f;
 	if (newVel.getY() <= SPEED_LIMIT.getY()) transform->setVel(newVel);
 }

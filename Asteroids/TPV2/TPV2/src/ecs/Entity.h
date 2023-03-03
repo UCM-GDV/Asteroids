@@ -2,7 +2,6 @@
 #include "Component.h"
 #include <vector>
 #include <array>
-#include <bitset>
 using namespace std;
 
 class Entity {
@@ -10,7 +9,6 @@ protected:
 	Manager* mngr_;
 private:
 	bool alive_;
-	bitset<maxGroupId> groups_;
 	vector<Component*> currCmps_;
 	array<Component*, maxComponentId> cmps_;
 public:
@@ -23,7 +21,7 @@ public:
 		}
 	}
 	// Asigna a la entidad su manager
-	inline void setContext(Manager* mngr) { mngr_ = mngr;}
+	inline void setContext(Manager* mngr) { mngr_ = mngr; }
 	// Devuelve si esta vivo
 	inline bool isAlive() { return alive_; }
 	// Establece si esta vivo o no
@@ -32,8 +30,8 @@ public:
 	template<typename T, typename ...Ts>
 	inline T* addComponent(cmpId_type cId, Ts && ...args) {	
 		T* c = new T(forward<Ts>(args)...);
-		// Borra el componente actual de la posición cId en caso 
-		// de encontrar el componeent
+		// Borra el componente actual de la posicion cId en caso 
+		// de encontrar el component
 		removeComponent(cId);
 		// Anade al array y a la lista de componentes
 		currCmps_.push_back(c);
@@ -62,17 +60,17 @@ public:
 	inline T* getComponent(cmpId_type cId) {
 		return static_cast<T*>(cmps_[cId]);
 	}
-	// Comprueba si tiene un componente en esa posición
+	// Comprueba si tiene un componente
 	inline bool hasComponent(cmpId_type cId) {
 		return cmps_[cId] != nullptr;
 	}
-	// Actualiza recorriendo la lista de componetes que tienes 
-	virtual inline void update() {
+	// Actualiza recorriendo la lista de componentes
+	inline void update() {
 		auto n = currCmps_.size();
 		for (auto i = 0u; i < n; i++)
 			currCmps_[i]->update();
 	}
-	// Dibuja recorriendo la lista de componetes que tienes 
+	// Dibuja recorriendo la lista de componentes
 	inline void render() {
 		auto n = currCmps_.size();
 		for (auto i = 0u; i < n; i++)
@@ -80,13 +78,4 @@ public:
 	}
 	// Manejo de los eventos a traves del InputHandler
 	virtual void handleEvent() {}
-	inline void addToGroup(grpId_type gId) {
-		if (!groups_[gId]) groups_[gId] = true;
-	}
-	inline void removeFromGroup(grpId_type gId) {
-		if (groups_[gId]) groups_[gId] = false;
-	}
-	inline bool hasGroup(grpId_type gId) {
-		return groups_[gId];
-	}
 };

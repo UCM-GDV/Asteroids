@@ -7,7 +7,6 @@
 class ShowAtOppositeSide : public Component {
 private:
 	Transform* transform;
-	//PlayState* playState;
 public:
 	// Constructora
 	ShowAtOppositeSide();

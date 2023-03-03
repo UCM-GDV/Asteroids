@@ -8,7 +8,7 @@ PlayState::PlayState(Game* game): Manager(), bullet(nullptr), game(game) {
 	fighter->setContext(this);
 	fighterTransform = fighter->addComponent<Transform>(_TRANSFORM, Vector2D(WIN_HALF_WIDTH, WIN_HALF_HEIGHT), FIGHTER_VELOCITY, FIGHTER_WIDTH, FIGHTER_HEIGHT, FIGHTER_ROTATION);
 	fighter->addComponent<Image>(_IMAGE, &SDLUtils::instance()->images().at("Fighter"));
-	fighter->addComponent<Health>(_HEALTH);
+	fighterHealth = fighter->addComponent<Health>(_HEALTH);
 	fighterControl = fighter->addComponent<FighterControl>(_FIGHTERCONTROL);
 	fighter->addComponent<DeAcceleration>(_DEACCELERATION);
 	fighterGun = fighter->addComponent<Gun>(_GUN);
@@ -34,7 +34,7 @@ void PlayState::handleEvent() {
 	if (SDL_PollEvent(&event)) {
 		fighterControl->handleEvent(event);
 		fighterGun->handleEvent(event);
-		if (InputHandler::instance()->isKeyDown(SDLK_ESCAPE)) {
+		if (InputHandler::instance()->isKeyDown(SDLK_SPACE)) {
 			pauseGame();
 		}
 	}

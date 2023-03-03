@@ -3,6 +3,11 @@
 #include "../ecs/Component.h"
 
 class Transform: public Component {
+private:
+	// Vectores de posicion y velocidad
+	Vector2D position_, velocity_;
+	// Ancho, alto y rotacion
+	float width_, height_, rotation_;
 public:
 	// Constructora
 	Transform(Vector2D pos, Vector2D vel, float w, float h, float r) :
@@ -29,9 +34,5 @@ public:
 	inline void setRot(int r) { rotation_ = r; }
 	// Cambia la rotacion
 	inline void changeRot(float r) { rotation_ += r; }
-private:
-	// Vectores de posicion y velocidad
-	Vector2D position_, velocity_;
-	// Ancho, alto y rotacion
-	float width_, height_, rotation_;
+
 };

@@ -6,6 +6,8 @@ class Game;
 using namespace std;
 
 class Manager {
+private:
+	array<vector<Entity*>, maxGroupId> entsByGroup_;
 public:
 	// Constructora
 	Manager() : entsByGroup_() {
@@ -21,7 +23,7 @@ public:
 			}
 		}
 	}
-	// Anade una entidad
+	// Anade una entidad al grupo
 	template<typename T>
 	Entity* addEntity(T* e, grpId_type gId = _grp_GENERAL){
 		e->setAlive(true);
@@ -29,11 +31,11 @@ public:
 		entsByGroup_[gId].push_back(e);
 		return e;
 	}
-	// Devuelve el vector de entidades
+	// Devuelve el vector de entidades por grupo
 	inline const auto& getEntities(grpId_type gId = _grp_GENERAL) {
 		return entsByGroup_[gId];
 	}
-    // Borra entidades no vivas
+    // Borra entidades no vivas de la escena
 	void refresh(){
 		for (grpId_type gId = 0; gId < maxGroupId; gId++) {
 			auto& grpEnts = entsByGroup_[gId];
@@ -55,16 +57,18 @@ public:
 	virtual void update() {
 		for (auto& ents : entsByGroup_) {
 			auto n = ents.size();
-			for (auto i = 0u; i < n; i++)
+			for (auto i = 0u; i < n; i++) {
 				ents[i]->update();
+			}
 		}
 	}
-	// Dibuja todas las entidades
-	void render() const {
+	// Dibuja todas las entidades de la escena
+	virtual void render() const {
 		for (auto& ents : entsByGroup_) {
 			auto n = ents.size();
-			for (auto i = 0u; i < n; i++)
+			for (auto i = 0u; i < n; i++) {
 				ents[i]->render();
+			}
 		}
 	}
 	// Manejo de los eventos de todas las entidades
@@ -75,6 +79,4 @@ public:
 				ents[i]->handleEvent();
 		}
 	}
-private:
-	array<vector<Entity*>, maxGroupId> entsByGroup_;
 };

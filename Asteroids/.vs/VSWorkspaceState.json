@@ -7,10 +7,9 @@
     "\\TPV2\\TPV2\\src\\components",
     "\\TPV2\\TPV2\\src\\components\\asteroidsComponents",
     "\\TPV2\\TPV2\\src\\components\\fighterComponents",
-    "\\TPV2\\TPV2\\src\\entities",
     "\\TPV2\\TPV2\\src\\game",
     "\\TPV2\\TPV2\\src\\states"
   ],
-  "SelectedNode": "\\TPV2\\TPV2\\src\\game\\AsteroidsManager.cpp",
+  "SelectedNode": "\\TPV2\\TPV2\\src\\states\\EndState.cpp",
   "PreviewInSolutionExplorer": false
 }
