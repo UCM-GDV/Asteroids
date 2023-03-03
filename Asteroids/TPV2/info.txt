@@ -6,13 +6,4 @@ Opcionales:
 - Maquina de estados
 - Inclusión de todos los sonidos 
 
-Correctamente:
-- Colisiones
-- Cambio escena (maquina de estados)
-- Movimientos
-- Generaciones
-- Grupos 
-- Estructura por componentes
-- Input jugador
-- Sonidos
 
