@@ -8,12 +8,18 @@ class Entity {
 protected:
 	Manager* mngr_;
 private:
-	bool alive_;
+	friend Manager;
+
 	vector<Component*> currCmps_;
 	array<Component*, maxComponentId> cmps_;
+	bool alive_;
+	grpId_type gId_;
 public:
 	// Constructora
-	Entity() : mngr_(nullptr), cmps_(), currCmps_(), alive_() { currCmps_.reserve(maxComponentId); }
+	//Entity() : mngr_(nullptr), cmps_(), currCmps_(), alive_() { currCmps_.reserve(maxComponentId); }
+	Entity(grpId_type gId) : mngr_(nullptr), cmps_(), currCmps_(), alive_(), gId_(gId) { currCmps_.reserve(maxComponentId); }
+	Entity(const Entity&) = delete;
+	Entity& operator=(const Entity&) = delete;
 	// Destructora
 	virtual ~Entity() {
 		for (auto c : currCmps_) {

@@ -49,12 +49,6 @@
     <Filter Include="Header Files\states">
       <UniqueIdentifier>{a03d9b91-943e-49d6-9d7b-103a4b4f596a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\entities">
-      <UniqueIdentifier>{85d46f74-458c-4e50-beec-32381ee0d609}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\entities">
-      <UniqueIdentifier>{194580b3-4646-47e8-b8ad-de4869b3363e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\components">
       <UniqueIdentifier>{eb90e4ea-3d78-492c-94f1-5555bbc1f548}</UniqueIdentifier>
     </Filter>
@@ -75,6 +69,18 @@
     </Filter>
     <Filter Include="Source Files\components\bulletComponents">
       <UniqueIdentifier>{24208582-faf5-40f6-bee6-5431f295438d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\systems">
+      <UniqueIdentifier>{250bb9a8-124a-479b-b12f-64298e0ca0a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\systems">
+      <UniqueIdentifier>{35e0c5e6-2b6b-4f8b-9a26-b7977f887dd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\managers">
+      <UniqueIdentifier>{857d0314-e4dd-4892-beb3-14f0e2a27981}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\managers">
+      <UniqueIdentifier>{1737d49b-ac8e-41ea-8ca5-a7c4e1f54e18}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -186,17 +192,38 @@
     <ClInclude Include="src\components\ShowAtOppositeSide.h">
       <Filter>Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="src\game\AsteroidsManager.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\ecs\System.h">
+      <Filter>Source Files\ecs</Filter>
     </ClInclude>
-    <ClInclude Include="src\game\CollisionsManager.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\systems\AsteroidsSystem.h">
+      <Filter>Header Files\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="src\systems\BulletSystem.h">
+      <Filter>Header Files\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="src\systems\CollisionsSystem.h">
+      <Filter>Header Files\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="src\systems\FighterSystem.h">
+      <Filter>Header Files\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="src\systems\GameCtrlSystem.h">
+      <Filter>Header Files\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="src\systems\RenderSystem.h">
+      <Filter>Header Files\systems</Filter>
     </ClInclude>
     <ClInclude Include="src\states\EndState.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\states</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\AsteroidsManager.h">
+      <Filter>Header Files\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\CollisionsManager.h">
+      <Filter>Header Files\managers</Filter>
     </ClInclude>
     <ClInclude Include="src\utils\checkML.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -260,14 +287,32 @@
     <ClCompile Include="src\components\fighterComponents\Health.cpp">
       <Filter>Source Files\components\fighterComponents</Filter>
     </ClCompile>
-    <ClCompile Include="src\game\AsteroidsManager.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\systems\AsteroidsSystem.cpp">
+      <Filter>Source Files\systems</Filter>
     </ClCompile>
-    <ClCompile Include="src\game\CollisionsManager.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\systems\BulletSystem.cpp">
+      <Filter>Source Files\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systems\CollisionsSystem.cpp">
+      <Filter>Source Files\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systems\FighterSystem.cpp">
+      <Filter>Source Files\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systems\GameCtrlSystem.cpp">
+      <Filter>Source Files\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systems\RenderSystem.cpp">
+      <Filter>Source Files\systems</Filter>
     </ClCompile>
     <ClCompile Include="src\states\EndState.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\states</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\AsteroidsManager.cpp">
+      <Filter>Source Files\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\CollisionsManager.cpp">
+      <Filter>Source Files\managers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

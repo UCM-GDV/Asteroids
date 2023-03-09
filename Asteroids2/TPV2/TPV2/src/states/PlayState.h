@@ -17,15 +17,32 @@
 #include "../game/CollisionsManager.h"
 #include "../game/Game.h"
 
+// Sistemas
+//#include "../systems/AsteroidsSystem.h"
+//#include "../systems/BulletSystem.h"
+//#include "../systems/CollisionsSystem.h"
+//#include "../systems/FighterSystem.h"
+//#include "../systems/GameCtrlSystem.h"
+//#include "../systems/RenderSystem.h"
+
 class PlayState : public Manager {
 private:
+	Game* game;
+	// Entidades
 	Entity* fighter;
+	Entity* bullet;
+	// Componentes
 	Transform* fighterTransform;
 	Gun* fighterGun;
 	FighterControl* fighterControl;
 	Health* fighterHealth;
-	Entity* bullet;
-	Game* game;
+	// Sistemas
+	//AsteroidsSystem* asteroidsSys_;
+	//BulletSystem* bulletSys_;
+	//CollisionsSystem* collisionsSys_;
+	//FighterSystem* fighterSys_;
+	//GameCtrlSystem* gameCtrlSys_;
+	//RenderSystem* renderSys_;
 public:
 	// Constructora
 	PlayState(Game* game);

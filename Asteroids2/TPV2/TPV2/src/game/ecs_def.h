@@ -1,7 +1,4 @@
 #pragma once
-#ifndef ECS_DEF_H_
-#define ECS_DEF_H_
-
 using cmpId_type = int;
 enum cmpId : cmpId_type {
 	_TRANSFORM = 0,
@@ -29,4 +26,29 @@ enum grpId : grpId_type {
 };
 constexpr grpId_type maxGroupId = _LAST_GRP_ID;
 
-#endif // !ECS_DEF_H_
+using sysId_type = int;
+enum sysId : sysId_type {
+	_sys_ASTEROIDS = 0,
+	_sys_COLLISIONS,
+	// do not remove this
+	_LAST_SYS_ID
+};
+constexpr sysId_type maxSystemId = _LAST_SYS_ID;
+
+using msgId_type = int;
+enum msgId : msgId_type {
+	_m_STAR_EATEN, //
+	_m_ADD_STARS
+};
+
+struct Message {
+	msgId_type id;
+	// _m_STAR_EATEN
+	struct {
+		Entity* e;
+	} star_eaten_data;
+	// _m_ADD_STARS
+	struct {
+		unsigned int n;
+	} add_stars_data;
+};

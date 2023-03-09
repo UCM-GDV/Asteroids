@@ -3,6 +3,15 @@
 // Constructora
 PlayState::PlayState(Game* game): Manager(), bullet(nullptr), game(game) {
 
+	// Sistemas
+	//asteroidsSys_ = mngr->addSystem<AsteroidsSystem>(…);
+	//bulletSys_ = mngr->addSystem<BulletSystem>(…);
+	//collisionsSys_ = mngr->addSystem<CollisionsSystem>(…);
+	//fighterSys_ = mngr->addSystem<FighterSystem>(…);
+	//gameCtrlSys_ = mngr->addSystem<GameCtrlSystem>(…);
+	//renderSys_ = mngr->addSystem<RenderSystem>(…);
+
+
 	// FIGHTER
 	fighter = new Entity();
 	fighter->setContext(this);
