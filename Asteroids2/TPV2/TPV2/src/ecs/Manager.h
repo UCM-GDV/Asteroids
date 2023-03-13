@@ -61,12 +61,12 @@ public:
 	}
 	// Actualiza todas las entidades
 	virtual void update() {
-		for (auto& ents : entsByGroup_) {
-			auto n = ents.size();
-			for (auto i = 0u; i < n; i++) {
-				ents[i]->update();
-			}
-		}
+		//for (auto& ents : entsByGroup_) {
+		//	auto n = ents.size();
+		//	for (auto i = 0u; i < n; i++) {
+		//		ents[i]->update();
+		//	}
+		//}
 
 		for (auto& sys : sys_) {
 			sys->update();
@@ -74,10 +74,16 @@ public:
 	}
 	// Dibuja todas las entidades de la escena
 	virtual void render() const {
-		for (auto& ents : entsByGroup_) {
-			auto n = ents.size();
-			for (auto i = 0u; i < n; i++) {
-				ents[i]->render();
+		//for (auto& ents : entsByGroup_) {
+		//	auto n = ents.size();
+		//	for (auto i = 0u; i < n; i++) {
+		//		ents[i]->render();
+		//	}
+		//}
+
+		for (auto& sys : sys_) {
+			if (static_cast<RenderSystem*>(sys) != nullptr) {
+
 			}
 		}
 	}

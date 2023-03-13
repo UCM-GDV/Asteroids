@@ -11,7 +11,6 @@ PlayState::PlayState(Game* game): Manager(), bullet(nullptr), game(game) {
 	//gameCtrlSys_ = mngr->addSystem<GameCtrlSystem>(…);
 	//renderSys_ = mngr->addSystem<RenderSystem>(…);
 
-
 	// FIGHTER
 	fighter = new Entity();
 	fighter->setContext(this);
@@ -22,7 +21,7 @@ PlayState::PlayState(Game* game): Manager(), bullet(nullptr), game(game) {
 	fighter->addComponent<DeAcceleration>(_DEACCELERATION);
 	fighterGun = fighter->addComponent<Gun>(_GUN);
 	fighter->addComponent<ShowAtOppositeSide>(_SHOWATOPPOSIDESIDE);
-	addEntity(fighter);
+	addEntity(fighter, _grp_FIGHTER);
 
 	AsteroidsManager::instance()->init(this);
 	AsteroidsManager::instance()->createAsteroids(ASTEROIDS_INITIAL_NUMBER);
@@ -39,14 +38,14 @@ PlayState::~PlayState() {
 
 // Control del fighter y de los disparos
 void PlayState::handleEvent() {
-	SDL_Event event;
+	/*SDL_Event event;
 	if (SDL_PollEvent(&event)) {
 		fighterControl->handleEvent(event);
 		fighterGun->handleEvent(event);
 		if (InputHandler::instance()->isKeyDown(SDLK_SPACE)) {
 			pauseGame();
 		}
-	}
+	}*/
 }
 
 // Anade bala a la escena dependiendo de la posicion del fighter
@@ -67,9 +66,9 @@ void PlayState::addBullet() {
 
 // Actualiza el vector de entidades, anade asteroides y comprueba las colisiones
 void PlayState::update() {
-	Manager::update();
+	/*Manager::update();
 	AsteroidsManager::instance()->addAsteroidFrequently();
-	CollisionsManager::instance()->checkCollision();
+	CollisionsManager::instance()->checkCollision();*/
 }
 
 // Para el juego

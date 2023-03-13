@@ -22,6 +22,8 @@ enum grpId : grpId_type {
     _grp_GENERAL = 0, 
 	_grp_ASTEROIDS = 1,
 	_grp_BULLETS = 2,
+	_grp_FIGHTER = 3,
+	_grp_MESSAGES =4,
 	_LAST_GRP_ID
 };
 constexpr grpId_type maxGroupId = _LAST_GRP_ID;
@@ -37,18 +39,18 @@ constexpr sysId_type maxSystemId = _LAST_SYS_ID;
 
 using msgId_type = int;
 enum msgId : msgId_type {
-	_m_STAR_EATEN, //
-	_m_ADD_STARS
+	_m_ASTEROIDS_END, //
+	_m_ASTEROIDS_ADD
 };
 
 struct Message {
 	msgId_type id;
-	// _m_STAR_EATEN
+	// _m_ASTEROIDS_END
 	struct {
 		Entity* e;
-	} star_eaten_data;
-	// _m_ADD_STARS
+	} asteroids_end;
+	// _m_ASTEROIDS_ADD
 	struct {
 		unsigned int n;
-	} add_stars_data;
+	} add_asteroids_data;
 };

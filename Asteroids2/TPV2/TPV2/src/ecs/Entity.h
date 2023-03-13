@@ -16,7 +16,7 @@ private:
 	grpId_type gId_;
 public:
 	// Constructora
-	//Entity() : mngr_(nullptr), cmps_(), currCmps_(), alive_() { currCmps_.reserve(maxComponentId); }
+	Entity() : mngr_(nullptr), cmps_(), currCmps_(), alive_() { currCmps_.reserve(maxComponentId); }
 	Entity(grpId_type gId) : mngr_(nullptr), cmps_(), currCmps_(), alive_(), gId_(gId) { currCmps_.reserve(maxComponentId); }
 	Entity(const Entity&) = delete;
 	Entity& operator=(const Entity&) = delete;
