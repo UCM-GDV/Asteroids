@@ -29,7 +29,7 @@ private:
 	// Crea n asteroides
 	void createAsteroids(int n);
 	// Reutiliza el metodo de createAsteroids para instanciar 1 asteroide cada cierto tiempo
-	void addAsteroidFrequently();
+	//void addAsteroidFrequently();
 	// Destruye todos los asteroides pertenecientes al _grp_ASTEROIDS de las entidades de la escena
 	void destroyAllAsteroids();
 	// Para gestionar el mensaje de que ha habido un choque de un asteroide con una
@@ -50,7 +50,6 @@ private:
 	// Indica si el sistema está activo o no (modificar el valor en onRoundOver y
 	// onRoundStart, y en update no hacer nada si no está activo)
 	bool active_;
-	
 
 	int startTime;
 	PlayState* mngr;

@@ -7,7 +7,7 @@
 #include "../components/fighterComponents/DeAcceleration.h"
 #include "../components/fighterComponents/Health.h"
 #include "../sdlutils/SDLUtils.h"
-#include "../components/fighterComponents/FighterControl.h"
+//#include "../components/fighterComponents/FighterControl.h"
 #include "../components/fighterComponents/Gun.h"
 #include "../components/ShowAtOppositeSide.h"
 #include "../components/bulletComponents/DisableOnExit.h"
@@ -34,7 +34,7 @@ private:
 	// Componentes
 	Transform* fighterTransform;
 	Gun* fighterGun;
-	FighterControl* fighterControl;
+	//FighterControl* fighterControl;
 	Health* fighterHealth;
 	// Sistemas
 	//AsteroidsSystem* asteroidsSys_;

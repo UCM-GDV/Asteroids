@@ -16,6 +16,9 @@ PauseState::PauseState(Game* game) : Manager(), game(game) {
 	pressToContinue->addComponent<Transform>(_TRANSFORM, PRESS_TO_CONTINUE_TEXT_POSITION, VECTOR_ZERO, PRESS_TO_CONTINUE_TEXT_WIDTH, PRESS_TO_CONTINUE_TEXT_HEIGHT, 0);
 	pressToContinue->addComponent<Image>(_IMAGE, game->getText(PRESS_TO_CONTINUE_TEXT));
 	addEntity(pressToContinue, _grp_MESSAGES);
+
+	// Sistema de renderizado
+	renderSystem = addSystem<RenderSystem>();
 }
 
 // Destructora

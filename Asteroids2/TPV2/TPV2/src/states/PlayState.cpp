@@ -17,7 +17,6 @@ PlayState::PlayState(Game* game): Manager(), bullet(nullptr), game(game) {
 	fighterTransform = fighter->addComponent<Transform>(_TRANSFORM, Vector2D(WIN_HALF_WIDTH, WIN_HALF_HEIGHT), FIGHTER_VELOCITY, FIGHTER_WIDTH, FIGHTER_HEIGHT, FIGHTER_ROTATION);
 	fighter->addComponent<Image>(_IMAGE, &SDLUtils::instance()->images().at("Fighter"));
 	fighterHealth = fighter->addComponent<Health>(_HEALTH);
-	fighterControl = fighter->addComponent<FighterControl>(_FIGHTERCONTROL);
 	fighter->addComponent<DeAcceleration>(_DEACCELERATION);
 	fighterGun = fighter->addComponent<Gun>(_GUN);
 	fighter->addComponent<ShowAtOppositeSide>(_SHOWATOPPOSIDESIDE);
@@ -33,7 +32,6 @@ PlayState::~PlayState() {
 	fighter = nullptr;
 	fighterTransform = nullptr;
 	fighterGun = nullptr;
-	fighterControl = nullptr;
 }
 
 // Control del fighter y de los disparos
@@ -66,6 +64,7 @@ void PlayState::addBullet() {
 
 // Actualiza el vector de entidades, anade asteroides y comprueba las colisiones
 void PlayState::update() {
+	// ESTO YA LO HACE EL UPDATE DEL MANAGER RECORRIENDO TODOS LOS SISTEMAS
 	/*Manager::update();
 	AsteroidsManager::instance()->addAsteroidFrequently();
 	CollisionsManager::instance()->checkCollision();*/

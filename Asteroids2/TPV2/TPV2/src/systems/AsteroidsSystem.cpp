@@ -15,32 +15,31 @@ void AsteroidsSystem::initSystem() {
 
 // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 void AsteroidsSystem::receive(const Message& m) {
-	//switch (m.id) {
-	//case _m_ASTEROIDS_END: /**/ break;
-	//	default; break;
-	//}
+	switch (m.id) {
+		case _m_FIGTHER_ASTEROID_COLLIDED: onRoundOver(); break;
+		default: break;
+	}
 }
 
 // Si el juego está parado no hacer nada, en otro caso mover los asteroides como
 // en la práctica 1 y generar 1 asteroide nuevo cada 5 segundos (aparte
 // de los 10 al principio de cada ronda).
 void AsteroidsSystem::update() {
-	for (auto e : mngr_->getEntities(_grp_ASTEROIDS)) {
-		auto tr = mngr_->getComponent<Transform>(e);
-		tr->setPos(tr->getPos() + tr->getVel());
-		tr->changeRot(5.0f);
+	// Genera un asteroide nuevo cada 5 segundos 
+	uint32_t frameTime = SDL_GetTicks() - startTime;
+	if (frameTime >= ASTEROIDS_DELAY_TIME) {
+		createAsteroids(1);
+		startTime = SDL_GetTicks();
 	}
 }
 
 // Para gestionar el mensaje de que ha acabado la ronda. Desactivar todos los
 // asteroides, y desactivar el sistema.
 void AsteroidsSystem::onRoundOver() {
-	// Gestionar el mensaje de que ha acabado la ronda
-
-
 	// Desactivar todos los asteroides
 	destroyAllAsteroids();
 	
+	// ESTO DE AQUI NO LO VAMOS A USAR PORQUE TENEMOS MAQUINA DE ESTADOS
 	// Desactiva el sistema
 	active_ = false;
 }
@@ -48,12 +47,10 @@ void AsteroidsSystem::onRoundOver() {
 // Para gestionar el mensaje de que ha empezado una ronda. Activar el sistema y
 // añadir los asteroides iniciales (como en la práctica 1).
 void AsteroidsSystem::onRoundStart() {
-	// Gestionar el mensaje de que ha empezado una ronda
-	
-
 	// Anade los asteroides iniciales
 	createAsteroids(ASTEROIDS_INITIAL_NUMBER);
 
+	// ESTO DE AQUI NO LO VAMOS A USAR PORQUE TENEMOS MAQUINA DE ESTADOS
 	// Activa el sistema
 	active_ = true;
 }
@@ -76,14 +73,14 @@ void AsteroidsSystem::createAsteroids(int n) {
 }
 
 // Reutiliza el metodo de createAsteroids para instanciar 1 asteroide cada cierto tiempo
-void AsteroidsSystem::addAsteroidFrequently() {
-	// Genera un asteroide nuevo cada 5 segundos 
-	uint32_t frameTime = SDL_GetTicks() - startTime;
-	if (frameTime >= ASTEROIDS_DELAY_TIME) {
-		createAsteroids(1);
-		startTime = SDL_GetTicks();
-	}
-}
+//void AsteroidsSystem::addAsteroidFrequently() {
+//	// Genera un asteroide nuevo cada 5 segundos 
+//	uint32_t frameTime = SDL_GetTicks() - startTime;
+//	if (frameTime >= ASTEROIDS_DELAY_TIME) {
+//		createAsteroids(1);
+//		startTime = SDL_GetTicks();
+//	}
+//}
 
 // Destruye todos los asteroides pertenecientes al _grp_ASTEROIDS de las entidades de la escena
 void AsteroidsSystem::destroyAllAsteroids() {

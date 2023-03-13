@@ -8,11 +8,14 @@
 #include "../components/fighterComponents/Health.h"
 #include "../sdlutils/InputHandler.h"
 
+#include "../systems/RenderSystem.h"
+
 class PauseState : public Manager {
 private:
 	Entity* fighter;
 	Entity* pressToContinue;
 	Game* game;
+	RenderSystem* renderSystem;
 public:
 
 	// Constructora

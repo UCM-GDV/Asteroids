@@ -39,18 +39,31 @@ constexpr sysId_type maxSystemId = _LAST_SYS_ID;
 
 using msgId_type = int;
 enum msgId : msgId_type {
-	_m_ASTEROIDS_END, //
-	_m_ASTEROIDS_ADD
+	_m_ROUND_STARTED,
+	_m_ROUND_FINISHED,
+	_m_FIGTHER_ASTEROID_COLLIDED,
+	_m_BULLET_ASTEROID_COLLIDED,
+	_m_FIGHTER_SHOOT,
+	_m_ASTEROIDS_EXTINCTION,
+
+	// do not remove this
+	_LAST_SYS_ID
 };
 
 struct Message {
 	msgId_type id;
-	// _m_ASTEROIDS_END
+	// _m_ROUND_STARTED
 	struct {
-		Entity* e;
-	} asteroids_end;
-	// _m_ASTEROIDS_ADD
+
+	} round_started;
+	// _m_ROUND_FINISHED
 	struct {
-		unsigned int n;
-	} add_asteroids_data;
+
+	} round_finished;
+	// _m_FIGHTER_SHOOT
+	struct {
+		Vector2D pos, vel;
+		double width, height;
+	} fighter_shoot;
+
 };

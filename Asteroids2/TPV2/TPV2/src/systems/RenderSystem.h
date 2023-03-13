@@ -1,5 +1,6 @@
 #pragma once
 #include "../ecs/System.h"
+#include "../components/fighterComponents/Health.h"
 
 class RenderSystem : public System {
 public:
@@ -13,12 +14,16 @@ public:
 	// la práctica 1)
 	void update() override;
 private:
+	Transform* fighterTransform;
+	Health* fighterHealth;
+	
+	// ESTO DE AQUI NO LO VAMOS A USAR PORQUE TENEMOS MAQUINA DE ESTADOS
 	// Para gestionar los mensajes correspondientes y actualizar los atributos
 	// winner_ y state_. 
-	void onRoundStart();
-	void onRoundOver();
-	void onGameStart();
-	void onGameOver();
-	Uint8 winner_; // 0 - None, 1 - Asteroid, 2- Fighter
-	Uint8 state_; // El estado actual de juego (como en GameCtrlSystem)
+	//void onRoundStart();
+	//void onRoundOver();
+	//void onGameStart();
+	//void onGameOver();
+	//Uint8 winner_; // 0 - None, 1 - Asteroid, 2 - Fighter
+	//Uint8 state_; // El estado actual de juego (como en GameCtrlSystem)
 };

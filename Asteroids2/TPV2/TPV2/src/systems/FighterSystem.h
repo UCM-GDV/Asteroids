@@ -1,5 +1,7 @@
 #pragma once
+#include <cassert>
 #include "../ecs/System.h"
+#include "../Components/Transform.h" 
 class FighterSystem : public System {
 public:
 	// Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
@@ -18,6 +20,20 @@ private:
 	// un asteroide. Poner el caza en el centro con velocidad (0,0) y rotación 0. No
 	// hace falta desactivar la entidad (no dibujarla si el juego está parado).
 	void onCollision_FighterAsteroid();
+	// Acelera al fighter
+	void accelerate();
+	// Reestablece la posicion, velocidad y rotacion del fighter
+	inline void resetFighter() {
+		fighterTransform->setPos({ WIN_HALF_WIDTH, WIN_HALF_HEIGHT });
+		fighterTransform->setVel(FIGHTER_VELOCITY);
+		fighterTransform->setRot(0);
+	}
+	// Puntero al transform del fighter
+	Transform* fighterTransform;
+
+	void rotate(float r_);
+	float degreesToRadians(float degrees_);
+	// ESTO DE AQUI NO LO VAMOS A USAR PORQUE TENEMOS MAQUINA DE ESTADOS
 	// Para gestionar el mensaje de que ha acabado una ronda. Desactivar el sistema.
 	void onRoundOver();
 	// Para gestionar el mensaje de que ha empezado una ronda. Activar el sistema.

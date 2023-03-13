@@ -10,6 +10,18 @@ public:
 	// en la práctica 1 y enviar mensajes correspondientes.
 	void update() override;
 private:
+	
+	// Devuelve si algun asteroide ha colisionado con el fighter
+	bool fighterCollision(Transform* asteroidTransform);
+	// Devuelve si la bala ha colisionado con algun asteroide
+	bool bulletCollision(Transform* bulletTransform, Transform* asteroidTransform);
+	
+	PlayState* mngr;
+	Transform* fighterTransform;
+	Health* fighterHealth;
+	Collisions* col;
+
+	// ESTO DE AQUI NO LO VAMOS A USAR PORQUE TENEMOS MAQUINA DE ESTADOS
 	// Para gestionar el mensaje de que ha acabado una ronda. Desactivar el sistema.
 	void onRoundOver();
 	// Para gestionar el mensaje de que ha empezado una ronda. Activar el sistema.
