@@ -13,8 +13,7 @@ Game::Game() {
 	sdl = SDLUtils::instance();
 	 
 	window = sdl->window();
-	// Coge el redenderer
-	renderer = sdl->renderer();
+	
 	sdl->showCursor();
 	// Instancia el inputHandle
 	inputHandler = InputHandler::instance();
@@ -54,20 +53,11 @@ void Game::run() {
 		frameTime = SDL_GetTicks() - startTime;
 		if (frameTime >= DELAY_TIME) {
 			update();
-			render();
 			startTime = SDL_GetTicks();
 		}
 		handleEvents();
 	}
 	GameStateMachine::instance()->clearStates();
-}
-
-// Dibuja el juego
-void Game::render() const {
-	SDL_SetRenderDrawColor(sdlutils().renderer(), 0, 30, 50, 0);
-	SDL_RenderClear(renderer);
-	GameStateMachine::instance()->currentState()->render();
-	SDL_RenderPresent(renderer);
 }
 
 // Actualiza el juego

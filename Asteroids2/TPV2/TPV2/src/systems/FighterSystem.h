@@ -2,8 +2,16 @@
 #include <cassert>
 #include "../ecs/System.h"
 #include "../Components/Transform.h" 
+#include "../Components/fighterComponents/Health.h"
+#include "../Components/fighterComponents/Gun.h"
+#include "../Components/fighterComponents/DeAcceleration.h"
+#include "../Components/ShowAtOppositeSide.h"
+
 class FighterSystem : public System {
 public:
+	// Identificador
+	constexpr static sysId_type id = _sys_FIGHTER;
+
 	// Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 	void receive(const Message& m) override;
 	// Crear la entidad del caza, añadir sus componentes, asociarla con un handler
@@ -28,9 +36,20 @@ private:
 		fighterTransform->setVel(FIGHTER_VELOCITY);
 		fighterTransform->setRot(0);
 	}
-	// Puntero al transform del fighter
+	// Devuelve el numero de vidas
+	inline int getLives() { return fighterHealth->getLives(); }
+	// Decrementa el numero de vidas actual
+	inline void decreaseLives() { fighterHealth->decreaseLive(); }
+	// Resetea el numero de vidas actual
+	inline void resetLives() { fighterHealth->setLives(NUMBER_LIVES); }
+	// Fighter
+	Entity* fighter;
 	Transform* fighterTransform;
-
+	Health* fighterHealth;
+	Gun* fighterGun;
+	DeAcceleration* fighterDeAcceleration;
+	ShowAtOppositeSide* fighterShowAtOppositeSide;
+	
 	void rotate(float r_);
 	float degreesToRadians(float degrees_);
 	// ESTO DE AQUI NO LO VAMOS A USAR PORQUE TENEMOS MAQUINA DE ESTADOS

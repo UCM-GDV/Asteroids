@@ -3,11 +3,13 @@
 #include "../../sdlutils/Texture.h"
 #include "../../sdlutils/SDLUtils.h"
 
-class Health : public Component {
+struct Health : public Component {
 private:
 	int lives;
 	Texture* texture;
 public:
+    // Identificador
+    constexpr static cmpId_type id = _HEALTH;
 	// Constructora
 	Health();
 	// Destructora

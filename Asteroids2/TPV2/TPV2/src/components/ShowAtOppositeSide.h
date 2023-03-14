@@ -4,10 +4,12 @@
 #include "../ecs/Entity.h"
 #include <cassert>
 
-class ShowAtOppositeSide : public Component {
+struct ShowAtOppositeSide : public Component {
 private:
 	Transform* transform;
 public:
+    // Identificador
+    constexpr static cmpId_type id = _SHOWATOPPOSITESIDE;
 	// Constructora
 	ShowAtOppositeSide();
 	// Destructora

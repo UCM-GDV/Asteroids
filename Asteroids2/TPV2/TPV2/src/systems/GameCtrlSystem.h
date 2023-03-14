@@ -5,6 +5,9 @@
 //ellos. Decide cuándo acaba una ronda, cuando acaba el juego, etc.
 class GameCtrlSystem : public System {
 public:
+    // Identificador
+    constexpr static sysId_type id = _sys_GAMECTRL;
+
     // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
     void receive(const Message& m) override;
     // Inicializar el sistema, etc.

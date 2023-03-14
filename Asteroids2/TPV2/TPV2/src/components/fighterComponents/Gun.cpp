@@ -12,7 +12,6 @@ Gun::~Gun() {
 
 // Inicializa el componente
 void Gun::initComponent() {
-	transform = ent_->getComponent<Transform>(_TRANSFORM);
 	assert(transform != nullptr);
 }
 
@@ -22,17 +21,17 @@ void Gun::handleEvent(SDL_Event event) {
 		if (InputHandler::instance()->isKeyDown(SDLK_s)) {
 			int frameTime = SDL_GetTicks() - startTime;
 			if (frameTime >= 250) {
-				tryShoot();
+				//tryShoot();
 				SDLUtils::instance()->soundEffects().at("fire").play();
 				startTime = SDL_GetTicks();
 			}
 		}
 	}
 }
-
-// Confirma que se trata de la escena de PlayState y anade una bala a la escena
-void Gun::tryShoot() {
-	static_cast<PlayState*>(mngr_)->addBullet();
-}
+//
+//// Confirma que se trata de la escena de PlayState y anade una bala a la escena
+//void Gun::tryShoot() {
+//	static_cast<PlayState*>(mngr_)->addBullet();
+//}
 
 		

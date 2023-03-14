@@ -3,11 +3,13 @@
 #include "../Transform.h"
 #include <cassert>
 
-class Follow : public Component {
+struct Follow : public Component {
 private:
 	Transform* transform;
 	Transform* followObjectTransform;
 public:
+	// Identificador
+	constexpr static cmpId_type id = _FOLLOW;
 	// Constructora
 	Follow(Transform* followObjectTransform_);
 	// Destructora

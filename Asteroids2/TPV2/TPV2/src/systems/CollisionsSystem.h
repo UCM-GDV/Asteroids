@@ -2,6 +2,9 @@
 #include "../ecs/System.h"
 class CollisionsSystem : public System {
 public:
+	// Identificador
+	constexpr static sysId_type id = _sys_COLLISIONS;
+
 	// Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 	void receive(const Message& m) override;
 	// Inicializar el sistema, etc.
@@ -11,6 +14,7 @@ public:
 	void update() override;
 private:
 	
+
 	// Devuelve si algun asteroide ha colisionado con el fighter
 	bool fighterCollision(Transform* asteroidTransform);
 	// Devuelve si la bala ha colisionado con algun asteroide

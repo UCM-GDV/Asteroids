@@ -24,22 +24,18 @@ void RenderSystem::initSystem() {
 // - Dibujar los mensajes correspondientes: si el juego está parado, etc (como en
 // la práctica 1)
 void RenderSystem::update() {
+	SDL_SetRenderDrawColor(sdlutils().renderer(), 0, 30, 50, 0);
+	SDL_RenderClear(sdlutils().renderer());
+
 	// Caza
 	SDL_Rect dest = build_sdlrect(fighterTransform->getPos(), fighterTransform->getW(), fighterTransform->getH());
 	SDLUtils::instance()->images().at("Fighter").render(dest, fighterTransform->getR());
 
 	// Vidas
 	for (int i = 0; i < fighterHealth->getLives(); ++i) {
-		SDL_Rect dest;
-		dest.x = i * LIVES_WIDTH + LIVES_POSITION.getX();
-		dest.y = LIVES_POSITION.getY();
-		dest.w = LIVES_WIDTH;
-		dest.h = LIVES_HEIGHT;
+		Vector2D healthPosition = Vector2D(i * LIVES_WIDTH + LIVES_POSITION.getX(), LIVES_POSITION.getY());
+		SDL_Rect dest = build_sdlrect(healthPosition, LIVES_WIDTH, LIVES_HEIGHT);
 		SDLUtils::instance()->images().at("Fighter").render(dest);
-	}
-	
-	for (Entity* fighter : mngr_->getEntities(_grp_FIGHTER)) {
-		fighter->render();
 	}
 
 	// Si el juego no esta parado
@@ -60,6 +56,8 @@ void RenderSystem::update() {
 			msg->render();
 		}
 	}
+
+	SDL_RenderPresent(sdlutils().renderer());
 }
 
 //// ESTO DE AQUI NO LO VAMOS A USAR PORQUE TENEMOS MAQUINA DE ESTADOS

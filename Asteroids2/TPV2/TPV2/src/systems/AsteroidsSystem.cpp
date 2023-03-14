@@ -2,7 +2,6 @@
 
 // Destructora
 AsteroidsSystem::~AsteroidsSystem() {
-	mngr = nullptr;
 	asteroid = nullptr;
 }
 
@@ -25,11 +24,25 @@ void AsteroidsSystem::receive(const Message& m) {
 // en la práctica 1 y generar 1 asteroide nuevo cada 5 segundos (aparte
 // de los 10 al principio de cada ronda).
 void AsteroidsSystem::update() {
+
+	// addAsteroidFrequently()
 	// Genera un asteroide nuevo cada 5 segundos 
 	uint32_t frameTime = SDL_GetTicks() - startTime;
 	if (frameTime >= ASTEROIDS_DELAY_TIME) {
 		createAsteroids(1);
 		startTime = SDL_GetTicks();
+	}
+
+	// Movimiento de los asteroides
+	for (auto asteroid : mngr_->getEntities(_grp_ASTEROIDS_WHITE)) {
+		auto tr = mngr_->getComponent<Transform>(asteroid);
+		tr->position_ = tr->position_ + tr->velocity_;
+		//tr->rotation_ += 5.0f;
+	}
+	for (auto asteroid : mngr_->getEntities(_grp_ASTEROIDS_YELLOW)) {
+		auto tr = mngr_->getComponent<Transform>(asteroid);
+		tr->position_ = tr->position_ + tr->velocity_;
+		//tr->rotation_ += 5.0f;
 	}
 }
 
@@ -38,10 +51,6 @@ void AsteroidsSystem::update() {
 void AsteroidsSystem::onRoundOver() {
 	// Desactivar todos los asteroides
 	destroyAllAsteroids();
-	
-	// ESTO DE AQUI NO LO VAMOS A USAR PORQUE TENEMOS MAQUINA DE ESTADOS
-	// Desactiva el sistema
-	active_ = false;
 }
 
 // Para gestionar el mensaje de que ha empezado una ronda. Activar el sistema y
@@ -49,10 +58,6 @@ void AsteroidsSystem::onRoundOver() {
 void AsteroidsSystem::onRoundStart() {
 	// Anade los asteroides iniciales
 	createAsteroids(ASTEROIDS_INITIAL_NUMBER);
-
-	// ESTO DE AQUI NO LO VAMOS A USAR PORQUE TENEMOS MAQUINA DE ESTADOS
-	// Activa el sistema
-	active_ = true;
 }
 
 // Crea n asteroides
@@ -72,21 +77,13 @@ void AsteroidsSystem::createAsteroids(int n) {
 	}
 }
 
-// Reutiliza el metodo de createAsteroids para instanciar 1 asteroide cada cierto tiempo
-//void AsteroidsSystem::addAsteroidFrequently() {
-//	// Genera un asteroide nuevo cada 5 segundos 
-//	uint32_t frameTime = SDL_GetTicks() - startTime;
-//	if (frameTime >= ASTEROIDS_DELAY_TIME) {
-//		createAsteroids(1);
-//		startTime = SDL_GetTicks();
-//	}
-//}
-
 // Destruye todos los asteroides pertenecientes al _grp_ASTEROIDS de las entidades de la escena
 void AsteroidsSystem::destroyAllAsteroids() {
-	vector<Entity*> v = mngr->getEntities(_grp_ASTEROIDS);
-	for (auto& ents : v) {
-		ents->setAlive(false);
+	for (auto& asteroid : mngr_->getEntities(_grp_ASTEROIDS_WHITE)) {
+		asteroid->setAlive(false);
+	}
+	for (auto& asteroid : mngr_->getEntities(_grp_ASTEROIDS_YELLOW)) {
+		asteroid->setAlive(false);
 	}
 	numOfAsteroids_ = 0;
 }
@@ -134,26 +131,24 @@ void AsteroidsSystem::onCollision_AsteroidBullet(Entity* a) {
 
 // Crea un asteroide blanco con sus componentes
 void AsteroidsSystem::createWhiteAsteroid(Vector2D pos, Vector2D vel, float width, float height, int g) {
-	asteroid = new Entity();
-	asteroid->setContext(mngr);
-	asteroid->addComponent<Transform>(_TRANSFORM, pos, vel, width, height, 0);
-	asteroid->addComponent<Generations>(_GENERATIONS, g);
-	asteroid->addComponent<ShowAtOppositeSide>(_SHOWATOPPOSIDESIDE);
-	asteroid->addComponent<FramedImage>(_FRAMEDIMAGE, &SDLUtils::instance()->images().at("WhiteAsteroid"), ASTEROID_WHITE_FRAME_WIDTH, ASTEROID_WHITE_FRAME_HEIGHT, ASTEROID_WHITE_NUMCOLS, ASTEROID_WHITE_NUMROWS);
-	mngr->addEntity(asteroid, _grp_ASTEROIDS);
+	asteroid = new Entity(_grp_ASTEROIDS_WHITE);
+	mngr_->addComponent<Transform>(asteroid, pos, vel, width, height, 0);
+	mngr_->addComponent<Generations>(asteroid, g);
+	mngr_->addComponent<ShowAtOppositeSide>(asteroid);
+	mngr_->addComponent<FramedImage>(asteroid, &SDLUtils::instance()->images().at("WhiteAsteroid"), ASTEROID_WHITE_FRAME_WIDTH, ASTEROID_WHITE_FRAME_HEIGHT, ASTEROID_WHITE_NUMCOLS, ASTEROID_WHITE_NUMROWS);
+	mngr_->addEntity(asteroid);
 	numOfAsteroids_++;
 }
 
 // Crea un asteroide amarillo con sus componentes
 void AsteroidsSystem::createYellowAsteroid(Vector2D pos, Vector2D vel, float width, float height, int g) {
-	asteroid = new Entity();
-	asteroid->setContext(mngr);
-	asteroid->addComponent<Transform>(_TRANSFORM, pos, vel, width, height, 0);
-	asteroid->addComponent<Generations>(_GENERATIONS, g);
-	asteroid->addComponent<ShowAtOppositeSide>(_SHOWATOPPOSIDESIDE);
-	asteroid->addComponent<FramedImage>(_FRAMEDIMAGE, &SDLUtils::instance()->images().at("YellowAsteroid"), ASTEROID_GOLD_FRAME_WIDTH, ASTEROID_GOLD_FRAME_HEIGHT, ASTEROID_WHITE_NUMCOLS, ASTEROID_WHITE_NUMROWS);
-	asteroid->addComponent<Follow>(_FOLLOW, mngr->getFighter()->getComponent<Transform>(_TRANSFORM));
-	mngr->addEntity(asteroid, _grp_ASTEROIDS);
+	asteroid = new Entity(_grp_ASTEROIDS_YELLOW);
+	mngr_->addComponent<Transform>(asteroid, pos, vel, width, height, 0);
+	mngr_->addComponent<Generations>(asteroid, g);
+	mngr_->addComponent<ShowAtOppositeSide>(asteroid);
+	mngr_->addComponent<FramedImage>(asteroid, &SDLUtils::instance()->images().at("YellowAsteroid"), ASTEROID_GOLD_FRAME_WIDTH, ASTEROID_GOLD_FRAME_HEIGHT, ASTEROID_WHITE_NUMCOLS, ASTEROID_WHITE_NUMROWS);
+	mngr_->addComponent<Follow>(asteroid, mngr->getFighter()->getComponent<Transform>(_TRANSFORM));
+	mngr->addEntity(asteroid);
 	numOfAsteroids_++;
 }
 

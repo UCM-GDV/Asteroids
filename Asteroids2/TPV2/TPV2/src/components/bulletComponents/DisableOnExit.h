@@ -3,10 +3,12 @@
 #include "../../ecs/Entity.h"
 #include <cassert>
 
-class DisableOnExit : public Component {
+struct DisableOnExit : public Component {
 private:
 	Transform* transform;
 public:
+    // Identificador
+    constexpr static cmpId_type id = _DISABLEONEXIT;
 	// Constructora
 	DisableOnExit();
 	// Destructora

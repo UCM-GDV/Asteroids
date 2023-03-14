@@ -17,7 +17,6 @@ class Game {
 private:
 	SDLUtils* sdl = nullptr;
 	SDL_Window* window = nullptr;
-	SDL_Renderer* renderer = nullptr;
 	InputHandler* inputHandler = nullptr;
 	bool exit;
 	unordered_map<string,Texture*> texts;
@@ -28,16 +27,12 @@ public:
 	~Game();
 	// Ejecuta el juego
 	void run();
-	// Dibuja el juego
-	void render() const;
 	// Actualiza el juego
 	void update();
 	// Actualiza el juego en función del estado actual
 	void refresh();
 	// Maneja los eventos del estado actual
 	void handleEvents();
-	// Devuelve el renderer
-	inline SDL_Renderer* getRenderer() { return sdlutils().renderer(); }
 	// Devuelve la textura de texto deseado
 	inline Texture* getText(string text) { return texts[text]; }
 	// Sale del juego

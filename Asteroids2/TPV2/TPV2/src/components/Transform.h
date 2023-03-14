@@ -2,20 +2,19 @@
 #include "../utils/Vector2D.h"
 #include "../ecs/Component.h"
 
-class Transform: public Component {
-private:
+struct Transform : public Component {
 	// Vectores de posicion y velocidad
 	Vector2D position_, velocity_;
 	// Ancho, alto y rotacion
 	float width_, height_, rotation_;
-public:
 	// Constructora
 	Transform(Vector2D pos, Vector2D vel, float w, float h, float r) :
 		position_(pos), velocity_(vel), width_(w), height_(h), rotation_(r) {};
+
 	// Destructora
 	virtual ~Transform() {}
 	// Actualiza la posicion
-	virtual void update() { position_ = position_ + velocity_; }
+	//virtual void update() { position_ = position_ + velocity_; }
 	// Devuelve su posicion
 	inline Vector2D& getPos() { return position_; }
 	// Devuelve su velocidad

@@ -1,74 +1,40 @@
 #pragma once
+#include "../game/ecs_def.h"
+#include "../sdlutils/SDLUtils.h"
+#include "../game/Game.h"
 #include "../ecs/Manager.h"
 #include "../ecs/Entity.h"
-#include "../game/ecs_def.h"
-#include "../components/Image.h"
-#include "../components/asteroidsComponents/FramedImage.h"
-#include "../components/fighterComponents/DeAcceleration.h"
-#include "../components/fighterComponents/Health.h"
-#include "../sdlutils/SDLUtils.h"
-//#include "../components/fighterComponents/FighterControl.h"
-#include "../components/fighterComponents/Gun.h"
-#include "../components/ShowAtOppositeSide.h"
-#include "../components/bulletComponents/DisableOnExit.h"
-#include "../components/asteroidsComponents/Generations.h"
-#include "../components/asteroidsComponents/Follow.h"
-#include "../game/AsteroidsManager.h"
-#include "../game/CollisionsManager.h"
-#include "../game/Game.h"
-
 // Sistemas
-//#include "../systems/AsteroidsSystem.h"
-//#include "../systems/BulletSystem.h"
-//#include "../systems/CollisionsSystem.h"
-//#include "../systems/FighterSystem.h"
-//#include "../systems/GameCtrlSystem.h"
-//#include "../systems/RenderSystem.h"
+#include "../systems/AsteroidsSystem.h"
+#include "../systems/BulletSystem.h"
+#include "../systems/CollisionsSystem.h"
+#include "../systems/FighterSystem.h"
+#include "../systems/GameCtrlSystem.h"
+#include "../systems/RenderSystem.h"
 
 class PlayState : public Manager {
 private:
 	Game* game;
 	// Entidades
-	Entity* fighter;
 	Entity* bullet;
-	// Componentes
-	Transform* fighterTransform;
-	Gun* fighterGun;
-	//FighterControl* fighterControl;
-	Health* fighterHealth;
+	
 	// Sistemas
-	//AsteroidsSystem* asteroidsSys_;
-	//BulletSystem* bulletSys_;
-	//CollisionsSystem* collisionsSys_;
-	//FighterSystem* fighterSys_;
-	//GameCtrlSystem* gameCtrlSys_;
-	//RenderSystem* renderSys_;
+	AsteroidsSystem* asteroidsSys_;
+	BulletSystem* bulletSys_;
+	CollisionsSystem* collisionsSys_;
+	FighterSystem* fighterSys_;
+	GameCtrlSystem* gameCtrlSys_;
+	RenderSystem* renderSys_;
 public:
 	// Constructora
 	PlayState(Game* game);
 	// Destructora
 	~PlayState();
 	// Anade bala a la escena dependiendo de la posicion del fighter
-	void addBullet();
+	//void addBullet();
     // Recoge el input del usuario
-	void handleEvent();
-    // Actualiza el vector de entidades, anade asteroides y comprueba las colisiones
-	void update();
-	// Devuelve el puntero al fighter
-	inline Entity* getFighter() { return fighter; }
-	// Devuelve el puntero al game
-	inline Game* getGame() { return game; }
-	// Reestablece la posicion, velocidad y rotacion del fighter
-    inline void resetFighter() {
-        fighterTransform->setPos({ WIN_HALF_WIDTH, WIN_HALF_HEIGHT });
-        fighterTransform->setVel(FIGHTER_VELOCITY);
-        fighterTransform->setRot(0);
-	}
-	inline int getLives() { return fighterHealth->getLives(); }
-	// Decrementa el numero de vidas actual
-	inline void decreaseLives() { fighterHealth->decreaseLive(); }
-	// Resetea el numero de vidas actual
-	inline void resetLives() { fighterHealth->setLives(NUMBER_LIVES); }
+	//void handleEvent();
+	
 	// Para el juego
 	void pauseGame();
 	// Fin del juego

@@ -13,6 +13,8 @@
 //		// Coge el componente transofrm
 //		Transform* transform;
 //	public:
+//      // Identificador
+//		constexpr static cmpId_type id = _FIGHTERCONTROL;
 //		// Constructora
 //		FighterControl();
 //		// Destructora

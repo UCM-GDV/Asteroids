@@ -1,5 +1,5 @@
 #include "Follow.h"
-#include "../../ecs/Entity.h"
+#include "../../ecs/Manager.h"
 // Constructora
 Follow::Follow(Transform* followObjectTransform_): transform(nullptr) {
 	followObjectTransform = followObjectTransform_;
@@ -14,7 +14,7 @@ Follow::~Follow() {
 
 // Inicializa el componente
 void Follow::initComponent() {
-	transform = ent_->getComponent<Transform>(_TRANSFORM);
+	transform = mngr_->getComponent<Transform>(ent_);
 }
 
 // Actualiza su vector de velocidad para perseguir al fighter

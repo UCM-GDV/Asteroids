@@ -3,8 +3,11 @@
 #include "../components/fighterComponents/Gun.h"
 
 //Sistema responsable de las balas(crearlas, destruirlas, etc.).
-class BulletsSystem : public System {
+class BulletSystem : public System {
 public:
+	// Identificador
+    constexpr static sysId_type id = _sys_BULLET;
+
     // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
     void receive(const Message& m) override;
     // Inicializar el sistema, etc.
@@ -28,10 +31,10 @@ private:
     // ESTO DE AQUI NO LO VAMOS A USAR PORQUE TENEMOS MAQUINA DE ESTADOS
     // Para gestionar el mensaje de que ha acabado la ronda. Desactivar todas las
     // balas, y desactivar el sistema.
-    void onRoundOver();
-    // Para gestionar el mensaje de que ha empezado una ronda. Activar el sistema.
-    void onRoundStart();
-    // Indica si el sistema está activo o no (modificar el valor en onRoundOver y
-    // onRoundStart, y en update no hacer nada si no está activo)
-    bool active_;
+    //void onRoundOver();
+    //// Para gestionar el mensaje de que ha empezado una ronda. Activar el sistema.
+    //void onRoundStart();
+    //// Indica si el sistema está activo o no (modificar el valor en onRoundOver y
+    //// onRoundStart, y en update no hacer nada si no está activo)
+    //bool active_;
 };

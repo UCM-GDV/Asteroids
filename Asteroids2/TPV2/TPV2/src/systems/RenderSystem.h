@@ -4,6 +4,9 @@
 
 class RenderSystem : public System {
 public:
+	// Identificador
+	constexpr static sysId_type id = _sys_RENDER;
+
 	// Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 	void receive(const Message& m) override;
 	// Inicializar el sistema, etc.

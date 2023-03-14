@@ -1,4 +1,5 @@
 #pragma once
+#include "../utils/Vector2D.h"
 using cmpId_type = int;
 enum cmpId : cmpId_type {
 	_TRANSFORM = 0,
@@ -8,7 +9,7 @@ enum cmpId : cmpId_type {
 	_HEALTH = 4,
 	_FIGHTERCONTROL = 5,
 	_GUN = 6,
-	_SHOWATOPPOSIDESIDE = 7,
+	_SHOWATOPPOSITESIDE = 7,
 	_GENERATIONS = 8,
 	_FOLLOW = 9,
 	_DISABLEONEXIT = 10,
@@ -20,10 +21,12 @@ constexpr cmpId_type maxComponentId = _LAST_CMP_ID;
 using grpId_type = int;
 enum grpId : grpId_type {
     _grp_GENERAL = 0, 
-	_grp_ASTEROIDS = 1,
-	_grp_BULLETS = 2,
-	_grp_FIGHTER = 3,
-	_grp_MESSAGES =4,
+	_grp_ASTEROIDS_WHITE = 1,
+	_grp_ASTEROIDS_YELLOW = 2,
+	_grp_BULLETS = 3,
+	_grp_FIGHTER = 4,
+	_grp_MESSAGES = 5,
+	// do not remove this
 	_LAST_GRP_ID
 };
 constexpr grpId_type maxGroupId = _LAST_GRP_ID;
@@ -31,7 +34,11 @@ constexpr grpId_type maxGroupId = _LAST_GRP_ID;
 using sysId_type = int;
 enum sysId : sysId_type {
 	_sys_ASTEROIDS = 0,
-	_sys_COLLISIONS,
+	_sys_BULLET = 1,
+	_sys_COLLISIONS = 2,
+	_sys_FIGHTER = 3,
+	_sys_GAMECTRL = 4,
+	_sys_RENDER = 5,
 	// do not remove this
 	_LAST_SYS_ID
 };
@@ -45,9 +52,7 @@ enum msgId : msgId_type {
 	_m_BULLET_ASTEROID_COLLIDED,
 	_m_FIGHTER_SHOOT,
 	_m_ASTEROIDS_EXTINCTION,
-
-	// do not remove this
-	_LAST_SYS_ID
+	_m_UPDATE_POSITION,
 };
 
 struct Message {

@@ -1,11 +1,12 @@
 #include "DeAcceleration.h"
+#include "../../ecs/Manager.h"
 // Constructora 
 DeAcceleration::DeAcceleration() : transform(nullptr) {}
 // Destructora 
  DeAcceleration::~DeAcceleration() {};
  // Inicializa el componente
 void DeAcceleration::initComponent() {
-	transform = ent_->getComponent<Transform>(_TRANSFORM);
+	transform = mngr_->getComponent<Transform>(ent_);
 	assert(transform != nullptr);
 }
 // Actualiza el componente

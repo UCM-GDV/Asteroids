@@ -3,11 +3,13 @@
 #include "../../ecs/Entity.h"
 #include <cassert>
 
-class DeAcceleration : public Component {
+struct DeAcceleration : public Component {
 private:
 	// Referencia al Transform
 	Transform* transform;
 public:
+    // Identificador
+    constexpr static cmpId_type id = _DEACCELERATION;
 	// Constructora
 	DeAcceleration();
 	// Destructora

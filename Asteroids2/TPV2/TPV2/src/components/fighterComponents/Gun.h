@@ -5,12 +5,14 @@
 #include <cassert>
 class PlayState;
 
-class Gun : public Component {
-private:
+struct Gun : public Component {
+    // Identificador
+    constexpr static cmpId_type id = _GUN;
+
 	Transform* transform;
 	int startTime;
-public:
-	// Constructora
+    
+	//// Constructora
 	Gun();
 	// Destructora
 	virtual ~Gun();
@@ -19,5 +21,5 @@ public:
     // Recoge el input del jugador
 	void handleEvent(SDL_Event event);
     // Confirma que se trata de la escena de PlayState y anade una bala a la escena
-	void tryShoot();
+	//void tryShoot();
 };

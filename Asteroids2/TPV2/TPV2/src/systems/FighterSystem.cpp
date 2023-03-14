@@ -6,11 +6,26 @@ void FighterSystem::receive(const Message& m) {
         default: break;
     }
 }
+
 // Crear la entidad del caza, añadir sus componentes, asociarla con un handler
 // correspondiente, etc.
 void FighterSystem::initSystem() {
-    fighterTransform = mngr_->getEntities(_grp_FIGHTER).at(0)->getComponent<Transform>(_TRANSFORM);
-	assert(fighterTransform != nullptr);
+    // FIGHTER
+    fighter = new Entity(_grp_FIGHTER);
+    fighter->setContext(mngr_);
+    fighterTransform = mngr_->addComponent<Transform>(fighter, Vector2D(WIN_HALF_WIDTH, WIN_HALF_HEIGHT), FIGHTER_VELOCITY, FIGHTER_WIDTH, FIGHTER_HEIGHT, FIGHTER_ROTATION);
+    fighterTransform->setContext(fighter, mngr_);
+    fighterHealth = mngr_->addComponent<Health>(fighter);
+	fighterHealth->setContext(fighter, mngr_);
+	fighterDeAcceleration = mngr_->addComponent<DeAcceleration>(fighter);
+	fighterDeAcceleration->setContext(fighter, mngr_);
+    fighterGun = mngr_->addComponent<Gun>(fighter);
+	fighterGun->setContext(fighter, mngr_);
+	fighterShowAtOppositeSide = mngr_->addComponent<ShowAtOppositeSide>(fighter);
+	fighterShowAtOppositeSide->setContext(fighter, mngr_);
+    mngr_->addEntity(fighter, _grp_FIGHTER);
+
+    // ASOCIARLA CON UN HANDLER
 }
 
 // Si el juego está parado no hacer nada, en otro caso actualizar la velocidad
@@ -50,6 +65,7 @@ void FighterSystem::onCollision_FighterAsteroid() {
 //		}
 //	}
 //}
+
 // Acelera al fighter
 void FighterSystem::accelerate() {
     Vector2D newVel = fighterTransform->getVel() + Vector2D(0.0f, -1.0f).rotate(fighterTransform->getR()) * 0.7f;
@@ -60,6 +76,7 @@ void FighterSystem::accelerate() {
 void FighterSystem::rotate(float r_) {
 	fighterTransform->changeRot(degreesToRadians(r_));
 }
+
 float  FighterSystem::degreesToRadians(float degrees_) {
 	return (degrees_ * (M_PI / 180));
 }
