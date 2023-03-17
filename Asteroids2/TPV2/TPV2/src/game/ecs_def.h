@@ -3,16 +3,16 @@
 using cmpId_type = int;
 enum cmpId : cmpId_type {
 	_TRANSFORM = 0,
-	_IMAGE = 1,
-	_FRAMEDIMAGE = 2,
-	_DEACCELERATION = 3,
-	_HEALTH = 4,
-	_FIGHTERCONTROL = 5,
-	_GUN = 6,
-	_SHOWATOPPOSITESIDE = 7,
-	_GENERATIONS = 8,
-	_FOLLOW = 9,
-	_DISABLEONEXIT = 10,
+	//_IMAGE = 1,
+	_FRAMEDIMAGE = 1,
+	//_DEACCELERATION = 3,
+	_HEALTH = 2,
+	//_FIGHTERCONTROL = 5,
+	//_GUN = 6,
+	//_SHOWATOPPOSITESIDE = 7,
+	_GENERATIONS = 3,
+	//_FOLLOW = 9,
+	//_DISABLEONEXIT = 10,
 	// do not remove this
 	_LAST_CMP_ID
 };

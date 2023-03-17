@@ -1,5 +1,4 @@
 #include "Game.h"
-#include "../sdlutils/InputHandler.h"
 #include "../sdlutils/macros.h"
 using namespace std;
 
@@ -18,16 +17,15 @@ Game::Game() {
 	// Instancia el inputHandle
 	inputHandler = InputHandler::instance();
 	exit = false;
-
 	// Carga las texturas de los textos
-	texts[PRESS_TO_CONTINUE_TEXT] = new Texture(renderer, PRESS_TO_CONTINUE_TEXT, sdl->fonts().at("ARIAL24"), build_sdlcolor(0x112233ff), build_sdlcolor(0xffffffff));
-	texts[PRESS_TO_START_TEXT] = new Texture(renderer, PRESS_TO_START_TEXT, sdl->fonts().at("ARIAL24"), build_sdlcolor(0x112233ff), build_sdlcolor(0xffffffff));
-	texts[GAME_OVER_LOSE_TEXT] = new Texture(renderer, GAME_OVER_LOSE_TEXT, sdl->fonts().at("ARIAL24"), build_sdlcolor(0xff0000ff));
-	texts[GAME_OVER_WIN_TEXT] = new Texture(renderer, GAME_OVER_WIN_TEXT, sdl->fonts().at("ARIAL24"), build_sdlcolor(0x00ff00ff));
+	texts[PRESS_TO_CONTINUE_TEXT] = new Texture(SDLUtils::instance()->renderer(), PRESS_TO_CONTINUE_TEXT, sdl->fonts().at("ARIAL24"), build_sdlcolor(0x112233ff), build_sdlcolor(0xffffffff));
+	texts[PRESS_TO_START_TEXT] = new Texture(SDLUtils::instance()->renderer(), PRESS_TO_START_TEXT, sdl->fonts().at("ARIAL24"), build_sdlcolor(0x112233ff), build_sdlcolor(0xffffffff));
+	texts[GAME_OVER_LOSE_TEXT] = new Texture(SDLUtils::instance()->renderer(), GAME_OVER_LOSE_TEXT, sdl->fonts().at("ARIAL24"), build_sdlcolor(0xff0000ff));
+	texts[GAME_OVER_WIN_TEXT] = new Texture(SDLUtils::instance()->renderer(), GAME_OVER_WIN_TEXT, sdl->fonts().at("ARIAL24"), build_sdlcolor(0x00ff00ff));
 
 	// Anade los nuevos estados
-	GameStateMachine::instance()->pushState(new PlayState(this));
-	GameStateMachine::instance()->pushState(new PauseState(this));
+	GameStateMachine::instance()->pushState(new PlayState());
+	GameStateMachine::instance()->pushState(new PauseState());
 }
 
 // Destructora
@@ -38,7 +36,7 @@ Game::~Game() {
 		delete it->second;
 	}
 
-	SDL_DestroyRenderer(renderer);
+	SDL_DestroyRenderer(SDLUtils::instance()->renderer());
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 }
@@ -55,7 +53,7 @@ void Game::run() {
 			update();
 			startTime = SDL_GetTicks();
 		}
-		handleEvents();
+		//handleEvents();
 	}
 	GameStateMachine::instance()->clearStates();
 }
@@ -73,6 +71,6 @@ void Game::refresh() {
 }
 
 // Maneja los eventos del estado actual
-void Game::handleEvents() {
-	GameStateMachine::instance()->currentState()->handleEvent();
-}
+//void Game::handleEvents() {
+//	GameStateMachine::instance()->currentState()->handleEvent();
+//}

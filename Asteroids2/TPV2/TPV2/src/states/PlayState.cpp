@@ -1,7 +1,7 @@
 #include "PlayState.h"
 
 // Constructora
-PlayState::PlayState(Game* game): Manager(), bullet(nullptr), game(game) {
+PlayState::PlayState(): Manager(), bullet(nullptr) {
 	// Sistemas
 	asteroidsSys_ = addSystem<AsteroidsSystem>();
 	bulletSys_ = addSystem<BulletSystem>();
@@ -44,10 +44,10 @@ PlayState::~PlayState() {}
 
 // Para el juego
 void PlayState::pauseGame() {
-	GameStateMachine::instance()->pushState(new PauseState(game));
+	GameStateMachine::instance()->pushState(new PauseState());
 }
 
 // Fin del juego
 void PlayState::endGame(string result) {
-    GameStateMachine::instance()->pushState(new EndState(game, result));
+    GameStateMachine::instance()->pushState(new EndState( result));
 }

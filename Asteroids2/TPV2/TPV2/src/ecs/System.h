@@ -1,5 +1,4 @@
 #pragma once
-#include "../game/ecs_def.h"
 #include "Manager.h"
 #include "../game/constants.h"
 

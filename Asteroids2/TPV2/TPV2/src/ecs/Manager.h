@@ -1,8 +1,5 @@
 #pragma once
-#include <vector>
-#include <array>
 #include "Entity.h"
-class Game;
 class System;
 using namespace std;
 

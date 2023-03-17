@@ -1,12 +1,12 @@
-#pragma once
-#include <cassert>
-#include <math.h>
-#include "../Transform.h" 
-#include "../../ecs/Entity.h"
-#include "../../ecs/Component.h"
-#include "../../sdlutils/SDLUtils.h"
-#include "../../sdlutils/InputHandler.h"
-#include "../../components/fighterComponents/Gun.h"
+//#pragma once
+//#include <cassert>
+//#include <math.h>
+//#include "../Transform.h" 
+//#include "../../ecs/Entity.h"
+//#include "../../ecs/Component.h"
+//#include "../../sdlutils/SDLUtils.h"
+//#include "../../sdlutils/InputHandler.h"
+//#include "../../components/fighterComponents/Gun.h"
 
 //class FighterControl : public Component {
 //	private:

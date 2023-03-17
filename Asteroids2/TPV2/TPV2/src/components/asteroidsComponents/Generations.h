@@ -1,9 +1,7 @@
 #pragma once
 #include <cassert>
 #include <math.h>
-#include "../Transform.h" 
-#include "../../ecs/Entity.h"
-#include "../../ecs/Component.h"
+#include "../../ecs/Manager.h"
 
 struct Generations : public Component {
 private:
@@ -12,17 +10,15 @@ public:
     // Identificador
     constexpr static cmpId_type id = _GENERATIONS;
 	// Constructora
-	Generations(int gen_);
+	Generations(int gen_) : numGen(gen_) {}
 	// Destructora
-		virtual ~Generations();
+	virtual ~Generations() {}
 	// Inicializa el componente
-	void initComponent();
+	//void initComponent() {}
 	// Cambia la generacion del componente
-	inline void setGeneration(int gen_) { numGen = gen_; }
+	//inline void setGeneration(int gen_) { numGen = gen_; }
 	// Devuelve la generacion del componente
-	inline int getGenerations() { return numGen; }
+	//inline int getGenerations() { return numGen; }
 	// Decrementa la generacion
-	inline void decreaseGeneration() { --numGen; }
-		
-
+	//inline void decreaseGeneration() { --numGen; }
 };

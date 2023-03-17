@@ -1,12 +1,7 @@
 #pragma once
 #include "../ecs/System.h"
-#include "../sdlutils/SDLUtils.h"
-#include "../ecs/Entity.h"
-
-#include "../components/Transform.h"
-#include "../components/asteroidsComponents/FramedImage.h"
 #include "../components/asteroidsComponents/Generations.h"
-#include "../components/asteroidsComponents/Follow.h"
+#include "../components/Transform.h"
 
 // Sistema responsable de los asteroides (crear, destruir, etc).
 class AsteroidsSystem : public System {
@@ -49,9 +44,9 @@ private:
 	// Crea un asteroide amarillo con sus componentes
 	void createYellowAsteroid(Vector2D pos, Vector2D vel, float width, float height, int g);
 	// Devuelve una posicion aleatoria
-	Vector2D choosePosition(float width, float height);
-	// Devuelve una velocidad aleatoria
-	Vector2D chooseVelocity(Vector2D p);
+	//Vector2D choosePosition(float width, float height);
+	//// Devuelve una velocidad aleatoria
+	//Vector2D chooseVelocity(Vector2D p);
 
 	// ESTO DE AQUI NO LO VAMOS A USAR PORQUE TENEMOS MAQUINA DE ESTADOS
 	// Indica si el sistema está activo o no (modificar el valor en onRoundOver y

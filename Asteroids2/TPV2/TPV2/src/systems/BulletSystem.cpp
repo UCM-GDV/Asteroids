@@ -9,15 +9,18 @@ void BulletSystem::receive(const Message& m) {
 }
     // Inicializar el sistema, etc.
 void BulletSystem::initSystem() {
-	fighterGun = mngr_->getEntities(_grp_FIGHTER).at(0)->getComponent<Gun>(_GUN);
-	assert(fighterGun != nullptr);
+	/*fighterGun = mngr_->getEntities(_grp_FIGHTER).at(0)->getComponent<Gun>(_GUN);
+	assert(fighterGun != nullptr);*/
 }
 
 // Si el juego está parado no hacer nada, en otro caso mover las balas y
 // desactivar las que salen de la ventana como en la práctica 1.
 void BulletSystem::update() {
 	for (Entity* bullet : mngr_->getEntities(_grp_BULLETS)) {
-		bullet->update();
+		//bullet->update();
+		//if (transform->getPos().getX() < -(BULLET_WIDTH) || transform->getPos().getX() > (WIN_WIDTH + BULLET_WIDTH) || transform->getPos().getY() < -(BULLET_HEIGHT) || transform->getPos().getY() > (WIN_HEIGHT + BULLET_HEIGHT)) {
+		//		ent_->setAlive(false);
+		//}
 	}
 
 	//

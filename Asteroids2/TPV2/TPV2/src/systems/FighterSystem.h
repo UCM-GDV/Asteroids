@@ -3,9 +3,6 @@
 #include "../ecs/System.h"
 #include "../Components/Transform.h" 
 #include "../Components/fighterComponents/Health.h"
-#include "../Components/fighterComponents/Gun.h"
-#include "../Components/fighterComponents/DeAcceleration.h"
-#include "../Components/ShowAtOppositeSide.h"
 
 class FighterSystem : public System {
 public:
@@ -31,24 +28,24 @@ private:
 	// Acelera al fighter
 	void accelerate();
 	// Reestablece la posicion, velocidad y rotacion del fighter
-	inline void resetFighter() {
-		fighterTransform->setPos({ WIN_HALF_WIDTH, WIN_HALF_HEIGHT });
-		fighterTransform->setVel(FIGHTER_VELOCITY);
-		fighterTransform->setRot(0);
-	}
-	// Devuelve el numero de vidas
-	inline int getLives() { return fighterHealth->getLives(); }
-	// Decrementa el numero de vidas actual
-	inline void decreaseLives() { fighterHealth->decreaseLive(); }
-	// Resetea el numero de vidas actual
-	inline void resetLives() { fighterHealth->setLives(NUMBER_LIVES); }
+	//inline void resetFighter() {
+	//	fighterTransform->setPos({ WIN_HALF_WIDTH, WIN_HALF_HEIGHT });
+	//	fighterTransform->setVel(FIGHTER_VELOCITY);
+	//	fighterTransform->setRot(0);
+	//}
+	//// Devuelve el numero de vidas
+	//inline int getLives() { return fighterHealth->getLives(); }
+	//// Decrementa el numero de vidas actual
+	//inline void decreaseLives() { fighterHealth->decreaseLive(); }
+	//// Resetea el numero de vidas actual
+	//inline void resetLives() { fighterHealth->setLives(NUMBER_LIVES); }
 	// Fighter
 	Entity* fighter;
 	Transform* fighterTransform;
 	Health* fighterHealth;
-	Gun* fighterGun;
+	/*Gun* fighterGun;
 	DeAcceleration* fighterDeAcceleration;
-	ShowAtOppositeSide* fighterShowAtOppositeSide;
+	ShowAtOppositeSide* fighterShowAtOppositeSide;*/
 	
 	void rotate(float r_);
 	float degreesToRadians(float degrees_);

@@ -1,6 +1,6 @@
-#pragma once
-#include "../sdlutils/Texture.h"
-#include "Transform.h"
+//#pragma once
+//#include "../sdlutils/Texture.h"
+//#include "Transform.h"
 
 //class Image: public Component {
 //private:

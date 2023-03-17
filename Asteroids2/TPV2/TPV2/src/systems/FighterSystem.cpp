@@ -17,12 +17,8 @@ void FighterSystem::initSystem() {
     fighterTransform->setContext(fighter, mngr_);
     fighterHealth = mngr_->addComponent<Health>(fighter);
 	fighterHealth->setContext(fighter, mngr_);
-	fighterDeAcceleration = mngr_->addComponent<DeAcceleration>(fighter);
-	fighterDeAcceleration->setContext(fighter, mngr_);
-    fighterGun = mngr_->addComponent<Gun>(fighter);
-	fighterGun->setContext(fighter, mngr_);
-	fighterShowAtOppositeSide = mngr_->addComponent<ShowAtOppositeSide>(fighter);
-	fighterShowAtOppositeSide->setContext(fighter, mngr_);
+	/*fighterShowAtOppositeSide = mngr_->addComponent<ShowAtOppositeSide>(fighter);
+	fighterShowAtOppositeSide->setContext(fighter, mngr_);*/
     mngr_->addEntity(fighter, _grp_FIGHTER);
 
     // ASOCIARLA CON UN HANDLER
@@ -34,14 +30,30 @@ void FighterSystem::initSystem() {
 // mensaje con las características físicas de la bala. Recuerda que se puede disparar
 // sólo una bala cada 0.25sec.
 void FighterSystem::update() {
-	
+	//Vector2D vel = transform->getVel();
+	//if (abs(vel.getY()) < 0.05f) transform->setVel(Vector2D(0, 0));
+	//else transform->setVel(vel * 0.995f);
+
+	// SHOWATOPPOSITESIDE
+	//if (transform->getPos().getX() < -(FIGHTER_WIDTH)) {
+	//	transform->setPos(Vector2D(WIN_WIDTH, transform->getPos().getY()));
+	//}
+	//else if (transform->getPos().getX() > (WIN_WIDTH + FIGHTER_WIDTH)) {
+	//	transform->setPos(Vector2D(0, transform->getPos().getY()));
+	//}
+	//if (transform->getPos().getY() < -(FIGHTER_HEIGHT)) {
+	//	transform->setPos(Vector2D(transform->getPos().getX(), WIN_HEIGHT));
+	//}
+	//else if (transform->getPos().getY() > (WIN_HEIGHT + FIGHTER_HEIGHT)) {
+	//	transform->setPos(Vector2D(transform->getPos().getX(), 0));
+	//}
 }
 
 // Para reaccionar al mensaje de que ha habido un choque entre el fighter y un
 // un asteroide. Poner el caza en el centro con velocidad (0,0) y rotación 0. No
 // hace falta desactivar la entidad (no dibujarla si el juego está parado).
 void FighterSystem::onCollision_FighterAsteroid() {
-    resetFighter();
+   // resetFighter();
 
     //
 }
@@ -51,7 +63,7 @@ void FighterSystem::onCollision_FighterAsteroid() {
 //// Recoge el input del jugador
 //void FighterControl::handleEvent(SDL_Event event) {
 //	InputHandler::instance()->update(event);
-
+//    // FIGHTER CONTROL
 //	if (InputHandler::instance()->keyDownEvent()) {
 //		if (InputHandler::instance()->isKeyDown(SDLK_LEFT)) {
 //			rotate(-(FIGHTER_ROTATION_SPEED));
@@ -64,17 +76,28 @@ void FighterSystem::onCollision_FighterAsteroid() {
 //			sdlutils().soundEffects().at("thrust").play();
 //		}
 //	}
+//    // GUN
+//if (InputHandler::instance()->keyDownEvent()) {
+//	if (InputHandler::instance()->isKeyDown(SDLK_s)) {
+//		int frameTime = SDL_GetTicks() - startTime;
+//		if (frameTime >= 250) {
+//			//tryShoot();
+//			SDLUtils::instance()->soundEffects().at("fire").play();
+//			startTime = SDL_GetTicks();
+//		}
+//	}
+//}
 //}
 
 // Acelera al fighter
 void FighterSystem::accelerate() {
-    Vector2D newVel = fighterTransform->getVel() + Vector2D(0.0f, -1.0f).rotate(fighterTransform->getR()) * 0.7f;
-    if (newVel.getY() <= SPEED_LIMIT.getY()) fighterTransform->setVel(newVel);
+  /*  Vector2D newVel = fighterTransform->getVel() + Vector2D(0.0f, -1.0f).rotate(fighterTransform->getR()) * 0.7f;
+    if (newVel.getY() <= SPEED_LIMIT.getY()) fighterTransform->setVel(newVel);*/
 }
 
 // Rota el transofrm del fighter
 void FighterSystem::rotate(float r_) {
-	fighterTransform->changeRot(degreesToRadians(r_));
+	//fighterTransform->changeRot(degreesToRadians(r_));
 }
 
 float  FighterSystem::degreesToRadians(float degrees_) {

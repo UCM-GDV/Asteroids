@@ -1,6 +1,4 @@
 #pragma once
-#ifndef GAME_H_
-#define GAME_H_
 #include <SDL.h>
 #include <unordered_map>
 #include <fstream>
@@ -32,10 +30,9 @@ public:
 	// Actualiza el juego en función del estado actual
 	void refresh();
 	// Maneja los eventos del estado actual
-	void handleEvents();
+	//void handleEvents();
 	// Devuelve la textura de texto deseado
 	inline Texture* getText(string text) { return texts[text]; }
 	// Sale del juego
 	inline void exitGame() { exit = true; }
 };
-#endif

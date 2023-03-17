@@ -1,9 +1,5 @@
 #pragma once
-#include "../game/ecs_def.h"
-#include "../sdlutils/SDLUtils.h"
-#include "../game/Game.h"
 #include "../ecs/Manager.h"
-#include "../ecs/Entity.h"
 // Sistemas
 #include "../systems/AsteroidsSystem.h"
 #include "../systems/BulletSystem.h"
@@ -11,10 +7,10 @@
 #include "../systems/FighterSystem.h"
 #include "../systems/GameCtrlSystem.h"
 #include "../systems/RenderSystem.h"
+#include "../sdlutils/InputHandler.h"
 
 class PlayState : public Manager {
 private:
-	Game* game;
 	// Entidades
 	Entity* bullet;
 	
@@ -27,7 +23,7 @@ private:
 	RenderSystem* renderSys_;
 public:
 	// Constructora
-	PlayState(Game* game);
+	PlayState();
 	// Destructora
 	~PlayState();
 	// Anade bala a la escena dependiendo de la posicion del fighter

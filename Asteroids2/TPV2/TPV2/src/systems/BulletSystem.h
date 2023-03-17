@@ -1,6 +1,6 @@
 #pragma once
 #include "../ecs/System.h"
-#include "../components/fighterComponents/Gun.h"
+#include "../components/Transform.h"
 
 //Sistema responsable de las balas(crearlas, destruirlas, etc.).
 class BulletSystem : public System {
@@ -26,7 +26,7 @@ private:
     // Destruye todas las balas de la escena
     void destroyAllBullets();
     // Puntero al gun del fighter
-    Gun* fighterGun;
+    //Gun* fighterGun;
 
     // ESTO DE AQUI NO LO VAMOS A USAR PORQUE TENEMOS MAQUINA DE ESTADOS
     // Para gestionar el mensaje de que ha acabado la ronda. Desactivar todas las

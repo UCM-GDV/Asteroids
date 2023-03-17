@@ -1,5 +1,5 @@
-#pragma once
-#include "FighterControl.h"
+//#pragma once
+//#include "FighterControl.h"
 
 //// Constructora
 //FighterControl::FighterControl() : transform(nullptr) {}
