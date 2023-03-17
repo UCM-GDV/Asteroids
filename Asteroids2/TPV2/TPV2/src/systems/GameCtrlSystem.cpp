@@ -25,7 +25,7 @@ void GameCtrlSystem::update() {
     if (static_cast<PlayState*>(mngr_) != nullptr) {
         Message m;
         m.id = _m_UPDATE_POSITION;
-        mngr_->send(m);
+        //mngr_->send(m);
 
         // Condicion de victoria y de derrota desde mensajes de otros systems
     }

@@ -4,6 +4,8 @@
 #include "../Components/Transform.h" 
 #include "../Components/fighterComponents/Health.h"
 
+#include "../ecs/Manager.h"
+
 class FighterSystem : public System {
 public:
 	// Identificador

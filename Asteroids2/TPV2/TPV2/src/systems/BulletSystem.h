@@ -2,6 +2,7 @@
 #include "../ecs/System.h"
 #include "../components/Transform.h"
 
+#include "../ecs/Manager.h"
 //Sistema responsable de las balas(crearlas, destruirlas, etc.).
 class BulletSystem : public System {
 public:

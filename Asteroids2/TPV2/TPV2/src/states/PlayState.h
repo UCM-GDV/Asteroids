@@ -3,10 +3,10 @@
 // Sistemas
 #include "../systems/AsteroidsSystem.h"
 #include "../systems/BulletSystem.h"
-#include "../systems/CollisionsSystem.h"
+//#include "../systems/CollisionsSystem.h"
 #include "../systems/FighterSystem.h"
 #include "../systems/GameCtrlSystem.h"
-#include "../systems/RenderSystem.h"
+//#include "../systems/RenderSystem.h"
 #include "../sdlutils/InputHandler.h"
 
 class PlayState : public Manager {
@@ -17,10 +17,10 @@ private:
 	// Sistemas
 	AsteroidsSystem* asteroidsSys_;
 	BulletSystem* bulletSys_;
-	CollisionsSystem* collisionsSys_;
+	//CollisionsSystem* collisionsSys_;
 	FighterSystem* fighterSys_;
 	GameCtrlSystem* gameCtrlSys_;
-	RenderSystem* renderSys_;
+	//RenderSystem* renderSys_;
 public:
 	// Constructora
 	PlayState();

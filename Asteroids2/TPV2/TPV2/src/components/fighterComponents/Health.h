@@ -5,9 +5,9 @@ struct Health : public Component {
 private:
 	int lives;/*
 	Texture* texture;*/
-//public:
- //   // Identificador
- //   constexpr static cmpId_type id = _HEALTH;
+public:
+	// Identificador
+	constexpr static cmpId_type id = _HEALTH;
 	//// Constructora
 	Health(int lives_) : lives(lives_) {}
 	//// Destructora

@@ -33,17 +33,17 @@ void AsteroidsSystem::update() {
 		startTime = SDL_GetTicks();
 	}
 
-	// Movimiento de los asteroides
-	for (auto asteroid : mngr_->getEntities(_grp_ASTEROIDS_WHITE)) {
-		auto tr = mngr_->getComponent<Transform>(asteroid);
-		tr->position_ = tr->position_ + tr->velocity_;
-		//tr->rotation_ += 5.0f;
-	}
-	for (auto asteroid : mngr_->getEntities(_grp_ASTEROIDS_YELLOW)) {
-		auto tr = mngr_->getComponent<Transform>(asteroid);
-		tr->position_ = tr->position_ + tr->velocity_;
-		//tr->rotation_ += 5.0f;
-	}
+	//// Movimiento de los asteroides
+	//for (auto asteroid : mngr_->getEntities(_grp_ASTEROIDS_WHITE)) {
+	//	auto tr = mngr_->getComponent<Transform>(asteroid);
+	//	tr->position_ = tr->position_ + tr->velocity_;
+	//	//tr->rotation_ += 5.0f;
+	//}
+	//for (auto asteroid : mngr_->getEntities(_grp_ASTEROIDS_YELLOW)) {
+	//	auto tr = mngr_->getComponent<Transform>(asteroid);
+	//	tr->position_ = tr->position_ + tr->velocity_;
+	//	//tr->rotation_ += 5.0f;
+	//}
 
 	// SHOWATOPPOSITESIDE
 	//if (transform->getPos().getX() < -(FIGHTER_WIDTH)) {

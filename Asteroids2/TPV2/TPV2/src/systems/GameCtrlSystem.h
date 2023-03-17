@@ -1,6 +1,7 @@
 #pragma once
 #include "../ecs/System.h"
 
+#include "../ecs/Manager.h"
 //Mantiene el estado del juego, o se comunica con la máquina de estados para transitar entre 
 //ellos. Decide cuándo acaba una ronda, cuando acaba el juego, etc.
 class GameCtrlSystem : public System {

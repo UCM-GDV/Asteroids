@@ -1,6 +1,6 @@
 #pragma once
 #include "Entity.h"
-class System;
+#include "System.h"
 using namespace std;
 
 class Manager {
@@ -51,9 +51,9 @@ public:
 	// Dibuja todas las entidades de la escena
 	virtual void render() const {
 		for (auto& sys : sys_) {
-			if (static_cast<RenderSystem*>(sys) != nullptr) {
+			/*if (static_cast<RenderSystem*>(sys) != nullptr) {
 
-			}
+			}*/
 		}
 	}
 	// Borra entidades no vivas de la escena
@@ -90,11 +90,11 @@ public:
 		T* c = new T(std::forward<Ts>(args)...);
 
 		constexpr cmpId_type cId = T::id;
-		removeComponent<T>();
+		removeComponent<T>(e);
 		e->currCmps_.push_back(c);
 		e->cmps_[cId] = c;
 
-		e->setContext(e, this);
+		e->setContext(this);
 		e->initComponent();
 
 		return c;
@@ -104,12 +104,12 @@ public:
 	inline void removeComponent(Entity* e) {
 		constexpr cmpId_type cId = T::id;
 
-		if (e->cmps_[cId] != nullptr) {
+		/*if (e->cmps_[cId] != nullptr) {
 			auto iter = std::find(e->currCmps_.begin()), e->currCmps_.end(), e->cmps_[cId]);
 			e->currCmps_.erase(iter);
 			delete e->cmps_[cId];
 			e->cmps_[cId] = nullptr;
-		}
+		}*/
 	}
 	// Devuelve si la entidad tiene o no el componente
 	template<typename T>

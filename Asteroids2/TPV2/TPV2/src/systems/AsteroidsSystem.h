@@ -1,5 +1,6 @@
 #pragma once
 #include "../ecs/System.h"
+#include "../ecs/Manager.h"
 #include "../components/asteroidsComponents/Generations.h"
 #include "../components/Transform.h"
 

@@ -5,10 +5,10 @@ PlayState::PlayState(): Manager(), bullet(nullptr) {
 	// Sistemas
 	asteroidsSys_ = addSystem<AsteroidsSystem>();
 	bulletSys_ = addSystem<BulletSystem>();
-	collisionsSys_ = addSystem<CollisionsSystem>();
+	//collisionsSys_ = addSystem<CollisionsSystem>();
 	fighterSys_ = addSystem<FighterSystem>();
 	gameCtrlSys_ = addSystem<GameCtrlSystem>();
-	renderSys_ = addSystem<RenderSystem>();
+	//renderSys_ = addSystem<RenderSystem>();
 }
 
 // Destructora
@@ -44,10 +44,10 @@ PlayState::~PlayState() {}
 
 // Para el juego
 void PlayState::pauseGame() {
-	GameStateMachine::instance()->pushState(new PauseState());
+	//GameStateMachine::instance()->pushState(new PauseState());
 }
 
 // Fin del juego
 void PlayState::endGame(string result) {
-    GameStateMachine::instance()->pushState(new EndState( result));
+   // GameStateMachine::instance()->pushState(new EndState( result));
 }

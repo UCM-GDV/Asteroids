@@ -1,896 +1,116 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(520,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
   Health.cpp
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2059: error de sintaxis: ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,50): error C2187: error de sintaxis: '->' inesperado aquí
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,52): error C2065: 'currCmps_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2760: error de sintaxis: '}' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(109,23): error C2065: 'iter': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(115,2): error C2059: error de sintaxis: '<L_GRAMMAR_template_head_l>'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(48,1): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,20): error C2061: error de sintaxis: identificador 'RenderSystem'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,1): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(128,4): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(132,11): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(136,11): error C2248: 'Entity::gId_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(16): message : vea la declaración de 'Entity::gId_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,3): error C2065: 'removeSystem': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba 'expresión'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C3878: error de sintaxis: token ')' inesperado después de 'expression_statement'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): message : se omitió la recuperación de errores: ")"
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(146,3): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(169,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(174,4): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,8): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,15): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,18): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C2530: 'm': se deben inicializar las referencias
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C3531: 'm': un símbolo cuyo tipo contiene 'auto' debe tener un inicializador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,16): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,27): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(183,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(186,3): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2059: error de sintaxis: '}'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2143: error de sintaxis: falta ';' delante de '}'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
   Game.cpp
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2059: error de sintaxis: ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,50): error C2187: error de sintaxis: '->' inesperado aquí
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,52): error C2065: 'currCmps_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2760: error de sintaxis: '}' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(109,23): error C2065: 'iter': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(115,2): error C2059: error de sintaxis: '<L_GRAMMAR_template_head_l>'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(48,1): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,20): error C2061: error de sintaxis: identificador 'RenderSystem'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,1): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(128,4): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(132,11): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(136,11): error C2248: 'Entity::gId_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(16): message : vea la declaración de 'Entity::gId_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,3): error C2065: 'removeSystem': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba 'expresión'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C3878: error de sintaxis: token ')' inesperado después de 'expression_statement'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): message : se omitió la recuperación de errores: ")"
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(146,3): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(169,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(174,4): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,8): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,15): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,18): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C2530: 'm': se deben inicializar las referencias
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C3531: 'm': un símbolo cuyo tipo contiene 'auto' debe tener un inicializador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,16): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,27): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(183,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(186,3): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2059: error de sintaxis: '}'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2143: error de sintaxis: falta ';' delante de '}'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\RenderSystem.h(20,11): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\RenderSystem.h(20,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\RenderSystem.h(20,29): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\CollisionsSystem.h(24,11): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\CollisionsSystem.h(24,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\CollisionsSystem.h(24,17): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "Font &SDLUtils::map_access_wrapper<Font>::at(std::string)"
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\sdlutils\SDLUtils.h(191): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<Font>" que se está compilando
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\utils\Singleton.h(57,44): warning C4244: 'argumento': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\Game.cpp(9): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Singleton<T>::init<const std::string&,const float&,const float&,const char(&)[41]>(const std::string &,const float &,const float &,const char (&)[41])" que se está compilando
+          with
+          [
+              T=SDLUtils
+          ]
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\Game.cpp(8): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Singleton<T>::init<const std::string&,const float&,const float&,const char(&)[41]>(const std::string &,const float &,const float &,const char (&)[41])" que se está compilando
+          with
+          [
+              T=SDLUtils
+          ]
   GameStateMachine.cpp
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2059: error de sintaxis: ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,50): error C2187: error de sintaxis: '->' inesperado aquí
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,52): error C2065: 'currCmps_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2760: error de sintaxis: '}' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(109,23): error C2065: 'iter': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(115,2): error C2059: error de sintaxis: '<L_GRAMMAR_template_head_l>'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(48,1): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,20): error C2061: error de sintaxis: identificador 'RenderSystem'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,1): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(128,4): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(132,11): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(136,11): error C2248: 'Entity::gId_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(16): message : vea la declaración de 'Entity::gId_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,3): error C2065: 'removeSystem': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba 'expresión'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C3878: error de sintaxis: token ')' inesperado después de 'expression_statement'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): message : se omitió la recuperación de errores: ")"
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(146,3): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(169,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(174,4): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,8): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,15): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,18): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C2530: 'm': se deben inicializar las referencias
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C3531: 'm': un símbolo cuyo tipo contiene 'auto' debe tener un inicializador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,16): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,27): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(183,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(186,3): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2059: error de sintaxis: '}'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2143: error de sintaxis: falta ';' delante de '}'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
   main.cpp
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2059: error de sintaxis: ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,50): error C2187: error de sintaxis: '->' inesperado aquí
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,52): error C2065: 'currCmps_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2760: error de sintaxis: '}' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(109,23): error C2065: 'iter': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(115,2): error C2059: error de sintaxis: '<L_GRAMMAR_template_head_l>'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(48,1): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,20): error C2061: error de sintaxis: identificador 'RenderSystem'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,1): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(128,4): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(132,11): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(136,11): error C2248: 'Entity::gId_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(16): message : vea la declaración de 'Entity::gId_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,3): error C2065: 'removeSystem': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba 'expresión'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C3878: error de sintaxis: token ')' inesperado después de 'expression_statement'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): message : se omitió la recuperación de errores: ")"
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(146,3): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(169,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(174,4): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,8): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,15): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,18): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C2530: 'm': se deben inicializar las referencias
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C3531: 'm': un símbolo cuyo tipo contiene 'auto' debe tener un inicializador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,16): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,27): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(183,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(186,3): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2059: error de sintaxis: '}'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2143: error de sintaxis: falta ';' delante de '}'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\RenderSystem.h(20,11): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\RenderSystem.h(20,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\RenderSystem.h(20,29): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\CollisionsSystem.h(24,11): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\CollisionsSystem.h(24,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\CollisionsSystem.h(24,17): error C2238: símbolos (token) inesperados delante de ';'
   EndState.cpp
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2059: error de sintaxis: ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,50): error C2187: error de sintaxis: '->' inesperado aquí
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,52): error C2065: 'currCmps_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2760: error de sintaxis: '}' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(109,23): error C2065: 'iter': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(115,2): error C2059: error de sintaxis: '<L_GRAMMAR_template_head_l>'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(48,1): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,20): error C2061: error de sintaxis: identificador 'RenderSystem'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,1): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(128,4): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(132,11): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(136,11): error C2248: 'Entity::gId_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(16): message : vea la declaración de 'Entity::gId_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,3): error C2065: 'removeSystem': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba 'expresión'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C3878: error de sintaxis: token ')' inesperado después de 'expression_statement'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): message : se omitió la recuperación de errores: ")"
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(146,3): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(169,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(174,4): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,8): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,15): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,18): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C2530: 'm': se deben inicializar las referencias
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C3531: 'm': un símbolo cuyo tipo contiene 'auto' debe tener un inicializador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,16): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,27): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(183,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(186,3): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2059: error de sintaxis: '}'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2143: error de sintaxis: falta ';' delante de '}'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\RenderSystem.h(20,11): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\RenderSystem.h(20,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\RenderSystem.h(20,29): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(90,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\states\EndState.cpp(15): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,const Vector2D&,const Vector2D&,const int&,const int&,int>(Entity *,const Vector2D &,const Vector2D &,const int &,const int &,int &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(90,32): warning C4244: 'argumento': conversión de 'const int' a 'float'; posible pérdida de datos
   PauseState.cpp
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2059: error de sintaxis: ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,50): error C2187: error de sintaxis: '->' inesperado aquí
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,52): error C2065: 'currCmps_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2760: error de sintaxis: '}' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(109,23): error C2065: 'iter': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(115,2): error C2059: error de sintaxis: '<L_GRAMMAR_template_head_l>'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(48,1): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,20): error C2061: error de sintaxis: identificador 'RenderSystem'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,1): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(128,4): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(132,11): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(136,11): error C2248: 'Entity::gId_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(16): message : vea la declaración de 'Entity::gId_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,3): error C2065: 'removeSystem': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba 'expresión'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C3878: error de sintaxis: token ')' inesperado después de 'expression_statement'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): message : se omitió la recuperación de errores: ")"
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(146,3): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(169,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(174,4): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,8): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,15): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,18): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C2530: 'm': se deben inicializar las referencias
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C3531: 'm': un símbolo cuyo tipo contiene 'auto' debe tener un inicializador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,16): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,27): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(183,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(186,3): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2059: error de sintaxis: '}'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2143: error de sintaxis: falta ';' delante de '}'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\RenderSystem.h(20,11): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\RenderSystem.h(20,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\RenderSystem.h(20,29): error C2238: símbolos (token) inesperados delante de ';'
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(90,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\states\PauseState.cpp(16): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,const Vector2D&,const Vector2D&,const int&,const int&,int>(Entity *,const Vector2D &,const Vector2D &,const int &,const int &,int &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(90,32): warning C4244: 'argumento': conversión de 'const int' a 'float'; posible pérdida de datos
   PlayState.cpp
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2059: error de sintaxis: ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,50): error C2187: error de sintaxis: '->' inesperado aquí
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,52): error C2065: 'currCmps_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2760: error de sintaxis: '}' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(109,23): error C2065: 'iter': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(115,2): error C2059: error de sintaxis: '<L_GRAMMAR_template_head_l>'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(48,1): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,20): error C2061: error de sintaxis: identificador 'RenderSystem'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,1): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(128,4): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(132,11): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(136,11): error C2248: 'Entity::gId_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(16): message : vea la declaración de 'Entity::gId_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,3): error C2065: 'removeSystem': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba 'expresión'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C3878: error de sintaxis: token ')' inesperado después de 'expression_statement'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): message : se omitió la recuperación de errores: ")"
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(146,3): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(169,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(174,4): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,8): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,15): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,18): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C2530: 'm': se deben inicializar las referencias
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C3531: 'm': un símbolo cuyo tipo contiene 'auto' debe tener un inicializador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,16): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,27): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(183,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(186,3): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2059: error de sintaxis: '}'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2143: error de sintaxis: falta ';' delante de '}'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\CollisionsSystem.h(24,11): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\CollisionsSystem.h(24,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\CollisionsSystem.h(24,17): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\CollisionsSystem.h(26,8): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\CollisionsSystem.h(26,8): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\CollisionsSystem.h(26,23): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\states\PlayState.cpp(47,2): error C2653: 'GameStateMachine': no es un nombre de clase o espacio de nombres
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\states\PlayState.cpp(47,20): error C3861: 'instance': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\states\PlayState.cpp(47,46): error C2061: error de sintaxis: identificador 'PauseState'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\states\PlayState.cpp(52,5): error C2653: 'GameStateMachine': no es un nombre de clase o espacio de nombres
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\states\PlayState.cpp(52,23): error C3861: 'instance': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\states\PlayState.cpp(52,49): error C2061: error de sintaxis: identificador 'EndState'
   AsteroidsSystem.cpp
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2059: error de sintaxis: ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,50): error C2187: error de sintaxis: '->' inesperado aquí
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,52): error C2065: 'currCmps_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2760: error de sintaxis: '}' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(109,23): error C2065: 'iter': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(115,2): error C2059: error de sintaxis: '<L_GRAMMAR_template_head_l>'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(48,1): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,20): error C2061: error de sintaxis: identificador 'RenderSystem'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,1): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(128,4): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(132,11): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(136,11): error C2248: 'Entity::gId_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(16): message : vea la declaración de 'Entity::gId_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,3): error C2065: 'removeSystem': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba 'expresión'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C3878: error de sintaxis: token ')' inesperado después de 'expression_statement'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): message : se omitió la recuperación de errores: ")"
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(146,3): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(169,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(174,4): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,8): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,15): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,18): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C2530: 'm': se deben inicializar las referencias
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C3531: 'm': un símbolo cuyo tipo contiene 'auto' debe tener un inicializador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,16): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,27): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(183,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(186,3): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2059: error de sintaxis: '}'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2143: error de sintaxis: falta ';' delante de '}'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\AsteroidsSystem.cpp(38,20): error C2039: "getComponent": no es un miembro de "Manager"
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(6): message : vea la declaración de 'Manager'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\AsteroidsSystem.cpp(39,5): error C3536: 'tr': no se puede usar antes de inicializarse
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\AsteroidsSystem.cpp(43,20): error C2039: "getComponent": no es un miembro de "Manager"
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(6): message : vea la declaración de 'Manager'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\AsteroidsSystem.cpp(44,5): error C3536: 'tr': no se puede usar antes de inicializarse
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(90,32): warning C4244: 'argumento': conversión de '_Ty' a 'float'; posible pérdida de datos
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\AsteroidsSystem.cpp(149): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Manager::addComponent<Transform,Vector2D&,Vector2D&,float&,float&,int>(Entity *,Vector2D &,Vector2D &,float &,float &,int &&)" que se está compilando
+          with
+          [
+              T=Transform
+          ]
   BulletSystem.cpp
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2059: error de sintaxis: ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,50): error C2187: error de sintaxis: '->' inesperado aquí
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,52): error C2065: 'currCmps_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2760: error de sintaxis: '}' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(109,23): error C2065: 'iter': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(115,2): error C2059: error de sintaxis: '<L_GRAMMAR_template_head_l>'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(48,1): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,20): error C2061: error de sintaxis: identificador 'RenderSystem'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,1): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(128,4): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(132,11): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(136,11): error C2248: 'Entity::gId_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(16): message : vea la declaración de 'Entity::gId_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,3): error C2065: 'removeSystem': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba 'expresión'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C3878: error de sintaxis: token ')' inesperado después de 'expression_statement'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): message : se omitió la recuperación de errores: ")"
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(146,3): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(169,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(174,4): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,8): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,15): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,18): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C2530: 'm': se deben inicializar las referencias
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C3531: 'm': un símbolo cuyo tipo contiene 'auto' debe tener un inicializador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,16): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,27): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(183,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(186,3): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2059: error de sintaxis: '}'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2143: error de sintaxis: falta ';' delante de '}'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
   CollisionsSystem.cpp
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2059: error de sintaxis: ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,50): error C2187: error de sintaxis: '->' inesperado aquí
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,52): error C2065: 'currCmps_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2760: error de sintaxis: '}' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(109,23): error C2065: 'iter': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(115,2): error C2059: error de sintaxis: '<L_GRAMMAR_template_head_l>'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(48,1): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,20): error C2061: error de sintaxis: identificador 'RenderSystem'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,1): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(128,4): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(132,11): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(136,11): error C2248: 'Entity::gId_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(16): message : vea la declaración de 'Entity::gId_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,3): error C2065: 'removeSystem': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba 'expresión'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C3878: error de sintaxis: token ')' inesperado después de 'expression_statement'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): message : se omitió la recuperación de errores: ")"
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(146,3): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(169,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(174,4): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,8): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,15): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,18): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C2530: 'm': se deben inicializar las referencias
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C3531: 'm': un símbolo cuyo tipo contiene 'auto' debe tener un inicializador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,16): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,27): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(183,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(186,3): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2059: error de sintaxis: '}'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2143: error de sintaxis: falta ';' delante de '}'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\CollisionsSystem.h(24,11): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\CollisionsSystem.h(24,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\CollisionsSystem.h(24,17): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\CollisionsSystem.h(26,8): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\CollisionsSystem.h(26,8): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\CollisionsSystem.h(26,23): error C2238: símbolos (token) inesperados delante de ';'
   FighterSystem.cpp
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2059: error de sintaxis: ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,50): error C2187: error de sintaxis: '->' inesperado aquí
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,52): error C2065: 'currCmps_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2760: error de sintaxis: '}' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(109,23): error C2065: 'iter': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(115,2): error C2059: error de sintaxis: '<L_GRAMMAR_template_head_l>'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(48,1): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,20): error C2061: error de sintaxis: identificador 'RenderSystem'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,1): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(128,4): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(132,11): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(136,11): error C2248: 'Entity::gId_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(16): message : vea la declaración de 'Entity::gId_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,3): error C2065: 'removeSystem': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba 'expresión'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C3878: error de sintaxis: token ')' inesperado después de 'expression_statement'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): message : se omitió la recuperación de errores: ")"
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(146,3): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(169,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(174,4): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,8): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,15): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,18): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C2530: 'm': se deben inicializar las referencias
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C3531: 'm': un símbolo cuyo tipo contiene 'auto' debe tener un inicializador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,16): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,27): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(183,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(186,3): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2059: error de sintaxis: '}'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2143: error de sintaxis: falta ';' delante de '}'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\FighterSystem.cpp(104,19): warning C4244: 'return': conversión de 'double' a 'float'; posible pérdida de datos
   GameCtrlSystem.cpp
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2059: error de sintaxis: ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,50): error C2187: error de sintaxis: '->' inesperado aquí
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,52): error C2065: 'currCmps_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2760: error de sintaxis: '}' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(109,23): error C2065: 'iter': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(115,2): error C2059: error de sintaxis: '<L_GRAMMAR_template_head_l>'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(48,1): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,20): error C2061: error de sintaxis: identificador 'RenderSystem'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,1): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(128,4): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(132,11): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(136,11): error C2248: 'Entity::gId_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(16): message : vea la declaración de 'Entity::gId_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,3): error C2065: 'removeSystem': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba 'expresión'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C3878: error de sintaxis: token ')' inesperado después de 'expression_statement'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): message : se omitió la recuperación de errores: ")"
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(146,3): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(169,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(174,4): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,8): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,15): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,18): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C2530: 'm': se deben inicializar las referencias
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C3531: 'm': un símbolo cuyo tipo contiene 'auto' debe tener un inicializador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,16): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,27): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(183,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(186,3): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2059: error de sintaxis: '}'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2143: error de sintaxis: falta ';' delante de '}'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\RenderSystem.h(20,11): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\RenderSystem.h(20,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\RenderSystem.h(20,29): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\CollisionsSystem.h(24,11): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\CollisionsSystem.h(24,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\CollisionsSystem.h(24,17): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\GameCtrlSystem.cpp(28,16): error C2039: "send": no es un miembro de "Manager"
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(6): message : vea la declaración de 'Manager'
   RenderSystem.cpp
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2059: error de sintaxis: ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,50): error C2187: error de sintaxis: '->' inesperado aquí
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,52): error C2065: 'currCmps_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(108,1): error C2760: error de sintaxis: '}' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(109,23): error C2065: 'iter': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(104,14): message : Diagnóstico en la función 'void Manager::removeComponent(Entity *)' generada por el compilador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(115,2): error C2059: error de sintaxis: '<L_GRAMMAR_template_head_l>'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(116,2): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(48,1): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,20): error C2061: error de sintaxis: identificador 'RenderSystem'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(54,1): error C2143: error de sintaxis: falta ';' delante de '{'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(128,4): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(132,11): error C2248: 'Entity::alive_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(15): message : vea la declaración de 'Entity::alive_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(136,11): error C2248: 'Entity::gId_': no se puede obtener acceso al miembro private miembro declarado en la clase 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(16): message : vea la declaración de 'Entity::gId_'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Entity.h(7): message : vea la declaración de 'Entity'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,3): error C2065: 'removeSystem': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba 'expresión'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C2760: error de sintaxis: ')' no se esperaba aquí; se esperaba ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): error C3878: error de sintaxis: token ')' inesperado después de 'expression_statement'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(142,19): message : se omitió la recuperación de errores: ")"
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(146,3): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(153,26): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C3861: 'sys_': no se encontró el identificador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(159,7): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(160,11): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(161,4): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(167,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(169,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(174,4): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,8): error C2065: 'msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(179,15): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,18): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C2530: 'm': se deben inicializar las referencias
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,3): error C3531: 'm': un símbolo cuyo tipo contiene 'auto' debe tener un inicializador
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,16): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(180,27): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,21): error C2065: 'sys_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,19): error C2143: error de sintaxis: falta ';' delante de ':'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(181,25): error C2143: error de sintaxis: falta ';' delante de ')'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(183,7): error C2027: uso del tipo 'System' sin definir
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(3): message : vea la declaración de 'System'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(186,3): error C2065: 'aux_msgs_': identificador no declarado
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2059: error de sintaxis: '}'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\ecs\Manager.h(188,1): error C2143: error de sintaxis: falta ';' delante de '}'
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\RenderSystem.h(20,11): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\RenderSystem.h(20,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\RenderSystem.h(20,29): error C2238: símbolos (token) inesperados delante de ';'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\CollisionsSystem.h(24,11): error C2143: error de sintaxis: falta ';' delante de '*'
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\CollisionsSystem.h(24,11): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\CollisionsSystem.h(24,17): error C2238: símbolos (token) inesperados delante de ';'
   Generando código...
+     Creando biblioteca C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\bin\TPV2Debug.lib y objeto C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\bin\TPV2Debug.exp
+  TPV2.vcxproj -> C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\bin\TPV2Debug.exe

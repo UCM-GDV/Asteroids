@@ -2,6 +2,7 @@
 #include "../ecs/System.h"
 #include "../components/fighterComponents/Health.h"
 
+#include "../ecs/Manager.h"
 class RenderSystem : public System {
 public:
 	// Identificador
@@ -17,8 +18,8 @@ public:
 	// la práctica 1)
 	void update() override;
 private:
-	Transform* fighterTransform;
-	Health* fighterHealth;
+//	Transform* fighterTransform;
+	//Health* fighterHealth;
 	
 	// ESTO DE AQUI NO LO VAMOS A USAR PORQUE TENEMOS MAQUINA DE ESTADOS
 	// Para gestionar los mensajes correspondientes y actualizar los atributos

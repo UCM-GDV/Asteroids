@@ -1,7 +1,7 @@
 #pragma once
-#include "Manager.h"
 #include "../game/constants.h"
-
+#include "../game/ecs_def.h"
+class Manager;
 class System {
 public:
 	virtual ~System() { }

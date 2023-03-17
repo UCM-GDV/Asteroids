@@ -3,6 +3,8 @@
 #include "../ecs/Manager.h"
 
 struct Transform : public Component {
+	// Identificador
+	constexpr static cmpId_type id = _TRANSFORM;
 	// Vectores de posicion y velocidad
 	Vector2D position_, velocity_;
 	// Ancho, alto y rotacion

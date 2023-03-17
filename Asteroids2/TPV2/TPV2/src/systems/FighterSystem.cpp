@@ -15,7 +15,7 @@ void FighterSystem::initSystem() {
     fighter->setContext(mngr_);
     fighterTransform = mngr_->addComponent<Transform>(fighter, Vector2D(WIN_HALF_WIDTH, WIN_HALF_HEIGHT), FIGHTER_VELOCITY, FIGHTER_WIDTH, FIGHTER_HEIGHT, FIGHTER_ROTATION);
     fighterTransform->setContext(fighter, mngr_);
-    fighterHealth = mngr_->addComponent<Health>(fighter);
+    fighterHealth = mngr_->addComponent<Health>(fighter, NUMBER_LIVES);
 	fighterHealth->setContext(fighter, mngr_);
 	/*fighterShowAtOppositeSide = mngr_->addComponent<ShowAtOppositeSide>(fighter);
 	fighterShowAtOppositeSide->setContext(fighter, mngr_);*/

@@ -1,5 +1,5 @@
 #include "../states/PlayState.h"
-	
+#include "CollisionsSystem.h"
 // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 void CollisionsSystem::receive(const Message& m) {
 	/*switch (m.id) {

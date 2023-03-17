@@ -1,6 +1,8 @@
 #pragma once
 #include "../ecs/System.h"
 
+#include "../ecs/Manager.h"
+
 class CollisionsSystem : public System {
 public:
 	// Identificador
@@ -21,9 +23,9 @@ private:
 	//// Devuelve si la bala ha colisionado con algun asteroide
 	//bool bulletCollision(Transform* bulletTransform, Transform* asteroidTransform);
 	
-	PlayState* mngr;
+	/*PlayState* mngr;
 	Transform* fighterTransform;
-	Health* fighterHealth;
+	Health* fighterHealth;*/
 	//Collisions* col;
 
 	// ESTO DE AQUI NO LO VAMOS A USAR PORQUE TENEMOS MAQUINA DE ESTADOS

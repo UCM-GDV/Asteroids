@@ -7,7 +7,7 @@ PauseState::PauseState() : Manager() {
 	fighter->setContext(this);
 	addComponent<Transform>(fighter, Vector2D(WIN_HALF_WIDTH, WIN_HALF_HEIGHT), FIGHTER_VELOCITY, FIGHTER_WIDTH, FIGHTER_HEIGHT, FIGHTER_ROTATION);
 	//fighter->addComponent<Image>(_IMAGE, &SDLUtils::instance()->images().at("Fighter"));
-	addComponent<Health>(fighter);
+	addComponent<Health>(fighter, NUMBER_LIVES);
 	addEntity(fighter, _grp_FIGHTER);
 
 	// Anade texto
@@ -18,7 +18,7 @@ PauseState::PauseState() : Manager() {
 	addEntity(pressToContinue, _grp_MESSAGES);
 
 	// Sistema de renderizado
-	renderSystem = addSystem<RenderSystem>();
+	//renderSystem = addSystem<RenderSystem>();
 }
 
 // Destructora
