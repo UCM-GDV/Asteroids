@@ -27,6 +27,5 @@ private:
     // ha acabado la ronda y además que ha acabado el juego (y quien es el ganador)
     void onAsteroidsExtinction();
     Uint8 winner_; // 0 - None, 1 - Asteroids, 2- Fighter
-    // Tenemos una maquina de estados para gestionarlo
-    //Uint8 state_; // El estado actual del juego (en lugar del componente State)
+    Uint8 state_; // El estado actual del juego (en lugar del componente State)
 };

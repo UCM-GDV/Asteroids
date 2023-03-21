@@ -4,8 +4,9 @@
     "\\TPV2",
     "\\TPV2\\TPV2",
     "\\TPV2\\TPV2\\src",
+    "\\TPV2\\TPV2\\src\\ecs",
     "\\TPV2\\TPV2\\src\\systems"
   ],
-  "SelectedNode": "\\TPV2\\TPV2\\src\\systems\\RenderSystem.cpp",
+  "SelectedNode": "\\TPV2\\TPV2\\src\\ecs\\Manager.h",
   "PreviewInSolutionExplorer": false
 }

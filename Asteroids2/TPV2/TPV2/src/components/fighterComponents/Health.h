@@ -12,16 +12,6 @@ public:
 	Health(int lives_) : lives(lives_) {}
 	//// Destructora
  //   virtual ~Health();
-	//// Inicializa el componente
-	//void initComponent();
-	//// Renderiza las vidas
-	//void render();
-	//// Devuelve el numero de vidas actual
-	//inline int getLives() { return lives; }
-	//// Establece el numero de vidas actual
-	//inline void setLives(int lives_) { lives = lives_; }
-	//// Decrementa el numero de vidas actual
-	//inline void decreaseLive() { --lives; }
-	//// Reestable el numero de vidas actual
-	//inline void resetLives() { lives = NUMBER_LIVES; }
+	int getlife() { return lives; }
+	void setlife(int num) { lives = num; }
 };

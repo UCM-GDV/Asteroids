@@ -3,7 +3,7 @@
     // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 void BulletSystem::receive(const Message& m) {
 	switch (m.id) {
-		case _m_FIGTHER_ASTEROID_COLLIDED: destroyAllBullets(); break;
+		case _m_ROUND_FINISHED: destroyAllBullets(); break;
 		case _m_FIGHTER_SHOOT: shoot(m.fighter_shoot.pos, m.fighter_shoot.vel, m.fighter_shoot.width, m.fighter_shoot.height);
 	}
 }
@@ -17,32 +17,29 @@ void BulletSystem::initSystem() {
 // desactivar las que salen de la ventana como en la práctica 1.
 void BulletSystem::update() {
 	for (Entity* bullet : mngr_->getEntities(_grp_BULLETS)) {
-		//bullet->update();
-		//if (transform->getPos().getX() < -(BULLET_WIDTH) || transform->getPos().getX() > (WIN_WIDTH + BULLET_WIDTH) || transform->getPos().getY() < -(BULLET_HEIGHT) || transform->getPos().getY() > (WIN_HEIGHT + BULLET_HEIGHT)) {
-		//		ent_->setAlive(false);
-		//}
+		auto tr = mngr_->getComponent<Transform>(bullet);
+		tr->position_ = tr->position_ + tr->velocity_;
+		// DISABLEONEXIT
+		if (tr->getPos().getX() < -(BULLET_WIDTH) || tr->getPos().getX() > (WIN_WIDTH + BULLET_WIDTH) || tr->getPos().getY() < -(BULLET_HEIGHT) || tr->getPos().getY() > (WIN_HEIGHT + BULLET_HEIGHT)) {
+				bullet->setAlive(false);
+		}
 	}
-
-	//
 }
 
 // Para gestionar el mensaje de que el jugador ha disparado. Añadir una bala al
 // juego, como en la práctica 1. Recuerda que la rotación de la bala sería
 // vel.angle(Vector2D(0.0f,-1.0f))
 void BulletSystem::shoot(Vector2D pos, Vector2D vel, double width, double height) {
-		/*Vector2D bPos, bVel;
-		bPos = fighterTransform->getPos()
-			+ Vector2D(FIGHTER_HALF_WIDTH, FIGHTER_HALF_HEIGHT)
-			- Vector2D(0.0f, FIGHTER_HEIGHT / 2.0f + 5.0f + 12.0f).rotate(fighterTransform->getR())
-			- Vector2D(2.0f, 10.0f);
-		bVel = Vector2D(0.0f, -1.0f).rotate(fighterTransform->getR()) * (fighterTransform->getVel().magnitude() + 5.0f);
+	//Vector2D bPos, bVel;
+	//bPos = fighterTransform->getPos()
+	//	+ Vector2D(FIGHTER_HALF_WIDTH, FIGHTER_HALF_HEIGHT)
+	//	- Vector2D(0.0f, FIGHTER_HEIGHT / 2.0f + 5.0f + 12.0f).rotate(fighterTransform->getR())
+	//	- Vector2D(2.0f, 10.0f);
+	//bVel = Vector2D(0.0f, -1.0f).rotate(fighterTransform->getR()) * (fighterTransform->getVel().magnitude() + 5.0f);
 
-		bullet = new Entity();
-		bullet->addComponent<Transform>(_TRANSFORM, bPos, bVel, BULLET_WIDTH, BULLET_HEIGHT, fighterTransform->getR());
-		bullet->addComponent<Image>(_IMAGE, &SDLUtils::instance()->images().at("Bullet"));
-		bullet->addComponent<DisableOnExit>(_DISABLEONEXIT);
-		addEntity(bullet, _grp_BULLETS);*/
-	
+	//Entity* bullet = new Entity(_grp_BULLETS);
+	//mngr_->addComponent<Transform>(bullet, bPos, bVel, BULLET_WIDTH, BULLET_HEIGHT, fighterTransform->getR());
+	//mngr_->addEntity(bullet, _grp_BULLETS);
 }
 
 // Para gestionar el mensaje de que ha habido un choque entre una bala y un

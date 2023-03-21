@@ -4,6 +4,7 @@
 class Manager;
 class System {
 public:
+	virtual System() { }
 	virtual ~System() { }
 	void setContext(Manager* mngr) {
 		mngr_ = mngr;

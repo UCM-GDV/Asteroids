@@ -48,11 +48,11 @@ using msgId_type = int;
 enum msgId : msgId_type {
 	_m_ROUND_STARTED,
 	_m_ROUND_FINISHED,
-	_m_FIGTHER_ASTEROID_COLLIDED,
 	_m_BULLET_ASTEROID_COLLIDED,
 	_m_FIGHTER_SHOOT,
 	_m_ASTEROIDS_EXTINCTION,
 	_m_UPDATE_POSITION,
+	_m_ONVICTORY
 };
 
 struct Message {
