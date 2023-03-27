@@ -7,6 +7,7 @@ AsteroidsSystem::~AsteroidsSystem() {
 
 // Inicializa el sistema
 void AsteroidsSystem::initSystem() {
+	fighterTransform = mngr_->getSystem<FighterSystem>()->getFighterTransform();
 	numOfAsteroids_ = 0;
 	startTime = SDL_GetTicks();
 	asteroid = nullptr;
@@ -56,8 +57,7 @@ void AsteroidsSystem::update() {
 	for (auto asteroid : mngr_->getEntities(_grp_ASTEROIDS_YELLOW)) {
 		auto tr = mngr_->getComponent<Transform>(asteroid);
 		// FOLLOW
-		//	Vector2D q = followObjectTransform->getPos();
-		tr->setVel(tr->getVel().rotate(tr->getVel().angle(q - tr->getPos()) > 0 ? 1.0f : -1.0f));
+		tr->setVel(tr->getVel().rotate(tr->getVel().angle(fighterTransform->getPos() - tr->getPos()) > 0 ? 1.0f : -1.0f));
 		// SHOWATOPPOSITESIDE
 		if (tr->getPos().getX() < -(FIGHTER_WIDTH)) {
 			tr->setPos(Vector2D(WIN_WIDTH, tr->getPos().getY()));
@@ -72,8 +72,6 @@ void AsteroidsSystem::update() {
 			tr->setPos(Vector2D(tr->getPos().getX(), 0));
 		}
 	}
-	
-	
 }
 
 // Para gestionar el mensaje de que ha acabado la ronda. Desactivar todos los

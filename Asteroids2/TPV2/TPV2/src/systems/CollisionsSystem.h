@@ -1,13 +1,14 @@
 #pragma once
 #include "../ecs/System.h"
-
 #include "../ecs/Manager.h"
-
+#include "../utils/Collisions.h"
 class CollisionsSystem : public System {
 public:
 	// Identificador
 	constexpr static sysId_type id = _sys_COLLISIONS;
 
+	// Constructora
+	CollisionsSystem(int state_ = 1);
 	// Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 	void receive(const Message& m) override;
 	// Inicializar el sistema, etc.
@@ -16,24 +17,15 @@ public:
 	// en la práctica 1 y enviar mensajes correspondientes.
 	void update() override;
 private:
-	
+	// Fighter
+	Transform* fighterTransform;
+	// Colisiones
+	Collisions* col;
+	// Estado actual del juego
+	int state;
 
 	// Devuelve si algun asteroide ha colisionado con el fighter
-	//bool fighterCollision(Transform* asteroidTransform);
-	//// Devuelve si la bala ha colisionado con algun asteroide
-	//bool bulletCollision(Transform* bulletTransform, Transform* asteroidTransform);
-	
-	/*PlayState* mngr;
-	Transform* fighterTransform;
-	Health* fighterHealth;*/
-	//Collisions* col;
-
-	// ESTO DE AQUI NO LO VAMOS A USAR PORQUE TENEMOS MAQUINA DE ESTADOS
-	// Para gestionar el mensaje de que ha acabado una ronda. Desactivar el sistema.
-	void onRoundOver();
-	// Para gestionar el mensaje de que ha empezado una ronda. Activar el sistema.
-	void onRoundStart();
-	// Indica si el sistema está activo o no (modificar el valor en onRoundOver y
-	// onRoundStart, y en update no hacer nada si no está activo)
-	bool active_;
+	bool fighterCollision(Transform* asteroidTransform);
+	// Devuelve si la bala ha colisionado con algun asteroide
+	bool bulletCollision(Transform* bulletTransform, Transform* asteroidTransform);
 };

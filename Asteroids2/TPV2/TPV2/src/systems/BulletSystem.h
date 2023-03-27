@@ -1,9 +1,11 @@
 #pragma once
 #include "../ecs/System.h"
 #include "../components/Transform.h"
-
 #include "../ecs/Manager.h"
-//Sistema responsable de las balas(crearlas, destruirlas, etc.).
+#include "FighterSystem.h"
+#include "../sdlutils/SDLUtils.h"
+
+// Sistema responsable de las balas(crearlas, destruirlas, etc.).
 class BulletSystem : public System {
 public:
 	// Identificador
@@ -17,6 +19,9 @@ public:
     // desactivar las que salen de la ventana como en la práctica 1.
     void update() override;
 private:
+    // Fighter
+    Transform* fighterTransform;
+
     // Para gestionar el mensaje de que el jugador ha disparado. Añadir una bala al
     // juego, como en la práctica 1. Recuerda que la rotación de la bala sería
     // vel.angle(Vector2D(0.0f,-1.0f))
@@ -26,16 +31,7 @@ private:
     void onCollision_BulletAsteroid(Entity* b);
     // Destruye todas las balas de la escena
     void destroyAllBullets();
-    // Puntero al gun del fighter
-    //Gun* fighterGun;
-
-    // ESTO DE AQUI NO LO VAMOS A USAR PORQUE TENEMOS MAQUINA DE ESTADOS
     // Para gestionar el mensaje de que ha acabado la ronda. Desactivar todas las
     // balas, y desactivar el sistema.
-    //void onRoundOver();
-    //// Para gestionar el mensaje de que ha empezado una ronda. Activar el sistema.
-    //void onRoundStart();
-    //// Indica si el sistema está activo o no (modificar el valor en onRoundOver y
-    //// onRoundStart, y en update no hacer nada si no está activo)
-    //bool active_;
+    void onRoundOver();
 };

@@ -7,6 +7,6 @@
     "\\TPV2\\TPV2\\src\\ecs",
     "\\TPV2\\TPV2\\src\\systems"
   ],
-  "SelectedNode": "\\TPV2\\TPV2\\src\\ecs\\Manager.h",
+  "SelectedNode": "\\TPV2\\TPV2\\src\\systems\\BulletSystem.cpp",
   "PreviewInSolutionExplorer": false
 }

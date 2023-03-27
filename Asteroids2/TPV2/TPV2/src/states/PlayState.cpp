@@ -3,12 +3,13 @@
 // Constructora
 PlayState::PlayState(): Manager(), bullet(nullptr) {
 	// Sistemas
+	fighterSys_ = addSystem<FighterSystem>(1);
 	asteroidsSys_ = addSystem<AsteroidsSystem>();
 	bulletSys_ = addSystem<BulletSystem>();
-	//collisionsSys_ = addSystem<CollisionsSystem>();
-	fighterSys_ = addSystem<FighterSystem>();
+	collisionsSys_ = addSystem<CollisionsSystem>();
+	
 	gameCtrlSys_ = addSystem<GameCtrlSystem>();
-	//renderSys_ = addSystem<RenderSystem>();
+	renderSys_ = addSystem<RenderSystem>();
 }
 
 // Destructora

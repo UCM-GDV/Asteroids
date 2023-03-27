@@ -11,7 +11,8 @@ public:
 	//// Constructora
 	Health(int lives_) : lives(lives_) {}
 	//// Destructora
- //   virtual ~Health();
+	//   virtual ~Health();
 	int getlife() { return lives; }
 	void setlife(int num) { lives = num; }
+	void decreaseLives() { lives--; }
 };

@@ -4,6 +4,7 @@
 #include "../components/asteroidsComponents/Generations.h"
 #include "../components/Transform.h"
 #include "../sdlutils/SDLUtils.h"
+#include "FighterSystem.h"
 
 // Sistema responsable de los asteroides (crear, destruir, etc).
 class AsteroidsSystem : public System {
@@ -27,6 +28,10 @@ private:
 	Uint8 numOfAsteroids_;
 	Entity* asteroid;
 	int startTime;
+
+	// Fighter
+	Transform* fighterTransform;
+
 	// Para gestionar el mensaje de que ha habido un choque de un asteroide con una
 	// bala. Desactivar el asteroide “a” y crear 2 asteroides como en la práctica 1,
 	// y si no hay más asteroides enviar un mensaje correspondiente.

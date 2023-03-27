@@ -1,4 +1,8 @@
 #include "FighterSystem.h"
+
+// Constructora
+FighterSystem::FighterSystem(int state_) : state(state_) {}
+
 // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 void FighterSystem::receive(const Message& m) {
     switch (m.id) {
@@ -10,6 +14,7 @@ void FighterSystem::receive(const Message& m) {
 // Crear la entidad del caza, añadir sus componentes, asociarla con un handler
 // correspondiente, etc.
 void FighterSystem::initSystem() {
+	startTime = SDL_GetTicks();
     // FIGHTER
     fighter = new Entity(_grp_FIGHTER);
     fighter->setContext(mngr_);
@@ -17,8 +22,6 @@ void FighterSystem::initSystem() {
     fighterTransform->setContext(fighter, mngr_);
     fighterHealth = mngr_->addComponent<Health>(fighter, NUMBER_LIVES);
 	fighterHealth->setContext(fighter, mngr_);
-	/*fighterShowAtOppositeSide = mngr_->addComponent<ShowAtOppositeSide>(fighter);
-	fighterShowAtOppositeSide->setContext(fighter, mngr_);*/
     mngr_->addEntity(fighter, _grp_FIGHTER);
 
     // ASOCIARLA CON UN HANDLER
@@ -30,90 +33,87 @@ void FighterSystem::initSystem() {
 // mensaje con las características físicas de la bala. Recuerda que se puede disparar
 // sólo una bala cada 0.25sec.
 void FighterSystem::update() {
-	//Vector2D vel = transform->getVel();
-	//if (abs(vel.getY()) < 0.05f) transform->setVel(Vector2D(0, 0));
-	//else transform->setVel(vel * 0.995f);
+	// Si esta en PlayState
+	if (state == 1) {
+		// DEACCELERATION
+		Vector2D vel = fighterTransform->getVel();
+		if (abs(vel.getY()) < 0.05f) fighterTransform->setVel(Vector2D(0, 0));
+		else fighterTransform->setVel(vel * 0.995f);
 
-	// SHOWATOPPOSITESIDE
-	//if (transform->getPos().getX() < -(FIGHTER_WIDTH)) {
-	//	transform->setPos(Vector2D(WIN_WIDTH, transform->getPos().getY()));
-	//}
-	//else if (transform->getPos().getX() > (WIN_WIDTH + FIGHTER_WIDTH)) {
-	//	transform->setPos(Vector2D(0, transform->getPos().getY()));
-	//}
-	//if (transform->getPos().getY() < -(FIGHTER_HEIGHT)) {
-	//	transform->setPos(Vector2D(transform->getPos().getX(), WIN_HEIGHT));
-	//}
-	//else if (transform->getPos().getY() > (WIN_HEIGHT + FIGHTER_HEIGHT)) {
-	//	transform->setPos(Vector2D(transform->getPos().getX(), 0));
-	//}
+		// SHOWATOPPOSITESIDE
+		if (fighterTransform->getPos().getX() < -(FIGHTER_WIDTH)) {
+			fighterTransform->setPos(Vector2D(WIN_WIDTH, fighterTransform->getPos().getY()));
+		}
+		else if (fighterTransform->getPos().getX() > (WIN_WIDTH + FIGHTER_WIDTH)) {
+			fighterTransform->setPos(Vector2D(0, fighterTransform->getPos().getY()));
+		}
+		if (fighterTransform->getPos().getY() < -(FIGHTER_HEIGHT)) {
+			fighterTransform->setPos(Vector2D(fighterTransform->getPos().getX(), WIN_HEIGHT));
+		}
+		else if (fighterTransform->getPos().getY() > (WIN_HEIGHT + FIGHTER_HEIGHT)) {
+			fighterTransform->setPos(Vector2D(fighterTransform->getPos().getX(), 0));
+		}
+
+		if (InputHandler::instance()->keyDownEvent()) {
+			// GUN
+			if (InputHandler::instance()->isKeyDown(SDLK_s)) {
+				int frameTime = SDL_GetTicks() - startTime;
+				if (frameTime >= 250) {
+					// Envia mensaje con las caracteristicas fisicas de la bala
+					Message m;
+					m.id = _m_FIGHTER_SHOOT;
+					m.fighter_shoot.pos = fighterTransform->getPos();
+					m.fighter_shoot.vel = fighterTransform->getVel();
+					m.fighter_shoot.width = fighterTransform->getW();
+					m.fighter_shoot.height = fighterTransform->getH();
+					mngr_->send(m);
+
+					startTime = SDL_GetTicks();
+				}
+			}
+			// FIGHTERCONTROL
+			if (InputHandler::instance()->isKeyDown(SDLK_LEFT)) {
+				rotate(-(FIGHTER_ROTATION_SPEED));
+			}
+			else if (InputHandler::instance()->isKeyDown(SDLK_RIGHT)) {
+				rotate(FIGHTER_ROTATION_SPEED);
+			}
+			else if (InputHandler::instance()->isKeyDown(SDLK_UP)) {
+				accelerate();
+			}
+		}
+	}
 }
+
+// Devuelve el transform del fighter
+Transform* FighterSystem::getFighterTransform() { return fighterTransform; }
+
+// Devuelve el health del fighter
+Health* FighterSystem::getFighterHealth() { return fighterHealth; }
 
 // Para reaccionar al mensaje de que ha habido un choque entre el fighter y un
 // un asteroide. Poner el caza en el centro con velocidad (0,0) y rotación 0. No
 // hace falta desactivar la entidad (no dibujarla si el juego está parado).
 void FighterSystem::onCollision_FighterAsteroid() {
-   // resetFighter();
-
-    //
+	resetFighter();
 }
 
-
-
-//// Recoge el input del jugador
-//void FighterControl::handleEvent(SDL_Event event) {
-//	InputHandler::instance()->update(event);
-//    // FIGHTER CONTROL
-//	if (InputHandler::instance()->keyDownEvent()) {
-//		if (InputHandler::instance()->isKeyDown(SDLK_LEFT)) {
-//			rotate(-(FIGHTER_ROTATION_SPEED));
-//		}
-//		else if (InputHandler::instance()->isKeyDown(SDLK_RIGHT)) {
-//			rotate(FIGHTER_ROTATION_SPEED);
-//		}
-//		else if (InputHandler::instance()->isKeyDown(SDLK_UP)) {
-//			acelerate();
-//			sdlutils().soundEffects().at("thrust").play();
-//		}
-//	}
-//    // GUN
-//if (InputHandler::instance()->keyDownEvent()) {
-//	if (InputHandler::instance()->isKeyDown(SDLK_s)) {
-//		int frameTime = SDL_GetTicks() - startTime;
-//		if (frameTime >= 250) {
-//			//tryShoot();
-//			SDLUtils::instance()->soundEffects().at("fire").play();
-//			startTime = SDL_GetTicks();
-//		}
-//	}
-//}
-//}
+// Para gestionar el mensaje de que ha acabado una ronda. Desactivar el sistema.
+void FighterSystem::onRoundOver() {
+	resetFighter();
+}
 
 // Acelera al fighter
 void FighterSystem::accelerate() {
-  /*  Vector2D newVel = fighterTransform->getVel() + Vector2D(0.0f, -1.0f).rotate(fighterTransform->getR()) * 0.7f;
-    if (newVel.getY() <= SPEED_LIMIT.getY()) fighterTransform->setVel(newVel);*/
+	Vector2D newVel = fighterTransform->getVel() + Vector2D(0.0f, -1.0f).rotate(fighterTransform->getR()) * 0.7f;
+	if (newVel.getY() <= SPEED_LIMIT.getY()) fighterTransform->setVel(newVel);
+
+	// Sonido
+	sdlutils().soundEffects().at("thrust").play();
 }
 
 // Rota el transofrm del fighter
 void FighterSystem::rotate(float r_) {
-	//fighterTransform->changeRot(degreesToRadians(r_));
+	fighterTransform->changeRot(degreesToRadians(r_));
 }
 
-float  FighterSystem::degreesToRadians(float degrees_) {
-	return (degrees_ * (M_PI / 180));
-}
-
-
-// ESTO DE AQUI NO LO VAMOS A USAR PORQUE TENEMOS MAQUINA DE ESTADOS
-// Para gestionar el mensaje de que ha acabado una ronda. Desactivar el sistema.
-void FighterSystem::onRoundOver() {
-    // Desactiva el sistema
-    active_ = false;
-}
-
-// Para gestionar el mensaje de que ha empezado una ronda. Activar el sistema.
-void FighterSystem::onRoundStart() {
-    // Activa el sistema
-    active_ = true;
-}
