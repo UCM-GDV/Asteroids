@@ -7,14 +7,12 @@
 #include "../states/PauseState.h"
 #include "../states/PlayState.h"
 #include "../states/EndState.h"
-#include "../sdlutils/InputHandler.h"
 using namespace std;
 
 class Game {
 private:
 	SDLUtils* sdl = nullptr;
 	SDL_Window* window = nullptr;
-	InputHandler* inputHandler = nullptr;
 	bool exit;
 public:
 	// Constructora

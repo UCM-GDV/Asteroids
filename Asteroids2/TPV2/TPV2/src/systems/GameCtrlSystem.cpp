@@ -29,24 +29,20 @@ void GameCtrlSystem::initSystem() {
 //  Tiene que enviar mensajes correspondientes cuando
 // empieza una ronda o cuando empieza una nueva partida.
 void GameCtrlSystem::update() {
-    SDL_Event event_;
-    while (SDL_PollEvent(&event_)) {
-        cout << "ssss" << endl;
-        if (event_.type == SDL_KEYDOWN) {
-            if (event_.key.keysym.sym == SDLK_SPACE) {
+    SDL_Event event;
+    while (SDL_PollEvent(&event)) {
+        if (event.type == SDL_KEYDOWN) {
+            if (event.key.keysym.sym == SDLK_SPACE) {
 			    // Si esta en PlayState
 			    if (state == 1) {
-				    cout << "a" << endl;
 				    GameStateMachine::instance()->pushState(new PauseState());
 			    }
 			    // Si esta en PauseState
 			    else if (state == 0) {
-				    cout << "b" << endl;
 				    GameStateMachine::instance()->popState();
 			    }
 			    // Si esta en EndState
 			    else if (state == 2) {
-				    cout << "c" << endl;
 				    GameStateMachine::instance()->changeState(new PauseState());
 			    }
             }

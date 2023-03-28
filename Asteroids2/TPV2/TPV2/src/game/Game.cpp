@@ -10,15 +10,10 @@ Game::Game() {
 
 	// Instancia  el SDL
 	sdl = SDLUtils::instance();
-	 
 	window = sdl->window();
-	
 	sdl->showCursor();
-	// Instancia el inputHandle
-	inputHandler = InputHandler::instance();
-	exit = false;
 
-	// Carga las texturas de los textos
+	exit = false;
 
 	// Anade los nuevos estados
 	GameStateMachine::instance()->pushState(new PlayState());
@@ -40,6 +35,7 @@ void Game::run() {
 
 	while (!exit) {
 		refresh();
+		
 		frameTime = SDL_GetTicks() - startTime;
 		if (frameTime >= DELAY_TIME) {
 			update();
@@ -57,6 +53,6 @@ void Game::update() {
 
 // Actualiza el juego en función del estado actual
 void Game::refresh() {
-	inputHandler->refresh();
+	//inputHandler->refresh();
 	GameStateMachine::instance()->currentState()->refresh();
 }
