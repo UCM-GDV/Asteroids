@@ -16,6 +16,7 @@ void AsteroidsSystem::initSystem() {
 // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 void AsteroidsSystem::receive(const Message& m) {
 	switch (m.id) {
+	case _m_ROUND_STARTED: onRoundStart(); break;
 		case _m_BULLET_ASTEROID_COLLIDED: onCollision_AsteroidBullet(m.bullet_asteroid_coll.asteroid); break;
 		case _m_ROUND_FINISHED: onRoundOver(); break;
 		default: break;
@@ -54,6 +55,7 @@ void AsteroidsSystem::update() {
 			tr->setPos(Vector2D(tr->getPos().getX(), 0));
 		}
 	}
+
 	for (auto asteroid : mngr_->getEntities(_grp_ASTEROIDS_YELLOW)) {
 		auto tr = mngr_->getComponent<Transform>(asteroid);
 		// FOLLOW
@@ -155,19 +157,23 @@ void AsteroidsSystem::onCollision_AsteroidBullet(Entity* a) {
 
 // Crea un asteroide blanco con sus componentes
 void AsteroidsSystem::createWhiteAsteroid(Vector2D pos, Vector2D vel, float width, float height, int g) {
+	cout << "Se crea asteroide blanco" << endl;
 	asteroid = new Entity(_grp_ASTEROIDS_WHITE);
 	mngr_->addComponent<Transform>(asteroid, pos, vel, width, height, 0);
 	mngr_->addComponent<Generations>(asteroid, g);
-	mngr_->addEntity(asteroid);
+	mngr_->addComponent<FramedImage>(asteroid, ASTEROID_WHITE_FRAME_WIDTH, ASTEROID_WHITE_FRAME_HEIGHT, ASTEROID_WHITE_NUMCOLS, ASTEROID_WHITE_NUMROWS);
+	mngr_->addEntity(asteroid, _grp_ASTEROIDS_WHITE);
 	numOfAsteroids_++;
 }
 
 // Crea un asteroide amarillo con sus componentes
 void AsteroidsSystem::createYellowAsteroid(Vector2D pos, Vector2D vel, float width, float height, int g) {
+	cout << "Se crea asteroide amarillo" << endl;
 	asteroid = new Entity(_grp_ASTEROIDS_YELLOW);
 	mngr_->addComponent<Transform>(asteroid, pos, vel, width, height, 0);
 	mngr_->addComponent<Generations>(asteroid, g);
-	mngr_->addEntity(asteroid);
+	mngr_->addComponent<FramedImage>(asteroid, ASTEROID_YELLOW_FRAME_WIDTH, ASTEROID_YELLOW_FRAME_HEIGHT, ASTEROID_YELLOW_NUMCOLS, ASTEROID_YELLOW_NUMROWS);
+	mngr_->addEntity(asteroid, _grp_ASTEROIDS_YELLOW);
 	numOfAsteroids_++;
 }
 

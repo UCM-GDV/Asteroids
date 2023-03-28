@@ -22,6 +22,10 @@ void GameCtrlSystem::receive(const Message& m) {
 void GameCtrlSystem::initSystem() {
     fighterHealth = mngr_->getSystem<FighterSystem>()->getFighterHealth();
     assert(fighterHealth != nullptr);
+    // Inicia ronda
+    Message m;
+    m.id = _m_ROUND_STARTED;
+    mngr_->send(m);
 }
 
 // Si el juego no está parado y el jugador pulsa SDLK_SPACE cambia el estado
@@ -30,7 +34,7 @@ void GameCtrlSystem::initSystem() {
 // empieza una ronda o cuando empieza una nueva partida.
 void GameCtrlSystem::update() {
     SDL_Event event;
-    while (SDL_PollEvent(&event)) {
+    if (SDL_PollEvent(&event)) {
         if (event.type == SDL_KEYDOWN) {
             if (event.key.keysym.sym == SDLK_SPACE) {
 			    // Si esta en PlayState

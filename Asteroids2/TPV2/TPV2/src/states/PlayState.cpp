@@ -7,9 +7,8 @@ PlayState::PlayState(): Manager(), bullet(nullptr) {
 	asteroidsSys_ = addSystem<AsteroidsSystem>();
 	bulletSys_ = addSystem<BulletSystem>();
 	collisionsSys_ = addSystem<CollisionsSystem>();
-	gameCtrlSys_ = addSystem<GameCtrlSystem>();
-	renderSys_ = addSystem<RenderSystem>();
-
+	renderSys_ = addSystem<RenderSystem>(1);
+	gameCtrlSys_ = addSystem<GameCtrlSystem>(1);
 }
 
 // Destructora

@@ -1,21 +1,12 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(503,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
-  Game.cpp
-C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
-C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
-C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\Components\Transform.h(34,42): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\FighterSystem.h(70,67): warning C4244: 'return': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\utils\Singleton.h(57,44): warning C4244: 'argumento': conversión de 'const float' a 'int'; posible pérdida de datos
-C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\Game.cpp(9,45): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Singleton<T>::init<const std::string&,const float&,const float&,const char(&)[41]>(const std::string &,const float &,const float &,const char (&)[41])" que se está compilando
-          with
-          [
-              T=SDLUtils
-          ]
-C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\Game.cpp(8,16): message : Vea la referencia a la creación de una instancia de la función plantilla "T *Singleton<T>::init<const std::string&,const float&,const float&,const char(&)[41]>(const std::string &,const float &,const float &,const char (&)[41])" que se está compilando
-          with
-          [
-              T=SDLUtils
-          ]
-     Creando biblioteca C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids2\TPV2\bin\TPV2Debug.lib y objeto C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids2\TPV2\bin\TPV2Debug.exp
-  TPV2.vcxproj -> C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids2\TPV2\bin\TPV2Debug.exe
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(520,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
+  FighterSystem.cpp
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(12,25): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\game\constants.h(13,26): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\Components\Transform.h(34,42): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\systems\FighterSystem.h(70,67): warning C4244: 'return': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "SoundEffect &SDLUtils::map_access_wrapper<SoundEffect>::at(std::string)"
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\TPV2\src\sdlutils\SDLUtils.h(194): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
+  TPV2.vcxproj -> C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids2\TPV2\bin\TPV2Debug.exe

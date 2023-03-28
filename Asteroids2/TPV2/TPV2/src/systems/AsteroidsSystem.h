@@ -2,6 +2,7 @@
 #include "../ecs/System.h"
 #include "../components/asteroidsComponents/Generations.h"
 #include "../components/Transform.h"
+#include "../components/asteroidsComponents/FramedImage.h"
 #include "../sdlutils/SDLUtils.h"
 #include "FighterSystem.h"
 
