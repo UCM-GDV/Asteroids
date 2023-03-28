@@ -3,13 +3,11 @@
 #include "../sdlutils/InputHandler.h"
 #include "../systems/RenderSystem.h"
 #include "../systems/FighterSystem.h"
-
+#include "../systems/GameCtrlSystem.h"
 class EndState : public Manager {
 private:
-	Entity* fighter;
-	Entity* result;
-	Entity* pressToStart;
-
+	FighterSystem* fighterSys_;
+	GameCtrlSystem* gameCtrlSys_;
 	RenderSystem* renderSystem;
 public:
 

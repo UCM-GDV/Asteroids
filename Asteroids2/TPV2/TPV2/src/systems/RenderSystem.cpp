@@ -3,7 +3,7 @@
 
 // Constructora
 RenderSystem::RenderSystem() {}
-RenderSystem::RenderSystem(int state_) : state(state_), fighterTransform(nullptr), fighterHealth(nullptr) {}
+RenderSystem::RenderSystem(int state_) : state(state_), fighterTransform(nullptr), fighterHealth(nullptr), text(nullptr), textTransform(nullptr) {}
 
 // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 void RenderSystem::receive(const Message& m) {
@@ -19,6 +19,11 @@ void RenderSystem::initSystem() {
 	assert(fighterTransform != nullptr);
 	fighterHealth = mngr_->getSystem<FighterSystem>()->getFighterHealth();
 	assert(fighterHealth != nullptr);
+
+	text = new Entity(_grp_MESSAGES);
+	text->setContext(mngr_);
+	mngr_->addComponent<Transform>(text, TEXT_POSITION, VECTOR_ZERO, TEXT_WIDTH, TEXT_HEIGHT, 0);
+	mngr_->addEntity(text, _grp_MESSAGES);
 }
 
 // - Dibujar asteroides, balas y caza (sólo si el juego no está parado).
@@ -58,8 +63,10 @@ void RenderSystem::update() {
 	}
 	// Mensajes en el resto de estados (PauseState y EndState)
 	else if (state == 0 || state == 2) {
-		for (Entity* msg :mngr_->getEntities(_grp_MESSAGES)) {
-			
+		if (mngr_->textTexture_ != nullptr) {
+			textTransform = mngr_->getComponent<Transform>(text);
+			dest = build_sdlrect(textTransform->getPos(), textTransform->getW(), textTransform->getH());
+			mngr_->textTexture_->render(dest, textTransform->getR());
 		}
 	}
 

@@ -40,6 +40,8 @@ private:
 	SDL_Rect src;
 	int fw, fh, numCols, numRows, currentframe;
 
+	Entity* text;
+	Transform* textTransform;
 	// FRAMEDIMAGE
 	void renderAsteroid(Entity* a, Texture* tex);
 

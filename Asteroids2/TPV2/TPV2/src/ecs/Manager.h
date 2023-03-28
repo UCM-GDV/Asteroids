@@ -1,6 +1,7 @@
 #pragma once
 #include "Entity.h"
 #include "System.h"
+#include "../sdlutils/Texture.h"
 using namespace std;
 
 class Manager {
@@ -11,9 +12,13 @@ private:
 
 	vector<Message> msgs_;
 	vector<Message> aux_msgs_;
+	
 public:
+	// Puntero a la textura del texto a renderizar
+	Texture* textTexture_;
+
 	// Constructora
-	Manager() : entsByGroup_() {
+	Manager() : entsByGroup_(), textTexture_(nullptr) {
 		for (auto& groupEntities : entsByGroup_) {
 			groupEntities.reserve(100);
 		}
@@ -24,6 +29,11 @@ public:
 			for (auto e : ents) {
 				delete e;
 			}
+		}
+
+		if (textTexture_ != nullptr) {
+			delete textTexture_;
+			textTexture_ = nullptr;
 		}
 	}
 	// Anade una entidad al grupo
@@ -48,14 +58,6 @@ public:
 			if (sys != nullptr) {
 				sys->update();
 			}
-		}
-	}
-	// Dibuja todas las entidades de la escena
-	virtual void render() const {
-		for (auto& sys : sys_) {
-			/*if (static_cast<RenderSystem*>(sys) != nullptr) {
-
-			}*/
 		}
 	}
 	// Borra entidades no vivas de la escena

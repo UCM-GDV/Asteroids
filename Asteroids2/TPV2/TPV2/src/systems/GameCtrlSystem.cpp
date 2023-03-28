@@ -1,5 +1,8 @@
 #include "GameCtrlSystem.h"
 #include "../ecs/Manager.h"
+#include "../game/GameStateMachine.h"
+#include "../states/PauseState.h"
+#include "../states/PlayState.h"
 
 // Constructora
 GameCtrlSystem::GameCtrlSystem() : fighterHealth(nullptr) {}
@@ -26,26 +29,26 @@ void GameCtrlSystem::initSystem() {
 //  Tiene que enviar mensajes correspondientes cuando
 // empieza una ronda o cuando empieza una nueva partida.
 void GameCtrlSystem::update() {
-    SDL_Event event;
-    if (SDL_PollEvent(&event)) {
-        InputHandler::instance()->update(event);
-        if (InputHandler::instance()->keyDownEvent()) {
-            if (InputHandler::instance()->isKeyDown(SDLK_SPACE)) {
-                // Si esta en PlayState
-                if (state == 1) {
-                    // Si pulsa SDLK_SPACE cambia de estado al de PauseState
-					// Condicion de victoria y de derrota desde mensajes de otros systems AQUI???
-                } 
-                // Si esta en PauseState
-                else if (state == 0) {
-                    // Si pulsa SDLK_SPACE cambia de estado al de PlayState
-                    
-                }
-                // Si esta en EndState
-                else if (state == 2) {
-                   // Si pulsa SDLK_SPACE cambia de estado al de PauseState
-                   
-                }
+    SDL_Event event_;
+    while (SDL_PollEvent(&event_)) {
+        cout << "ssss" << endl;
+        if (event_.type == SDL_KEYDOWN) {
+            if (event_.key.keysym.sym == SDLK_SPACE) {
+			    // Si esta en PlayState
+			    if (state == 1) {
+				    cout << "a" << endl;
+				    GameStateMachine::instance()->pushState(new PauseState());
+			    }
+			    // Si esta en PauseState
+			    else if (state == 0) {
+				    cout << "b" << endl;
+				    GameStateMachine::instance()->popState();
+			    }
+			    // Si esta en EndState
+			    else if (state == 2) {
+				    cout << "c" << endl;
+				    GameStateMachine::instance()->changeState(new PauseState());
+			    }
             }
         }
     }
@@ -67,7 +70,7 @@ void GameCtrlSystem::onCollision_FighterAsteroid() {
     }
 	mngr_->send(m);
 
-    // anadir el pausestate
+    //GameStateMachine::instance()->pushState(new PauseState());
 }
 
 // Para gestionar el mensaje de que no hay más asteroides. Tiene que avisar que
@@ -77,9 +80,6 @@ void GameCtrlSystem::onAsteroidsExtinction() {
     m.id = _m_ONVICTORY;
     mngr_->send(m);
 
-	// añadir el endstate dependiendo de las vidas
-	// Menu de victoria
-	// mngr->endGame("win");
-   
-    //Uint8 winner_; // 0 - None, 1 - Asteroids, 2- Fighter
+    // añadir el endstate dependiendo de las vidas
+    //GameStateMachine::instance()->pushState(new EndState("win")); //Uint8 winner_; // 0 - None, 1 - Asteroids, 2- Fighter
 }

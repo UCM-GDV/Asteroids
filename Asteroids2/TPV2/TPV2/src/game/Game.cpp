@@ -17,23 +17,16 @@ Game::Game() {
 	// Instancia el inputHandle
 	inputHandler = InputHandler::instance();
 	exit = false;
+
 	// Carga las texturas de los textos
-	texts[PRESS_TO_CONTINUE_TEXT] = new Texture(SDLUtils::instance()->renderer(), PRESS_TO_CONTINUE_TEXT, sdl->fonts().at("ARIAL24"), build_sdlcolor(0x112233ff), build_sdlcolor(0xffffffff));
-	texts[PRESS_TO_START_TEXT] = new Texture(SDLUtils::instance()->renderer(), PRESS_TO_START_TEXT, sdl->fonts().at("ARIAL24"), build_sdlcolor(0x112233ff), build_sdlcolor(0xffffffff));
-	texts[GAME_OVER_LOSE_TEXT] = new Texture(SDLUtils::instance()->renderer(), GAME_OVER_LOSE_TEXT, sdl->fonts().at("ARIAL24"), build_sdlcolor(0xff0000ff));
-	texts[GAME_OVER_WIN_TEXT] = new Texture(SDLUtils::instance()->renderer(), GAME_OVER_WIN_TEXT, sdl->fonts().at("ARIAL24"), build_sdlcolor(0x00ff00ff));
 
 	// Anade los nuevos estados
+	GameStateMachine::instance()->pushState(new PlayState());
 	GameStateMachine::instance()->pushState(new PauseState());
 }
 
 // Destructora
 Game::~Game() {
-
-	// Elimina las texturas de texts
-	for (auto it = texts.begin(); it != texts.end(); ++it) {
-		delete it->second;
-	}
 
 	SDL_DestroyRenderer(SDLUtils::instance()->renderer());
 	SDL_DestroyWindow(window);
@@ -52,7 +45,6 @@ void Game::run() {
 			update();
 			startTime = SDL_GetTicks();
 		}
-		//handleEvents();
 	}
 	GameStateMachine::instance()->clearStates();
 }
@@ -68,8 +60,3 @@ void Game::refresh() {
 	inputHandler->refresh();
 	GameStateMachine::instance()->currentState()->refresh();
 }
-
-// Maneja los eventos del estado actual
-//void Game::handleEvents() {
-//	GameStateMachine::instance()->currentState()->handleEvent();
-//}
