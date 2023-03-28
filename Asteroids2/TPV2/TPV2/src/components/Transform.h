@@ -1,6 +1,5 @@
 #pragma once
 #include "../utils/Vector2D.h"
-#include "../ecs/Manager.h"
 
 struct Transform : public Component {
 	// Identificador

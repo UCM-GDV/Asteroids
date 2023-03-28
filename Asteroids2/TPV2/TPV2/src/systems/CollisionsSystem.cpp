@@ -1,6 +1,6 @@
 #include "../states/PlayState.h"
 #include "CollisionsSystem.h"
-
+#include "../ecs/Manager.h"
 // Constructora
 CollisionsSystem::CollisionsSystem(int state_) : state(state_) {}
 
@@ -40,6 +40,11 @@ void CollisionsSystem::update() {
 					if (bulletCollision(mngr_->getComponent<Transform>(bullet), asteroidTransform)) {
 						// Desactiva la bala
 						//LLAMAR AL MENSAJE DE COLISION BALA CON ASTEROIDE
+						Message m;
+						m.id = _m_BULLET_ASTEROID_COLLIDED;
+						m.bullet_asteroid_coll.asteroid = v[i];
+						m.bullet_asteroid_coll.bullet = bullet;
+						mngr_->send(m);
 					}
 				}
 			}

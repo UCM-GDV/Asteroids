@@ -24,7 +24,6 @@ Game::Game() {
 	texts[GAME_OVER_WIN_TEXT] = new Texture(SDLUtils::instance()->renderer(), GAME_OVER_WIN_TEXT, sdl->fonts().at("ARIAL24"), build_sdlcolor(0x00ff00ff));
 
 	// Anade los nuevos estados
-	GameStateMachine::instance()->pushState(new PlayState());
 	GameStateMachine::instance()->pushState(new PauseState());
 }
 

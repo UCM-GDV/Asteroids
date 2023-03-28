@@ -45,7 +45,9 @@ public:
 	// Actualiza todas las entidades
 	virtual void update() {
 		for (auto& sys : sys_) {
-			sys->update();
+			if (sys != nullptr) {
+				sys->update();
+			}
 		}
 	}
 	// Dibuja todas las entidades de la escena
@@ -74,16 +76,6 @@ public:
 				grpEnts.end());
 		}
 	}
-
-	// Manejo de los eventos de todas las entidades
-	//virtual void handleEvent() {
-	//	for (auto& ents : entsByGroup_) {
-	//		auto n = ents.size();
-	//		for (auto i = 0u; i < n; i++)
-	//			ents[i]->handleEvent();
-	//	}
-	//}
-
 	// Anade un componente a la entidad
 	template<typename T, typename ...Ts>
 	inline T* addComponent(Entity* e, Ts&&...args) {

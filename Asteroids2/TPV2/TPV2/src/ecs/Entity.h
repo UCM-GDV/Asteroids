@@ -5,18 +5,16 @@
 using namespace std;
 
 class Entity {
-protected:
-	Manager* mngr_;
 private:
 	friend Manager;
-
+	Manager* mngr_;
 	vector<Component*> currCmps_;
 	array<Component*, maxComponentId> cmps_;
 	bool alive_;
 	grpId_type gId_;
 public:
 	// Constructora
-	Entity(grpId_type gId) : mngr_(nullptr), cmps_(), currCmps_(), alive_(), gId_(gId) { currCmps_.reserve(maxComponentId); }
+	Entity(grpId_type gId) {}
 	Entity(const Entity&) = delete;
 	Entity& operator=(const Entity&) = delete;
 	// Destructora

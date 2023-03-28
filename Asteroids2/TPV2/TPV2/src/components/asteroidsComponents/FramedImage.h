@@ -1,6 +1,5 @@
 #pragma once
 #include "../../sdlutils/Texture.h"
-#include "../../ecs/Manager.h"
 
 struct FramedImage: public Component {
 private:

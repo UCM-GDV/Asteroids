@@ -1,5 +1,5 @@
 #include "AsteroidsSystem.h"
-
+#include "../ecs/Manager.h"
 // Destructora
 AsteroidsSystem::~AsteroidsSystem() {
 	asteroid = nullptr;
@@ -16,8 +16,8 @@ void AsteroidsSystem::initSystem() {
 // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 void AsteroidsSystem::receive(const Message& m) {
 	switch (m.id) {
+		case _m_BULLET_ASTEROID_COLLIDED: onCollision_AsteroidBullet(m.bullet_asteroid_coll.asteroid); break;
 		case _m_ROUND_FINISHED: onRoundOver(); break;
-		case _m_ROUND_STARTED: onRoundStart(); break;
 		default: break;
 	}
 }
@@ -148,18 +148,8 @@ void AsteroidsSystem::onCollision_AsteroidBullet(Entity* a) {
 	// Condicion de victoria
 	if (numOfAsteroids_ == 0) {
 		Message m;
-		m.id = _m_ONVICTORY;
+		m.id = _m_ASTEROIDS_EXTINCTION;
 		mngr_->send(m);
-
-		// FIGHTERSYSTEM
-		// Pone al caza en el centro de la ventana con velocidad cero y rotación cero
-		//mngr->resetFighter();
-		//// Se le resetean las vidas
-		//mngr->resetLives();
-
-		// GAMECTRLSYSTEM
-		// Menu de victoria
-		//mngr->endGame("win");
 	}
 }
 
@@ -168,8 +158,6 @@ void AsteroidsSystem::createWhiteAsteroid(Vector2D pos, Vector2D vel, float widt
 	asteroid = new Entity(_grp_ASTEROIDS_WHITE);
 	mngr_->addComponent<Transform>(asteroid, pos, vel, width, height, 0);
 	mngr_->addComponent<Generations>(asteroid, g);
-	//mngr_->addComponent<ShowAtOppositeSide>(asteroid);
-	//mngr_->addComponent<FramedImage>(asteroid, &SDLUtils::instance()->images().at("WhiteAsteroid"), ASTEROID_WHITE_FRAME_WIDTH, ASTEROID_WHITE_FRAME_HEIGHT, ASTEROID_WHITE_NUMCOLS, ASTEROID_WHITE_NUMROWS);
 	mngr_->addEntity(asteroid);
 	numOfAsteroids_++;
 }
@@ -179,8 +167,6 @@ void AsteroidsSystem::createYellowAsteroid(Vector2D pos, Vector2D vel, float wid
 	asteroid = new Entity(_grp_ASTEROIDS_YELLOW);
 	mngr_->addComponent<Transform>(asteroid, pos, vel, width, height, 0);
 	mngr_->addComponent<Generations>(asteroid, g);
-	//mngr_->addComponent<FramedImage>(asteroid, &SDLUtils::instance()->images().at("YellowAsteroid"), ASTEROID_GOLD_FRAME_WIDTH, ASTEROID_GOLD_FRAME_HEIGHT, ASTEROID_WHITE_NUMCOLS, ASTEROID_WHITE_NUMROWS);
-	//mngr_->addComponent<Follow>(asteroid, mngr->getFighter()->getComponent<Transform>(_TRANSFORM));
 	mngr_->addEntity(asteroid);
 	numOfAsteroids_++;
 }
@@ -207,11 +193,3 @@ Vector2D AsteroidsSystem::chooseVelocity(Vector2D p) {
 	float speed = (float)(sdlutils().rand().nextInt(1, 10) / 10.0f);
 	return ((c - p).normalize() * speed);
 }
-
-// Actualiza su vector de velocidad para perseguir al fighter
-//void Follow::update() {
-//	Vector2D v = transform->getVel();
-//	Vector2D p = transform->getPos();
-//	Vector2D q = followObjectTransform->getPos();
-//	
-//}

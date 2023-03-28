@@ -1,6 +1,5 @@
 #pragma once
 #include "../ecs/System.h"
-#include "../ecs/Manager.h"
 #include "../utils/Collisions.h"
 class CollisionsSystem : public System {
 public:

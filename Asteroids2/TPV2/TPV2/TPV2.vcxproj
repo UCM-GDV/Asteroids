@@ -28,6 +28,7 @@
     <ClInclude Include="src\components\fighterComponents\Gun.h" />
     <ClInclude Include="src\components\fighterComponents\Health.h" />
     <ClInclude Include="src\components\Image.h" />
+    <ClInclude Include="src\components\Message.h" />
     <ClInclude Include="src\components\ShowAtOppositeSide.h" />
     <ClInclude Include="src\components\Transform.h" />
     <ClInclude Include="src\ecs\Component.h" />

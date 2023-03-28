@@ -1,4 +1,5 @@
 #include "RenderSystem.h"
+#include "../ecs/Manager.h"
 
 // Constructora
 RenderSystem::RenderSystem() {}

@@ -1,5 +1,4 @@
 #pragma once
-#include "../utils/Vector2D.h"
 using cmpId_type = int;
 enum cmpId : cmpId_type {
 	_TRANSFORM = 0,
@@ -53,23 +52,6 @@ enum msgId : msgId_type {
 	_m_FIGHTER_SHOOT,
 	_m_ASTEROIDS_EXTINCTION,
 	_m_UPDATE_POSITION,
-	_m_ONVICTORY
-};
-
-struct Message {
-	msgId_type id;
-	// _m_ROUND_STARTED
-	struct {
-
-	} round_started;
-	// _m_ROUND_FINISHED
-	struct {
-
-	} round_finished;
-	// _m_FIGHTER_SHOOT
-	struct {
-		Vector2D pos, vel;
-		double width, height;
-	} fighter_shoot;
-
+	_m_ONVICTORY,
+	_m_ONDEFEAT
 };

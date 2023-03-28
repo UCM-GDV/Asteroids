@@ -1,4 +1,5 @@
 #include "FighterSystem.h"
+#include "../ecs/Manager.h"
 
 // Constructora
 FighterSystem::FighterSystem(int state_) : state(state_) {}
@@ -6,7 +7,8 @@ FighterSystem::FighterSystem(int state_) : state(state_) {}
 // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 void FighterSystem::receive(const Message& m) {
     switch (m.id) {
-        case _m_FIGTHER_ASTEROID_COLLIDED: onCollision_FighterAsteroid(); break;
+        case _m_ROUND_FINISHED: onCollision_FighterAsteroid(); break;
+		case _m_ONVICTORY: onRoundOver(); break;
         default: break;
     }
 }

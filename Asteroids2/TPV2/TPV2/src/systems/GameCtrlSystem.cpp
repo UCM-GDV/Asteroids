@@ -1,4 +1,5 @@
 #include "GameCtrlSystem.h"
+#include "../ecs/Manager.h"
 
 // Constructora
 GameCtrlSystem::GameCtrlSystem() : fighterHealth(nullptr) {}
@@ -7,9 +8,10 @@ GameCtrlSystem::GameCtrlSystem(int state_) : state(state_), fighterHealth(nullpt
 // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 void GameCtrlSystem::receive(const Message& m) {
     switch (m.id) {
+        //colision asteroide con fighter
     case _m_FIGTHER_ASTEROID_COLLIDED: onCollision_FighterAsteroid(); break;
     case _m_ASTEROIDS_EXTINCTION: onAsteroidsExtinction(); break;
-        default: break;
+    default: break;
     }
 }
 
@@ -31,11 +33,8 @@ void GameCtrlSystem::update() {
             if (InputHandler::instance()->isKeyDown(SDLK_SPACE)) {
                 // Si esta en PlayState
                 if (state == 1) {
-                    Message m;
-                    m.id = _m_UPDATE_POSITION;
-                    //mngr_->send(m);
-                     // Si pulsa SDLK_SPACE cambia de estado al de PauseState
-                    // Condicion de victoria y de derrota desde mensajes de otros systems AQUI???
+                    // Si pulsa SDLK_SPACE cambia de estado al de PauseState
+					// Condicion de victoria y de derrota desde mensajes de otros systems AQUI???
                 } 
                 // Si esta en PauseState
                 else if (state == 0) {
@@ -57,12 +56,30 @@ void GameCtrlSystem::update() {
 // al fighter, y si no hay más vidas avisar que ha acabado el juego (y quien
 // es el ganador).
 void GameCtrlSystem::onCollision_FighterAsteroid() {
+    
+    fighterHealth->decreaseLives();
+	Message m;
+    if (fighterHealth->getlife() <= 0) {
+		m.id = _m_ONDEFEAT;
+    }
+    else {
+		m.id = _m_ROUND_FINISHED;
+    }
+	mngr_->send(m);
+
     // anadir el pausestate
 }
 
 // Para gestionar el mensaje de que no hay más asteroides. Tiene que avisar que
 // ha acabado la ronda y además que ha acabado el juego (y quien es el ganador)
 void GameCtrlSystem::onAsteroidsExtinction() {
-   // añadir el endstate dependiendo de las vidas
+    Message m;
+    m.id = _m_ONVICTORY;
+    mngr_->send(m);
+
+	// añadir el endstate dependiendo de las vidas
+	// Menu de victoria
+	// mngr->endGame("win");
+   
     //Uint8 winner_; // 0 - None, 1 - Asteroids, 2- Fighter
 }

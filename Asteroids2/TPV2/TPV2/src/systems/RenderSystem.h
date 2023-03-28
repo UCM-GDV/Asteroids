@@ -1,6 +1,5 @@
 #pragma once
 #include "../ecs/System.h"
-#include "../ecs/Manager.h"
 #include "../systems/FighterSystem.h"
 #include "../components/Transform.h"
 #include "../components/fighterComponents/Health.h"

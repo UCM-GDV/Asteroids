@@ -1,7 +1,6 @@
 #pragma once
 #include <cassert>
 #include <math.h>
-#include "../../ecs/Manager.h"
 
 struct Generations : public Component {
 private:

@@ -1,6 +1,5 @@
 #pragma once
 #include "../ecs/System.h"
-#include "../ecs/Manager.h"
 #include "../sdlutils/InputHandler.h"
 #include "../systems/FighterSystem.h"
 
@@ -25,7 +24,7 @@ public:
 private:
 	// Estado actual del juego
 	int state; 
-
+    // Puntero a las vidas del fighter
     Health* fighterHealth;
 
     // Para gestionar el mensaje de que ha habido un choque entre el fighter y un

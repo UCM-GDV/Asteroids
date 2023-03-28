@@ -1,5 +1,4 @@
 #pragma once 
-#include "../../ecs/Manager.h"
 
 struct Health : public Component {
 private:

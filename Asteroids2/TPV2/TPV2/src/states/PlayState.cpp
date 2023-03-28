@@ -15,18 +15,6 @@ PlayState::PlayState(): Manager(), bullet(nullptr) {
 // Destructora
 PlayState::~PlayState() {}
 
-// Control del fighter y de los disparos
-//void PlayState::handleEvent() {
-//	/*SDL_Event event;
-//	if (SDL_PollEvent(&event)) {
-//		fighterControl->handleEvent(event);
-//		fighterGun->handleEvent(event);
-//		if (InputHandler::instance()->isKeyDown(SDLK_SPACE)) {
-//			pauseGame();
-//		}
-//	}*/
-//}
-
 // Anade bala a la escena dependiendo de la posicion del fighter
 //void PlayState::addBullet() {
 //	Vector2D bPos, bVel;

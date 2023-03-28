@@ -1,6 +1,7 @@
 #pragma once
+#include <cassert>
 #include "../game/constants.h"
-#include "../game/ecs_def.h"
+#include "../components/Message.h"
 class Manager;
 class System {
 public:

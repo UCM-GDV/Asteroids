@@ -1,4 +1,3 @@
-#include "Health.h"
 
 // Constructora
 //Health::Health() : texture(nullptr), lives(NUMBER_LIVES) {}

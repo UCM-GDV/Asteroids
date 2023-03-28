@@ -1,7 +1,6 @@
 #pragma once
 #include "../ecs/System.h"
 #include "../components/Transform.h"
-#include "../ecs/Manager.h"
 #include "FighterSystem.h"
 #include "../sdlutils/SDLUtils.h"
 

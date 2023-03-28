@@ -1,9 +1,7 @@
 #pragma once
-#include <cassert>
 #include "../ecs/System.h"
 #include "../Components/Transform.h" 
 #include "../Components/fighterComponents/Health.h"
-#include "../ecs/Manager.h"
 #include "../sdlutils/InputHandler.h"
 #include "../sdlutils/SDLUtils.h"
 
