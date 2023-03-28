@@ -21,9 +21,8 @@ public:
 	// en la práctica 1 y generar 1 asteroide nuevo cada 5 segundos (aparte
 	// de los 10 al principio de cada ronda).
 	virtual void update();
+
 private:
-	// Puntero al transform del fighter
-	//Transform* fighterTransform;
 	// El número actual de asteroides en el juego (recuerda que no puede superar un límite)
 	Uint8 numOfAsteroids_;
 	Entity* asteroid;
@@ -31,7 +30,8 @@ private:
 
 	// Fighter
 	Transform* fighterTransform;
-
+	//metodo que actualiza la posicion y velocidad 
+	void updateAsteroid(Transform* tr);
 	// Para gestionar el mensaje de que ha habido un choque de un asteroide con una
 	// bala. Desactivar el asteroide “a” y crear 2 asteroides como en la práctica 1,
 	// y si no hay más asteroides enviar un mensaje correspondiente.
@@ -46,7 +46,6 @@ private:
 	void createAsteroids(int n);
 	// Destruye todos los asteroides pertenecientes al _grp_ASTEROIDS de las entidades de la escena
 	void destroyAllAsteroids();
-
 	// Crea un asteroide blanco con sus componentes
 	void createWhiteAsteroid(Vector2D pos, Vector2D vel, float width, float height, int g);
 	// Crea un asteroide amarillo con sus componentes

@@ -22,7 +22,6 @@ Game::Game() {
 
 // Destructora
 Game::~Game() {
-
 	SDL_DestroyRenderer(SDLUtils::instance()->renderer());
 	SDL_DestroyWindow(window);
 	SDL_Quit();
@@ -53,6 +52,5 @@ void Game::update() {
 
 // Actualiza el juego en función del estado actual
 void Game::refresh() {
-	//inputHandler->refresh();
 	GameStateMachine::instance()->currentState()->refresh();
 }

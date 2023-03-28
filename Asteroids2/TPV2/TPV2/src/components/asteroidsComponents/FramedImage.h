@@ -3,8 +3,11 @@
 
 struct FramedImage: public Component {
 private:
+	//alto y ancho del frame
     int fw, fh; 
+	//numero de filas y columnas de la animacion
     int numCols, numRows;
+	//numero actual del frame
     int currentframe;
 public:
     // Identificador
@@ -14,8 +17,6 @@ public:
 		fh(fheight), numCols(numCols), numRows(numRows), currentframe(0) {};
 	// Destructora
     virtual ~FramedImage() {}
-   
-    
 	// Devuelve el ancho del frame
     inline int getFrameWidth() const { return fw; };
     // Devuelve el alto del frame
@@ -26,7 +27,6 @@ public:
     inline int getNumRows() const { return numRows; };
 	// Devuelve el frame actual
     inline int getCurrentFrame() const { return currentframe; };
-
 	// Establece el ancho del frame
 	inline void setFrameWidth(int fw_) { fw = fw_; };
 	// Establece el alto del frame

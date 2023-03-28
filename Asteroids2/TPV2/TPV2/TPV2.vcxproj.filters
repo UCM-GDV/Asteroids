@@ -162,31 +162,13 @@
     <ClInclude Include="src\components\fighterComponents\Health.h">
       <Filter>Header Files\components\fighterComponents</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\fighterComponents\DeAcceleration.h">
-      <Filter>Header Files\components\fighterComponents</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\fighterComponents\FighterControl.h">
-      <Filter>Header Files\components\fighterComponents</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\fighterComponents\Gun.h">
-      <Filter>Header Files\components\fighterComponents</Filter>
-    </ClInclude>
     <ClInclude Include="src\components\asteroidsComponents\FramedImage.h">
       <Filter>Header Files\components\asteroidsComponents</Filter>
     </ClInclude>
     <ClInclude Include="src\components\asteroidsComponents\Generations.h">
       <Filter>Header Files\components\asteroidsComponents</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\asteroidsComponents\Follow.h">
-      <Filter>Header Files\components\asteroidsComponents</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\bulletComponents\DisableOnExit.h">
-      <Filter>Header Files\components\bulletComponents</Filter>
-    </ClInclude>
     <ClInclude Include="src\components\Transform.h">
-      <Filter>Header Files\components</Filter>
-    </ClInclude>
-    <ClInclude Include="src\components\Image.h">
       <Filter>Header Files\components</Filter>
     </ClInclude>
     <ClInclude Include="src\components\ShowAtOppositeSide.h">
@@ -215,12 +197,6 @@
     </ClInclude>
     <ClInclude Include="src\states\EndState.h">
       <Filter>Header Files\states</Filter>
-    </ClInclude>
-    <ClInclude Include="src\game\AsteroidsManager.h">
-      <Filter>Header Files\managers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\game\CollisionsManager.h">
-      <Filter>Header Files\managers</Filter>
     </ClInclude>
     <ClInclude Include="src\utils\checkML.h">
       <Filter>Header Files\utils</Filter>
@@ -266,30 +242,6 @@
     <ClCompile Include="src\states\PauseState.cpp">
       <Filter>Source Files\states</Filter>
     </ClCompile>
-    <ClCompile Include="src\components\fighterComponents\DeAcceleration.cpp">
-      <Filter>Source Files\components\fighterComponents</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\fighterComponents\FighterControl.cpp">
-      <Filter>Source Files\components\fighterComponents</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\fighterComponents\Gun.cpp">
-      <Filter>Source Files\components\fighterComponents</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\bulletComponents\DisableOnExit.cpp">
-      <Filter>Source Files\components\bulletComponents</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\ShowAtOppositeSide.cpp">
-      <Filter>Source Files\components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\asteroidsComponents\Follow.cpp">
-      <Filter>Source Files\components\asteroidsComponents</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\asteroidsComponents\Generations.cpp">
-      <Filter>Source Files\components\asteroidsComponents</Filter>
-    </ClCompile>
-    <ClCompile Include="src\components\fighterComponents\Health.cpp">
-      <Filter>Source Files\components\fighterComponents</Filter>
-    </ClCompile>
     <ClCompile Include="src\systems\AsteroidsSystem.cpp">
       <Filter>Source Files\systems</Filter>
     </ClCompile>
@@ -310,12 +262,6 @@
     </ClCompile>
     <ClCompile Include="src\states\EndState.cpp">
       <Filter>Source Files\states</Filter>
-    </ClCompile>
-    <ClCompile Include="src\game\AsteroidsManager.cpp">
-      <Filter>Source Files\managers</Filter>
-    </ClCompile>
-    <ClCompile Include="src\game\CollisionsManager.cpp">
-      <Filter>Source Files\managers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

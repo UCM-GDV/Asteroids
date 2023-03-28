@@ -2,16 +2,17 @@
 
 struct Health : public Component {
 private:
-	int lives;/*
-	Texture* texture;*/
+	//numero de vidas
+	int lives;
 public:
 	// Identificador
 	constexpr static cmpId_type id = _HEALTH;
-	//// Constructora
+	// Constructora
 	Health(int lives_) : lives(lives_) {}
-	//// Destructora
-	//   virtual ~Health();
+	//devuelve las vidas
 	int getlife() { return lives; }
+	//cambia las vidas al numero indicado
 	void setlife(int num) { lives = num; }
+	//decrementa las vidas
 	void decreaseLives() { lives--; }
 };

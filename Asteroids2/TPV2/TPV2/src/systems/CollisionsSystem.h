@@ -22,7 +22,8 @@ private:
 	Collisions* col;
 	// Estado actual del juego
 	int state;
-
+	// Detecta las colisiones dependendiendo del grupo de asteroide
+	void collision(vector<Entity*> v);
 	// Devuelve si algun asteroide ha colisionado con el fighter
 	bool fighterCollision(Transform* asteroidTransform);
 	// Devuelve si la bala ha colisionado con algun asteroide

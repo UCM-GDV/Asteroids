@@ -1,17 +1,12 @@
 #include "../states/PlayState.h"
 #include "CollisionsSystem.h"
 #include "../ecs/Manager.h"
+
 // Constructora
 CollisionsSystem::CollisionsSystem(int state_) : state(state_) {}
 
 // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 void CollisionsSystem::receive(const Message& m) {
-	/*switch (m.id) {
-	case _m_ASTEROIDS_COLLISIONFIGHTER:
-		
-	break;
-	default: break;
-	}*/
 }
 
 // Inicializar el sistema, etc.
@@ -25,31 +20,34 @@ void CollisionsSystem::initSystem() {
 void CollisionsSystem::update() {
 	// Si esta en PlayState
 	if (state == 1){
-		vector<Entity*> v = mngr_->getEntities(_grp_ASTEROIDS_WHITE);
-		int i = 0; bool end = false;
-		while (i < v.size() && !end) {
-			Transform* asteroidTransform = mngr_->getComponent<Transform>(v[i]); 
-			if (fighterCollision(asteroidTransform)) {
-				Message m;
-				m.id = _m_FIGTHER_ASTEROID_COLLIDED;
-				mngr_->send(m);
-				end = true;
-			}
-			else {
-				for (auto& bullet : mngr_->getEntities(_grp_BULLETS)) {
-					if (bulletCollision(mngr_->getComponent<Transform>(bullet), asteroidTransform)) {
-						// Desactiva la bala
-						//LLAMAR AL MENSAJE DE COLISION BALA CON ASTEROIDE
-						Message m;
-						m.id = _m_BULLET_ASTEROID_COLLIDED;
-						m.bullet_asteroid_coll.asteroid = v[i];
-						m.bullet_asteroid_coll.bullet = bullet;
-						mngr_->send(m);
-					}
+		collision(mngr_->getEntities(_grp_ASTEROIDS_WHITE));
+		collision(mngr_->getEntities(_grp_ASTEROIDS_YELLOW));
+	}
+}
+
+// Detecta las colisiones dependendiendo del grupo de asteroide
+void CollisionsSystem::collision(vector<Entity*> v) {
+	int i = 0; bool end = false;
+	while (i < v.size() && !end) {
+		Transform* asteroidTransform = mngr_->getComponent<Transform>(v[i]);
+		if (fighterCollision(asteroidTransform)) {
+			Message m;
+			m.id = _m_FIGTHER_ASTEROID_COLLIDED;
+			mngr_->send(m);
+			end = true;
+		}
+		else {
+			for (auto& bullet : mngr_->getEntities(_grp_BULLETS)) {
+				if (bulletCollision(mngr_->getComponent<Transform>(bullet), asteroidTransform)) {
+					Message m;
+					m.id = _m_BULLET_ASTEROID_COLLIDED;
+					m.bullet_asteroid_coll.asteroid = v[i];
+					m.bullet_asteroid_coll.bullet = bullet;
+					mngr_->send(m);
 				}
 			}
-			++i;
 		}
+		++i;
 	}
 }
 

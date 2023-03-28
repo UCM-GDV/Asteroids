@@ -1,6 +1,6 @@
 #include "BulletSystem.h"
 #include "../ecs/Manager.h"
-    // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
+// Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 void BulletSystem::receive(const Message& m) {
 	switch (m.id) {
 		case _m_ROUND_FINISHED: destroyAllBullets(); break;
@@ -9,7 +9,7 @@ void BulletSystem::receive(const Message& m) {
 		default: break;
 	}
 }
-    // Inicializar el sistema, etc.
+// Inicializar el sistema, etc.
 void BulletSystem::initSystem() {
 	fighterTransform = mngr_->getSystem<FighterSystem>()->getFighterTransform();
 	assert(fighterTransform != nullptr);
@@ -40,7 +40,7 @@ void BulletSystem::shoot(Vector2D pos, Vector2D vel, double width, double height
 	bVel = Vector2D(0.0f, -1.0f).rotate(fighterTransform->getR()) * (fighterTransform->getVel().magnitude() + 5.0f);
 
 	Entity* bullet = new Entity(_grp_BULLETS);
-	mngr_->addComponent<Transform>(bullet, bPos, bVel, BULLET_WIDTH, BULLET_HEIGHT, bVel.angle(Vector2D(0.0f, -1.0f)));
+	mngr_->addComponent<Transform>(bullet, bPos, bVel, BULLET_WIDTH, BULLET_HEIGHT, fighterTransform->getR());
 	mngr_->addEntity(bullet, _grp_BULLETS);
 
 	// Sonido

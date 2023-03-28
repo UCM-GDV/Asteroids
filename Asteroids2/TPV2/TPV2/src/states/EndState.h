@@ -8,13 +8,14 @@ class EndState : public Manager {
 private:
 	FighterSystem* fighterSys_;
 	GameCtrlSystem* gameCtrlSys_;
-	RenderSystem* renderSystem;
+	RenderSystem* renderSys_;
+
+	Entity* pressToStartEntity;
+	Entity* resultEntity;
 public:
 
 	// Constructora
-	EndState(string resultString);
+	EndState(int resultString);
 	// Destructora
 	virtual ~EndState();
-	// Recoge el input del usuario
-	//void handleEvent();
 };

@@ -8,7 +8,7 @@ FighterSystem::FighterSystem(int state_) : state(state_) {}
 void FighterSystem::receive(const Message& m) {
     switch (m.id) {
         case _m_ROUND_FINISHED: onCollision_FighterAsteroid(); break;
-		case _m_ONVICTORY: onRoundOver(); break;
+		case _m_ONVICTORY: case _m_ONDEFEAT: onRoundOver(); break;
         default: break;
     }
 }
@@ -25,8 +25,6 @@ void FighterSystem::initSystem() {
     fighterHealth = mngr_->addComponent<Health>(fighter, NUMBER_LIVES);
 	fighterHealth->setContext(fighter, mngr_);
     mngr_->addEntity(fighter, _grp_FIGHTER);
-
-    // ASOCIARLA CON UN HANDLER
 }
 
 // Si el juego está parado no hacer nada, en otro caso actualizar la velocidad
@@ -37,62 +35,62 @@ void FighterSystem::initSystem() {
 void FighterSystem::update() {
 	// Si esta en PlayState
 	if (state == 1) {
-		// TRANSFORM
-		fighterTransform->setPos(fighterTransform->getPos() + fighterTransform->getVel());
+		
+		updatefighter();
 
-		// DEACCELERATION
-		Vector2D vel = fighterTransform->getVel();
-		if (abs(vel.getY()) < 0.05f) fighterTransform->setVel(Vector2D(0, 0));
-		else fighterTransform->setVel(vel * 0.995f);
-
-		// SHOWATOPPOSITESIDE
-		if (fighterTransform->getPos().getX() < -(FIGHTER_WIDTH)) {
-			fighterTransform->setPos(Vector2D(WIN_WIDTH, fighterTransform->getPos().getY()));
-		}
-		else if (fighterTransform->getPos().getX() > (WIN_WIDTH + FIGHTER_WIDTH)) {
-			fighterTransform->setPos(Vector2D(0, fighterTransform->getPos().getY()));
-		}
-		if (fighterTransform->getPos().getY() < -(FIGHTER_HEIGHT)) {
-			fighterTransform->setPos(Vector2D(fighterTransform->getPos().getX(), WIN_HEIGHT));
-		}
-		else if (fighterTransform->getPos().getY() > (WIN_HEIGHT + FIGHTER_HEIGHT)) {
-			fighterTransform->setPos(Vector2D(fighterTransform->getPos().getX(), 0));
-		}
-
-		SDL_Event event_;
-		if (SDL_PollEvent(&event_)) {
-			if (event_.type == SDL_KEYDOWN) {
+		if (InputHandler::instance()->keyDownEvent()) {
+			if (InputHandler::instance()->isKeyDown(SDLK_s)) {
 				// GUN
-				if (event_.key.keysym.sym == SDLK_s) {
-					int frameTime = SDL_GetTicks() - startTime;
-					if (frameTime >= 250) {
-						// Envia mensaje con las caracteristicas fisicas de la bala
-						Message m;
-						m.id = _m_FIGHTER_SHOOT;
-						m.fighter_shoot.pos = fighterTransform->getPos();
-						m.fighter_shoot.vel = fighterTransform->getVel();
-						m.fighter_shoot.width = fighterTransform->getW();
-						m.fighter_shoot.height = fighterTransform->getH();
-						mngr_->send(m);
+				int frameTime = SDL_GetTicks() - startTime;
+				if (frameTime >= 250) {
+					// Envia mensaje con las caracteristicas fisicas de la bala
+					Message m;
+					m.id = _m_FIGHTER_SHOOT;
+					m.fighter_shoot.pos = fighterTransform->getPos();
+					m.fighter_shoot.vel = fighterTransform->getVel();
+					m.fighter_shoot.width = fighterTransform->getW();
+					m.fighter_shoot.height = fighterTransform->getH();
+					mngr_->send(m);
 
-						startTime = SDL_GetTicks();
-					}
+					startTime = SDL_GetTicks();
 				}
-				// FIGHTERCONTROL
-				if (event_.key.keysym.sym == SDLK_LEFT) {
-					rotate(-(FIGHTER_ROTATION_SPEED));
-				}
-				else if (event_.key.keysym.sym == SDLK_RIGHT) {
-					rotate(FIGHTER_ROTATION_SPEED);
-				}
-				else if (event_.key.keysym.sym == SDLK_UP) {
-					accelerate();
-				}
+			}
+			// FIGHTERCONTROL
+			if (InputHandler::instance()->isKeyDown(SDLK_LEFT)) {
+				rotate(-(FIGHTER_ROTATION_SPEED));
+			}
+			else if (InputHandler::instance()->isKeyDown(SDLK_RIGHT)) {
+				rotate(FIGHTER_ROTATION_SPEED);
+			}
+			else if (InputHandler::instance()->isKeyDown(SDLK_UP)) {
+				accelerate();
 			}
 		}
 	}
 }
+void  FighterSystem::updatefighter() {
+	// TRANSFORM
+	fighterTransform->setPos(fighterTransform->getPos() + fighterTransform->getVel());
 
+	// DEACCELERATION
+	Vector2D vel = fighterTransform->getVel();
+	if (abs(vel.getY()) < 0.05f) fighterTransform->setVel(Vector2D(0, 0));
+	else fighterTransform->setVel(vel * 0.995f);
+
+	// SHOWATOPPOSITESIDE
+	if (fighterTransform->getPos().getX() < -(FIGHTER_WIDTH)) {
+		fighterTransform->setPos(Vector2D(WIN_WIDTH, fighterTransform->getPos().getY()));
+	}
+	else if (fighterTransform->getPos().getX() > (WIN_WIDTH + FIGHTER_WIDTH)) {
+		fighterTransform->setPos(Vector2D(0, fighterTransform->getPos().getY()));
+	}
+	if (fighterTransform->getPos().getY() < -(FIGHTER_HEIGHT)) {
+		fighterTransform->setPos(Vector2D(fighterTransform->getPos().getX(), WIN_HEIGHT));
+	}
+	else if (fighterTransform->getPos().getY() > (WIN_HEIGHT + FIGHTER_HEIGHT)) {
+		fighterTransform->setPos(Vector2D(fighterTransform->getPos().getX(), 0));
+	}
+}
 // Devuelve el transform del fighter
 Transform* FighterSystem::getFighterTransform() { return fighterTransform; }
 
@@ -109,6 +107,7 @@ void FighterSystem::onCollision_FighterAsteroid() {
 // Para gestionar el mensaje de que ha acabado una ronda. Desactivar el sistema.
 void FighterSystem::onRoundOver() {
 	resetFighter();
+	resetLives();
 }
 
 // Acelera al fighter

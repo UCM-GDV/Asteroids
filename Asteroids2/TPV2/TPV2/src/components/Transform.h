@@ -11,11 +11,6 @@ struct Transform : public Component {
 	// Constructora
 	Transform(Vector2D pos, Vector2D vel, float w, float h, float r) :
 		position_(pos), velocity_(vel), width_(w), height_(h), rotation_(r) {};
-
-	// Destructora
-	//virtual ~Transform() {}
-	// Actualiza la posicion
-	//virtual void update() { position_ = position_ + velocity_; }
 	// Devuelve su posicion
 	inline Vector2D& getPos() { return position_; }
 	// Devuelve su velocidad

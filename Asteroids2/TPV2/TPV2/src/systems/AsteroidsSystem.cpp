@@ -19,6 +19,7 @@ void AsteroidsSystem::receive(const Message& m) {
 	case _m_ROUND_STARTED: onRoundStart(); break;
 		case _m_BULLET_ASTEROID_COLLIDED: onCollision_AsteroidBullet(m.bullet_asteroid_coll.asteroid); break;
 		case _m_ROUND_FINISHED: onRoundOver(); break;
+		case _m_ONDEFEAT: destroyAllAsteroids(); break;
 		default: break;
 	}
 }
@@ -29,7 +30,6 @@ void AsteroidsSystem::receive(const Message& m) {
 
 void AsteroidsSystem::update() {
 
-	// addAsteroidFrequently()
 	// Genera un asteroide nuevo cada 5 segundos 
 	uint32_t frameTime = SDL_GetTicks() - startTime;
 	if (frameTime >= ASTEROIDS_DELAY_TIME) {
@@ -39,43 +39,36 @@ void AsteroidsSystem::update() {
 
 	// Movimiento de los asteroides
 	for (auto asteroid : mngr_->getEntities(_grp_ASTEROIDS_WHITE)) {
+		// TRANSFORM
 		auto tr = mngr_->getComponent<Transform>(asteroid);
-		tr->position_ = tr->position_ + tr->velocity_;
-		// SHOWATOPPOSITESIDE
-		if (tr->getPos().getX() < -(FIGHTER_WIDTH)) {
-			tr->setPos(Vector2D(WIN_WIDTH, tr->getPos().getY()));
-		}
-		else if (tr->getPos().getX() > (WIN_WIDTH + FIGHTER_WIDTH)) {
-			tr->setPos(Vector2D(0, tr->getPos().getY()));
-		}
-		if (tr->getPos().getY() < -(FIGHTER_HEIGHT)) {
-			tr->setPos(Vector2D(tr->getPos().getX(), WIN_HEIGHT));
-		}
-		else if (tr->getPos().getY() > (WIN_HEIGHT + FIGHTER_HEIGHT)) {
-			tr->setPos(Vector2D(tr->getPos().getX(), 0));
-		}
+		updateAsteroid(tr);
 	}
 
 	for (auto asteroid : mngr_->getEntities(_grp_ASTEROIDS_YELLOW)) {
+		//TRANSFORM
 		auto tr = mngr_->getComponent<Transform>(asteroid);
 		// FOLLOW
 		tr->setVel(tr->getVel().rotate(tr->getVel().angle(fighterTransform->getPos() - tr->getPos()) > 0 ? 1.0f : -1.0f));
-		// SHOWATOPPOSITESIDE
-		if (tr->getPos().getX() < -(FIGHTER_WIDTH)) {
-			tr->setPos(Vector2D(WIN_WIDTH, tr->getPos().getY()));
-		}
-		else if (tr->getPos().getX() > (WIN_WIDTH + FIGHTER_WIDTH)) {
-			tr->setPos(Vector2D(0, tr->getPos().getY()));
-		}
-		if (tr->getPos().getY() < -(FIGHTER_HEIGHT)) {
-			tr->setPos(Vector2D(tr->getPos().getX(), WIN_HEIGHT));
-		}
-		else if (tr->getPos().getY() > (WIN_HEIGHT + FIGHTER_HEIGHT)) {
-			tr->setPos(Vector2D(tr->getPos().getX(), 0));
-		}
+		updateAsteroid(tr);
 	}
 }
-
+void AsteroidsSystem::updateAsteroid(Transform *tr) {
+	
+	tr->position_ = tr->position_ + tr->velocity_;
+	// SHOWATOPPOSITESIDE
+	if (tr->getPos().getX() < -(FIGHTER_WIDTH)) {
+		tr->setPos(Vector2D(WIN_WIDTH, tr->getPos().getY()));
+	}
+	else if (tr->getPos().getX() > (WIN_WIDTH + FIGHTER_WIDTH)) {
+		tr->setPos(Vector2D(0, tr->getPos().getY()));
+	}
+	if (tr->getPos().getY() < -(FIGHTER_HEIGHT)) {
+		tr->setPos(Vector2D(tr->getPos().getX(), WIN_HEIGHT));
+	}
+	else if (tr->getPos().getY() > (WIN_HEIGHT + FIGHTER_HEIGHT)) {
+		tr->setPos(Vector2D(tr->getPos().getX(), 0));
+	}
+}
 // Para gestionar el mensaje de que ha acabado la ronda. Desactivar todos los
 // asteroides, y desactivar el sistema.
 void AsteroidsSystem::onRoundOver() {
@@ -146,7 +139,7 @@ void AsteroidsSystem::onCollision_AsteroidBullet(Entity* a) {
 			}
 		}
 	}
-
+	
 	// Condicion de victoria
 	if (numOfAsteroids_ == 0) {
 		Message m;
@@ -157,7 +150,6 @@ void AsteroidsSystem::onCollision_AsteroidBullet(Entity* a) {
 
 // Crea un asteroide blanco con sus componentes
 void AsteroidsSystem::createWhiteAsteroid(Vector2D pos, Vector2D vel, float width, float height, int g) {
-	cout << "Se crea asteroide blanco" << endl;
 	asteroid = new Entity(_grp_ASTEROIDS_WHITE);
 	mngr_->addComponent<Transform>(asteroid, pos, vel, width, height, 0);
 	mngr_->addComponent<Generations>(asteroid, g);
@@ -168,7 +160,6 @@ void AsteroidsSystem::createWhiteAsteroid(Vector2D pos, Vector2D vel, float widt
 
 // Crea un asteroide amarillo con sus componentes
 void AsteroidsSystem::createYellowAsteroid(Vector2D pos, Vector2D vel, float width, float height, int g) {
-	cout << "Se crea asteroide amarillo" << endl;
 	asteroid = new Entity(_grp_ASTEROIDS_YELLOW);
 	mngr_->addComponent<Transform>(asteroid, pos, vel, width, height, 0);
 	mngr_->addComponent<Generations>(asteroid, g);

@@ -4,6 +4,7 @@
 
 struct Generations : public Component {
 private:
+	//numero de generaciones
 	int numGen;
 public:
     // Identificador
@@ -12,8 +13,6 @@ public:
 	Generations(int gen_) : numGen(gen_) {}
 	// Destructora
 	virtual ~Generations() {}
-	// Inicializa el componente
-	//void initComponent() {}
 	// Cambia la generacion del componente
 	inline void setGeneration(int gen_) { numGen = gen_; }
 	// Devuelve la generacion del componente

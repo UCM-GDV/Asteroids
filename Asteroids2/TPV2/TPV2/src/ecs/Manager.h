@@ -2,11 +2,13 @@
 #include "Entity.h"
 #include "System.h"
 #include "../sdlutils/Texture.h"
+#include "../sdlutils/InputHandler.h"
+#include <unordered_map>
 using namespace std;
 
 class Manager {
 private:
-	//array<Entity*, maxHandlerId> hdlrs_;
+	array<Entity*, maxHandlerId> hdlrs_;
 	array<vector<Entity*>, maxGroupId> entsByGroup_;
 	array<System*, maxSystemId> sys_;
 
@@ -15,10 +17,10 @@ private:
 	
 public:
 	// Puntero a la textura del texto a renderizar
-	Texture* textTexture_;
+	unordered_map<Entity*, Texture*> textTextures_;
 
 	// Constructora
-	Manager() : entsByGroup_(), textTexture_(nullptr) {
+	Manager() : entsByGroup_() {
 		for (auto& groupEntities : entsByGroup_) {
 			groupEntities.reserve(100);
 		}
@@ -31,9 +33,8 @@ public:
 			}
 		}
 
-		if (textTexture_ != nullptr) {
-			delete textTexture_;
-			textTexture_ = nullptr;
+		for (auto it = textTextures_.begin(); it != textTextures_.end(); ++it) {
+			delete textTextures_[it->first];
 		}
 	}
 	// Anade una entidad al grupo
@@ -49,8 +50,10 @@ public:
 		return entsByGroup_[gId];
 	}
 
-	//inline void setHandler(hdlrId_type hId, Entity* e) {}
-	//inline Entity* getHandler(hdlrId_type hId) {}
+	// Establece la entidad como handler
+	inline void setHandler(hdlrId_type hId, Entity* e) {}
+	// Devuelve la entidad handler
+	inline Entity* getHandler(hdlrId_type hId) {}
 
 	// Actualiza todas las entidades
 	virtual void update() {
@@ -62,6 +65,7 @@ public:
 	}
 	// Borra entidades no vivas de la escena
 	void refresh() {
+		InputHandler::instance()->refresh();
 		for (grpId_type gId = 0; gId < maxGroupId; gId++) {
 			auto& grpEnts = entsByGroup_[gId];
 			grpEnts.erase(

@@ -7,10 +7,7 @@ RenderSystem::RenderSystem(int state_) : state(state_), fighterTransform(nullptr
 
 // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 void RenderSystem::receive(const Message& m) {
-	//switch (m.id) {
-	//	case algo: algo2; break;
-	// default; break;
-	//}
+	
 }
 
 // Inicializar el sistema, etc.
@@ -19,11 +16,6 @@ void RenderSystem::initSystem() {
 	assert(fighterTransform != nullptr);
 	fighterHealth = mngr_->getSystem<FighterSystem>()->getFighterHealth();
 	assert(fighterHealth != nullptr);
-
-	text = new Entity(_grp_MESSAGES);
-	text->setContext(mngr_);
-	mngr_->addComponent<Transform>(text, TEXT_POSITION, VECTOR_ZERO, TEXT_WIDTH, TEXT_HEIGHT, 0);
-	mngr_->addEntity(text, _grp_MESSAGES);
 }
 
 // - Dibujar asteroides, balas y caza (sólo si el juego no está parado).
@@ -63,10 +55,10 @@ void RenderSystem::update() {
 	}
 	// Mensajes en el resto de estados (PauseState y EndState)
 	else if (state == 0 || state == 2) {
-		if (mngr_->textTexture_ != nullptr) {
+		for (Entity* text : mngr_->getEntities(_grp_MESSAGES)) {
 			textTransform = mngr_->getComponent<Transform>(text);
 			dest = build_sdlrect(textTransform->getPos(), textTransform->getW(), textTransform->getH());
-			mngr_->textTexture_->render(dest, textTransform->getR());
+			mngr_->textTextures_[text]->render(dest, textTransform->getR());
 		}
 	}
 

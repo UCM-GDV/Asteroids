@@ -11,8 +11,10 @@ private:
 	FighterSystem* fighterSys_;
 	GameCtrlSystem* gameCtrlSys_;
 	RenderSystem* renderSys_;
-public:
 
+	Entity* pressToContinue;
+
+public:
 	// Constructora
 	PauseState();
 	// Destructora

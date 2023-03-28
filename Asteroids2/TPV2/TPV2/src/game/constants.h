@@ -17,7 +17,7 @@ const SDL_Rect FULLWINDOW = { 0, 0, WIN_WIDTH, WIN_HEIGHT };
 
 // FRAME TIMES
 const double FRAME_TIME = 30;
-const int DELAY_TIME = 17;
+const int DELAY_TIME = 2;
 
 // TEXTURES
 const string TEXTURES_FILE = "resources/config/textures.txt";
@@ -37,7 +37,7 @@ const Vector2D SPEED_LIMIT = Vector2D(0, 3.0f);
 
 // ASTEROID
 const int ASTEROIDS_INITIAL_NUMBER = 10;
-const int ASTEROIDS_MAX_NUMBER = 30;
+const int ASTEROIDS_MAX_NUMBER = 1;
 const int ASTEROIDS_DELAY_TIME = 5000;
 const int ASTEROID_WHITE_FRAME_WIDTH = 85;
 const int ASTEROID_WHITE_FRAME_HEIGHT = 100;
@@ -62,6 +62,7 @@ const int BULLET_HEIGHT = 20;
 const int TEXT_WIDTH = 400;
 const int TEXT_HEIGHT = 40;
 const Vector2D TEXT_POSITION = Vector2D(WIN_HALF_WIDTH - TEXT_WIDTH / 2, WIN_HEIGHT * 2 / 3);
+const Vector2D GAME_OVER_TEXT_POSITION = Vector2D(WIN_HALF_WIDTH - TEXT_WIDTH / 2, WIN_HEIGHT / 3);
 const string PRESS_TO_CONTINUE_TEXT = "Press space to continue";
 const string PRESS_TO_START_TEXT = "Press space to start";
 const string GAME_OVER_LOSE_TEXT = "Game Over: Loser!";

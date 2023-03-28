@@ -7,6 +7,7 @@
 #include "../states/PauseState.h"
 #include "../states/PlayState.h"
 #include "../states/EndState.h"
+#include "../utils/Singleton.h"
 using namespace std;
 
 class Game {

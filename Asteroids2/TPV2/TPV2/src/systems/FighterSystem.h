@@ -39,7 +39,7 @@ private:
 	Entity* fighter;
 	Transform* fighterTransform;
 	Health* fighterHealth;
-
+	void updatefighter();
 	// Para reaccionar al mensaje de que ha habido un choque entre el fighter y un
 	// un asteroide. Poner el caza en el centro con velocidad (0,0) y rotación 0. No
 	// hace falta desactivar la entidad (no dibujarla si el juego está parado).

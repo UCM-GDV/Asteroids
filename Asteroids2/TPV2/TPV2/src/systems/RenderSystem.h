@@ -44,13 +44,5 @@ private:
 	Transform* textTransform;
 	// FRAMEDIMAGE
 	void renderAsteroid(Entity* a, Texture* tex);
-
-	// ESTO DE AQUI NO LO VAMOS A USAR PORQUE TENEMOS MAQUINA DE ESTADOS
-	// Para gestionar los mensajes correspondientes y actualizar los atributos
-	// winner_ y state_. 
-	//void onRoundStart();
-	//void onRoundOver();
-	//void onGameStart();
-	//void onGameOver();
 	
 };
