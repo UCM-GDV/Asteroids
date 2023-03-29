@@ -49,7 +49,6 @@ public:
 	}
 	// Borra entidades no vivas de la escena
 	void refresh() {
-		ih().refresh();
 
 		for (grpId_type gId = 0; gId < maxGroupId; gId++) {
 			auto& grpEnts = entsByGroup_[gId];

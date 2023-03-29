@@ -31,23 +31,29 @@ void GameCtrlSystem::initSystem() {
 //  Tiene que enviar mensajes correspondientes cuando
 // empieza una ronda o cuando empieza una nueva partida.
 void GameCtrlSystem::update() {
-    if (ih().isKeyDown(SDLK_SPACE)) {
-        // Si esta en PlayState
-        if (state == 1) {
-            GameStateMachine::instance()->pushState(new PauseState());
-        }
-        // Si esta en PauseState
-        else if (state == 0) {
-            GameStateMachine::instance()->popState();
-            Message m;
-            m.id = _m_ROUND_STARTED;
-            GameStateMachine::instance()->currentState()->send(m);
-        }
-        // Si esta en EndState
-        else if (state == 2) {
-            GameStateMachine::instance()->changeState(new PauseState());
+   // ih().keyDownEvent();
+    if (InputHandler::instance()->keyDownEvent()) {
+        if (InputHandler::instance()->isKeyDown(SDLK_SPACE)) {
+            // Si esta en PlayState
+            if (state == 1) {
+                GameStateMachine::instance()->pushState(new PauseState());
+            }
+            // Si esta en PauseState
+            else if (state == 0) {
+                GameStateMachine::instance()->popState();
+                Message m;
+                m.id = _m_ROUND_STARTED;
+                GameStateMachine::instance()->currentState()->send(m);
+            }
+            // Si esta en EndState
+            else if (state == 2) {
+                GameStateMachine::instance()->changeState(new PauseState());
+            }
+
         }
     }
+    InputHandler::instance()->refresh();
+    
 }
 
 // Para gestionar el mensaje de que ha habido un choque entre el fighter y un

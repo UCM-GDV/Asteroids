@@ -35,35 +35,41 @@ void FighterSystem::initSystem() {
 void FighterSystem::update() {
 	// Si esta en PlayState
 	if (state == 1) {
-		
+		SDL_Event event_;
+		//ih().update(event_);
 		updatefighter();
+		InputHandler::instance()->update(event_);
+		if (InputHandler::instance()->keyDownEvent()) {
+			
 
-		if (ih().isKeyDown(SDLK_s)) {
-			// GUN
-			int frameTime = SDL_GetTicks() - startTime;
-			if (frameTime >= 250) {
-				// Envia mensaje con las caracteristicas fisicas de la bala
-				Message m;
-				m.id = _m_FIGHTER_SHOOT;
-				m.fighter_shoot.pos = fighterTransform->getPos();
-				m.fighter_shoot.vel = fighterTransform->getVel();
-				m.fighter_shoot.width = fighterTransform->getW();
-				m.fighter_shoot.height = fighterTransform->getH();
-				mngr_->send(m);
+			if (InputHandler::instance()->isKeyDown(SDLK_s)) {
+				// GUN
+				int frameTime = SDL_GetTicks() - startTime;
+				if (frameTime >= 250) {
+					// Envia mensaje con las caracteristicas fisicas de la bala
+					Message m;
+					m.id = _m_FIGHTER_SHOOT;
+					m.fighter_shoot.pos = fighterTransform->getPos();
+					m.fighter_shoot.vel = fighterTransform->getVel();
+					m.fighter_shoot.width = fighterTransform->getW();
+					m.fighter_shoot.height = fighterTransform->getH();
+					mngr_->send(m);
 
-				startTime = SDL_GetTicks();
+					startTime = SDL_GetTicks();
+				}
+			}
+			// FIGHTERCONTROL
+			if (InputHandler::instance()->isKeyDown(SDLK_LEFT)) {
+				rotate(-(FIGHTER_ROTATION_SPEED));
+			}
+			else if (InputHandler::instance()->isKeyDown(SDLK_RIGHT)) {
+				rotate(FIGHTER_ROTATION_SPEED);
+			}
+			else if (InputHandler::instance()->isKeyDown(SDLK_UP)) {
+				accelerate();
 			}
 		}
-		// FIGHTERCONTROL
-		if (ih().isKeyDown(SDLK_LEFT)) {
-			rotate(-(FIGHTER_ROTATION_SPEED));
-		}
-		else if (ih().isKeyDown(SDLK_RIGHT)) {
-			rotate(FIGHTER_ROTATION_SPEED);
-		}
-		else if (ih().isKeyDown(SDLK_UP)) {
-			accelerate();
-		}
+		
 	}
 }
 void  FighterSystem::updatefighter() {
