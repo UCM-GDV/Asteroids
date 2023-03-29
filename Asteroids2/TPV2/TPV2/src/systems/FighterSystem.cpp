@@ -17,7 +17,7 @@ void FighterSystem::receive(const Message& m) {
 // correspondiente, etc.
 void FighterSystem::initSystem() {
 	startTime = SDL_GetTicks();
-    // FIGHTER
+    // Anade el objeto fighter a la escena
     fighter = new Entity(_grp_FIGHTER);
     fighter->setContext(mngr_);
     fighterTransform = mngr_->addComponent<Transform>(fighter, Vector2D(WIN_HALF_WIDTH, WIN_HALF_HEIGHT), FIGHTER_VELOCITY, FIGHTER_WIDTH, FIGHTER_HEIGHT, FIGHTER_ROTATION);
@@ -38,33 +38,31 @@ void FighterSystem::update() {
 		
 		updatefighter();
 
-		if (InputHandler::instance()->keyDownEvent()) {
-			if (InputHandler::instance()->isKeyDown(SDLK_s)) {
-				// GUN
-				int frameTime = SDL_GetTicks() - startTime;
-				if (frameTime >= 250) {
-					// Envia mensaje con las caracteristicas fisicas de la bala
-					Message m;
-					m.id = _m_FIGHTER_SHOOT;
-					m.fighter_shoot.pos = fighterTransform->getPos();
-					m.fighter_shoot.vel = fighterTransform->getVel();
-					m.fighter_shoot.width = fighterTransform->getW();
-					m.fighter_shoot.height = fighterTransform->getH();
-					mngr_->send(m);
+		if (ih().isKeyDown(SDLK_s)) {
+			// GUN
+			int frameTime = SDL_GetTicks() - startTime;
+			if (frameTime >= 250) {
+				// Envia mensaje con las caracteristicas fisicas de la bala
+				Message m;
+				m.id = _m_FIGHTER_SHOOT;
+				m.fighter_shoot.pos = fighterTransform->getPos();
+				m.fighter_shoot.vel = fighterTransform->getVel();
+				m.fighter_shoot.width = fighterTransform->getW();
+				m.fighter_shoot.height = fighterTransform->getH();
+				mngr_->send(m);
 
-					startTime = SDL_GetTicks();
-				}
+				startTime = SDL_GetTicks();
 			}
-			// FIGHTERCONTROL
-			if (InputHandler::instance()->isKeyDown(SDLK_LEFT)) {
-				rotate(-(FIGHTER_ROTATION_SPEED));
-			}
-			else if (InputHandler::instance()->isKeyDown(SDLK_RIGHT)) {
-				rotate(FIGHTER_ROTATION_SPEED);
-			}
-			else if (InputHandler::instance()->isKeyDown(SDLK_UP)) {
-				accelerate();
-			}
+		}
+		// FIGHTERCONTROL
+		if (ih().isKeyDown(SDLK_LEFT)) {
+			rotate(-(FIGHTER_ROTATION_SPEED));
+		}
+		else if (ih().isKeyDown(SDLK_RIGHT)) {
+			rotate(FIGHTER_ROTATION_SPEED);
+		}
+		else if (ih().isKeyDown(SDLK_UP)) {
+			accelerate();
 		}
 	}
 }

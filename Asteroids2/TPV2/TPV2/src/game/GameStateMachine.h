@@ -1,6 +1,4 @@
 #pragma once
-#ifndef GAME_STATE_MACHINE_H_
-#define GAME_STATE_MACHINE_H_
 #include <stack>
 #include "../ecs/Manager.h"
 #include "../utils/Singleton.h"
@@ -29,4 +27,3 @@ public:
     // Borra los punteros de los estados a borrar
     void clearStatesToErase();
 };
-#endif

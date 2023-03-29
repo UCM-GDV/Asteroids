@@ -10,7 +10,7 @@ public:
     // Identificador
     constexpr static sysId_type id = _sys_GAMECTRL;
 
-    // Constructora
+    // Constructoras
     GameCtrlSystem();
     GameCtrlSystem(int state_);
     // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).

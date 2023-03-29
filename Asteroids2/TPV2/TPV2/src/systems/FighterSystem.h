@@ -23,10 +23,8 @@ public:
 	// mensaje con las características físicas de la bala. Recuerda que se puede disparar
 	// sólo una bala cada 0.25sec.
 	void update() override;
-
 	// Devuelve el transform del fighter
 	Transform* getFighterTransform();
-
 	// Devuelve el health del fighter
 	Health* getFighterHealth();
 
@@ -35,11 +33,11 @@ private:
 	int startTime;
 	// Estado actual del juego
 	int state;
-	// Fighter
+	// Punteros a elementos del fighter
 	Entity* fighter;
 	Transform* fighterTransform;
 	Health* fighterHealth;
-	void updatefighter();
+
 	// Para reaccionar al mensaje de que ha habido un choque entre el fighter y un
 	// un asteroide. Poner el caza en el centro con velocidad (0,0) y rotación 0. No
 	// hace falta desactivar la entidad (no dibujarla si el juego está parado).
@@ -47,6 +45,8 @@ private:
 	// Para gestionar el mensaje de que ha acabado una ronda. Desactivar el sistema.
 	void onRoundOver();
 
+	// TRANSFORM - DEACCELERATION - SHOWATOPPOSITESIDE 
+	void updatefighter();
 	// Acelera al fighter
 	void accelerate();
 	// Rota el fighter

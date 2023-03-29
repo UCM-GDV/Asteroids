@@ -8,15 +8,15 @@ using namespace std;
 
 class Manager {
 private:
-	array<Entity*, maxHandlerId> hdlrs_;
 	array<vector<Entity*>, maxGroupId> entsByGroup_;
 	array<System*, maxSystemId> sys_;
+	array<Entity*, maxHandlerId> hdlrs_;
 
 	vector<Message> msgs_;
 	vector<Message> aux_msgs_;
 	
 public:
-	// Puntero a la textura del texto a renderizar
+	// Mapa de textos asignados con un puntero a una textura
 	unordered_map<Entity*, Texture*> textTextures_;
 
 	// Constructora
@@ -37,24 +37,6 @@ public:
 			delete textTextures_[it->first];
 		}
 	}
-	// Anade una entidad al grupo
-	template<typename T>
-	Entity* addEntity(T* e, grpId_type gId = _grp_GENERAL){
-		e->setAlive(true);
-		e->setContext(this);
-		entsByGroup_[gId].push_back(e);
-		return e;
-	}
-	// Devuelve el vector de entidades por grupo
-	inline const auto& getEntities(grpId_type gId = _grp_GENERAL) {
-		return entsByGroup_[gId];
-	}
-
-	// Establece la entidad como handler
-	inline void setHandler(hdlrId_type hId, Entity* e) {}
-	// Devuelve la entidad handler
-	inline Entity* getHandler(hdlrId_type hId) {}
-
 	// Actualiza todas las entidades
 	virtual void update() {
 		for (auto& sys : sys_) {
@@ -62,10 +44,13 @@ public:
 				sys->update();
 			}
 		}
+
+		flushMessages();
 	}
 	// Borra entidades no vivas de la escena
 	void refresh() {
-		InputHandler::instance()->refresh();
+		ih().refresh();
+
 		for (grpId_type gId = 0; gId < maxGroupId; gId++) {
 			auto& grpEnts = entsByGroup_[gId];
 			grpEnts.erase(
@@ -81,6 +66,18 @@ public:
 					}),
 				grpEnts.end());
 		}
+	}
+	// Anade una entidad al grupo
+	template<typename T>
+	Entity* addEntity(T* e, grpId_type gId = _grp_GENERAL) {
+		e->setAlive(true);
+		e->setContext(this);
+		entsByGroup_[gId].push_back(e);
+		return e;
+	}
+	// Devuelve el vector de entidades por grupo
+	inline const auto& getEntities(grpId_type gId = _grp_GENERAL) {
+		return entsByGroup_[gId];
 	}
 	// Anade un componente a la entidad
 	template<typename T, typename ...Ts>
@@ -101,13 +98,12 @@ public:
 	template<typename T>
 	inline void removeComponent(Entity* e) {
 		constexpr cmpId_type cId = T::id;
-
-		/*if (e->cmps_[cId] != nullptr) {
-			auto iter = std::find(e->currCmps_.begin()), e->currCmps_.end(), e->cmps_[cId]);
+		if (e->cmps_[cId] != nullptr) {
+			auto iter = std::find(e->currCmps_.begin(), e->currCmps_.end(), e->cmps_[cId]);
 			e->currCmps_.erase(iter);
 			delete e->cmps_[cId];
 			e->cmps_[cId] = nullptr;
-		}*/
+		}
 	}
 	// Devuelve si la entidad tiene o no el componente
 	template<typename T>
@@ -159,6 +155,11 @@ public:
 			sys_[sId] = nullptr;
 		}
 	}
+	// Establece la entidad como handler
+	inline void setHandler(hdlrId_type hId, Entity* e) {}
+	// Devuelve la entidad handler
+	inline Entity* getHandler(hdlrId_type hId) {}
+
 	// Envia mensaje con o sin delay
 	inline void send(const Message& m, bool delay = false) {
 		if (!delay) {

@@ -4,6 +4,7 @@
 #include "../systems/RenderSystem.h"
 #include "../systems/FighterSystem.h"
 #include "../systems/GameCtrlSystem.h"
+
 class EndState : public Manager {
 private:
 	FighterSystem* fighterSys_;
@@ -13,9 +14,6 @@ private:
 	Entity* pressToStartEntity;
 	Entity* resultEntity;
 public:
-
 	// Constructora
 	EndState(int resultString);
-	// Destructora
-	virtual ~EndState();
 };

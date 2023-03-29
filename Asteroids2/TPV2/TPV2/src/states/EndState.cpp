@@ -2,6 +2,7 @@
 
 // Constructora
 EndState::EndState(int result) : Manager() {
+	// Mensajes
 	resultEntity = new Entity(_grp_MESSAGES);
 	resultEntity->setContext(this);
 	addComponent<Transform>(resultEntity, GAME_OVER_TEXT_POSITION, VECTOR_ZERO, TEXT_WIDTH, TEXT_HEIGHT, 0);
@@ -26,6 +27,3 @@ EndState::EndState(int result) : Manager() {
 	gameCtrlSys_ = addSystem<GameCtrlSystem>(2);
 	renderSys_ = addSystem<RenderSystem>(2);
 }
-
-// Destructora
-EndState::~EndState() {}

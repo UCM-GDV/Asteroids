@@ -1,17 +1,11 @@
 #pragma once
+
 using cmpId_type = int;
 enum cmpId : cmpId_type {
 	_TRANSFORM = 0,
-	//_IMAGE = 1,
 	_FRAMEDIMAGE = 1,
-	//_DEACCELERATION = 3,
 	_HEALTH = 2,
-	//_FIGHTERCONTROL = 5,
-	//_GUN = 6,
-	//_SHOWATOPPOSITESIDE = 7,
 	_GENERATIONS = 3,
-	//_FOLLOW = 9,
-	//_DISABLEONEXIT = 10,
 	// do not remove this
 	_LAST_CMP_ID
 };
@@ -42,6 +36,13 @@ enum sysId : sysId_type {
 	_LAST_SYS_ID
 };
 constexpr sysId_type maxSystemId = _LAST_SYS_ID;
+
+using hdlrId_type = int;
+enum hdlrId : hdlrId_type {
+	// do not remove this
+	_LAST_HND_ID
+};
+constexpr hdlrId_type maxHandlerId = _LAST_HND_ID;
 
 using msgId_type = int;
 enum msgId : msgId_type {
