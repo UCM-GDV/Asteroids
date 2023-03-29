@@ -36,12 +36,9 @@ void FighterSystem::update() {
 	// Si esta en PlayState
 	if (state == 1) {
 		SDL_Event event_;
-		//ih().update(event_);
 		updatefighter();
 		InputHandler::instance()->update(event_);
 		if (InputHandler::instance()->keyDownEvent()) {
-			
-
 			if (InputHandler::instance()->isKeyDown(SDLK_s)) {
 				// GUN
 				int frameTime = SDL_GetTicks() - startTime;
@@ -69,9 +66,10 @@ void FighterSystem::update() {
 				accelerate();
 			}
 		}
-		
 	}
 }
+
+// TRANSFORM - DEACCELERATION - SHOWATOPPOSITESIDE 
 void  FighterSystem::updatefighter() {
 	// TRANSFORM
 	fighterTransform->setPos(fighterTransform->getPos() + fighterTransform->getVel());
@@ -95,6 +93,7 @@ void  FighterSystem::updatefighter() {
 		fighterTransform->setPos(Vector2D(fighterTransform->getPos().getX(), 0));
 	}
 }
+
 // Devuelve el transform del fighter
 Transform* FighterSystem::getFighterTransform() { return fighterTransform; }
 

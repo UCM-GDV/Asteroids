@@ -20,7 +20,7 @@ public:
     // Si el juego no está parado y el jugador pulsa SDLK_SPACE cambia el estado
     // como en la práctica 1, etc. Tiene que enviar mensajes correspondientes cuando
     // empieza una ronda o cuando empieza una nueva partida.
-    void update() override;
+    virtual void update() override;
 private:
 	// Estado actual del juego
 	int state; 

@@ -16,11 +16,10 @@ public:
     void initSystem() override;
     // Si el juego está parado no hacer nada, en otro caso mover las balas y
     // desactivar las que salen de la ventana como en la práctica 1.
-    void update() override;
+    virtual void update() override;
 private:
     // Fighter
     Transform* fighterTransform;
-
     // Para gestionar el mensaje de que el jugador ha disparado. Añadir una bala al
     // juego, como en la práctica 1. Recuerda que la rotación de la bala sería
     // vel.angle(Vector2D(0.0f,-1.0f))

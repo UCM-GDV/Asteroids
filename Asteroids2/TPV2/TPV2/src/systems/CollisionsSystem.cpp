@@ -6,8 +6,7 @@
 CollisionsSystem::CollisionsSystem(int state_) : state(state_) {}
 
 // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
-void CollisionsSystem::receive(const Message& m) {
-}
+void CollisionsSystem::receive(const Message& m) {}
 
 // Inicializar el sistema, etc.
 void CollisionsSystem::initSystem() {

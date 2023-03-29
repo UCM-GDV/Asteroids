@@ -1,6 +1,7 @@
 #pragma once
 #include "../ecs/System.h"
 #include "../utils/Collisions.h"
+
 class CollisionsSystem : public System {
 public:
 	// Identificador
@@ -14,7 +15,7 @@ public:
 	void initSystem() override;
 	// Si el juego está parado no hacer nada, en otro caso comprobar colisiones como
 	// en la práctica 1 y enviar mensajes correspondientes.
-	void update() override;
+	virtual void update() override;
 private:
 	// Fighter
 	Transform* fighterTransform;

@@ -1,8 +1,20 @@
 #include "AsteroidsSystem.h"
 #include "../ecs/Manager.h"
+
 // Destructora
 AsteroidsSystem::~AsteroidsSystem() {
 	asteroid = nullptr;
+}
+
+// Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
+void AsteroidsSystem::receive(const Message& m) {
+	switch (m.id) {
+	case _m_ROUND_STARTED: onRoundStart(); break;
+	case _m_BULLET_ASTEROID_COLLIDED: onCollision_AsteroidBullet(m.bullet_asteroid_coll.asteroid); break;
+	case _m_ROUND_FINISHED: onRoundOver(); break;
+	case _m_ONDEFEAT: destroyAllAsteroids(); break;
+	default: break;
+	}
 }
 
 // Inicializa el sistema
@@ -13,22 +25,10 @@ void AsteroidsSystem::initSystem() {
 	asteroid = nullptr;
 }
 
-// Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
-void AsteroidsSystem::receive(const Message& m) {
-	switch (m.id) {
-	case _m_ROUND_STARTED: onRoundStart(); break;
-		case _m_BULLET_ASTEROID_COLLIDED: onCollision_AsteroidBullet(m.bullet_asteroid_coll.asteroid); break;
-		case _m_ROUND_FINISHED: onRoundOver(); break;
-		case _m_ONDEFEAT: destroyAllAsteroids(); break;
-		default: break;
-	}
-}
-
 // Si el juego está parado no hacer nada, en otro caso mover los asteroides como
 // en la práctica 1 y generar 1 asteroide nuevo cada 5 segundos (aparte
 // de los 10 al principio de cada ronda).
 void AsteroidsSystem::update() {
-
 	// Genera un asteroide nuevo cada 5 segundos 
 	uint32_t frameTime = SDL_GetTicks() - startTime;
 	if (frameTime >= ASTEROIDS_DELAY_TIME) {
@@ -44,7 +44,7 @@ void AsteroidsSystem::update() {
 	}
 
 	for (auto asteroid : mngr_->getEntities(_grp_ASTEROIDS_YELLOW)) {
-		//TRANSFORM
+		// TRANSFORM
 		auto tr = mngr_->getComponent<Transform>(asteroid);
 		// FOLLOW
 		tr->setVel(tr->getVel().rotate(tr->getVel().angle(fighterTransform->getPos() - tr->getPos()) > 0 ? 1.0f : -1.0f));
@@ -52,9 +52,9 @@ void AsteroidsSystem::update() {
 	}
 }
 
-
+// Metodo que actualiza la posicion respecto a la velocidad y cuando sobrepasa la pantalla
 void AsteroidsSystem::updateAsteroid(Transform *tr) {
-	
+	// UPDATE TRANSFORM
 	tr->position_ = tr->position_ + tr->velocity_;
 	// SHOWATOPPOSITESIDE
 	if (tr->getPos().getX() < -(FIGHTER_WIDTH)) {
@@ -70,6 +70,44 @@ void AsteroidsSystem::updateAsteroid(Transform *tr) {
 		tr->setPos(Vector2D(tr->getPos().getX(), 0));
 	}
 }
+
+// Para gestionar el mensaje de que ha habido un choque de un asteroide con una
+// bala. Desactivar el asteroide “a” y crear 2 asteroides como en la práctica 1,
+// y si no hay más asteroides enviar un mensaje correspondiente.
+void AsteroidsSystem::onCollision_AsteroidBullet(Entity* a) {
+	// Sonido
+	sdlutils().soundEffects().at("asteroidexplosion").play();
+
+	// Lo desactiva 
+	a->setAlive(false);
+	numOfAsteroids_--;
+	Generations* g = mngr_->getComponent<Generations>(a);
+	int gens = g->getGenerations() - 1;
+	g->setGeneration(gens);
+	Transform* at = mngr_->getComponent<Transform>(a);
+
+	float width, height;
+	width = height = 10.0f + 5.0f * gens;
+	// Genera 2 asteroides
+	if (g != nullptr && gens >= 1) {
+		for (int i = 0; i < 2; i++) {
+			if (numOfAsteroids_ < ASTEROIDS_MAX_NUMBER) {
+				int r = sdlutils().rand().nextInt(0, 360);
+				Vector2D pos = at->getPos() + at->getVel().rotate(r) * 2 * max(width, height);
+				Vector2D vel = at->getVel() * 1.1f;
+				(sdlutils().rand().nextInt(0, 10) < 3) ? createYellowAsteroid(pos, vel, width, height, gens) : createWhiteAsteroid(pos, vel, width, height, gens);
+			}
+		}
+	}
+
+	// Condicion de victoria
+	if (numOfAsteroids_ == 0) {
+		Message m;
+		m.id = _m_ASTEROIDS_EXTINCTION;
+		mngr_->send(m);
+	}
+}
+
 // Para gestionar el mensaje de que ha acabado la ronda. Desactivar todos los
 // asteroides, y desactivar el sistema.
 void AsteroidsSystem::onRoundOver() {
@@ -110,43 +148,6 @@ void AsteroidsSystem::destroyAllAsteroids() {
 		asteroid->setAlive(false);
 	}
 	numOfAsteroids_ = 0;
-}
-
-// Para gestionar el mensaje de que ha habido un choque de un asteroide con una
-// bala. Desactivar el asteroide “a” y crear 2 asteroides como en la práctica 1,
-// y si no hay más asteroides enviar un mensaje correspondiente.
-void AsteroidsSystem::onCollision_AsteroidBullet(Entity* a) {
-	// Sonido
-	sdlutils().soundEffects().at("asteroidexplosion").play();
-
-	// Lo desactiva 
-	a->setAlive(false);
-	numOfAsteroids_--;
-	Generations* g = mngr_->getComponent<Generations>(a);
-	int gens = g->getGenerations() - 1;
-	g->setGeneration(gens);
-	Transform* at = mngr_->getComponent<Transform>(a);
-
-	float width, height;
-	width = height = 10.0f + 5.0f * gens;
-	// Genera 2 asteroides
-	if (g != nullptr && gens >= 1) {
-		for (int i = 0; i < 2; i++) {
-			if (numOfAsteroids_ < ASTEROIDS_MAX_NUMBER) {
-				int r = sdlutils().rand().nextInt(0, 360);
-				Vector2D pos = at->getPos() + at->getVel().rotate(r) * 2 * max(width, height);
-				Vector2D vel = at->getVel() * 1.1f;
-				(sdlutils().rand().nextInt(0, 10) < 3) ? createYellowAsteroid(pos, vel, width, height, gens) : createWhiteAsteroid(pos, vel, width, height, gens);
-			}
-		}
-	}
-	
-	// Condicion de victoria
-	if (numOfAsteroids_ == 0) {
-		Message m;
-		m.id = _m_ASTEROIDS_EXTINCTION;
-		mngr_->send(m);
-	}
 }
 
 // Crea un asteroide blanco con sus componentes

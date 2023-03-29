@@ -10,7 +10,7 @@ public:
 	// Identificador
 	constexpr static sysId_type id = _sys_RENDER;
 
-	// Constructora
+	// Constructoras
 	RenderSystem();
 	RenderSystem(int state_);
 	// Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
@@ -22,11 +22,9 @@ public:
 	// - Dibujar los mensajes correspondientes: si el juego está parado, etc (como en
 	// la práctica 1)
 	void update() override;
-
 private:
 	// Estado actual del juego
 	int state;
-	Uint8 winner_; // 0 - None, 1 - Asteroid, 2 - Fighter
 	// Fighter
 	Transform* fighterTransform;
 	Health* fighterHealth;
@@ -35,14 +33,13 @@ private:
 	FramedImage* asteroidFramedImage;
 	// Balas
 	Transform* bulletTransform;
+	// Texto
+	Entity* text;
+	Transform* textTransform;
 
+	// FRAMEDIMAGE
 	SDL_Rect dest;
 	SDL_Rect src;
 	int fw, fh, numCols, numRows, currentframe;
-
-	Entity* text;
-	Transform* textTransform;
-	// FRAMEDIMAGE
 	void renderAsteroid(Entity* a, Texture* tex);
-	
 };

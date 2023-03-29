@@ -4,7 +4,6 @@
 #include "../states/PauseState.h"
 #include "../states/PlayState.h"
 #include "../states/EndState.h"
-#include "../game/Game.h"
 
 // Constructoras
 GameCtrlSystem::GameCtrlSystem() : fighterHealth(nullptr) {}
@@ -31,7 +30,6 @@ void GameCtrlSystem::initSystem() {
 //  Tiene que enviar mensajes correspondientes cuando
 // empieza una ronda o cuando empieza una nueva partida.
 void GameCtrlSystem::update() {
-   // ih().keyDownEvent();
     if (InputHandler::instance()->keyDownEvent()) {
         if (InputHandler::instance()->isKeyDown(SDLK_SPACE)) {
             // Si esta en PlayState
@@ -53,7 +51,6 @@ void GameCtrlSystem::update() {
         }
     }
     InputHandler::instance()->refresh();
-    
 }
 
 // Para gestionar el mensaje de que ha habido un choque entre el fighter y un
@@ -61,7 +58,6 @@ void GameCtrlSystem::update() {
 // al fighter, y si no hay más vidas avisar que ha acabado el juego (y quien
 // es el ganador).
 void GameCtrlSystem::onCollision_FighterAsteroid() {
-    
     fighterHealth->decreaseLives();
 	Message m;
     if (fighterHealth->getlife() <= 0) {
@@ -72,7 +68,7 @@ void GameCtrlSystem::onCollision_FighterAsteroid() {
 		m.id = _m_ROUND_FINISHED;
         GameStateMachine::instance()->pushState(new PauseState());
     }
-	mngr_->send(m);  
+    mngr_->send(m);
 }
 
 // Para gestionar el mensaje de que no hay más asteroides. Tiene que avisar que
@@ -81,6 +77,5 @@ void GameCtrlSystem::onAsteroidsExtinction() {
     Message m;
     m.id = _m_ONVICTORY;
     mngr_->send(m);
-
     GameStateMachine::instance()->pushState(new EndState(1));
 }

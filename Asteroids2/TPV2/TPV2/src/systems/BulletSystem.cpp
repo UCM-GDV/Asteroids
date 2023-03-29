@@ -1,14 +1,16 @@
 #include "BulletSystem.h"
 #include "../ecs/Manager.h"
+
 // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 void BulletSystem::receive(const Message& m) {
 	switch (m.id) {
-		case _m_ROUND_FINISHED: destroyAllBullets(); break;
+		case _m_ROUND_FINISHED: case _m_ONDEFEAT: case _m_ONVICTORY: destroyAllBullets(); break;
 		case _m_FIGHTER_SHOOT: shoot(m.fighter_shoot.pos, m.fighter_shoot.vel, m.fighter_shoot.width, m.fighter_shoot.height); break;
 		case _m_BULLET_ASTEROID_COLLIDED: onCollision_BulletAsteroid(m.bullet_asteroid_coll.bullet); break;
 		default: break;
 	}
 }
+
 // Inicializar el sistema, etc.
 void BulletSystem::initSystem() {
 	fighterTransform = mngr_->getSystem<FighterSystem>()->getFighterTransform();

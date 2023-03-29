@@ -1,14 +1,12 @@
 #include "RenderSystem.h"
 #include "../ecs/Manager.h"
 
-// Constructora
-RenderSystem::RenderSystem() {}
+// Constructoras
+RenderSystem::RenderSystem() : state(-1), fighterTransform(nullptr), fighterHealth(nullptr), text(nullptr), textTransform(nullptr) {}
 RenderSystem::RenderSystem(int state_) : state(state_), fighterTransform(nullptr), fighterHealth(nullptr), text(nullptr), textTransform(nullptr) {}
 
 // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
-void RenderSystem::receive(const Message& m) {
-	
-}
+void RenderSystem::receive(const Message& m) {}
 
 // Inicializar el sistema, etc.
 void RenderSystem::initSystem() {

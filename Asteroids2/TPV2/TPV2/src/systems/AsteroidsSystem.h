@@ -11,6 +11,7 @@ class AsteroidsSystem : public System {
 public:
 	// Identificador
 	constexpr static sysId_type id = _sys_ASTEROIDS;
+
 	// Destructora
 	virtual ~AsteroidsSystem();
 	// Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
@@ -20,17 +21,18 @@ public:
 	// Si el juego está parado no hacer nada, en otro caso mover los asteroides como
 	// en la práctica 1 y generar 1 asteroide nuevo cada 5 segundos (aparte
 	// de los 10 al principio de cada ronda).
-	virtual void update();
+	virtual void update() override;
 
 private:
 	// El número actual de asteroides en el juego (recuerda que no puede superar un límite)
 	Uint8 numOfAsteroids_;
+	// Puntero al asteroide creado
 	Entity* asteroid;
+	// Para el contador de creacion de asteroides
 	int startTime;
-
 	// Fighter
 	Transform* fighterTransform;
-	//metodo que actualiza la posicion y velocidad 
+	// Metodo que actualiza la posicion respecto a la velocidad y cuando sobrepasa la pantalla
 	void updateAsteroid(Transform* tr);
 	// Para gestionar el mensaje de que ha habido un choque de un asteroide con una
 	// bala. Desactivar el asteroide “a” y crear 2 asteroides como en la práctica 1,
