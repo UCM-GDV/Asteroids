@@ -204,6 +204,9 @@
     <ClInclude Include="src\components\Message.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\states\MainMenuState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\json\JSONValue.cpp">
@@ -262,6 +265,9 @@
     </ClCompile>
     <ClCompile Include="src\states\EndState.cpp">
       <Filter>Source Files\states</Filter>
+    </ClCompile>
+    <ClCompile Include="src\states\MainMenuState.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

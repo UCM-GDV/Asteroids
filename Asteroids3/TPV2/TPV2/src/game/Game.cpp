@@ -18,6 +18,7 @@ Game::Game() {
 	// Anade los nuevos estados
 	GameStateMachine::instance()->pushState(new PlayState());
 	GameStateMachine::instance()->pushState(new PauseState());
+	GameStateMachine::instance()->pushState(new MainMenuState());
 }
 
 // Destructora

@@ -47,7 +47,6 @@ void GameCtrlSystem::update() {
             else if (state == 2) {
                 GameStateMachine::instance()->changeState(new PauseState());
             }
-
         }
     }
     InputHandler::instance()->refresh();

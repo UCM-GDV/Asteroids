@@ -46,6 +46,7 @@
     <ClInclude Include="src\sdlutils\Texture.h" />
     <ClInclude Include="src\sdlutils\VirtualTimer.h" />
     <ClInclude Include="src\states\EndState.h" />
+    <ClInclude Include="src\states\MainMenuState.h" />
     <ClInclude Include="src\states\PauseState.h" />
     <ClInclude Include="src\states\PlayState.h" />
     <ClInclude Include="src\systems\AsteroidsSystem.h" />
@@ -70,6 +71,7 @@
     <ClCompile Include="src\sdlutils\SoundEffect.cpp" />
     <ClCompile Include="src\sdlutils\Texture.cpp" />
     <ClCompile Include="src\states\EndState.cpp" />
+    <ClCompile Include="src\states\MainMenuState.cpp" />
     <ClCompile Include="src\states\PauseState.cpp" />
     <ClCompile Include="src\states\PlayState.cpp" />
     <ClCompile Include="src\systems\AsteroidsSystem.cpp" />

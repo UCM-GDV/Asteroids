@@ -4,6 +4,7 @@
 #include "../sdlutils/Texture.h"
 #include "../sdlutils/SDLUtils.h"
 #include "GameStateMachine.h"
+#include "../states/MainMenuState.h"
 #include "../states/PauseState.h"
 #include "../states/PlayState.h"
 #include "../states/EndState.h"
