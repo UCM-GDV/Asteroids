@@ -6,6 +6,8 @@ using namespace std;
 
 // BASICS
 const Vector2D VECTOR_ZERO = Vector2D(0, 0);
+const int MAX_PACKET_SIZE = 512;
+const int PORT = 9999;
 
 // WINDOW
 const string GAME_NAME = "Asteroids";
