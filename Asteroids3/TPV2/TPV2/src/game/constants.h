@@ -6,6 +6,8 @@ using namespace std;
 
 // BASICS
 const Vector2D VECTOR_ZERO = Vector2D(0, 0);
+
+// ONLINE
 const int MAX_PACKET_SIZE = 512;
 const int PORT = 9999;
 
@@ -26,6 +28,19 @@ const string TEXTURES_FILE = "resources/config/textures.txt";
 const int NUM_TEXTURES = 19;
 const int BLOCK_NUMB = 3;
 const int DIGITS_NUMB = 4;
+
+// COLORS
+const unsigned long COLOR_BLACK = 0x00000000;
+
+// BUTTONS
+const int BUTTON_WIDTH = 400;
+const int BUTTON_HEIGHT = 40;
+const Vector2D ONEPLAYER_BUTTON_POSITION = Vector2D(WIN_HALF_WIDTH - BUTTON_WIDTH / 2, WIN_HEIGHT * 2 / 3);
+const Vector2D MULTIPLAYER_BUTTON_POSITION = Vector2D(WIN_HALF_WIDTH - BUTTON_WIDTH / 2, WIN_HEIGHT / 2);
+const Vector2D HOST_BUTTON_POSITION = Vector2D(WIN_HALF_WIDTH - BUTTON_WIDTH / 2 - 5, WIN_HEIGHT / 2 - BUTTON_HEIGHT / 2);
+const Vector2D CLIENT_BUTTON_POSITION = Vector2D(WIN_HALF_WIDTH + 5, WIN_HEIGHT / 2 - BUTTON_HEIGHT / 2);
+const string ONEPLAYER_TEXT = "ONE PLAYER";
+const string MULTIPLAYER_TEXT = "MULTIPLAYER";
 
 // FIGHTER
 const float FIGHTER_WIDTH = 50;

@@ -1,10 +1,22 @@
 #include "MainMenuState.h"
 
 // Constructora
-MainMenuState::MainMenuState() {
+MainMenuState::MainMenuState() : hostButton(nullptr), clientButton(nullptr), nameTextBox(nullptr), ipTextBox(nullptr) {
 	fighterSys_ = addSystem<FighterSystem>(-1);
 	gameCtrlSys_ = addSystem<GameCtrlSystem>(-1);
 	renderSys_ = addSystem<RenderSystem>(-1);
+	// enviar posicion y rotacion si se recarga con poco tiempo tambien la velocidad
+	// hacerlo a traves de los socketssets
+	// se puede crear un componente que lea los mensajes que reciba (una nave tiene fighter control y laotra networkfightercobtrol)
+	// añadir mensajes con informacion tipo morir y coliosion victoria...
+	// cada uno se informa a si mismo (tema colision)(esta no) o cada uno controla la suya y se avisan mutuamente
+	// la otra opcion es que el server sea el que se encarge de comprobar todas las colisiones (ESTA ES LA MEJOR)
+	// se puede hacer a traves de componentes uno mediente red(comentario 3 ) o utilizando sistemas (lo que nos recomienda)
+	// sistema de red nos encargamos de enviar y recibir los mensajes y estos enviaran un mensaje que lo reciviran el resto 
+	// si el servidor cae se produce en el nuevo sistema (poner try catch)
+	// opcion de volver a establecer conexion si se pierde la comunicacion
+	// asteroides no hay en multijugador
+
 
 	// Crear botones para el modo de un jugador y modo multijugador
 	// En el RenderSystem, dibujar los botones
@@ -25,34 +37,49 @@ MainMenuState::MainMenuState() {
 	// En la opción de cliente aparecerá un cuadro de texto para que introducir
 	// la IP del host
 
+	// BOTONES INICIALES
+	onePlayerButton = new Entity(_grp_BUTTONS);
+	onePlayerButton->setContext(this);
+	addComponent<Transform>(onePlayerButton, ONEPLAYER_BUTTON_POSITION, VECTOR_ZERO, BUTTON_WIDTH, BUTTON_HEIGHT, 0);
+	addEntity(onePlayerButton, _grp_BUTTONS);
+	textTextures_[onePlayerButton] = new Texture(SDLUtils::instance()->renderer(), ONEPLAYER_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK));
 
-	if (SDL_Init(0) == -1) {
-		printf("SDL_Init: %s\n", SDL_GetError());
-		exit(1);
-	}
-	if (SDLNet_Init() == -1) {
-		printf("SDLNet_Init: %s\n", SDLNet_GetError());
-		exit(2);
-	}
+	multiPlayerButton = new Entity(_grp_BUTTONS);
+	multiPlayerButton->setContext(this);
+	addComponent<Transform>(multiPlayerButton, MULTIPLAYER_BUTTON_POSITION, VECTOR_ZERO, BUTTON_WIDTH, BUTTON_HEIGHT, 0);
+	addEntity(multiPlayerButton, _grp_BUTTONS);
+	textTextures_[multiPlayerButton] = new Texture(SDLUtils::instance()->renderer(), MULTIPLAYER_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK));
 
-	cout << "1 para server\n2 para cliente" << endl;
-	string a;
-	cin >> a;
+	// En el GameCtrlSystem, gestionar el click (si coincide la posicion del cursor con el transform de algun boton)
 
-	if (a == "1") server(PORT);
-	else {
-		// Pregunta por la IP
-		cout << "IP: ";
-		char host[1024];
-		cin >> host;
-		client(host, PORT);
-	}
+
+	//if (SDL_Init(0) == -1) {
+	//	printf("SDL_Init: %s\n", SDL_GetError());
+	//	exit(1);
+	//}
+	//if (SDLNet_Init() == -1) {
+	//	printf("SDLNet_Init: %s\n", SDLNet_GetError());
+	//	exit(2);
+	//}
+
+	//cout << "1 para server\n2 para cliente" << endl;
+	//string a;
+	//cin >> a;
+
+	//if (a == "1") server(PORT);
+	//else {
+	//	// Pregunta por la IP
+	//	cout << "IP: ";
+	//	char host[1024];
+	//	cin >> host;
+	//	client(host, PORT);
+	//}
 }
 
 // Destructora
 MainMenuState::~MainMenuState() {
-	SDLNet_Quit();
-	SDL_Quit();
+	//SDLNet_Quit();
+	//SDL_Quit();
 }
 
 // Crea servidor

@@ -49,11 +49,13 @@
     <ClInclude Include="src\states\MainMenuState.h" />
     <ClInclude Include="src\states\PauseState.h" />
     <ClInclude Include="src\states\PlayState.h" />
+    <ClInclude Include="src\states\PlayStateMultiplayer.h" />
     <ClInclude Include="src\systems\AsteroidsSystem.h" />
     <ClInclude Include="src\systems\BulletSystem.h" />
     <ClInclude Include="src\systems\CollisionsSystem.h" />
     <ClInclude Include="src\systems\FighterSystem.h" />
     <ClInclude Include="src\systems\GameCtrlSystem.h" />
+    <ClInclude Include="src\systems\NetWorkSystem.h" />
     <ClInclude Include="src\systems\RenderSystem.h" />
     <ClInclude Include="src\utils\checkML.h" />
     <ClInclude Include="src\utils\Collisions.h" />
@@ -74,11 +76,13 @@
     <ClCompile Include="src\states\MainMenuState.cpp" />
     <ClCompile Include="src\states\PauseState.cpp" />
     <ClCompile Include="src\states\PlayState.cpp" />
+    <ClCompile Include="src\states\PlayStateMultiplayer.cpp" />
     <ClCompile Include="src\systems\AsteroidsSystem.cpp" />
     <ClCompile Include="src\systems\BulletSystem.cpp" />
     <ClCompile Include="src\systems\CollisionsSystem.cpp" />
     <ClCompile Include="src\systems\FighterSystem.cpp" />
     <ClCompile Include="src\systems\GameCtrlSystem.cpp" />
+    <ClCompile Include="src\systems\NetWorkSystem.cpp" />
     <ClCompile Include="src\systems\RenderSystem.cpp" />
     <ClCompile Include="src\utils\Collisions.cpp" />
     <ClCompile Include="src\utils\Vector2D.cpp" />

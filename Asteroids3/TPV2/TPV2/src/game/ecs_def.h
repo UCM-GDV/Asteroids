@@ -19,6 +19,7 @@ enum grpId : grpId_type {
 	_grp_BULLETS = 3,
 	_grp_FIGHTER = 4,
 	_grp_MESSAGES = 5,
+	_grp_BUTTONS = 6
 	// do not remove this
 	_LAST_GRP_ID
 };
@@ -32,6 +33,7 @@ enum sysId : sysId_type {
 	_sys_FIGHTER = 3,
 	_sys_GAMECTRL = 4,
 	_sys_RENDER = 5,
+	_sys_NETWORK =6,
 	// do not remove this
 	_LAST_SYS_ID
 };
