@@ -10,9 +10,9 @@ EndState::EndState(int result) : Manager() {
 
 	string resultString; unsigned long color;
 	switch (result) {
-	case 1: { resultString = GAME_OVER_WIN_TEXT; color = 0x00ff00ff; } break;
-	case 2: { resultString = GAME_OVER_LOSE_TEXT; color = 0xff0000000; } break;
-	default: { resultString = " "; color = 0x00000000; } break;
+	case 1: { resultString = GAME_OVER_WIN_TEXT; color = COLOR_GREEN; } break;
+	case 2: { resultString = GAME_OVER_LOSE_TEXT; color = COLOR_RED; } break;
+	default: { resultString = " "; color = COLOR_BLACK; } break;
 	}
 	textTextures_[resultEntity] = new Texture(SDLUtils::instance()->renderer(), resultString, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(color));
 

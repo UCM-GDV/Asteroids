@@ -2,8 +2,8 @@
 #include "../ecs/Manager.h"
 
 // Constructoras
-RenderSystem::RenderSystem() : state(-1), fighterTransform(nullptr), fighterHealth(nullptr), text(nullptr), textTransform(nullptr) {}
-RenderSystem::RenderSystem(int state_) : state(state_), fighterTransform(nullptr), fighterHealth(nullptr), text(nullptr), textTransform(nullptr) {}
+RenderSystem::RenderSystem() : state(-1), fighterTransform(nullptr), fighterHealth(nullptr), auxTransform(nullptr) {}
+RenderSystem::RenderSystem(int state_) : state(state_), fighterTransform(nullptr), fighterHealth(nullptr), auxTransform(nullptr) {}
 
 // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 void RenderSystem::receive(const Message& m) {}
@@ -51,12 +51,28 @@ void RenderSystem::update() {
 			sdlutils().images().at("Bullet").render(dest, bulletTransform->getR());
 		}
 	}
-	// Mensajes en el resto de estados (PauseState y EndState)
-	else if (state == 0 || state == 2) {
+	// Mensajes en el resto de estados (MainMenuState, PauseState y EndState)
+	else if (state == 0 || state == 2 || state == -1) {
+
 		for (Entity* text : mngr_->getEntities(_grp_MESSAGES)) {
-			textTransform = mngr_->getComponent<Transform>(text);
-			dest = build_sdlrect(textTransform->getPos(), textTransform->getW(), textTransform->getH());
-			mngr_->textTextures_[text]->render(dest, textTransform->getR());
+			auxTransform = mngr_->getComponent<Transform>(text);
+			dest = build_sdlrect(auxTransform->getPos(), auxTransform->getW(), auxTransform->getH());
+			mngr_->textTextures_[text]->render(dest, auxTransform->getR());
+		}
+
+		if (state == -1) {
+			// Botones
+			for (Entity* button : mngr_->getEntities(_grp_BUTTONS)) {
+				auxTransform = mngr_->getComponent<Transform>(button);
+				dest = build_sdlrect(auxTransform->getPos(), auxTransform->getW(), auxTransform->getH());
+				mngr_->textTextures_[button]->render(dest, auxTransform->getR());
+			}
+			// TextBoxes
+			for (Entity* textBox : mngr_->getEntities(_grp_TEXTBOXS)) {
+				auxTransform = mngr_->getComponent<Transform>(textBox);
+				dest = build_sdlrect(auxTransform->getPos(), auxTransform->getW(), auxTransform->getH());
+				mngr_->textTextures_[textBox]->render(dest, auxTransform->getR());
+			}
 		}
 	}
 

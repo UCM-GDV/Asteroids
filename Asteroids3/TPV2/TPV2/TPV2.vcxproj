@@ -21,9 +21,9 @@
   <ItemGroup>
     <ClInclude Include="src\components\asteroidsComponents\FramedImage.h" />
     <ClInclude Include="src\components\asteroidsComponents\Generations.h" />
+    <ClInclude Include="src\components\Callback.h" />
     <ClInclude Include="src\components\fighterComponents\Health.h" />
     <ClInclude Include="src\components\Message.h" />
-    <ClInclude Include="src\components\ShowAtOppositeSide.h" />
     <ClInclude Include="src\components\Transform.h" />
     <ClInclude Include="src\ecs\Component.h" />
     <ClInclude Include="src\ecs\Entity.h" />

@@ -171,9 +171,6 @@
     <ClInclude Include="src\components\Transform.h">
       <Filter>Header Files\components</Filter>
     </ClInclude>
-    <ClInclude Include="src\components\ShowAtOppositeSide.h">
-      <Filter>Header Files\components</Filter>
-    </ClInclude>
     <ClInclude Include="src\ecs\System.h">
       <Filter>Source Files\ecs</Filter>
     </ClInclude>
@@ -211,6 +208,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\states\PlayStateMultiplayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\components\Callback.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

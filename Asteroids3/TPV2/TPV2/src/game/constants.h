@@ -31,16 +31,25 @@ const int DIGITS_NUMB = 4;
 
 // COLORS
 const unsigned long COLOR_BLACK = 0x00000000;
+const unsigned long COLOR_WHITE = 0xffffffff;
+const unsigned long COLOR_GREEN = 0x00ff00ff;
+const unsigned long COLOR_RED = 0xff000000;
 
 // BUTTONS
 const int BUTTON_WIDTH = 400;
 const int BUTTON_HEIGHT = 40;
-const Vector2D ONEPLAYER_BUTTON_POSITION = Vector2D(WIN_HALF_WIDTH - BUTTON_WIDTH / 2, WIN_HEIGHT * 2 / 3);
+const Vector2D ONEPLAYER_BUTTON_POSITION = Vector2D(WIN_HALF_WIDTH - BUTTON_WIDTH / 2, WIN_HEIGHT / 3);
 const Vector2D MULTIPLAYER_BUTTON_POSITION = Vector2D(WIN_HALF_WIDTH - BUTTON_WIDTH / 2, WIN_HEIGHT / 2);
-const Vector2D HOST_BUTTON_POSITION = Vector2D(WIN_HALF_WIDTH - BUTTON_WIDTH / 2 - 5, WIN_HEIGHT / 2 - BUTTON_HEIGHT / 2);
-const Vector2D CLIENT_BUTTON_POSITION = Vector2D(WIN_HALF_WIDTH + 5, WIN_HEIGHT / 2 - BUTTON_HEIGHT / 2);
+//const Vector2D HOST_BUTTON_POSITION = Vector2D(WIN_HALF_WIDTH - BUTTON_WIDTH / 2 - 5, WIN_HEIGHT / 2 - BUTTON_HEIGHT / 2);
+//const Vector2D CLIENT_BUTTON_POSITION = Vector2D(WIN_HALF_WIDTH + 5, WIN_HEIGHT / 2 - BUTTON_HEIGHT / 2);
 const string ONEPLAYER_TEXT = "ONE PLAYER";
 const string MULTIPLAYER_TEXT = "MULTIPLAYER";
+const string HOST_TEXT = "HOST";
+const string CLIENT_TEXT = "CLIENT";
+const string NAME_TEXT_BOX = "ESCRIBE TU NOMBRE...";
+const string ENTER_TEXT = "ENTER";
+const string WAITING_TEXT = "Waiting for other player...";
+const string IP_TEXT = "ESCRIBE LA IP...";
 
 // FIGHTER
 const float FIGHTER_WIDTH = 50;
@@ -51,6 +60,9 @@ const Vector2D FIGHTER_VELOCITY = Vector2D(0, 0);
 const int FIGHTER_ROTATION_SPEED = 140;
 const float FIGHTER_ROTATION = 0;
 const Vector2D SPEED_LIMIT = Vector2D(0, 3.0f);
+
+const float FIGHTER_POS_WIDTH = WIN_WIDTH / 2;
+const float FIGHTER_POS_HEIGHT = WIN_HEIGHT / 2;
 
 // ASTEROID
 const int ASTEROIDS_INITIAL_NUMBER = 10;

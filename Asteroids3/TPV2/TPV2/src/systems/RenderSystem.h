@@ -34,8 +34,7 @@ private:
 	// Balas
 	Transform* bulletTransform;
 	// Texto
-	Entity* text;
-	Transform* textTransform;
+	Transform* auxTransform;
 
 	// FRAMEDIMAGE
 	SDL_Rect dest;

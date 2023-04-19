@@ -1,7 +1,11 @@
 #include "MainMenuState.h"
+#include "../game/GameStateMachine.h"
+#include "../states/PlayState.h"
+#include "../states/PauseState.h"
+#include "../states/PlayStateMultiplayer.h"
 
 // Constructora
-MainMenuState::MainMenuState() : hostButton(nullptr), clientButton(nullptr), nameTextBox(nullptr), ipTextBox(nullptr) {
+MainMenuState::MainMenuState() : hostButton(nullptr), clientButton(nullptr), enterButton(nullptr), nameTextBox(nullptr), waitingText(nullptr), ipTextBox(nullptr) {
 	fighterSys_ = addSystem<FighterSystem>(-1);
 	gameCtrlSys_ = addSystem<GameCtrlSystem>(-1);
 	renderSys_ = addSystem<RenderSystem>(-1);
@@ -41,17 +45,27 @@ MainMenuState::MainMenuState() : hostButton(nullptr), clientButton(nullptr), nam
 	onePlayerButton = new Entity(_grp_BUTTONS);
 	onePlayerButton->setContext(this);
 	addComponent<Transform>(onePlayerButton, ONEPLAYER_BUTTON_POSITION, VECTOR_ZERO, BUTTON_WIDTH, BUTTON_HEIGHT, 0);
+	textTextures_[onePlayerButton] = new Texture(SDLUtils::instance()->renderer(), ONEPLAYER_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
+	addComponent<Callback>(onePlayerButton, []() {
+		GameStateMachine::instance()->popState();
+		GameStateMachine::instance()->pushState(new PlayState());
+		GameStateMachine::instance()->pushState(new PauseState()); });
 	addEntity(onePlayerButton, _grp_BUTTONS);
-	textTextures_[onePlayerButton] = new Texture(SDLUtils::instance()->renderer(), ONEPLAYER_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK));
-
+	
 	multiPlayerButton = new Entity(_grp_BUTTONS);
 	multiPlayerButton->setContext(this);
 	addComponent<Transform>(multiPlayerButton, MULTIPLAYER_BUTTON_POSITION, VECTOR_ZERO, BUTTON_WIDTH, BUTTON_HEIGHT, 0);
+	textTextures_[multiPlayerButton] = new Texture(SDLUtils::instance()->renderer(), MULTIPLAYER_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
+	addComponent<Callback>(multiPlayerButton, [&]() {
+		// CREAR LOS BOTONES DE HOST Y CLIENT
+		createHostButton();
+		createClientButton();
+
+		// QUITAR LOS BOTONES DE ONEPLAYER Y MULTIPLAYER
+		onePlayerButton->setAlive(false);
+		multiPlayerButton->setAlive(false);
+	});
 	addEntity(multiPlayerButton, _grp_BUTTONS);
-	textTextures_[multiPlayerButton] = new Texture(SDLUtils::instance()->renderer(), MULTIPLAYER_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK));
-
-	// En el GameCtrlSystem, gestionar el click (si coincide la posicion del cursor con el transform de algun boton)
-
 
 	//if (SDL_Init(0) == -1) {
 	//	printf("SDL_Init: %s\n", SDL_GetError());
@@ -168,4 +182,98 @@ void MainMenuState::client(char* host, int port) {
 	SDLNet_FreePacket(p);
 	SDLNet_FreeSocketSet(socketSet);
 	SDLNet_UDP_Close(sd);
+}
+
+// UI
+void MainMenuState::createHostButton() {
+	hostButton = new Entity(_grp_BUTTONS);
+	hostButton->setContext(this);
+	addComponent<Transform>(hostButton, ONEPLAYER_BUTTON_POSITION, VECTOR_ZERO, BUTTON_WIDTH, BUTTON_HEIGHT, 0);
+	textTextures_[hostButton] = new Texture(SDLUtils::instance()->renderer(), HOST_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
+	addComponent<Callback>(hostButton, [&]() {
+		createNameTextBox();
+		createEnterButton(false);
+
+		// QUITAR LOS BOTONES DE HOST Y CLIENT
+		hostButton->setAlive(false);
+		clientButton->setAlive(false);
+
+		// ASIGNA DE QUE SE TRATA DEL HOST
+	});
+	addEntity(hostButton, _grp_BUTTONS);
+}
+
+void MainMenuState::createClientButton() {
+	clientButton = new Entity(_grp_BUTTONS);
+	clientButton->setContext(this);
+	addComponent<Transform>(clientButton, MULTIPLAYER_BUTTON_POSITION, VECTOR_ZERO, BUTTON_WIDTH, BUTTON_HEIGHT, 0);
+	textTextures_[clientButton] = new Texture(SDLUtils::instance()->renderer(), CLIENT_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
+	addComponent<Callback>(clientButton, [&]() {
+		createNameTextBox();
+		createEnterButton(true);
+
+		// QUITAR LOS BOTONES DE HOST Y CLIENT
+		hostButton->setAlive(false);
+		clientButton->setAlive(false);
+
+		// ASIGNA DE QUE SE TRATA DEL CLIENTE
+		
+	});
+	addEntity(clientButton, _grp_BUTTONS);
+}
+
+void MainMenuState::createEnterButton(bool player) {
+	enterButton = new Entity(_grp_BUTTONS);
+	enterButton->setContext(this);
+	addComponent<Transform>(enterButton, MULTIPLAYER_BUTTON_POSITION, VECTOR_ZERO, BUTTON_WIDTH, BUTTON_HEIGHT, 0);
+	textTextures_[enterButton] = new Texture(SDLUtils::instance()->renderer(), ENTER_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_WHITE), build_sdlcolor(COLOR_RED));
+
+	// Si se trata del jugador 1
+	if (!player) {
+		addComponent<Callback>(enterButton, [&]() {
+			// Anade texto de espera
+			waitingText = new Entity(_grp_MESSAGES);
+			waitingText->setContext(this);
+			addComponent<Transform>(waitingText, ONEPLAYER_BUTTON_POSITION, VECTOR_ZERO, BUTTON_WIDTH, BUTTON_HEIGHT, 0);
+			textTextures_[waitingText] = new Texture(SDLUtils::instance()->renderer(), WAITING_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
+			addEntity(waitingText, _grp_MESSAGES);
+
+			// Quita el textbox del nombre
+			nameTextBox->setAlive(false);
+			// Quita el boton de enter
+			enterButton->setAlive(false);
+		});
+	}
+	// Si se trata del jugador 2
+	else {
+		addComponent<Callback>(enterButton, [&]() {
+			// Anade textbox de IP
+			ipTextBox = new Entity(_grp_TEXTBOXS);
+			ipTextBox->setContext(this);
+			addComponent<Transform>(ipTextBox, ONEPLAYER_BUTTON_POSITION, VECTOR_ZERO, BUTTON_WIDTH, BUTTON_HEIGHT, 0);
+			textTextures_[ipTextBox] = new Texture(SDLUtils::instance()->renderer(), IP_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
+			addEntity(ipTextBox, _grp_TEXTBOXS);
+
+			// Reescribe el callback del boton de enter
+			getComponent<Callback>(enterButton)->setCallback([&]() { 
+				cout << "Establece conexion con P1..." << endl; 
+				
+				ipTextBox->setAlive(false);
+				enterButton->setAlive(false);
+			});
+
+			// Quita el textbox del nombre
+			nameTextBox->setAlive(false);
+		});
+	}
+
+	addEntity(enterButton, _grp_BUTTONS);
+}
+
+void MainMenuState::createNameTextBox() {
+	nameTextBox = new Entity(_grp_TEXTBOXS);
+	nameTextBox->setContext(this);
+	addComponent<Transform>(nameTextBox, ONEPLAYER_BUTTON_POSITION, VECTOR_ZERO, BUTTON_WIDTH, BUTTON_HEIGHT, 0);
+	textTextures_[nameTextBox] = new Texture(SDLUtils::instance()->renderer(), NAME_TEXT_BOX, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
+	addEntity(nameTextBox, _grp_TEXTBOXS);
 }

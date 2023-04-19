@@ -2,6 +2,7 @@
 #include "../ecs/System.h"
 #include "../sdlutils/InputHandler.h"
 #include "../systems/FighterSystem.h"
+#include "../components/Callback.h"
 
 //Mantiene el estado del juego, o se comunica con la máquina de estados para transitar entre 
 //ellos. Decide cuándo acaba una ronda, cuando acaba el juego, etc.
@@ -27,6 +28,12 @@ private:
     // Puntero a las vidas del fighter
     Health* fighterHealth;
 
+    //
+    string name;
+    string nameWithSpaces;
+    string ip;
+    string ipWithSpaces;
+
     // Para gestionar el mensaje de que ha habido un choque entre el fighter y un
     // un asteroide. Tiene que avisar que ha acabado la ronda, quitar una vida
     // al fighter, y si no hay más vidas avisar que ha acabado el juego (y quien
@@ -35,4 +42,12 @@ private:
     // Para gestionar el mensaje de que no hay más asteroides. Tiene que avisar que
     // ha acabado la ronda y además que ha acabado el juego (y quien es el ganador)
     void onAsteroidsExtinction();
+
+    // UI
+    // Devuelve si el cursor esta encima de un boton o no
+    bool isOver(Entity* button, std::pair<Sint32, Sint32>) const;
+
+    void addCharacter();
+    void addSpaces(string text, string& textWithSpaces);
+    void addNumberOrDot();
 };

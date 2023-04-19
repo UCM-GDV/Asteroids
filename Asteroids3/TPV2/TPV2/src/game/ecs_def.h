@@ -6,6 +6,7 @@ enum cmpId : cmpId_type {
 	_FRAMEDIMAGE = 1,
 	_HEALTH = 2,
 	_GENERATIONS = 3,
+	_CALLBACK = 4,
 	// do not remove this
 	_LAST_CMP_ID
 };
@@ -19,7 +20,8 @@ enum grpId : grpId_type {
 	_grp_BULLETS = 3,
 	_grp_FIGHTER = 4,
 	_grp_MESSAGES = 5,
-	_grp_BUTTONS = 6
+	_grp_BUTTONS = 6,
+	_grp_TEXTBOXS = 7,
 	// do not remove this
 	_LAST_GRP_ID
 };

@@ -11,6 +11,15 @@ struct Transform : public Component {
 	// Constructora
 	Transform(Vector2D pos, Vector2D vel, float w, float h, float r) :
 		position_(pos), velocity_(vel), width_(w), height_(h), rotation_(r) {};
+	// Devuelve su rect
+	inline SDL_Rect& getRect() {
+		SDL_Rect rect;
+		rect.x = position_.getX();
+		rect.y = position_.getY();
+		rect.w = width_;
+		rect.h = height_;
+		return rect;
+	}
 	// Devuelve su posicion
 	inline Vector2D& getPos() { return position_; }
 	// Devuelve su velocidad
@@ -29,5 +38,4 @@ struct Transform : public Component {
 	inline void setRot(int r) { rotation_ = r; }
 	// Cambia la rotacion
 	inline void changeRot(float r) { rotation_ += r; }
-
 };

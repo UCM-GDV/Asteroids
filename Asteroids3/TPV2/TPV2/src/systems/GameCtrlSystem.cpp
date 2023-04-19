@@ -4,10 +4,11 @@
 #include "../states/PauseState.h"
 #include "../states/PlayState.h"
 #include "../states/EndState.h"
+#include "../states/MainMenuState.h"
 
 // Constructoras
-GameCtrlSystem::GameCtrlSystem() : fighterHealth(nullptr) {}
-GameCtrlSystem::GameCtrlSystem(int state_) : state(state_), fighterHealth(nullptr) {}
+GameCtrlSystem::GameCtrlSystem() : fighterHealth(nullptr), name("") {}
+GameCtrlSystem::GameCtrlSystem(int state_) : state(state_), fighterHealth(nullptr), name("") {}
 
 // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 void GameCtrlSystem::receive(const Message& m) {
@@ -30,25 +31,79 @@ void GameCtrlSystem::initSystem() {
 //  Tiene que enviar mensajes correspondientes cuando
 // empieza una ronda o cuando empieza una nueva partida.
 void GameCtrlSystem::update() {
+    
     if (InputHandler::instance()->keyDownEvent()) {
-        if (InputHandler::instance()->isKeyDown(SDLK_SPACE)) {
-            // Si esta en PlayState
-            if (state == 1) {
-                GameStateMachine::instance()->pushState(new PauseState());
+        if (state == 0 || state == 1 || state == 2) {
+            if (InputHandler::instance()->isKeyDown(SDLK_SPACE)) {
+                // Si esta en PlayState
+                if (state == 1) {
+                    GameStateMachine::instance()->pushState(new PauseState());
+                }
+                // Si esta en PauseState
+                else if (state == 0) {
+                    GameStateMachine::instance()->popState();
+                    Message m;
+                    m.id = _m_ROUND_STARTED;
+                    GameStateMachine::instance()->currentState()->send(m);
+                }
+                // Si esta en EndState
+                else if (state == 2) {
+                    GameStateMachine::instance()->changeState(new PauseState());
+                }
             }
-            // Si esta en PauseState
-            else if (state == 0) {
-                GameStateMachine::instance()->popState();
-                Message m;
-                m.id = _m_ROUND_STARTED;
-                GameStateMachine::instance()->currentState()->send(m);
+        }
+        // Si esta en MainMenuState y existe nameTextBox...
+        else if (state == -1) {
+            Entity* nameEnt = static_cast<MainMenuState*>(mngr_)->nameTextBox;
+            Entity* ipEnt = static_cast<MainMenuState*>(mngr_)->ipTextBox;
+
+            if (nameEnt != nullptr || ipEnt != nullptr) {
+                // Si existe nameTextBox...
+                if (nameEnt != nullptr) {
+                    delete mngr_->textTextures_[nameEnt];
+                    addCharacter();
+                    addSpaces(name, nameWithSpaces);
+                    mngr_->textTextures_[nameEnt] = new Texture(SDLUtils::instance()->renderer(), nameWithSpaces, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
+                }
+                // SI SE TRATA DEL JUGADOR 2
+                //if () 
+                // Si existe ipTextBox
+                if (ipEnt != nullptr) {
+                    delete mngr_->textTextures_[ipEnt];
+                    addNumberOrDot();
+                    addSpaces(ip, ipWithSpaces);
+                    mngr_->textTextures_[ipEnt] = new Texture(SDLUtils::instance()->renderer(), ipWithSpaces, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
+                }
+
+                if (InputHandler::instance()->isKeyDown(SDLK_RETURN)) {
+                    Entity* enterEnt = static_cast<MainMenuState*>(mngr_)->enterButton;
+                    if (enterEnt != nullptr) {
+                        mngr_->getComponent<Callback>(enterEnt)->callback();
+                    }
+                }
             }
-            // Si esta en EndState
-            else if (state == 2) {
-                GameStateMachine::instance()->changeState(new PauseState());
+            
+        }
+    }
+
+    // Si se ha hecho clic izquierdo
+    if (InputHandler::instance()->getMouseButtonState(InputHandler::MOUSEBUTTON::LEFT)) {
+        // Si esta en MainMenuState
+        if (state == -1) {
+            // Comprueba si la posicion del cursor esta dentro de la imagen de algun boton
+            vector<Entity*> buttons = mngr_->getEntities(_grp_BUTTONS);
+            for (int i = 0; i < buttons.size(); ++i) {
+                SDL_Rect* buttonRect = &mngr_->getComponent<Transform>(buttons[i])->getRect();
+                pair<Sint32, Sint32> mousePos = InputHandler::instance()->getMousePos();
+                SDL_Point mousePoint = { (int)mousePos.first, (int)mousePos.second };
+
+                if (SDL_PointInRect(&mousePoint, buttonRect)) {
+                    mngr_->getComponent<Callback>(buttons[i])->callback();
+                }
             }
         }
     }
+
     InputHandler::instance()->refresh();
 }
 
@@ -77,4 +132,75 @@ void GameCtrlSystem::onAsteroidsExtinction() {
     m.id = _m_ONVICTORY;
     mngr_->send(m);
     GameStateMachine::instance()->pushState(new EndState(1));
+}
+
+// Devuelve si el cursor esta encima de un boton o no
+bool GameCtrlSystem::isOver(Entity* button, std::pair<Sint32, Sint32> mousePos) const {
+    Transform* buttonTransform = mngr_->getComponent<Transform>(button);
+    if (buttonTransform != nullptr) {
+        Vector2D position = buttonTransform->getPos();
+        return mousePos.first > position.getX()
+            && mousePos.first < position.getX() + buttonTransform->getW()
+            && mousePos.second > position.getY()
+            && mousePos.second < position.getY() + buttonTransform->getH();
+    }
+    else return false;
+}
+
+// Anade caracteres en la textura del nombre
+void GameCtrlSystem::addCharacter() {
+    string c = "";
+    if (InputHandler::instance()->isKeyDown(SDLK_a)) c = "a";
+    if (InputHandler::instance()->isKeyDown(SDLK_b)) c = "b";
+    if (InputHandler::instance()->isKeyDown(SDLK_c)) c = "c";
+    if (InputHandler::instance()->isKeyDown(SDLK_d)) c = "d";
+    if (InputHandler::instance()->isKeyDown(SDLK_e)) c = "e";
+    if (InputHandler::instance()->isKeyDown(SDLK_f)) c = "f";
+    if (InputHandler::instance()->isKeyDown(SDLK_g)) c = "g";
+    if (InputHandler::instance()->isKeyDown(SDLK_h)) c = "h";
+    if (InputHandler::instance()->isKeyDown(SDLK_i)) c = "i";
+    if (InputHandler::instance()->isKeyDown(SDLK_j)) c = "j";
+    if (InputHandler::instance()->isKeyDown(SDLK_k)) c = "k";
+    if (InputHandler::instance()->isKeyDown(SDLK_l)) c = "l";
+    if (InputHandler::instance()->isKeyDown(SDLK_m)) c = "m";
+    if (InputHandler::instance()->isKeyDown(SDLK_n)) c = "n";
+    if (InputHandler::instance()->isKeyDown(SDLK_o)) c = "o";
+    if (InputHandler::instance()->isKeyDown(SDLK_p)) c = "p";
+    if (InputHandler::instance()->isKeyDown(SDLK_q)) c = "q";
+    if (InputHandler::instance()->isKeyDown(SDLK_r)) c = "r";
+    if (InputHandler::instance()->isKeyDown(SDLK_s)) c = "s";
+    if (InputHandler::instance()->isKeyDown(SDLK_t)) c = "t";
+    if (InputHandler::instance()->isKeyDown(SDLK_u)) c = "u";
+    if (InputHandler::instance()->isKeyDown(SDLK_v)) c = "v";
+    if (InputHandler::instance()->isKeyDown(SDLK_w)) c = "w";
+    if (InputHandler::instance()->isKeyDown(SDLK_x)) c = "x";
+    if (InputHandler::instance()->isKeyDown(SDLK_y)) c = "y";
+    if (InputHandler::instance()->isKeyDown(SDLK_z)) c = "z";
+    name += c;
+}
+
+// Anade espacios para que se vea bien
+void GameCtrlSystem::addSpaces(string text, string& textWithSpaces) {
+    textWithSpaces = text;
+    for (int i = text.size(); i < 26; ++i) {
+        textWithSpaces += " ";
+    }
+}
+
+// Anade numeros
+void GameCtrlSystem::addNumberOrDot() {
+    string n = "";
+    if (InputHandler::instance()->isKeyDown(SDLK_0)) n = "0";
+    if (InputHandler::instance()->isKeyDown(SDLK_1)) n = "1";
+    if (InputHandler::instance()->isKeyDown(SDLK_2)) n = "2";
+    if (InputHandler::instance()->isKeyDown(SDLK_3)) n = "3";
+    if (InputHandler::instance()->isKeyDown(SDLK_4)) n = "4";
+    if (InputHandler::instance()->isKeyDown(SDLK_5)) n = "5";
+    if (InputHandler::instance()->isKeyDown(SDLK_6)) n = "6";
+    if (InputHandler::instance()->isKeyDown(SDLK_7)) n = "7";
+    if (InputHandler::instance()->isKeyDown(SDLK_8)) n = "8";
+    if (InputHandler::instance()->isKeyDown(SDLK_9)) n = "9";
+    if (InputHandler::instance()->isKeyDown(SDLK_PERIOD)) n = ".";
+
+    ip += n;
 }

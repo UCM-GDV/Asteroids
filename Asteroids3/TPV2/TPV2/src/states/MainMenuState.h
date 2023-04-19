@@ -9,18 +9,18 @@
 class MainMenuState : public Manager {
 private:
 	FighterSystem* fighterSys_;
-
 	GameCtrlSystem* gameCtrlSys_;
-	RenderSystem* renderSys_;
-
+	RenderSystem* renderSys_;	
+public:
 	Entity* onePlayerButton;
 	Entity* multiPlayerButton;
 	Entity* hostButton;
 	Entity* clientButton;
+	Entity* enterButton;
 	Entity* nameTextBox;
+	Entity* waitingText;
 	Entity* ipTextBox;
 
-public:
 	// Constructora
 	MainMenuState();
 	// Destructora
@@ -29,4 +29,10 @@ public:
 	void server(int port);
 	// Cliente 
 	void client(char* host, int port);
+
+	// UI
+	void createHostButton();
+	void createClientButton();
+	void createEnterButton(bool player);
+	void createNameTextBox();
 };
