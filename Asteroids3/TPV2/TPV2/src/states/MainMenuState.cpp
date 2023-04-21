@@ -114,7 +114,7 @@ void MainMenuState::client(const char* host, const int port) {
     // coge el socket abierto 
 	UDPsocket sd = SDLNet_UDP_Open(0);
 	IPaddress srvadd; //direcion ip
-	if (SDLNet_ResolveHost(&srvadd, host, port) < 0) { 
+	if (SDLNet_ResolveHost(&srvadd, "192.168.252.63", port) < 0) { 
 		throw("ERROR AL ESTABLECER CONEXION CON EL SERVIDOR");
     }
 	UDPpacket* p = SDLNet_AllocPacket(MAX_PACKET_SIZE);
@@ -221,8 +221,7 @@ void MainMenuState::createEnterButton(bool player) {
 			
 			getComponent<Callback>(enterButton)->setCallback([&]() {
 				// TODO COMPROBAR QUE LA IP ES VALIDA
-				client(getComponent<Callback>(enterButton)->ip, PORT);
-				
+				client(ip, PORT);
 				ipTextBox->setAlive(false);
 				enterButton->setAlive(false);
 			});

@@ -12,6 +12,7 @@ private:
 	FighterSystem* fighterSys_;
 	GameCtrlSystem* gameCtrlSys_;
 	RenderSystem* renderSys_;
+	char* ip;
 public:
 	Entity* onePlayerButton;
 	Entity* multiPlayerButton;
@@ -21,7 +22,7 @@ public:
 	Entity* nameTextBox;
 	Entity* waitingText;
 	Entity* ipTextBox;
-
+	
 	// Constructora
 	MainMenuState();
 	// Destructora
@@ -31,6 +32,11 @@ public:
 	// Cliente 
 	void client(const char* host, const int port);
 
+	// Devuelve la ip
+	inline const char* getIp() { return ip; }
+	// Establece la ip
+	inline void setIp(string ip_) { ip = &ip_[0]; cout << ip << "asdfgh"; }
+	
 	// UI
 	void createHostButton();
 	void createClientButton();

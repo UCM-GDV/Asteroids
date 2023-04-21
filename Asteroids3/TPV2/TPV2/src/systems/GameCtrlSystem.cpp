@@ -77,7 +77,8 @@ void GameCtrlSystem::update() {
                     if (enterEnt != nullptr) {
                         Callback* cb = mngr_->getComponent<Callback>(enterEnt);
                         // Si es cliente
-                        cb->mycall(ip);
+                        static_cast<MainMenuState*>(mngr_)->setIp(ip);
+                      
                         // Llama a la funcion
                         cb->callback();
                     }
@@ -99,9 +100,10 @@ void GameCtrlSystem::update() {
                 SDL_Point mousePoint = { (int)mousePos.first, (int)mousePos.second };
 
                 if (SDL_PointInRect(&mousePoint, buttonRect)) {
+                    // Si es cliente
                     Callback* cb = mngr_->getComponent<Callback>(buttons[i]);
                     // Si es cliente
-                    cb->mycall(ip);
+                    static_cast<MainMenuState*>(mngr_)->setIp(ip);
                     // Llama a la funcion
                     cb->callback();
                 }

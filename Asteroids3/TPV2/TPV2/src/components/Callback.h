@@ -17,6 +17,7 @@ public:
 	// Establece el callback
 	inline void setCallback(CallBack cb) { callback = cb; }
 	inline void  mycall(string ip_) {
+		
 		ip = ip_.c_str();
 	}
 };
