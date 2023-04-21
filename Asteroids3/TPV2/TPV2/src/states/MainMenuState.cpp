@@ -82,9 +82,9 @@ void MainMenuState::server(const int port) {
 	SDLNet_UDP_AddSocket(socketSet, sd);
 
 	// MODIFICAR ESTE CODIGO PARA QUE SEA NUESTRO JUEGO
-
+	
 	bool end = false;
-
+	cout << "ENTRA" << endl;
 	while (!end) {
 		// TODO I: PROCESS DATA on socket sd
 		//actividad en clientes
@@ -159,9 +159,6 @@ void MainMenuState::createHostButton() {
 		// QUITAR LOS BOTONES DE HOST Y CLIENT
 		hostButton->setAlive(false);
 		clientButton->setAlive(false);
-
-		// ASIGNA DE QUE SE TRATA DEL HOST
-		server(PORT);
 	});
 	addEntity(hostButton, _grp_BUTTONS);
 }
@@ -205,6 +202,9 @@ void MainMenuState::createEnterButton(bool player) {
 			nameTextBox->setAlive(false);
 			// Quita el boton de enter
 			enterButton->setAlive(false);
+			
+			// ASIGNA DE QUE SE TRATA DEL HOST
+			server(PORT);
 		});
 	}
 	// Si se trata del jugador 2

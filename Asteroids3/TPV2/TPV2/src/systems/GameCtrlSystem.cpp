@@ -75,7 +75,11 @@ void GameCtrlSystem::update() {
                 if (InputHandler::instance()->isKeyDown(SDLK_RETURN)) {
                     Entity* enterEnt = static_cast<MainMenuState*>(mngr_)->enterButton;
                     if (enterEnt != nullptr) {
-                        mngr_->getComponent<Callback>(enterEnt)->mycall(ip);
+                        Callback* cb = mngr_->getComponent<Callback>(enterEnt);
+                        // Si es cliente
+                        cb->mycall(ip);
+                        // Llama a la funcion
+                        cb->callback();
                     }
                 }
             
@@ -95,7 +99,11 @@ void GameCtrlSystem::update() {
                 SDL_Point mousePoint = { (int)mousePos.first, (int)mousePos.second };
 
                 if (SDL_PointInRect(&mousePoint, buttonRect)) {
-                    mngr_->getComponent<Callback>(buttons[i])->callback();
+                    Callback* cb = mngr_->getComponent<Callback>(buttons[i]);
+                    // Si es cliente
+                    cb->mycall(ip);
+                    // Llama a la funcion
+                    cb->callback();
                 }
             }
         }
