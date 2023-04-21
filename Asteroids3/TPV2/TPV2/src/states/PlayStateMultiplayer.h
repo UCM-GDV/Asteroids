@@ -9,6 +9,7 @@
 #include "../systems/RenderSystem.h"
 #include "../sdlutils/InputHandler.h"
 #include "../systems/NetWorkSystem.h"
+
 class PlayStateMultiPlayer : public Manager {
 private:
     FighterSystem* fighterSys_;

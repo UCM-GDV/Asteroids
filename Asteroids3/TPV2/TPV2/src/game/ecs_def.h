@@ -62,5 +62,5 @@ enum msgId : msgId_type {
 };
 using msgnetId_type = int;
 enum msgIdnet : msgId_type {
-	_m_CONECTED
+	_m_CONNECTED
 };

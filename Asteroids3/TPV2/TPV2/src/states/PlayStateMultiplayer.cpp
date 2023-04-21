@@ -1,8 +1,7 @@
 #include "./PlayStateMultiplayer.h"
 
 // Constructora
-PlayStateMultiPlayer::PlayStateMultiPlayer() : Manager(), hostButton(nullptr), clientButton(nullptr), enterButton(nullptr), nameTextBox(nullptr),
-waitingText(nullptr), ipTextBox(nullptr) {
+PlayStateMultiPlayer::PlayStateMultiPlayer() : Manager(), hostButton(nullptr), clientButton(nullptr), enterButton(nullptr), nameTextBox(nullptr), waitingText(nullptr), ipTextBox(nullptr) {
 	// SISTEMAS
     networkSys_ = addSystem<NetworkSystem>();
     fighterSys_ = addSystem<FighterSystem>(3);
@@ -63,7 +62,7 @@ void PlayStateMultiPlayer::createEnterButton(bool player) {
     textTextures_[enterButton] = new Texture(SDLUtils::instance()->renderer(), ENTER_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_WHITE), build_sdlcolor(COLOR_RED));
 
     // !player = JUGADOR 1 || player = JUGADOR 2
-    (!player) ? addComponent<Callback>(enterButton, [&]() {  }) : addComponent<Callback>(enterButton, [&]() { clientButtonIPAction(); });
+    (!player) ? addComponent<Callback>(enterButton, [&]() { hostButtonNameAction(); }) : addComponent<Callback>(enterButton, [&]() { clientButtonIPAction(); });
 
     addEntity(enterButton, _grp_BUTTONS);
 }
@@ -102,17 +101,21 @@ void PlayStateMultiPlayer::hostButtonNameAction() {
     deActivateNAMEHUD();
     createWaitingTextBox();
 
-	// MANDAR MENSAJE PARA QUE NETWORKSYSTEM LLAME A LA FUNCION SERVER
     networkSys_->server();
 }
 
 void PlayStateMultiPlayer::clientButtonIPAction() {
     // Reescribe el callback del boton de enter
     getComponent<Callback>(enterButton)->setCallback([&]() {
-    // MANDAR MENSAJE PARA QUE NETWORKSYSTEM LLAME A LA FUNCION CLIENT
+        deActivateIPHUD();
+        // TODO ---------------------------------------
         const char* ip = gameCtrlSys_->getIp().c_str();
+        cout << ip << endl;
+        // --------------------------------------------
+
         networkSys_->client(ip);
     });
+
     nameTextBox->setAlive(false);
     createIpTextBox();
 }

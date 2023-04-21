@@ -23,6 +23,7 @@ void NetworkSystem::receive(const Message& m) {
 
 // Crea servidor
 void NetworkSystem::server() {
+	server_ = true;
 	// abre un puerto cualquiera (via de mensajes)
 	sd = SDLNet_UDP_Open(PORT);
 	// si no consigue abrir
@@ -45,8 +46,9 @@ void NetworkSystem::server() {
 
 // Conecta con el host y el puerto
 void NetworkSystem::client(const char* host) {
+	server_ = false;
 	// coge el socket abierto 
-	 sd = SDLNet_UDP_Open(0);
+	sd = SDLNet_UDP_Open(0);
 
 	if (SDLNet_ResolveHost(&srvadd, "192.168.252.63", PORT) < 0) {
 		//if (SDLNet_ResolveHost(&srvadd, host, port) < 0) {
@@ -57,11 +59,10 @@ void NetworkSystem::client(const char* host) {
 	SDLNet_UDP_AddSocket(socketSet, sd);
 	
 	m = reinterpret_cast<Messagenet*>(p->data);
-	m->id = _m_CONECTED;
+	m->id = _m_CONNECTED;
 	p->len = sizeof(Messagenet);
 	p->address = srvadd;
 	SDLNet_UDP_Send(sd, -1, p);
-	
 }
 
 void NetworkSystem::initSystem() {
@@ -71,33 +72,9 @@ void NetworkSystem::initSystem() {
 void NetworkSystem::update() {
 	
 	if (SDLNet_UDP_Recv(sd, p) > 0) {
-		switch (m->id)
-		{
-		case _m_CONECTED:
-			if (server_) {
-				srvadd = p->address;
-			}
-			break;
-		default:
-			break;
+		switch (m->id) {
+		case _m_CONNECTED: if (server_) { srvadd = p->address; } break;
+		default: break;
 		}
-		//SWITCH PARA CADA CASO
-		// 
-		// 
-		// print client�s message
-		//if (buffer == "connected") {
-		//	/*GameStateMachine::instance()->popState();
-		//	GameStateMachine::instance()->pushState(new PlayStateMultiPlayer());
-		//	GameStateMachine::instance()->pushState(new PauseState());
-		//	end = true;*/
-		//}
-		//// send a response
-		//memcpy(buffer, "Received", 10);
-		//p->len = 10;
-		//SDLNet_UDP_Send(sd, -1, p);
 	}
-		
-	
-
-	
 }

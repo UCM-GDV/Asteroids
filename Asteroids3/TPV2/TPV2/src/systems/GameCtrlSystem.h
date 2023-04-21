@@ -12,6 +12,8 @@ private:
 	int state; 
     // Puntero a las vidas del fighter
     Health* fighterHealth;
+    Health* fighterHealth1;
+    Health* fighterHealth2;
 
     // Para gestionar el mensaje de que ha habido un choque entre el fighter y un
     // un asteroide. Tiene que avisar que ha acabado la ronda, quitar una vida

@@ -1,5 +1,6 @@
 #include "FighterSystem.h"
 #include "../ecs/Manager.h"
+#include "NetWorkSystem.h"
 
 // Constructora
 FighterSystem::FighterSystem(int state_) : state(state_) {}
@@ -17,14 +18,35 @@ void FighterSystem::receive(const Message& m) {
 // correspondiente, etc.
 void FighterSystem::initSystem() {
 	startTime = SDL_GetTicks();
-    // Anade el objeto fighter a la escena
-    fighter = new Entity(_grp_FIGHTER);
-    fighter->setContext(mngr_);
-    fighterTransform = mngr_->addComponent<Transform>(fighter, Vector2D(WIN_HALF_WIDTH, WIN_HALF_HEIGHT), FIGHTER_VELOCITY, FIGHTER_WIDTH, FIGHTER_HEIGHT, FIGHTER_ROTATION);
-    fighterTransform->setContext(fighter, mngr_);
-    fighterHealth = mngr_->addComponent<Health>(fighter, NUMBER_LIVES);
-	fighterHealth->setContext(fighter, mngr_);
-    mngr_->addEntity(fighter, _grp_FIGHTER);
+	if (state == 3) {
+		// Anade el objeto fighter a la escena
+		fighter1 = new Entity(_grp_FIGHTER);
+		fighter1->setContext(mngr_);
+		fighterTransform1 = mngr_->addComponent<Transform>(fighter1, FIGHTER_1_POS, FIGHTER_VELOCITY, FIGHTER_WIDTH, FIGHTER_HEIGHT, FIGHTER_ROTATION);
+		fighterTransform1->setContext(fighter1, mngr_);
+		fighterHealth1 = mngr_->addComponent<Health>(fighter1, NUMBER_LIVES);
+		fighterHealth1->setContext(fighter1, mngr_);
+		mngr_->addEntity(fighter1, _grp_FIGHTER);
+
+		fighter2 = new Entity(_grp_FIGHTER);
+		fighter2->setContext(mngr_);
+		fighterTransform2 = mngr_->addComponent<Transform>(fighter2, FIGHTER_2_POS, FIGHTER_VELOCITY, FIGHTER_WIDTH, FIGHTER_HEIGHT, FIGHTER_ROTATION);
+		fighterTransform2->setContext(fighter2, mngr_);
+		fighterHealth2 = mngr_->addComponent<Health>(fighter2, NUMBER_LIVES);
+		fighterHealth2->setContext(fighter2, mngr_);
+		mngr_->addEntity(fighter2, _grp_FIGHTER);
+	}
+	else
+	{
+		fighter = new Entity(_grp_FIGHTER);
+		fighter->setContext(mngr_);
+		fighterTransform = mngr_->addComponent<Transform>(fighter, FIGHTER_POS, FIGHTER_VELOCITY, FIGHTER_WIDTH, FIGHTER_HEIGHT, FIGHTER_ROTATION);
+		fighterTransform->setContext(fighter, mngr_);
+		fighterHealth = mngr_->addComponent<Health>(fighter, NUMBER_LIVES);
+		fighterHealth->setContext(fighter, mngr_);
+		mngr_->addEntity(fighter, _grp_FIGHTER);
+	}
+   
 }
 
 // Si el juego está parado no hacer nada, en otro caso actualizar la velocidad
@@ -32,9 +54,9 @@ void FighterSystem::initSystem() {
 // si el juego no está parado y el jugador pulsa la tecla de disparo, enviar un
 // mensaje con las características físicas de la bala. Recuerda que se puede disparar
 // sólo una bala cada 0.25sec.
-void FighterSystem::update() {
+void FighterSystem::move() {
 	// Si esta en PlayState
-	if (state == 1) {
+	
 		SDL_Event event_;
 		updatefighter();
 		InputHandler::instance()->update(event_);
@@ -66,7 +88,28 @@ void FighterSystem::update() {
 				accelerate();
 			}
 		}
+	
+}
+
+void FighterSystem::update() {
+	if (state == 1) {
+		move();
 	}
+	if (state == 3) {
+		// Pregunta constantemente por el transform
+		if (mngr_->getSystem<NetworkSystem>()->getServer()) {
+			fighterTransform = fighterTransform1;
+			fighterHealth = fighterHealth1;
+
+		}
+		else {
+			fighterTransform = fighterTransform2;
+			fighterHealth = fighterHealth2;
+		}
+		move();
+	}
+	
+	
 }
 
 // TRANSFORM - DEACCELERATION - SHOWATOPPOSITESIDE 

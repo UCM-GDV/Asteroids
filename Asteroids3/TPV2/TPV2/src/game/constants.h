@@ -64,6 +64,10 @@ const Vector2D SPEED_LIMIT = Vector2D(0, 3.0f);
 const float FIGHTER_POS_WIDTH = WIN_WIDTH / 2;
 const float FIGHTER_POS_HEIGHT = WIN_HEIGHT / 2;
 
+const Vector2D FIGHTER_POS = { WIN_HALF_WIDTH, WIN_HALF_HEIGHT };
+const Vector2D FIGHTER_1_POS = { 50 , WIN_HEIGHT / 2 };
+const Vector2D FIGHTER_2_POS = { WIN_WIDTH - 50 , WIN_HEIGHT / 2 };
+
 // ASTEROID
 const int ASTEROIDS_INITIAL_NUMBER = 10;
 const int ASTEROIDS_MAX_NUMBER = 30;

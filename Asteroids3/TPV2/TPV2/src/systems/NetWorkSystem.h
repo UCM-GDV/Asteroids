@@ -22,7 +22,9 @@ public:
 	void server();
 	// Cliente 
 	void client(const char* host);
-
+	bool getServer() {
+		return server_;
+	}
 private:
 	UDPpacket* p;
 	UDPsocket sd;

@@ -23,8 +23,13 @@ void GameCtrlSystem::receive(const Message& m) {
 
 // Inicializar el sistema, etc.
 void GameCtrlSystem::initSystem() {
-    fighterHealth = mngr_->getSystem<FighterSystem>()->getFighterHealth();
-    assert(fighterHealth != nullptr);
+    if (state == 1) {
+		fighterHealth = mngr_->getSystem<FighterSystem>()->getFighterHealth();
+		assert(fighterHealth != nullptr);
+    }
+    else if (state == 3) {
+        (mngr_->getSystem<NetworkSystem>()->getServer()) ? fighterHealth = fighterHealth1 : fighterHealth = fighterHealth2;
+    }
 }
 
 // Si el juego no está parado y el jugador pulsa SDLK_SPACE cambia el estado

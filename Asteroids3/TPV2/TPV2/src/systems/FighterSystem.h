@@ -27,16 +27,24 @@ public:
 	Transform* getFighterTransform();
 	// Devuelve el health del fighter
 	Health* getFighterHealth();
-
+	// 
+	void move();
 private:
 	// Contador para las balas
 	int startTime;
 	// Estado actual del juego
 	int state;
 	// Punteros a elementos del fighter
-	Entity* fighter;
+	// Componente transform auxiliar
 	Transform* fighterTransform;
+	Entity* fighter;
+	Entity* fighter1;
+	Entity* fighter2;
+	Transform* fighterTransform1;
+	Transform* fighterTransform2;
 	Health* fighterHealth;
+	Health* fighterHealth1;
+	Health* fighterHealth2;
 
 	// Para reaccionar al mensaje de que ha habido un choque entre el fighter y un
 	// un asteroide. Poner el caza en el centro con velocidad (0,0) y rotación 0. No
