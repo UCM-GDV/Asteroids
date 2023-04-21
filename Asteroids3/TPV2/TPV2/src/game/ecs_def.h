@@ -60,3 +60,7 @@ enum msgId : msgId_type {
 	_m_ONVICTORY,
 	_m_ONDEFEAT
 };
+using msgnetId_type = int;
+enum msgIdnet : msgId_type {
+	_m_CONECTED
+};

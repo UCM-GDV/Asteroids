@@ -52,7 +52,7 @@ void RenderSystem::update() {
 		}
 	}
 	// Mensajes en el resto de estados (MainMenuState, PauseState y EndState)
-	else if (state == 0 || state == 2 || state == -1) {
+	else if (state == 0 || state == 2 || state == -1 || state == 3) {
 
 		for (Entity* text : mngr_->getEntities(_grp_MESSAGES)) {
 			auxTransform = mngr_->getComponent<Transform>(text);
@@ -60,7 +60,7 @@ void RenderSystem::update() {
 			mngr_->textTextures_[text]->render(dest, auxTransform->getR());
 		}
 
-		if (state == -1) {
+		if (state == -1 || state == 3) {
 			// Botones
 			for (Entity* button : mngr_->getEntities(_grp_BUTTONS)) {
 				auxTransform = mngr_->getComponent<Transform>(button);

@@ -5,6 +5,7 @@
 #include "../states/PlayState.h"
 #include "../states/EndState.h"
 #include "../states/MainMenuState.h"
+#include "../states/PlayStateMultiplayer.h"
 
 // Constructoras
 GameCtrlSystem::GameCtrlSystem() : fighterHealth(nullptr), name("") {}
@@ -52,46 +53,40 @@ void GameCtrlSystem::update() {
                 }
             }
         }
-        // Si esta en MainMenuState y existe nameTextBox...
-        else if (state == -1) {
-            Entity* nameEnt = static_cast<MainMenuState*>(mngr_)->nameTextBox;
-            Entity* ipEnt = static_cast<MainMenuState*>(mngr_)->ipTextBox;
+        // Si esta en PlayStateMultiplayer
+        else if (state == 3) {
+			Entity* nameEnt = static_cast<PlayStateMultiPlayer*>(mngr_)->nameTextBox;
+			Entity* ipEnt = static_cast<PlayStateMultiPlayer*>(mngr_)->ipTextBox;
 
-                // Si existe nameTextBox...
-                if (nameEnt != nullptr) {
-                    delete mngr_->textTextures_[nameEnt];
-                    addCharacter();
-                    addSpaces(name, nameWithSpaces);
-                    mngr_->textTextures_[nameEnt] = new Texture(SDLUtils::instance()->renderer(), nameWithSpaces, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
-                }
-                // Si existe ipTextBox
-                if (ipEnt != nullptr) {
-                    delete mngr_->textTextures_[ipEnt];
-                    addNumberOrDot();
-                    addSpaces(ip, ipWithSpaces);
-                    mngr_->textTextures_[ipEnt] = new Texture(SDLUtils::instance()->renderer(), ipWithSpaces, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
-                }
+			// Si existe nameTextBox...
+			if (nameEnt != nullptr) {
+				delete mngr_->textTextures_[nameEnt];
+				addCharacter();
+				addSpaces(name, nameWithSpaces);
+				mngr_->textTextures_[nameEnt] = new Texture(SDLUtils::instance()->renderer(), nameWithSpaces, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
+			}
+			// Si existe ipTextBox
+			if (ipEnt != nullptr) {
+				delete mngr_->textTextures_[ipEnt];
+				addNumberOrDot();
+				addSpaces(ip, ipWithSpaces);
+				mngr_->textTextures_[ipEnt] = new Texture(SDLUtils::instance()->renderer(), ipWithSpaces, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
+			}
 
-                if (InputHandler::instance()->isKeyDown(SDLK_RETURN)) {
-                    Entity* enterEnt = static_cast<MainMenuState*>(mngr_)->enterButton;
-                    if (enterEnt != nullptr) {
-                        Callback* cb = mngr_->getComponent<Callback>(enterEnt);
-                        // Si es cliente
-                        static_cast<MainMenuState*>(mngr_)->setIp(ip);
-                      
-                        // Llama a la funcion
-                        cb->callback();
-                    }
-                }
-            
-            
+			if (InputHandler::instance()->isKeyDown(SDLK_RETURN)) {
+				Entity* enterEnt = static_cast<PlayStateMultiPlayer*>(mngr_)->enterButton;
+				if (enterEnt != nullptr) {
+					// Llama a la funcion
+					mngr_->getComponent<Callback>(enterEnt)->callback();
+				}
+			}
         }
     }
 
     // Si se ha hecho clic izquierdo
     if (InputHandler::instance()->getMouseButtonState(InputHandler::MOUSEBUTTON::LEFT)) {
         // Si esta en MainMenuState
-        if (state == -1) {
+        if (state == -1 || state == 3) {
             // Comprueba si la posicion del cursor esta dentro de la imagen de algun boton
             vector<Entity*> buttons = mngr_->getEntities(_grp_BUTTONS);
             for (int i = 0; i < buttons.size(); ++i) {
@@ -100,12 +95,8 @@ void GameCtrlSystem::update() {
                 SDL_Point mousePoint = { (int)mousePos.first, (int)mousePos.second };
 
                 if (SDL_PointInRect(&mousePoint, buttonRect)) {
-                    // Si es cliente
-                    Callback* cb = mngr_->getComponent<Callback>(buttons[i]);
-                    // Si es cliente
-                    static_cast<MainMenuState*>(mngr_)->setIp(ip);
-                    // Llama a la funcion
-                    cb->callback();
+					// Llama a la funcion
+                    mngr_->getComponent<Callback>(buttons[i])->callback();
                 }
             }
         }

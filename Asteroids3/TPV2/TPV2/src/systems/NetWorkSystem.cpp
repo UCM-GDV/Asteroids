@@ -1,129 +1,100 @@
-#include "NetWorkSystem.h"
+ï»¿#include "NetWorkSystem.h"
 #include "../ecs/Manager.h"
 
 // Constructora
-NetworkSystem::NetworkSystem(int state_) : state(state_) {}
-
-// Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
+NetworkSystem::NetworkSystem() {
+	if (SDLNet_Init() < 0) {
+		throw SDLNet_GetError();
+	}
+}
+NetworkSystem::~NetworkSystem() {
+	SDLNet_FreePacket(p);
+	SDLNet_FreeSocketSet(socketSet);
+	SDLNet_UDP_Close(sd);
+}
+// Reaccionar a los mensajes recibidos (llamando a mÃ©todos correspondientes).
 void NetworkSystem::receive(const Message& m) {
     switch (m.id) {
-        case _m_ROUND_FINISHED: onCollision_FighterAsteroid(); break;
-		case _m_ONVICTORY: case _m_ONDEFEAT: onRoundOver(); break;
+        case _m_ROUND_FINISHED: break;
+		case _m_ONVICTORY: case _m_ONDEFEAT:break;
         default: break;
     }
 }
 
-// Crear la entidad del caza, añadir sus componentes, asociarla con un handler
-// correspondiente, etc.
+// Crea servidor
+void NetworkSystem::server() {
+	// abre un puerto cualquiera (via de mensajes)
+	sd = SDLNet_UDP_Open(PORT);
+	// si no consigue abrir
+	if (!sd) {
+		throw("ERROR AL ABRIR EL SERVER");
+	}
+
+	// creacion de un packet (estructura de datos a enviar/recibir)
+	p = SDLNet_AllocPacket(MAX_PACKET_SIZE);
+	// si no consigue crear
+	if (!p) {
+		throw("ERROR AL CREAR EL PAQUETE");
+	}
+
+	char* buffer = reinterpret_cast<char*>(p->data);
+	socketSet = SDLNet_AllocSocketSet(1);
+	SDLNet_UDP_AddSocket(socketSet, sd);
+
+}
+
+// Conecta con el host y el puerto
+void NetworkSystem::client(const char* host) {
+	// coge el socket abierto 
+	 sd = SDLNet_UDP_Open(0);
+	IPaddress srvadd; //direcion ip
+	if (SDLNet_ResolveHost(&srvadd, "192.168.252.63", PORT) < 0) {
+		//if (SDLNet_ResolveHost(&srvadd, host, port) < 0) {
+		throw("ERROR AL ESTABLECER CONEXION CON EL SERVIDOR");
+	}
+	p = SDLNet_AllocPacket(MAX_PACKET_SIZE);
+	socketSet = SDLNet_AllocSocketSet(1);
+	SDLNet_UDP_AddSocket(socketSet, sd);
+	
+	m = reinterpret_cast<Messagenet*>(p->data);
+	m->id = _m_CONECTED;
+	p->len = sizeof(Messagenet);
+	p->address = srvadd;
+	SDLNet_UDP_Send(sd, -1, p);
+	
+}
+
 void NetworkSystem::initSystem() {
-	startTime = SDL_GetTicks();
-    // Anade el objeto fighter a la escena
-    fighter = new Entity(_grp_FIGHTER);
-    fighter->setContext(mngr_);
-    fighterTransform = mngr_->addComponent<Transform>(fighter, Vector2D(WIN_HALF_WIDTH, WIN_HALF_HEIGHT), FIGHTER_VELOCITY, FIGHTER_WIDTH, FIGHTER_HEIGHT, FIGHTER_ROTATION);
-    fighterTransform->setContext(fighter, mngr_);
-    fighterHealth = mngr_->addComponent<Health>(fighter, NUMBER_LIVES);
-	fighterHealth->setContext(fighter, mngr_);
-    mngr_->addEntity(fighter, _grp_FIGHTER);
+	
 }
 
-// Si el juego está parado no hacer nada, en otro caso actualizar la velocidad
-// del caza y moverlo como en la práctica 1 (acelerar, desacelerar, etc). Además, 
-// si el juego no está parado y el jugador pulsa la tecla de disparo, enviar un
-// mensaje con las características físicas de la bala. Recuerda que se puede disparar
-// sólo una bala cada 0.25sec.
 void NetworkSystem::update() {
-	// Si esta en PlayState
-	if (state == 1) {
-		SDL_Event event_;
-		updatefighter();
-		InputHandler::instance()->update(event_);
-		if (InputHandler::instance()->keyDownEvent()) {
-			if (InputHandler::instance()->isKeyDown(SDLK_s)) {
-				// GUN
-				int frameTime = SDL_GetTicks() - startTime;
-				if (frameTime >= 250) {
-					// Envia mensaje con las caracteristicas fisicas de la bala
-					Message m;
-					m.id = _m_FIGHTER_SHOOT;
-					m.fighter_shoot.pos = fighterTransform->getPos();
-					m.fighter_shoot.vel = fighterTransform->getVel();
-					m.fighter_shoot.width = fighterTransform->getW();
-					m.fighter_shoot.height = fighterTransform->getH();
-					mngr_->send(m);
-
-					startTime = SDL_GetTicks();
-				}
-			}
-			// FIGHTERCONTROL
-			if (InputHandler::instance()->isKeyDown(SDLK_LEFT)) {
-				rotate(-(FIGHTER_ROTATION_SPEED));
-			}
-			else if (InputHandler::instance()->isKeyDown(SDLK_RIGHT)) {
-				rotate(FIGHTER_ROTATION_SPEED);
-			}
-			else if (InputHandler::instance()->isKeyDown(SDLK_UP)) {
-				accelerate();
-			}
+	
+	if (SDLNet_UDP_Recv(sd, p) > 0) {
+		switch (m->id)
+		{
+		case _m_CONECTED:
+			break;
+		default:
+			break;
 		}
+		//SWITCH PARA CADA CASO
+		// 
+		// 
+		// print clientï¿½s message
+		//if (buffer == "connected") {
+		//	/*GameStateMachine::instance()->popState();
+		//	GameStateMachine::instance()->pushState(new PlayStateMultiPlayer());
+		//	GameStateMachine::instance()->pushState(new PauseState());
+		//	end = true;*/
+		//}
+		//// send a response
+		//memcpy(buffer, "Received", 10);
+		//p->len = 10;
+		//SDLNet_UDP_Send(sd, -1, p);
 	}
+		
+	
+
+	
 }
-
-// TRANSFORM - DEACCELERATION - SHOWATOPPOSITESIDE 
-void  NetworkSystem::updatefighter() {
-	// TRANSFORM
-	fighterTransform->setPos(fighterTransform->getPos() + fighterTransform->getVel());
-
-	// DEACCELERATION
-	Vector2D vel = fighterTransform->getVel();
-	if (abs(vel.getY()) < 0.05f) fighterTransform->setVel(Vector2D(0, 0));
-	else fighterTransform->setVel(vel * 0.995f);
-
-	// SHOWATOPPOSITESIDE
-	if (fighterTransform->getPos().getX() < -(FIGHTER_WIDTH)) {
-		fighterTransform->setPos(Vector2D(WIN_WIDTH, fighterTransform->getPos().getY()));
-	}
-	else if (fighterTransform->getPos().getX() > (WIN_WIDTH + FIGHTER_WIDTH)) {
-		fighterTransform->setPos(Vector2D(0, fighterTransform->getPos().getY()));
-	}
-	if (fighterTransform->getPos().getY() < -(FIGHTER_HEIGHT)) {
-		fighterTransform->setPos(Vector2D(fighterTransform->getPos().getX(), WIN_HEIGHT));
-	}
-	else if (fighterTransform->getPos().getY() > (WIN_HEIGHT + FIGHTER_HEIGHT)) {
-		fighterTransform->setPos(Vector2D(fighterTransform->getPos().getX(), 0));
-	}
-}
-
-// Devuelve el transform del fighter
-Transform* NetworkSystem::getFighterTransform() { return fighterTransform; }
-
-// Devuelve el health del fighter
-Health* NetworkSystem::getFighterHealth() { return fighterHealth; }
-
-// Para reaccionar al mensaje de que ha habido un choque entre el fighter y un
-// un asteroide. Poner el caza en el centro con velocidad (0,0) y rotación 0. No
-// hace falta desactivar la entidad (no dibujarla si el juego está parado).
-void NetworkSystem::onCollision_FighterAsteroid() {
-	resetFighter();
-}
-
-// Para gestionar el mensaje de que ha acabado una ronda. Desactivar el sistema.
-void NetworkSystem::onRoundOver() {
-	resetFighter();
-	resetLives();
-}
-
-// Acelera al fighter
-void NetworkSystem::accelerate() {
-	Vector2D newVel = fighterTransform->getVel() + Vector2D(0.0f, -1.0f).rotate(fighterTransform->getR()) * 0.7f;
-	if (newVel.getY() <= SPEED_LIMIT.getY()) fighterTransform->setVel(newVel);
-
-	// Sonido
-	sdlutils().soundEffects().at("thrust").play();
-}
-
-// Rota el transofrm del fighter
-void NetworkSystem::rotate(float r_) {
-	fighterTransform->changeRot(degreesToRadians(r_));
-}
-
