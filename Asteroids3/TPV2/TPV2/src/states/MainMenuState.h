@@ -2,6 +2,7 @@
 #include "../ecs/Manager.h"	
 #include "../systems/GameCtrlSystem.h"
 #include "../systems/RenderSystem.h"
+#include "../systems/NetWorkSystem.h"
 #include <SDL_net.h>
 #include <vector>
 #include "../ecs/Entity.h"
@@ -10,7 +11,7 @@ class MainMenuState : public Manager {
 private:
 	FighterSystem* fighterSys_;
 	GameCtrlSystem* gameCtrlSys_;
-	RenderSystem* renderSys_;	
+	RenderSystem* renderSys_;
 public:
 	Entity* onePlayerButton;
 	Entity* multiPlayerButton;
@@ -26,9 +27,9 @@ public:
 	// Destructora
 	~MainMenuState();
 	// Servidor
-	void server(int port);
+	void server(const int port);
 	// Cliente 
-	void client(char* host, int port);
+	void client(const char* host, const int port);
 
 	// UI
 	void createHostButton();

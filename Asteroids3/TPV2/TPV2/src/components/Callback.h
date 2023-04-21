@@ -7,7 +7,7 @@ using CallBack = std::function<void(void)>;
 struct Callback : public Component {
 public:
 	CallBack callback;
-
+	const char* ip;
 	// Identificador
 	constexpr static cmpId_type id = _CALLBACK;
 	// Constructora
@@ -16,4 +16,7 @@ public:
 	virtual ~Callback() {}
 	// Establece el callback
 	inline void setCallback(CallBack cb) { callback = cb; }
+	inline void  mycall(string ip_) {
+		ip = ip_.c_str();
+	}
 };

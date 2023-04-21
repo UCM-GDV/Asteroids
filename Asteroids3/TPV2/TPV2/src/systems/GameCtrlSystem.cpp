@@ -57,7 +57,6 @@ void GameCtrlSystem::update() {
             Entity* nameEnt = static_cast<MainMenuState*>(mngr_)->nameTextBox;
             Entity* ipEnt = static_cast<MainMenuState*>(mngr_)->ipTextBox;
 
-            if (nameEnt != nullptr || ipEnt != nullptr) {
                 // Si existe nameTextBox...
                 if (nameEnt != nullptr) {
                     delete mngr_->textTextures_[nameEnt];
@@ -65,8 +64,6 @@ void GameCtrlSystem::update() {
                     addSpaces(name, nameWithSpaces);
                     mngr_->textTextures_[nameEnt] = new Texture(SDLUtils::instance()->renderer(), nameWithSpaces, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
                 }
-                // SI SE TRATA DEL JUGADOR 2
-                //if () 
                 // Si existe ipTextBox
                 if (ipEnt != nullptr) {
                     delete mngr_->textTextures_[ipEnt];
@@ -78,10 +75,10 @@ void GameCtrlSystem::update() {
                 if (InputHandler::instance()->isKeyDown(SDLK_RETURN)) {
                     Entity* enterEnt = static_cast<MainMenuState*>(mngr_)->enterButton;
                     if (enterEnt != nullptr) {
-                        mngr_->getComponent<Callback>(enterEnt)->callback();
+                        mngr_->getComponent<Callback>(enterEnt)->mycall(ip);
                     }
                 }
-            }
+            
             
         }
     }
