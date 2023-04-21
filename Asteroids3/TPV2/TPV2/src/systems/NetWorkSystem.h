@@ -28,4 +28,6 @@ private:
 	UDPsocket sd;
 	SDLNet_SocketSet socketSet;
 	Messagenet* m;
+	IPaddress srvadd; //direcion ip	IPaddress srvadd; //direcion ip
+	bool server_;
 };

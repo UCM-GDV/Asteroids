@@ -47,7 +47,7 @@ void NetworkSystem::server() {
 void NetworkSystem::client(const char* host) {
 	// coge el socket abierto 
 	 sd = SDLNet_UDP_Open(0);
-	IPaddress srvadd; //direcion ip
+
 	if (SDLNet_ResolveHost(&srvadd, "192.168.252.63", PORT) < 0) {
 		//if (SDLNet_ResolveHost(&srvadd, host, port) < 0) {
 		throw("ERROR AL ESTABLECER CONEXION CON EL SERVIDOR");
@@ -74,6 +74,9 @@ void NetworkSystem::update() {
 		switch (m->id)
 		{
 		case _m_CONECTED:
+			if (server_) {
+				srvadd = p->address;
+			}
 			break;
 		default:
 			break;

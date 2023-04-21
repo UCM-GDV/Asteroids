@@ -90,9 +90,9 @@ void GameCtrlSystem::update() {
             // Comprueba si la posicion del cursor esta dentro de la imagen de algun boton
             vector<Entity*> buttons = mngr_->getEntities(_grp_BUTTONS);
             for (int i = 0; i < buttons.size(); ++i) {
-                SDL_Rect* buttonRect = &mngr_->getComponent<Transform>(buttons[i])->getRect();
                 pair<Sint32, Sint32> mousePos = InputHandler::instance()->getMousePos();
                 SDL_Point mousePoint = { (int)mousePos.first, (int)mousePos.second };
+                SDL_Rect* buttonRect = &mngr_->getComponent<Transform>(buttons[i])->getRect();
 
                 if (SDL_PointInRect(&mousePoint, buttonRect)) {
 					// Llama a la funcion

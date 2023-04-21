@@ -113,4 +113,6 @@ void PlayStateMultiPlayer::clientButtonIPAction() {
         const char* ip = gameCtrlSys_->getIp().c_str();
         networkSys_->client(ip);
     });
+    nameTextBox->setAlive(false);
+    createIpTextBox();
 }
