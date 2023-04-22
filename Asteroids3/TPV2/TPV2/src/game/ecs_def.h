@@ -60,7 +60,8 @@ enum msgId : msgId_type {
 	_m_FIGHTER_UPDATE,
 	_m_BULLET_UPDATE,
 	_m_NET_FIGHTER_UPDATE,
-	_m_NET_BULLET_UPDATE
+	_m_NET_BULLET_UPDATE,
+	_m_CHANGE_STATE
 };
 using msgnetId_type = int;
 enum msgIdnet : msgId_type {

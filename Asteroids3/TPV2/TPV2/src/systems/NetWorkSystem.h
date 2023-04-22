@@ -3,7 +3,7 @@
 #include "../sdlutils/SDLUtils.h"
 #include <SDL_net.h>
 #include "../components/Messagenet.h"
-
+class PlayStateMultiPlayer;
 class NetworkSystem : public System {
 public:
 	// Idenficador
@@ -37,4 +37,5 @@ private:
 	Message m;
 	IPaddress srvadd; //direcion ip	IPaddress srvadd; //direcion ip
 	bool server_;
+	PlayStateMultiPlayer* playState;
 };

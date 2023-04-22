@@ -49,7 +49,7 @@ private:
 	void renderAsteroid(Entity* a, string key);
 
 	void renderFighter(Transform* tr, string key);
-
+	void onChangeState();
 	void renderLives(Health* health, Vector2D initialPos, string key);
 	void renderBullet(Entity* b, string key);
 	void renderUI(Entity* t);

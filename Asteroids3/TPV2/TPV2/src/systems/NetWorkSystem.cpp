@@ -69,6 +69,7 @@ void NetworkSystem::client(const char* host) {
 	p->len = sizeof(Messagenet);
 	p->address = srvadd;
 	SDLNet_UDP_Send(sd, -1, p);
+	//cambio de estado
 }
 
 void NetworkSystem::initSystem() {
@@ -78,16 +79,25 @@ void NetworkSystem::initSystem() {
 void NetworkSystem::update() {
 	
 	// Esto se encarga de recibir todos los mensajes
-	while  (SDLNet_UDP_Recv(sd, p) > 0) {
+	while (SDLNet_UDP_Recv(sd, p) > 0) {
 		
 		switch (mn->id) {
 		case _m_CONNECTED:
+			playState = static_cast<PlayStateMultiPlayer*>(mngr_);
 			if (server_) {
 				cout << "connected";
 				srvadd = p->address;
 				// Quita el texto de espera
-				static_cast<PlayStateMultiPlayer*>(mngr_)->getwaitingText()->setAlive(false);
+				playState->getwaitingText()->setAlive(false);
+
 			}
+			// Anade los sistemas necesarios para el multijugador
+			playState->createsystems();
+			// Cambia del modo de seleccion al juego multijugador
+			m.id = _m_CHANGE_STATE;
+			mngr_->send(m);
+			
+		
 			break;
 		case _m_FIGHTERPOSUP:
 			//llama a fightersystem para que actualize la pos y rot 1  o 2

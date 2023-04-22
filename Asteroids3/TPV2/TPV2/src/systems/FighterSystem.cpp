@@ -87,45 +87,29 @@ void FighterSystem::move() {
 				startTime = SDL_GetTicks();
 			}
 			m.id = _m_FIGHTER_UPDATE;
-			m.fighter_update.rot = fighterTransform->getR();
-			m.fighter_update.pos = fighterTransform->getPos();
-			m.fighter_update.vel = fighterTransform->getVel();
-			m.fighter_update.width = fighterTransform->getW();
-			m.fighter_update.height = fighterTransform->getH();
-			mngr_->send(m);
+			
 		}
 		// FIGHTERCONTROL
 		if (InputHandler::instance()->isKeyDown(SDLK_LEFT)) {
 			rotate(-(FIGHTER_ROTATION_SPEED));
-			m.id = _m_FIGHTER_UPDATE;
-			m.fighter_update.rot = fighterTransform->getR();
-			m.fighter_update.pos = fighterTransform->getPos();
-			m.fighter_update.vel = fighterTransform->getVel();
-			m.fighter_update.width = fighterTransform->getW();
-			m.fighter_update.height = fighterTransform->getH();
-			mngr_->send(m);
+			
 		}
 		else if (InputHandler::instance()->isKeyDown(SDLK_RIGHT)) {
 			rotate(FIGHTER_ROTATION_SPEED);
-			m.id = _m_FIGHTER_UPDATE;
-			m.fighter_update.rot = fighterTransform->getR();
-			m.fighter_update.pos = fighterTransform->getPos();
-			m.fighter_update.vel = fighterTransform->getVel();
-			m.fighter_update.width = fighterTransform->getW();
-			m.fighter_update.height = fighterTransform->getH();
-			mngr_->send(m);
+			
 		}
 		else if (InputHandler::instance()->isKeyDown(SDLK_UP)) {
 			accelerate();
-			m.id = _m_FIGHTER_UPDATE;
-			m.fighter_update.rot = fighterTransform->getR();
-			m.fighter_update.pos = fighterTransform->getPos();
-			m.fighter_update.vel = fighterTransform->getVel();
-			m.fighter_update.width = fighterTransform->getW();
-			m.fighter_update.height = fighterTransform->getH();
-			mngr_->send(m);
+		
 		}
 	}
+	m.id = _m_FIGHTER_UPDATE;
+	m.fighter_update.rot = fighterTransform->getR();
+	m.fighter_update.pos = fighterTransform->getPos();
+	m.fighter_update.vel = fighterTransform->getVel();
+	m.fighter_update.width = fighterTransform->getW();
+	m.fighter_update.height = fighterTransform->getH();
+	mngr_->send(m);
 
 	
 }

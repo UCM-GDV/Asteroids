@@ -17,6 +17,7 @@ void GameCtrlSystem::receive(const Message& m) {
         // colision asteroide con fighter
     case _m_FIGTHER_ASTEROID_COLLIDED: onCollision_FighterAsteroid(); break;
     case _m_ASTEROIDS_EXTINCTION: onAsteroidsExtinction(); break;
+    case _m_CHANGE_STATE: onChangeState();  break;
     default: break;
     }
 }
@@ -26,9 +27,6 @@ void GameCtrlSystem::initSystem() {
     if (state == 1) {
 		fighterHealth = mngr_->getSystem<FighterSystem>()->getFighterHealth();
 		assert(fighterHealth != nullptr);
-    }
-    else if (state == 3) {
-        (mngr_->getSystem<NetworkSystem>()->getServer()) ? fighterHealth = fighterHealth1 : fighterHealth = fighterHealth2;
     }
 }
 
@@ -59,7 +57,7 @@ void GameCtrlSystem::update() {
             }
         }
         // Si esta en PlayStateMultiplayer
-        else if (state == 3) {
+        else if (state == 4) {
 			Entity* nameEnt = static_cast<PlayStateMultiPlayer*>(mngr_)->nameTextBox;
 			Entity* ipEnt = static_cast<PlayStateMultiPlayer*>(mngr_)->ipTextBox;
 
@@ -91,7 +89,7 @@ void GameCtrlSystem::update() {
     // Si se ha hecho clic izquierdo
     if (InputHandler::instance()->getMouseButtonState(InputHandler::MOUSEBUTTON::LEFT)) {
         // Si esta en MainMenuState
-        if (state == -1 || state == 3) {
+        if (state == -1 || state == 4) {
             // Comprueba si la posicion del cursor esta dentro de la imagen de algun boton
             vector<Entity*> buttons = mngr_->getEntities(_grp_UI);
             for (int i = 0; i < buttons.size(); ++i) {
@@ -209,4 +207,11 @@ void GameCtrlSystem::addNumberOrDot() {
     if (InputHandler::instance()->isKeyDown(SDLK_PERIOD)) n = ".";
 
     ip += n;
+}
+
+void GameCtrlSystem::onChangeState() {
+    // Cambia del modo de seleccion al juego
+	state = 3;  
+    // Coge las referencias
+    (mngr_->getSystem<NetworkSystem>()->getServer()) ? fighterHealth = fighterHealth1 : fighterHealth = fighterHealth2;
 }

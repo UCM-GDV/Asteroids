@@ -52,4 +52,6 @@ public:
     virtual void update() override;
 
     inline string getIp() { return ip; }
+
+    void onChangeState();
 };

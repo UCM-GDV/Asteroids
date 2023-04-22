@@ -6,8 +6,19 @@ RenderSystem::RenderSystem() : state(-1), fighterTransform(nullptr), fighterHeal
 RenderSystem::RenderSystem(int state_) : state(state_), fighterTransform(nullptr), fighterHealth(nullptr), auxTransform(nullptr) {}
 
 // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
-void RenderSystem::receive(const Message& m) {}
-
+void RenderSystem::receive(const Message& m) {
+	switch (m.id) {
+	case _m_CHANGE_STATE: onChangeState(); break;
+	default: break;
+	}
+}
+void RenderSystem::onChangeState() {
+	state = 3;
+	fighterTransform1 = mngr_->getSystem<FighterSystem>()->getFighterTransform1();
+	fighterHealth1 = mngr_->getSystem<FighterSystem>()->getFighterHealth1();
+	fighterTransform2 = mngr_->getSystem<FighterSystem>()->getFighterTransform2();
+	fighterHealth2 = mngr_->getSystem<FighterSystem>()->getFighterHealth2();
+}
 // Inicializar el sistema, etc.
 void RenderSystem::initSystem() {
 	if (state == 0 || state == 1 || state == 2) {
@@ -15,12 +26,6 @@ void RenderSystem::initSystem() {
 		assert(fighterTransform != nullptr);
 		fighterHealth = mngr_->getSystem<FighterSystem>()->getFighterHealth();
 		assert(fighterHealth != nullptr);
-	}
-	else if (state == 3) {
-		fighterTransform1 = mngr_->getSystem<FighterSystem>()->getFighterTransform1();
-		fighterHealth1 = mngr_->getSystem<FighterSystem>()->getFighterHealth1();
-		fighterTransform2 = mngr_->getSystem<FighterSystem>()->getFighterTransform2();
-		fighterHealth2 = mngr_->getSystem<FighterSystem>()->getFighterHealth2();
 	}
 }
 
@@ -81,13 +86,13 @@ void RenderSystem::update() {
 			for (Entity* bullet : mngr_->getEntities(_grp_BULLETS)) {
 				renderBullet(bullet, "Bullet");
 			}
-			
-			for (Entity* ui : mngr_->getEntities(_grp_UI)) {
-				renderUI(ui);
-			}
 			break;
-		default:
+		case 4:
+            for (Entity* ui : mngr_->getEntities(_grp_UI)) {
+                renderUI(ui);
+            }
 			break;
+		default: break;
 	}
 
 	SDL_RenderPresent(sdlutils().renderer());

@@ -4,14 +4,17 @@
 PlayStateMultiPlayer::PlayStateMultiPlayer() : Manager(), hostButton(nullptr), clientButton(nullptr), enterButton(nullptr), nameTextBox(nullptr), waitingText(nullptr), ipTextBox(nullptr) {
 	// SISTEMAS
     networkSys_ = addSystem<NetworkSystem>();
-    fighterSys_ = addSystem<FighterSystem>(3);
-    gameCtrlSys_ = addSystem<GameCtrlSystem>(3);
-	addSystem<BulletSystem>();
-	addSystem<CollisionsSystem>();
-    renderSys_ = addSystem<RenderSystem>(3);
+    renderSys_ = addSystem<RenderSystem>(4);
+    gameCtrlSys_ = addSystem<GameCtrlSystem>(4);
+
 
     createHostButton();
     createClientButton();
+}
+ void PlayStateMultiPlayer::createsystems() {
+     fighterSys_ = addSystem<FighterSystem>(3);
+     addSystem<BulletSystem>();
+     addSystem<CollisionsSystem>();
 }
 
 // Destructora

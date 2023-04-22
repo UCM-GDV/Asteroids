@@ -52,4 +52,5 @@ public:
     void selectButtonAction(bool player);
     void hostButtonNameAction();
     void clientButtonIPAction();
+    void createsystems();
 };

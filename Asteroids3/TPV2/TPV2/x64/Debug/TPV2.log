@@ -1,22 +1,13 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(520,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
-  FighterSystem.cpp
+  NetWorkSystem.cpp
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\game\constants.h(16,25): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\game\constants.h(16,25): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\game\constants.h(17,26): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\game\constants.h(17,26): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\Components\Transform.h(17,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\Components\Transform.h(18,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\Components\Transform.h(19,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\Components\Transform.h(20,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\Components\Transform.h(42,42): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\components\Transform.h(17,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\components\Transform.h(18,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\components\Transform.h(19,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\components\Transform.h(20,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\components\Transform.h(42,42): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\systems\FighterSystem.h(93,67): warning C4244: 'return': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\sdlutils\SDLUtils.h(50,32): warning C4101: 'e': variable local sin referencia
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\sdlutils\SDLUtils.h(47): message : al compilar la función del miembro clase plantilla "SoundEffect &SDLUtils::map_access_wrapper<SoundEffect>::at(std::string)"
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\sdlutils\SDLUtils.h(194): message : Vea la referencia a la creación de una instancia de clase plantilla "SDLUtils::map_access_wrapper<SoundEffect>" que se está compilando
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\systems\FighterSystem.cpp(233,27): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\systems\FighterSystem.cpp(234,27): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\systems\FighterSystem.cpp(235,29): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\systems\FighterSystem.cpp(241,27): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\systems\FighterSystem.cpp(242,27): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\systems\FighterSystem.cpp(243,29): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
   TPV2.vcxproj -> C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\bin\TPV2Debug.exe
