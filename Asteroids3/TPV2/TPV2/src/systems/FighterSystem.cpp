@@ -35,9 +35,19 @@ void FighterSystem::initSystem() {
 		fighterHealth2 = mngr_->addComponent<Health>(fighter2, NUMBER_LIVES);
 		fighterHealth2->setContext(fighter2, mngr_);
 		mngr_->addEntity(fighter2, _grp_FIGHTER);
+
+		if (mngr_->getSystem<NetworkSystem>()->getServer()) {
+			fighter = fighter1;
+			fighterTransform = fighterTransform1;
+			fighterHealth = fighterHealth1;
+		}
+		else {
+			fighter = fighter2;
+			fighterTransform = fighterTransform2;
+			fighterHealth = fighterHealth2;
+		}
 	}
-	else
-	{
+	else if (state == 0 || state == 1 || state == 2) {
 		fighter = new Entity(_grp_FIGHTER);
 		fighter->setContext(mngr_);
 		fighterTransform = mngr_->addComponent<Transform>(fighter, FIGHTER_POS, FIGHTER_VELOCITY, FIGHTER_WIDTH, FIGHTER_HEIGHT, FIGHTER_ROTATION);
@@ -46,7 +56,6 @@ void FighterSystem::initSystem() {
 		fighterHealth->setContext(fighter, mngr_);
 		mngr_->addEntity(fighter, _grp_FIGHTER);
 	}
-   
 }
 
 // Si el juego está parado no hacer nada, en otro caso actualizar la velocidad
@@ -80,12 +89,32 @@ void FighterSystem::move() {
 			// FIGHTERCONTROL
 			if (InputHandler::instance()->isKeyDown(SDLK_LEFT)) {
 				rotate(-(FIGHTER_ROTATION_SPEED));
+
+				// Mandar mensaje al NetworkSystem de la rotacion
+				// Por ejemplo
+				/*Message m;
+				m.id = _m_ROTATE;
+				m.fighter_rotate = -FIGHTER_ROTATION_SPEED;
+				mngr_->send(m);*/
 			}
 			else if (InputHandler::instance()->isKeyDown(SDLK_RIGHT)) {
 				rotate(FIGHTER_ROTATION_SPEED);
+
+				// Mandar mensaje al NetworkSystem de la rotacion
+				// Por ejemplo
+				/*Message m;
+				m.id = _m_ROTATE;
+				m.fighter_rotate = FIGHTER_ROTATION_SPEED;
+				mngr_->send(m);*/
 			}
 			else if (InputHandler::instance()->isKeyDown(SDLK_UP)) {
 				accelerate();
+
+				// Mandar mensaje al NetworkSystem de la aceleracion
+				// Por ejemplo
+				/*Message m;
+				m.id = _m_ACCELERATE;
+				mngr_->send(m);*/
 			}
 		}
 	
@@ -98,18 +127,27 @@ void FighterSystem::update() {
 	if (state == 3) {
 		// Pregunta constantemente por el transform
 		if (mngr_->getSystem<NetworkSystem>()->getServer()) {
+			// Esto de aqui no haria falta hacerlo
 			fighterTransform = fighterTransform1;
 			fighterHealth = fighterHealth1;
 
+			// Si es el servidor, pregunta constantemente por el transform
+			// del fighterTransform2
+			// Esto seria actualizar fighterTransform2 con la informacion 
+			// que le llega
 		}
 		else {
+			// Esto de aqui no haria falta hacerlo
 			fighterTransform = fighterTransform2;
 			fighterHealth = fighterHealth2;
+
+			// Si es el cliente, pregunta constantemente por el transform
+			// del fighterTransform1
+			// Esto seria actualizar fighterTransform1 con la informacion 
+			// que le llega
 		}
 		move();
 	}
-	
-	
 }
 
 // TRANSFORM - DEACCELERATION - SHOWATOPPOSITESIDE 
@@ -142,6 +180,16 @@ Transform* FighterSystem::getFighterTransform() { return fighterTransform; }
 
 // Devuelve el health del fighter
 Health* FighterSystem::getFighterHealth() { return fighterHealth; }
+
+// Multiplayer
+// Devuelve el transform del fighter 1
+Transform* FighterSystem::getFighterTransform1() { return fighterTransform1; }
+// Devuelve el transform del fighter 2
+Transform* FighterSystem::getFighterTransform2() { return fighterTransform2; }
+// Devuelve el health del fighter 1
+Health* FighterSystem::getFighterHealth1() { return fighterHealth1; }
+// Devuelve el health del fighter 2
+Health* FighterSystem::getFighterHealth2() { return fighterHealth2; }
 
 // Para reaccionar al mensaje de que ha habido un choque entre el fighter y un
 // un asteroide. Poner el caza en el centro con velocidad (0,0) y rotación 0. No

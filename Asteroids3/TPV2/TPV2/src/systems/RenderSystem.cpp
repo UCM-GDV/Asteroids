@@ -10,10 +10,18 @@ void RenderSystem::receive(const Message& m) {}
 
 // Inicializar el sistema, etc.
 void RenderSystem::initSystem() {
-	fighterTransform = mngr_->getSystem<FighterSystem>()->getFighterTransform();
-	assert(fighterTransform != nullptr);
-	fighterHealth = mngr_->getSystem<FighterSystem>()->getFighterHealth();
-	assert(fighterHealth != nullptr);
+	if (state == 0 || state == 1 || state == 2) {
+		fighterTransform = mngr_->getSystem<FighterSystem>()->getFighterTransform();
+		assert(fighterTransform != nullptr);
+		fighterHealth = mngr_->getSystem<FighterSystem>()->getFighterHealth();
+		assert(fighterHealth != nullptr);
+	}
+	else if (state == 3) {
+		fighterTransform1 = mngr_->getSystem<FighterSystem>()->getFighterTransform1();
+		fighterHealth1 = mngr_->getSystem<FighterSystem>()->getFighterHealth1();
+		fighterTransform2 = mngr_->getSystem<FighterSystem>()->getFighterTransform2();
+		fighterHealth2 = mngr_->getSystem<FighterSystem>()->getFighterHealth2();
+	}
 }
 
 // - Dibujar asteroides, balas y caza (sólo si el juego no está parado).
@@ -24,19 +32,43 @@ void RenderSystem::update() {
 	SDL_SetRenderDrawColor(sdlutils().renderer(), 0, 30, 50, 0);
 	SDL_RenderClear(sdlutils().renderer());
 
-	// Caza
-	dest = build_sdlrect(fighterTransform->getPos(), fighterTransform->getW(), fighterTransform->getH());
-	sdlutils().images().at("Fighter").render(dest, fighterTransform->getR());
+	if (state == 1 || state == 2 || state == 0) {
+		// Caza
+		dest = build_sdlrect(fighterTransform->getPos(), fighterTransform->getW(), fighterTransform->getH());
+		sdlutils().images().at("Fighter").render(dest, fighterTransform->getR());
 
-	// Vidas
-	for (int i = 0; i < fighterHealth->getlife(); ++i) {
-		Vector2D healthPosition = Vector2D(i * LIVES_WIDTH + LIVES_POSITION.getX(), LIVES_POSITION.getY());
-		dest = build_sdlrect(healthPosition, LIVES_WIDTH, LIVES_HEIGHT);
-		sdlutils().images().at("Life").render(dest);
+		// Vidas
+		for (int i = 0; i < fighterHealth->getlife(); ++i) {
+			Vector2D healthPosition = Vector2D(i * LIVES_WIDTH + LIVES_POSITION.getX(), LIVES_POSITION.getY());
+			dest = build_sdlrect(healthPosition, LIVES_WIDTH, LIVES_HEIGHT);
+			sdlutils().images().at("Life").render(dest);
+		}
 	}
+	else if (state == 3) {
+		// Cazas
+		dest = build_sdlrect(fighterTransform1->getPos(), fighterTransform1->getW(), fighterTransform1->getH());
+		sdlutils().images().at("Fighter").render(dest, fighterTransform1->getR());
 
-	// Si esta en PlayState
-	if (state == 1) {
+		dest = build_sdlrect(fighterTransform2->getPos(), fighterTransform2->getW(), fighterTransform2->getH());
+		sdlutils().images().at("Fighter").render(dest, fighterTransform2->getR());
+
+		// Vidas
+		for (int i = 0; i < fighterHealth1->getlife(); ++i) {
+			Vector2D healthPosition = Vector2D(i * LIVES_WIDTH + LIVES_1_POSITION.getX(), LIVES_1_POSITION.getY());
+			dest = build_sdlrect(healthPosition, LIVES_WIDTH, LIVES_HEIGHT);
+			sdlutils().images().at("Life").render(dest);
+		}
+
+		// Vidas
+		for (int i = 0; i < fighterHealth2->getlife(); ++i) {
+			Vector2D healthPosition = Vector2D(i * LIVES_WIDTH + LIVES_2_POSITION.getX(), LIVES_2_POSITION.getY());
+			dest = build_sdlrect(healthPosition, LIVES_WIDTH, LIVES_HEIGHT);
+			sdlutils().images().at("Life").render(dest);
+		}
+	}
+	
+	// Si esta en PlayState o en PlayStateMultiplayer
+	if (state == 1 || state == 3) {
 		// Asteroides
 		for (Entity* ast : mngr_->getEntities(_grp_ASTEROIDS_WHITE)) {
 			renderAsteroid(ast, &sdlutils().images().at("WhiteAsteroid"));

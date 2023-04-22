@@ -27,7 +27,17 @@ public:
 	Transform* getFighterTransform();
 	// Devuelve el health del fighter
 	Health* getFighterHealth();
-	// 
+
+	// Multiplayer
+	// Devuelve el transform del fighter 1
+	Transform* getFighterTransform1();
+	// Devuelve el transform del fighter 2
+	Transform* getFighterTransform2();
+	// Devuelve el health del fighter 1
+	Health* getFighterHealth1();
+	// Devuelve el health del fighter 2
+	Health* getFighterHealth2();
+
 	void move();
 private:
 	// Contador para las balas

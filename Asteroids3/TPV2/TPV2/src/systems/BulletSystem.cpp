@@ -1,5 +1,6 @@
 #include "BulletSystem.h"
 #include "../ecs/Manager.h"
+#include "NetWorkSystem.h"
 
 // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 void BulletSystem::receive(const Message& m) {

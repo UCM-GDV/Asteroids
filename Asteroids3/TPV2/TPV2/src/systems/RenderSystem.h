@@ -33,6 +33,12 @@ private:
 	FramedImage* asteroidFramedImage;
 	// Balas
 	Transform* bulletTransform;
+
+	// Multiplayer
+	Transform* fighterTransform1;
+	Health* fighterHealth1;
+	Transform* fighterTransform2;
+	Health* fighterHealth2;
 	// Texto
 	Transform* auxTransform;
 
