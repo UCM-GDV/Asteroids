@@ -19,9 +19,7 @@ enum grpId : grpId_type {
 	_grp_ASTEROIDS_YELLOW = 2,
 	_grp_BULLETS = 3,
 	_grp_FIGHTER = 4,
-	_grp_MESSAGES = 5,
-	_grp_BUTTONS = 6,
-	_grp_TEXTBOXS = 7,
+	_grp_UI = 5,
 	// do not remove this
 	_LAST_GRP_ID
 };
@@ -58,7 +56,11 @@ enum msgId : msgId_type {
 	_m_ASTEROIDS_EXTINCTION,
 	_m_UPDATE_POSITION,
 	_m_ONVICTORY,
-	_m_ONDEFEAT
+	_m_ONDEFEAT,
+	_m_FIGHTER_UPDATE,
+	_m_BULLET_UPDATE,
+	_m_NET_FIGHTER_UPDATE,
+	_m_NET_BULLET_UPDATE
 };
 using msgnetId_type = int;
 enum msgIdnet : msgId_type {

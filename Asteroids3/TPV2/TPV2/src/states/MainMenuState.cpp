@@ -12,19 +12,19 @@ MainMenuState::MainMenuState() {
 	renderSys_ = addSystem<RenderSystem>(-1);
 
 	// BOTONES INICIALES
-	onePlayerButton = new Entity(_grp_BUTTONS);
+	onePlayerButton = new Entity(_grp_UI);
 	onePlayerButton->setContext(this);
 	addComponent<Transform>(onePlayerButton, ONEPLAYER_BUTTON_POSITION, VECTOR_ZERO, BUTTON_WIDTH, BUTTON_HEIGHT, 0);
-	textTextures_[onePlayerButton] = new Texture(SDLUtils::instance()->renderer(), ONEPLAYER_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
+	UITextures_[onePlayerButton] = new Texture(SDLUtils::instance()->renderer(), ONEPLAYER_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
 	addComponent<Callback>(onePlayerButton, [&]() { goToPlayState(); });
-	addEntity(onePlayerButton, _grp_BUTTONS);
+	addEntity(onePlayerButton, _grp_UI);
 	
-	multiPlayerButton = new Entity(_grp_BUTTONS);
+	multiPlayerButton = new Entity(_grp_UI);
 	multiPlayerButton->setContext(this);
 	addComponent<Transform>(multiPlayerButton, MULTIPLAYER_BUTTON_POSITION, VECTOR_ZERO, BUTTON_WIDTH, BUTTON_HEIGHT, 0);
-	textTextures_[multiPlayerButton] = new Texture(SDLUtils::instance()->renderer(), MULTIPLAYER_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
+	UITextures_[multiPlayerButton] = new Texture(SDLUtils::instance()->renderer(), MULTIPLAYER_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
 	addComponent<Callback>(multiPlayerButton, [&]() { goToPlayStateMultiplayer(); });
-	addEntity(multiPlayerButton, _grp_BUTTONS);
+	addEntity(multiPlayerButton, _grp_UI);
 
 	// enviar posicion y rotacion si se recarga con poco tiempo tambien la velocidad
 	// hacerlo a traves de los socketssets

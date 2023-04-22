@@ -26,11 +26,15 @@ public:
 	bool getServer() {
 		return server_;
 	}
+
+	void fighterUpdate(Vector2D pos, Vector2D vel, double width, double height, float rot);
+	void bulletUpdate();
 private:
 	UDPpacket* p;
 	UDPsocket sd;
 	SDLNet_SocketSet socketSet;
-	Messagenet* m;
+	Messagenet* mn;
+	Message m;
 	IPaddress srvadd; //direcion ip	IPaddress srvadd; //direcion ip
 	bool server_;
 };

@@ -34,6 +34,10 @@ struct Transform : public Component {
 	inline void setPos(Vector2D p) { position_ = p; }
 	// Establece la velocidad
 	inline void setVel(Vector2D v) { velocity_ = v; }
+	// Establece el ancho
+	inline void setW(float w) { width_ = w; }
+	// Establece el alto
+	inline void setH(float h) { height_ = h; }
 	// Establece la rotacion
 	inline void setRot(int r) { rotation_ = r; }
 	// Cambia la rotacion

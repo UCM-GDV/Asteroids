@@ -1,5 +1,6 @@
 ﻿#include "NetWorkSystem.h"
 #include "../ecs/Manager.h"
+#include "../states/PlayStateMultiplayer.h"
 
 // Constructora
 NetworkSystem::NetworkSystem() {
@@ -15,7 +16,11 @@ NetworkSystem::~NetworkSystem() {
 
 // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 void NetworkSystem::receive(const Message& m) {
-	return;
+	switch (m.id) {
+	case _m_FIGHTER_UPDATE: fighterUpdate( m.fighter_update.pos, m.fighter_update.vel, m.fighter_update.width, m.fighter_update.height,m.fighter_update.rot); break;
+	case _m_BULLET_UPDATE: bulletUpdate(); break;
+	default: break;
+	}
 }
 
 // Crea servidor
@@ -36,7 +41,10 @@ void NetworkSystem::server() {
 		throw("ERROR AL CREAR EL PAQUETE");
 	}
 
-	char* buffer = reinterpret_cast<char*>(p->data);
+	mn = reinterpret_cast<Messagenet*>(p->data);
+	mn->id = _m_CONNECTED;
+	p->len = sizeof(Messagenet);
+	p->address = srvadd;
 	socketSet = SDLNet_AllocSocketSet(1);
 	SDLNet_UDP_AddSocket(socketSet, sd);
 }
@@ -56,8 +64,8 @@ void NetworkSystem::client(const char* host) {
 	socketSet = SDLNet_AllocSocketSet(1);
 	SDLNet_UDP_AddSocket(socketSet, sd);
 	
-	m = reinterpret_cast<Messagenet*>(p->data);
-	m->id = _m_CONNECTED;
+	mn = reinterpret_cast<Messagenet*>(p->data);
+	mn->id = _m_CONNECTED;
 	p->len = sizeof(Messagenet);
 	p->address = srvadd;
 	SDLNet_UDP_Send(sd, -1, p);
@@ -71,10 +79,27 @@ void NetworkSystem::update() {
 	
 	// Esto se encarga de recibir todos los mensajes
 	while  (SDLNet_UDP_Recv(sd, p) > 0) {
-		switch (m->id) {
-		case _m_CONNECTED: if (server_) { srvadd = p->address; } break;
+		
+		switch (mn->id) {
+		case _m_CONNECTED:
+			if (server_) {
+				cout << "connected";
+				srvadd = p->address;
+				// Quita el texto de espera
+				static_cast<PlayStateMultiPlayer*>(mngr_)->getwaitingText()->setAlive(false);
+			}
+			break;
 		case _m_FIGHTERPOSUP:
 			//llama a fightersystem para que actualize la pos y rot 1  o 2
+			//manda un mensaje normal para que actualice la pos
+			m.id = _m_NET_FIGHTER_UPDATE;
+			m.fighterposup.pos = mn->fighter_update.pos;
+			m.fighterposup.vel = mn->fighter_update.vel;
+			m.fighterposup.width = mn->fighter_update.width;
+			m.fighterposup.height = mn->fighter_update.height;
+			m.fighterposup.rot = mn->fighter_update.rot;
+			mngr_->send(m);
+
 			break;
 		case _m_BULLETPOSUP:
 			//para crear la bala cog pos, rot y vel y la crea
@@ -84,5 +109,22 @@ void NetworkSystem::update() {
 		}
 	}
 }
-//mandar la pos del fighter con mensaje
-//mandar la pos bala por mensaje
+
+void NetworkSystem::fighterUpdate(Vector2D pos, Vector2D vel, double width, double height, float rot) {
+	mn = reinterpret_cast<Messagenet*>(p->data);
+	mn->id = _m_FIGHTERPOSUP;
+	mn->fighter_update.pos = pos;
+	mn->fighter_update.vel = vel;
+	mn->fighter_update.width = width;
+	mn->fighter_update.height = height;
+	mn->fighter_update.rot = rot;
+
+	p->len = sizeof(Messagenet);
+	p->address = srvadd;
+
+	SDLNet_UDP_Send(sd, -1, p);
+}
+
+void NetworkSystem::bulletUpdate() {
+
+}

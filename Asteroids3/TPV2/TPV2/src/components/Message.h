@@ -19,9 +19,21 @@ struct Message {
 		float rot;
 		double width, height;
 	} fighter_shoot;
+	// _m_FIGHTER_UPDATE
+	struct {
+		Vector2D pos, vel;
+		float rot;
+		double width, height;
+	} fighter_update;
 	//_m_BULLET_ASTEROID_COLLIDED
 	struct {
 		Entity* bullet;
 		Entity* asteroid;
 	} bullet_asteroid_coll;
+	// _m_FIGHTERPOSUP
+	struct {
+		Vector2D pos, vel;
+		float rot;
+		double width, height;
+	} fighterposup;
 };

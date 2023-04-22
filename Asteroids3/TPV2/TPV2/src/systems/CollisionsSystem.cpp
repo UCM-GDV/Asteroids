@@ -24,29 +24,29 @@ void CollisionsSystem::update() {
 	}
 	if (state == 3) { //colision el grupo de balas con algun fighter y luego fighter fighter
 
-		collisionnet(mngr_->getEntities(_grp_BULLETS));
+		collisionNet(mngr_->getEntities(_grp_BULLETS));
 	}
 }
-void  CollisionsSystem::collisionnet(vector<Entity*> v) {
+void  CollisionsSystem::collisionNet(vector<Entity*> v) {
 	int i = 0; bool end = false;
 	Transform* f1 = mngr_->getSystem<FighterSystem>()->getFighterTransform1();
 	Transform* f2 = mngr_->getSystem<FighterSystem>()->getFighterTransform2();
 	while (i < v.size() && !end) {
 		Transform* bulletTransform = mngr_->getComponent<Transform>(v[i]);
-		if (collisionentities(bulletTransform, f1)) {
+		if (collisionEntities(bulletTransform, f1)) {
 			//MANDAR MENSAJE COLISION F1 Y BALA
 			//DESTRUIR BALA, QUITAR VIDA y RESETEAR 
 			cout << "bala-f1" << endl;
 
 		}
-		else if (collisionentities(bulletTransform, f2)) {
+		else if (collisionEntities(bulletTransform, f2)) {
 			//MANDAR MENSAJE COLISION F2 Y BALA
 			//DESTRUIR BALA, QUITAR VIDA RESETEAR
 			cout << "bala-f2" << endl;
 
 		}
 	}
-	if (collisionentities(f2, f1)) {
+	if (collisionEntities(f2, f1)) {
 		//MANDAR MENSAJE COLISION ENTRE DOS FIGHTERS
 		//RESTAR VIDA A LOS DOS Y RESETEAR
 		cout << "f2-f1" << endl;
@@ -58,7 +58,7 @@ void CollisionsSystem::collision(vector<Entity*> v) {
 	int i = 0; bool end = false;
 	while (i < v.size() && !end) {
 		Transform* asteroidTransform = mngr_->getComponent<Transform>(v[i]);
-		if (collisionentities(asteroidTransform, fighterTransform)) {
+		if (collisionEntities(asteroidTransform, fighterTransform)) {
 			Message m;
 			m.id = _m_FIGTHER_ASTEROID_COLLIDED;
 			mngr_->send(m);
@@ -66,7 +66,7 @@ void CollisionsSystem::collision(vector<Entity*> v) {
 		}
 		else {
 			for (auto& bullet : mngr_->getEntities(_grp_BULLETS)) {
-				if (collisionentities(mngr_->getComponent<Transform>(bullet), asteroidTransform)) {
+				if (collisionEntities(mngr_->getComponent<Transform>(bullet), asteroidTransform)) {
 					Message m;
 					m.id = _m_BULLET_ASTEROID_COLLIDED;
 					m.bullet_asteroid_coll.asteroid = v[i];
@@ -80,7 +80,7 @@ void CollisionsSystem::collision(vector<Entity*> v) {
 }
 
 // Devuelve si la bala ha colisionado con algun asteroide
-bool CollisionsSystem::collisionentities(Transform* Trans, Transform* Trans2) {
+bool CollisionsSystem::collisionEntities(Transform* Trans, Transform* Trans2) {
 	return col->collidesWithRotation(Trans->getPos(), Trans->getW(), Trans->getH(), Trans->getR(),
 		Trans2->getPos(), Trans2->getW(), Trans2->getH(), Trans2->getR());
 }

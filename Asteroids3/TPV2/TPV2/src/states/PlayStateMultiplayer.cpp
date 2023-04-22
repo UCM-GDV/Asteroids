@@ -38,57 +38,57 @@ void PlayStateMultiPlayer::deActivateIPHUD() {
 }
 
 void PlayStateMultiPlayer::createHostButton() {
-    hostButton = new Entity(_grp_BUTTONS);
+    hostButton = new Entity(_grp_UI);
     hostButton->setContext(this);
     addComponent<Transform>(hostButton, ONEPLAYER_BUTTON_POSITION, VECTOR_ZERO, BUTTON_WIDTH, BUTTON_HEIGHT, 0);
-    textTextures_[hostButton] = new Texture(SDLUtils::instance()->renderer(), HOST_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
+    UITextures_[hostButton] = new Texture(SDLUtils::instance()->renderer(), HOST_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
     addComponent<Callback>(hostButton, [&]() { selectButtonAction(false); });
-    addEntity(hostButton, _grp_BUTTONS);
+    addEntity(hostButton, _grp_UI);
 }
 
 void PlayStateMultiPlayer::createClientButton() {
-    clientButton = new Entity(_grp_BUTTONS);
+    clientButton = new Entity(_grp_UI);
     clientButton->setContext(this);
     addComponent<Transform>(clientButton, MULTIPLAYER_BUTTON_POSITION, VECTOR_ZERO, BUTTON_WIDTH, BUTTON_HEIGHT, 0);
-    textTextures_[clientButton] = new Texture(SDLUtils::instance()->renderer(), CLIENT_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
+    UITextures_[clientButton] = new Texture(SDLUtils::instance()->renderer(), CLIENT_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
     addComponent<Callback>(clientButton, [&]() { selectButtonAction(true); });
-    addEntity(clientButton, _grp_BUTTONS);
+    addEntity(clientButton, _grp_UI);
 }
 
 void PlayStateMultiPlayer::createEnterButton(bool player) {
-    enterButton = new Entity(_grp_BUTTONS);
+    enterButton = new Entity(_grp_UI);
     enterButton->setContext(this);
     addComponent<Transform>(enterButton, MULTIPLAYER_BUTTON_POSITION, VECTOR_ZERO, BUTTON_WIDTH, BUTTON_HEIGHT, 0);
-    textTextures_[enterButton] = new Texture(SDLUtils::instance()->renderer(), ENTER_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_WHITE), build_sdlcolor(COLOR_RED));
+    UITextures_[enterButton] = new Texture(SDLUtils::instance()->renderer(), ENTER_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_WHITE), build_sdlcolor(COLOR_RED));
 
     // !player = JUGADOR 1 || player = JUGADOR 2
     (!player) ? addComponent<Callback>(enterButton, [&]() { hostButtonNameAction(); }) : addComponent<Callback>(enterButton, [&]() { clientButtonIPAction(); });
 
-    addEntity(enterButton, _grp_BUTTONS);
+    addEntity(enterButton, _grp_UI);
 }
 
 void PlayStateMultiPlayer::createNameTextBox() {
-    nameTextBox = new Entity(_grp_TEXTBOXS);
+    nameTextBox = new Entity(_grp_UI);
     nameTextBox->setContext(this);
     addComponent<Transform>(nameTextBox, ONEPLAYER_BUTTON_POSITION, VECTOR_ZERO, BUTTON_WIDTH, BUTTON_HEIGHT, 0);
-    textTextures_[nameTextBox] = new Texture(SDLUtils::instance()->renderer(), NAME_TEXT_BOX, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
-    addEntity(nameTextBox, _grp_TEXTBOXS);
+    UITextures_[nameTextBox] = new Texture(SDLUtils::instance()->renderer(), NAME_TEXT_BOX, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
+    addEntity(nameTextBox, _grp_UI);
 }
 
 void PlayStateMultiPlayer::createWaitingTextBox() {
-    waitingText = new Entity(_grp_MESSAGES);
+    waitingText = new Entity(_grp_UI);
     waitingText->setContext(this);
     addComponent<Transform>(waitingText, ONEPLAYER_BUTTON_POSITION, VECTOR_ZERO, BUTTON_WIDTH, BUTTON_HEIGHT, 0);
-    textTextures_[waitingText] = new Texture(SDLUtils::instance()->renderer(), WAITING_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
-    addEntity(waitingText, _grp_MESSAGES);
+    UITextures_[waitingText] = new Texture(SDLUtils::instance()->renderer(), WAITING_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
+    addEntity(waitingText, _grp_UI);
 }
 
 void PlayStateMultiPlayer::createIpTextBox() {
-    ipTextBox = new Entity(_grp_TEXTBOXS);
+    ipTextBox = new Entity(_grp_UI);
     ipTextBox->setContext(this);
     addComponent<Transform>(ipTextBox, ONEPLAYER_BUTTON_POSITION, VECTOR_ZERO, BUTTON_WIDTH, BUTTON_HEIGHT, 0);
-    textTextures_[ipTextBox] = new Texture(SDLUtils::instance()->renderer(), IP_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
-    addEntity(ipTextBox, _grp_TEXTBOXS);
+    UITextures_[ipTextBox] = new Texture(SDLUtils::instance()->renderer(), IP_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
+    addEntity(ipTextBox, _grp_UI);
 }
 
 void PlayStateMultiPlayer::selectButtonAction(bool player) {

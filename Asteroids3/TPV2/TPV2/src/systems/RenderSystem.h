@@ -46,5 +46,11 @@ private:
 	SDL_Rect dest;
 	SDL_Rect src;
 	int fw, fh, numCols, numRows, currentframe;
-	void renderAsteroid(Entity* a, Texture* tex);
+	void renderAsteroid(Entity* a, string key);
+
+	void renderFighter(Transform* tr, string key);
+
+	void renderLives(Health* health, Vector2D initialPos, string key);
+	void renderBullet(Entity* b, string key);
+	void renderUI(Entity* t);
 };

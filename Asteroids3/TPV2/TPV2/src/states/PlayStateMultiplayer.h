@@ -46,7 +46,9 @@ public:
     void createNameTextBox();
     void createWaitingTextBox();
     void createIpTextBox();
-
+    inline  Entity* getwaitingText() {
+        return waitingText;
+    }
     void selectButtonAction(bool player);
     void hostButtonNameAction();
     void clientButtonIPAction();

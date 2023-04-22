@@ -59,6 +59,7 @@ private:
 	Health* fighterHealth;
 	Health* fighterHealth1;
 	Health* fighterHealth2;
+    Message m;
 
 	// Para reaccionar al mensaje de que ha habido un choque entre el fighter y un
 	// un asteroide. Poner el caza en el centro con velocidad (0,0) y rotación 0. No
@@ -68,7 +69,7 @@ private:
 	void onRoundOver();
 
 	// TRANSFORM - DEACCELERATION - SHOWATOPPOSITESIDE 
-	void updatefighter();
+	void updateFighter();
 	// Acelera al fighter
 	void accelerate();
 	// Rota el fighter
@@ -90,4 +91,6 @@ private:
 
 	// Pasa de grados a radianes
 	inline float degreesToRadians(float degrees_) { return (degrees_ * (M_PI / 180)); }
+
+    void updateNet(Vector2D pos, Vector2D vel, double width, double height, float rot);
 };

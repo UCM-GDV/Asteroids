@@ -9,5 +9,9 @@ struct Messagenet {
 	struct {
 
 	} round_started;
-	
+	struct {
+		Vector2D pos, vel;
+		double width, height;
+		float rot;
+	} fighter_update;
 };

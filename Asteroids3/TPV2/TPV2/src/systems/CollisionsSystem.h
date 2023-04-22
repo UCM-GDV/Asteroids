@@ -26,7 +26,7 @@ private:
 	// Detecta las colisiones dependendiendo del grupo de asteroide
 	void collision(vector<Entity*> v);
 	// Detecta las colisiones dependendiendo del grupo de asteroide
-	void collisionnet(vector<Entity*> v);
+	void collisionNet(vector<Entity*> v);
 	// Devuelve siha colisionado dos entidades dadas
-	bool collisionentities(Transform* Trans, Transform* Trans2);
+	bool collisionEntities(Transform* Trans, Transform* Trans2);
 };

@@ -31,88 +31,70 @@ void RenderSystem::initSystem() {
 void RenderSystem::update() {
 	SDL_SetRenderDrawColor(sdlutils().renderer(), 0, 30, 50, 0);
 	SDL_RenderClear(sdlutils().renderer());
-
-	if (state == 1 || state == 2 || state == 0) {
-		// Caza
-		dest = build_sdlrect(fighterTransform->getPos(), fighterTransform->getW(), fighterTransform->getH());
-		sdlutils().images().at("Fighter").render(dest, fighterTransform->getR());
-
-		// Vidas
-		for (int i = 0; i < fighterHealth->getlife(); ++i) {
-			Vector2D healthPosition = Vector2D(i * LIVES_WIDTH + LIVES_POSITION.getX(), LIVES_POSITION.getY());
-			dest = build_sdlrect(healthPosition, LIVES_WIDTH, LIVES_HEIGHT);
-			sdlutils().images().at("Life").render(dest);
-		}
-	}
-	else if (state == 3) {
-		// Cazas
-		dest = build_sdlrect(fighterTransform1->getPos(), fighterTransform1->getW(), fighterTransform1->getH());
-		sdlutils().images().at("Fighter").render(dest, fighterTransform1->getR());
-
-		dest = build_sdlrect(fighterTransform2->getPos(), fighterTransform2->getW(), fighterTransform2->getH());
-		sdlutils().images().at("Fighter").render(dest, fighterTransform2->getR());
-
-		// Vidas
-		for (int i = 0; i < fighterHealth1->getlife(); ++i) {
-			Vector2D healthPosition = Vector2D(i * LIVES_WIDTH + LIVES_1_POSITION.getX(), LIVES_1_POSITION.getY());
-			dest = build_sdlrect(healthPosition, LIVES_WIDTH, LIVES_HEIGHT);
-			sdlutils().images().at("Life").render(dest);
-		}
-
-		// Vidas
-		for (int i = 0; i < fighterHealth2->getlife(); ++i) {
-			Vector2D healthPosition = Vector2D(i * LIVES_WIDTH + LIVES_2_POSITION.getX(), LIVES_2_POSITION.getY());
-			dest = build_sdlrect(healthPosition, LIVES_WIDTH, LIVES_HEIGHT);
-			sdlutils().images().at("Life").render(dest);
-		}
-	}
-	
-	// Si esta en PlayState o en PlayStateMultiplayer
-	if (state == 1 || state == 3) {
-		// Asteroides
-		for (Entity* ast : mngr_->getEntities(_grp_ASTEROIDS_WHITE)) {
-			renderAsteroid(ast, &sdlutils().images().at("WhiteAsteroid"));
-		}
-		for (Entity* ast : mngr_->getEntities(_grp_ASTEROIDS_YELLOW)) {
-			renderAsteroid(ast, &sdlutils().images().at("YellowAsteroid"));
-		}
-		// Balas
-		for (Entity* bullet : mngr_->getEntities(_grp_BULLETS)) {
-			bulletTransform = mngr_->getComponent<Transform>(bullet);
-			dest = build_sdlrect(bulletTransform->getPos(), bulletTransform->getW(), bulletTransform->getH());
-			sdlutils().images().at("Bullet").render(dest, bulletTransform->getR());
-		}
-	}
-	// Mensajes en el resto de estados (MainMenuState, PauseState y EndState)
-	else if (state == 0 || state == 2 || state == -1 || state == 3) {
-
-		for (Entity* text : mngr_->getEntities(_grp_MESSAGES)) {
-			auxTransform = mngr_->getComponent<Transform>(text);
-			dest = build_sdlrect(auxTransform->getPos(), auxTransform->getW(), auxTransform->getH());
-			mngr_->textTextures_[text]->render(dest, auxTransform->getR());
-		}
-
-		if (state == -1 || state == 3) {
-			// Botones
-			for (Entity* button : mngr_->getEntities(_grp_BUTTONS)) {
-				auxTransform = mngr_->getComponent<Transform>(button);
-				dest = build_sdlrect(auxTransform->getPos(), auxTransform->getW(), auxTransform->getH());
-				mngr_->textTextures_[button]->render(dest, auxTransform->getR());
+	switch (state)
+	{
+		case -1:
+			//Main Menu
+			for (Entity* ui : mngr_->getEntities(_grp_UI)) {
+				renderUI(ui);
 			}
-			// TextBoxes
-			for (Entity* textBox : mngr_->getEntities(_grp_TEXTBOXS)) {
-				auxTransform = mngr_->getComponent<Transform>(textBox);
-				dest = build_sdlrect(auxTransform->getPos(), auxTransform->getW(), auxTransform->getH());
-				mngr_->textTextures_[textBox]->render(dest, auxTransform->getR());
+			break;
+		case 0:
+			//Pausa 
+			renderFighter(fighterTransform, "Fighter");
+			renderLives(fighterHealth, LIVES_POSITION, "Life");
+			for (Entity* ui : mngr_->getEntities(_grp_UI)) {
+				renderUI(ui);
 			}
-		}
+			break;
+		case 1:
+			//PLAY
+			renderFighter(fighterTransform, "Fighter");
+			renderLives(fighterHealth, LIVES_POSITION, "Life");
+			// Asteroides
+			for (Entity* ast : mngr_->getEntities(_grp_ASTEROIDS_WHITE)) {
+				renderAsteroid(ast, "WhiteAsteroid");
+
+			}
+			for (Entity* ast : mngr_->getEntities(_grp_ASTEROIDS_YELLOW)) {
+				renderAsteroid(ast, "YellowAsteroid");
+			}
+			for (Entity* bullet : mngr_->getEntities(_grp_BULLETS)) {
+				renderBullet(bullet, "Bullet");
+			}
+			break;
+		case 2:
+			//FINAL
+			renderFighter(fighterTransform, "Fighter");
+			renderLives(fighterHealth, LIVES_POSITION, "Life");
+			for (Entity* ui : mngr_->getEntities(_grp_UI)) {
+				renderUI(ui);
+			}
+
+			break;
+		case 3:
+			// PLAY MULTYPLAYER
+			renderFighter(fighterTransform1, "Fighter");
+			renderFighter(fighterTransform2, "Fighter");
+			renderLives(fighterHealth1, LIVES_1_POSITION, "Life");
+			renderLives(fighterHealth2, LIVES_2_POSITION, "Life");
+			for (Entity* bullet : mngr_->getEntities(_grp_BULLETS)) {
+				renderBullet(bullet, "Bullet");
+			}
+			
+			for (Entity* ui : mngr_->getEntities(_grp_UI)) {
+				renderUI(ui);
+			}
+			break;
+		default:
+			break;
 	}
 
 	SDL_RenderPresent(sdlutils().renderer());
 }
 
 // FRAMEDIMAGE
-void RenderSystem::renderAsteroid(Entity* a, Texture* tex) {
+void RenderSystem::renderAsteroid(Entity* a, string key) {
 	asteroidTrasform = mngr_->getComponent<Transform>(a);
 	asteroidFramedImage = mngr_->getComponent<FramedImage>(a);
 
@@ -130,6 +112,29 @@ void RenderSystem::renderAsteroid(Entity* a, Texture* tex) {
 	src.y = (currentframe / numCols) * fh;
 	src.w = fw;
 	src.h = fh;
-	tex->render(src, dest);
+	sdlutils().images().at(key).render(src, dest);
 }
 
+void RenderSystem::renderFighter(Transform* tr, string key) {
+	dest = build_sdlrect(tr->getPos(), tr->getW(), tr->getH());
+	sdlutils().images().at(key).render(dest, tr->getR());
+}
+
+void RenderSystem::renderLives(Health* health, Vector2D initialPos, string key) {
+	for (int i = 0; i < health->getlife(); ++i) {
+		Vector2D healthPosition = Vector2D(i * LIVES_WIDTH + initialPos.getX(), initialPos.getY());
+		dest = build_sdlrect(healthPosition, LIVES_WIDTH, LIVES_HEIGHT);
+		sdlutils().images().at(key).render(dest);
+	}
+}
+void RenderSystem::renderBullet(Entity* b, string key) {
+	bulletTransform = mngr_->getComponent<Transform>(b);
+	dest = build_sdlrect(bulletTransform->getPos(), bulletTransform->getW(), bulletTransform->getH());
+	sdlutils().images().at(key).render(dest, bulletTransform->getR());
+}
+
+void RenderSystem::renderUI(Entity* t) {
+	auxTransform = mngr_->getComponent<Transform>(t);
+	dest = build_sdlrect(auxTransform->getPos(), auxTransform->getW(), auxTransform->getH());
+	mngr_->UITextures_[t]->render(dest, auxTransform->getR());
+}

@@ -65,17 +65,17 @@ void GameCtrlSystem::update() {
 
 			// Si existe nameTextBox...
 			if (nameEnt != nullptr) {
-				delete mngr_->textTextures_[nameEnt];
+				delete mngr_->UITextures_[nameEnt];
 				addCharacter();
 				addSpaces(name, nameWithSpaces);
-				mngr_->textTextures_[nameEnt] = new Texture(SDLUtils::instance()->renderer(), nameWithSpaces, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
+				mngr_->UITextures_[nameEnt] = new Texture(SDLUtils::instance()->renderer(), nameWithSpaces, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
 			}
 			// Si existe ipTextBox
 			if (ipEnt != nullptr) {
-				delete mngr_->textTextures_[ipEnt];
+				delete mngr_->UITextures_[ipEnt];
 				addNumberOrDot();
 				addSpaces(ip, ipWithSpaces);
-				mngr_->textTextures_[ipEnt] = new Texture(SDLUtils::instance()->renderer(), ipWithSpaces, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
+				mngr_->UITextures_[ipEnt] = new Texture(SDLUtils::instance()->renderer(), ipWithSpaces, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
 			}
 
 			if (InputHandler::instance()->isKeyDown(SDLK_RETURN)) {
@@ -93,7 +93,7 @@ void GameCtrlSystem::update() {
         // Si esta en MainMenuState
         if (state == -1 || state == 3) {
             // Comprueba si la posicion del cursor esta dentro de la imagen de algun boton
-            vector<Entity*> buttons = mngr_->getEntities(_grp_BUTTONS);
+            vector<Entity*> buttons = mngr_->getEntities(_grp_UI);
             for (int i = 0; i < buttons.size(); ++i) {
                 pair<Sint32, Sint32> mousePos = InputHandler::instance()->getMousePos();
                 SDL_Point mousePoint = { (int)mousePos.first, (int)mousePos.second };
@@ -101,7 +101,10 @@ void GameCtrlSystem::update() {
 
                 if (SDL_PointInRect(&mousePoint, buttonRect)) {
 					// Llama a la funcion
-                    mngr_->getComponent<Callback>(buttons[i])->callback();
+                    Callback* cb = mngr_->getComponent<Callback>(buttons[i]);
+                    if (cb != nullptr) {
+                        cb->callback();
+                    }
                 }
             }
         }

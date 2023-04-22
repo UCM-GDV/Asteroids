@@ -17,7 +17,7 @@ private:
 	
 public:
 	// Mapa de textos asignados con un puntero a una textura
-	unordered_map<Entity*, Texture*> textTextures_;
+	unordered_map<Entity*, Texture*> UITextures_;
 
 	// Constructora
 	Manager() : entsByGroup_() {
@@ -33,8 +33,8 @@ public:
 			}
 		}
 
-		for (auto it = textTextures_.begin(); it != textTextures_.end(); ++it) {
-			delete textTextures_[it->first];
+		for (auto it = UITextures_.begin(); it != UITextures_.end(); ++it) {
+			delete UITextures_[it->first];
 		}
 	}
 	// Actualiza todas las entidades

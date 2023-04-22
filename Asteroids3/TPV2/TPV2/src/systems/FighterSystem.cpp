@@ -10,6 +10,7 @@ void FighterSystem::receive(const Message& m) {
     switch (m.id) {
         case _m_ROUND_FINISHED: onCollision_FighterAsteroid(); break;
 		case _m_ONVICTORY: case _m_ONDEFEAT: onRoundOver(); break;
+		case _m_NET_FIGHTER_UPDATE: updateNet(m.fighterposup.pos, m.fighterposup.vel, m.fighterposup.width, m.fighterposup.height, m.fighterposup.rot);
         default: break;
     }
 }
@@ -22,7 +23,7 @@ void FighterSystem::initSystem() {
 		// Anade el objeto fighter a la escena
 		fighter1 = new Entity(_grp_FIGHTER);
 		fighter1->setContext(mngr_);
-		fighterTransform1 = mngr_->addComponent<Transform>(fighter1, FIGHTER_1_POS, FIGHTER_VELOCITY, FIGHTER_WIDTH, FIGHTER_HEIGHT, FIGHTER_ROTATION);
+		fighterTransform1 = mngr_->addComponent<Transform>(fighter1, FIGHTER_1_POS, FIGHTER_VELOCITY, FIGHTER_WIDTH, FIGHTER_HEIGHT, FIGHTER_1_ROTATION);
 		fighterTransform1->setContext(fighter1, mngr_);
 		fighterHealth1 = mngr_->addComponent<Health>(fighter1, NUMBER_LIVES);
 		fighterHealth1->setContext(fighter1, mngr_);
@@ -30,7 +31,7 @@ void FighterSystem::initSystem() {
 
 		fighter2 = new Entity(_grp_FIGHTER);
 		fighter2->setContext(mngr_);
-		fighterTransform2 = mngr_->addComponent<Transform>(fighter2, FIGHTER_2_POS, FIGHTER_VELOCITY, FIGHTER_WIDTH, FIGHTER_HEIGHT, FIGHTER_ROTATION);
+		fighterTransform2 = mngr_->addComponent<Transform>(fighter2, FIGHTER_2_POS, FIGHTER_VELOCITY, FIGHTER_WIDTH, FIGHTER_HEIGHT, FIGHTER_2_ROTATION);
 		fighterTransform2->setContext(fighter2, mngr_);
 		fighterHealth2 = mngr_->addComponent<Health>(fighter2, NUMBER_LIVES);
 		fighterHealth2->setContext(fighter2, mngr_);
@@ -64,47 +65,79 @@ void FighterSystem::initSystem() {
 // mensaje con las características físicas de la bala. Recuerda que se puede disparar
 // sólo una bala cada 0.25sec.
 void FighterSystem::move() {
-	// Si esta en PlayState
-		SDL_Event event_;
-		updatefighter();
-		InputHandler::instance()->update(event_);
-		if (InputHandler::instance()->keyDownEvent()) {
-			if (InputHandler::instance()->isKeyDown(SDLK_s)) {
-				// GUN
-				int frameTime = SDL_GetTicks() - startTime;
-				if (frameTime >= 250) {
-					// Envia mensaje con las caracteristicas fisicas de la bala
-					Message m;
-					m.id = _m_FIGHTER_SHOOT;
-					m.fighter_shoot.rot = fighterTransform->getR();
-					m.fighter_shoot.pos = fighterTransform->getPos();
-					m.fighter_shoot.vel = fighterTransform->getVel();
-					m.fighter_shoot.width = fighterTransform->getW();
-					m.fighter_shoot.height = fighterTransform->getH();
-					mngr_->send(m);
+	// Si esta en PlayState o en PlayStateMultiplayer
+	SDL_Event event_;
+	updateFighter();
+	InputHandler::instance()->update(event_);
+	if (InputHandler::instance()->keyDownEvent()) {
+		if (InputHandler::instance()->isKeyDown(SDLK_s)) {
+			// GUN
+			int frameTime = SDL_GetTicks() - startTime;
+			if (frameTime >= 250) {
+				// Envia mensaje con las caracteristicas fisicas de la bala
+				Message m;
+				m.id = _m_FIGHTER_SHOOT;
+				m.fighter_shoot.rot = fighterTransform->getR();
+				m.fighter_shoot.pos = fighterTransform->getPos();
+				m.fighter_shoot.vel = fighterTransform->getVel();
+				m.fighter_shoot.width = fighterTransform->getW();
+				m.fighter_shoot.height = fighterTransform->getH();
+				mngr_->send(m);
 
-					startTime = SDL_GetTicks();
-				}
+				startTime = SDL_GetTicks();
 			}
-			// FIGHTERCONTROL
-			if (InputHandler::instance()->isKeyDown(SDLK_LEFT)) {
-				rotate(-(FIGHTER_ROTATION_SPEED));
-			}
-			else if (InputHandler::instance()->isKeyDown(SDLK_RIGHT)) {
-				rotate(FIGHTER_ROTATION_SPEED);
-			}
-			else if (InputHandler::instance()->isKeyDown(SDLK_UP)) {
-				accelerate();
-			}
+			m.id = _m_FIGHTER_UPDATE;
+			m.fighter_update.rot = fighterTransform->getR();
+			m.fighter_update.pos = fighterTransform->getPos();
+			m.fighter_update.vel = fighterTransform->getVel();
+			m.fighter_update.width = fighterTransform->getW();
+			m.fighter_update.height = fighterTransform->getH();
+			mngr_->send(m);
 		}
+		// FIGHTERCONTROL
+		if (InputHandler::instance()->isKeyDown(SDLK_LEFT)) {
+			rotate(-(FIGHTER_ROTATION_SPEED));
+			m.id = _m_FIGHTER_UPDATE;
+			m.fighter_update.rot = fighterTransform->getR();
+			m.fighter_update.pos = fighterTransform->getPos();
+			m.fighter_update.vel = fighterTransform->getVel();
+			m.fighter_update.width = fighterTransform->getW();
+			m.fighter_update.height = fighterTransform->getH();
+			mngr_->send(m);
+		}
+		else if (InputHandler::instance()->isKeyDown(SDLK_RIGHT)) {
+			rotate(FIGHTER_ROTATION_SPEED);
+			m.id = _m_FIGHTER_UPDATE;
+			m.fighter_update.rot = fighterTransform->getR();
+			m.fighter_update.pos = fighterTransform->getPos();
+			m.fighter_update.vel = fighterTransform->getVel();
+			m.fighter_update.width = fighterTransform->getW();
+			m.fighter_update.height = fighterTransform->getH();
+			mngr_->send(m);
+		}
+		else if (InputHandler::instance()->isKeyDown(SDLK_UP)) {
+			accelerate();
+			m.id = _m_FIGHTER_UPDATE;
+			m.fighter_update.rot = fighterTransform->getR();
+			m.fighter_update.pos = fighterTransform->getPos();
+			m.fighter_update.vel = fighterTransform->getVel();
+			m.fighter_update.width = fighterTransform->getW();
+			m.fighter_update.height = fighterTransform->getH();
+			mngr_->send(m);
+		}
+	}
+
 	
 }
 
 void FighterSystem::update() {
-	if (state == 1) {
+	switch (state) {
+	case 1:
 		move();
-	}
-	if (state == 3) {
+
+		break;
+
+	case 3: 
 		// Pregunta constantemente por el transform
 		if (mngr_->getSystem<NetworkSystem>()->getServer()) {
 			fighterTransform = fighterTransform1;
@@ -115,11 +148,16 @@ void FighterSystem::update() {
 			fighterHealth = fighterHealth2;
 		}
 		move();
+		break;
+
+	default: 
+		break;
 	}
+	
 }
 
 // TRANSFORM - DEACCELERATION - SHOWATOPPOSITESIDE 
-void  FighterSystem::updatefighter() {
+void FighterSystem::updateFighter() {
 	// TRANSFORM
 	fighterTransform->setPos(fighterTransform->getPos() + fighterTransform->getVel());
 
@@ -187,3 +225,21 @@ void FighterSystem::rotate(float r_) {
 	fighterTransform->changeRot(degreesToRadians(r_));
 }
 
+void FighterSystem::updateNet(Vector2D pos, Vector2D vel, double width, double height, float rot) {
+	if (mngr_->getSystem<NetworkSystem>()->getServer()) {
+		//si eres server actualizas client
+		fighterTransform2->setPos(pos);
+		fighterTransform2->setVel(vel);
+		fighterTransform2->setW(width);
+		fighterTransform2->setH(height);
+		fighterTransform2->setRot(rot);
+	}
+	else {
+		// si eres cliente actualizas server
+		fighterTransform1->setPos(pos);
+		fighterTransform1->setVel(vel);
+		fighterTransform1->setW(width);
+		fighterTransform1->setH(height);
+		fighterTransform1->setRot(rot);
+	}
+}
