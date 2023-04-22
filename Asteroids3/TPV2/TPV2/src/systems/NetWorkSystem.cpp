@@ -15,31 +15,7 @@ NetworkSystem::~NetworkSystem() {
 
 // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 void NetworkSystem::receive(const Message& m) {
-    switch (m.id) {
-        case _m_ROUND_FINISHED: break;
-		case _m_ONVICTORY: case _m_ONDEFEAT: break;
-		//case _m_ROTATE: if (server_) {
-		//	// Llamar a un metodo que haga SDLNet_UDP_Send
-		//	// al cliente para que actualice la rotacion
-		//	// del fighterTransform2
-		//}
-		//else {
-		//	// Llamar un metodo que haga SDLNet_UDP_Send 
-		//	// al servidor para que actualice la rotacion
-		//	// del fighterTransform1
-		//}
-		//case _m_ACCELERATE: if (server_) {
-		//	// Llamar a un metodo que haga SDLNet_UDP_Send
-		//	// al cliente para que actualice la posicion
-		//	// del fighterTransform2
-		//}
-		//else {
-		//	// Llamar a un metodo que haga SDLNet_UDP_Send
-		//	// al cliente para que actualice la posicion
-		//	// del fighterTransform2
-		//}
-        default: break;
-    }
+	return;
 }
 
 // Crea servidor
@@ -72,7 +48,7 @@ void NetworkSystem::client(const char* host) {
 	// coge el socket abierto 
 	sd = SDLNet_UDP_Open(0);
 
-	if (SDLNet_ResolveHost(&srvadd, "192.168.252.63", PORT) < 0) {
+	if (SDLNet_ResolveHost(&srvadd, "192.168.1.134", PORT) < 0) {
 		//if (SDLNet_ResolveHost(&srvadd, host, port) < 0) {
 		throw("ERROR AL ESTABLECER CONEXION CON EL SERVIDOR");
 	}
@@ -88,16 +64,25 @@ void NetworkSystem::client(const char* host) {
 }
 
 void NetworkSystem::initSystem() {
-	
+	//preguntar lo de la ip no?
 }
 
 void NetworkSystem::update() {
 	
 	// Esto se encarga de recibir todos los mensajes
-	if (SDLNet_UDP_Recv(sd, p) > 0) {
+	while  (SDLNet_UDP_Recv(sd, p) > 0) {
 		switch (m->id) {
 		case _m_CONNECTED: if (server_) { srvadd = p->address; } break;
+		case _m_FIGHTERPOSUP:
+			//llama a fightersystem para que actualize la pos y rot 1  o 2
+			break;
+		case _m_BULLETPOSUP:
+			//para crear la bala cog pos, rot y vel y la crea
+			break;
+
 		default: break;
 		}
 	}
 }
+//mandar la pos del fighter con mensaje
+//mandar la pos bala por mensaje

@@ -65,7 +65,6 @@ void FighterSystem::initSystem() {
 // sólo una bala cada 0.25sec.
 void FighterSystem::move() {
 	// Si esta en PlayState
-	
 		SDL_Event event_;
 		updatefighter();
 		InputHandler::instance()->update(event_);
@@ -77,6 +76,7 @@ void FighterSystem::move() {
 					// Envia mensaje con las caracteristicas fisicas de la bala
 					Message m;
 					m.id = _m_FIGHTER_SHOOT;
+					m.fighter_shoot.rot = fighterTransform->getR();
 					m.fighter_shoot.pos = fighterTransform->getPos();
 					m.fighter_shoot.vel = fighterTransform->getVel();
 					m.fighter_shoot.width = fighterTransform->getW();
@@ -89,32 +89,12 @@ void FighterSystem::move() {
 			// FIGHTERCONTROL
 			if (InputHandler::instance()->isKeyDown(SDLK_LEFT)) {
 				rotate(-(FIGHTER_ROTATION_SPEED));
-
-				// Mandar mensaje al NetworkSystem de la rotacion
-				// Por ejemplo
-				/*Message m;
-				m.id = _m_ROTATE;
-				m.fighter_rotate = -FIGHTER_ROTATION_SPEED;
-				mngr_->send(m);*/
 			}
 			else if (InputHandler::instance()->isKeyDown(SDLK_RIGHT)) {
 				rotate(FIGHTER_ROTATION_SPEED);
-
-				// Mandar mensaje al NetworkSystem de la rotacion
-				// Por ejemplo
-				/*Message m;
-				m.id = _m_ROTATE;
-				m.fighter_rotate = FIGHTER_ROTATION_SPEED;
-				mngr_->send(m);*/
 			}
 			else if (InputHandler::instance()->isKeyDown(SDLK_UP)) {
 				accelerate();
-
-				// Mandar mensaje al NetworkSystem de la aceleracion
-				// Por ejemplo
-				/*Message m;
-				m.id = _m_ACCELERATE;
-				mngr_->send(m);*/
 			}
 		}
 	
@@ -127,24 +107,12 @@ void FighterSystem::update() {
 	if (state == 3) {
 		// Pregunta constantemente por el transform
 		if (mngr_->getSystem<NetworkSystem>()->getServer()) {
-			// Esto de aqui no haria falta hacerlo
 			fighterTransform = fighterTransform1;
 			fighterHealth = fighterHealth1;
-
-			// Si es el servidor, pregunta constantemente por el transform
-			// del fighterTransform2
-			// Esto seria actualizar fighterTransform2 con la informacion 
-			// que le llega
 		}
 		else {
-			// Esto de aqui no haria falta hacerlo
 			fighterTransform = fighterTransform2;
 			fighterHealth = fighterHealth2;
-
-			// Si es el cliente, pregunta constantemente por el transform
-			// del fighterTransform1
-			// Esto seria actualizar fighterTransform1 con la informacion 
-			// que le llega
 		}
 		move();
 	}
@@ -186,6 +154,7 @@ Health* FighterSystem::getFighterHealth() { return fighterHealth; }
 Transform* FighterSystem::getFighterTransform1() { return fighterTransform1; }
 // Devuelve el transform del fighter 2
 Transform* FighterSystem::getFighterTransform2() { return fighterTransform2; }
+Transform* FighterSystem::setFighterTransform2() { return fighterTransform2; }
 // Devuelve el health del fighter 1
 Health* FighterSystem::getFighterHealth1() { return fighterHealth1; }
 // Devuelve el health del fighter 2

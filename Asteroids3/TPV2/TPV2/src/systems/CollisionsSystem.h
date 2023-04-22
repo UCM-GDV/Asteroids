@@ -25,8 +25,8 @@ private:
 	int state;
 	// Detecta las colisiones dependendiendo del grupo de asteroide
 	void collision(vector<Entity*> v);
-	// Devuelve si algun asteroide ha colisionado con el fighter
-	bool fighterCollision(Transform* asteroidTransform);
-	// Devuelve si la bala ha colisionado con algun asteroide
-	bool bulletCollision(Transform* bulletTransform, Transform* asteroidTransform);
+	// Detecta las colisiones dependendiendo del grupo de asteroide
+	void collisionnet(vector<Entity*> v);
+	// Devuelve siha colisionado dos entidades dadas
+	bool collisionentities(Transform* Trans, Transform* Trans2);
 };

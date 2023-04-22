@@ -33,6 +33,10 @@ public:
 	Transform* getFighterTransform1();
 	// Devuelve el transform del fighter 2
 	Transform* getFighterTransform2();
+	// Devuelve el transform del fighter 1
+	void  setFighterTransform1(Vector2D pos);
+	// Devuelve el transform del fighter 2
+	Transform* setFighterTransform2();
 	// Devuelve el health del fighter 1
 	Health* getFighterHealth1();
 	// Devuelve el health del fighter 2

@@ -16,6 +16,7 @@ struct Message {
 	// _m_FIGHTER_SHOOT
 	struct {
 		Vector2D pos, vel;
+		float rot;
 		double width, height;
 	} fighter_shoot;
 	//_m_BULLET_ASTEROID_COLLIDED
