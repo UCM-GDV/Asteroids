@@ -11,7 +11,7 @@ private:
 	GameCtrlSystem* gameCtrlSys_;
 	RenderSystem* renderSys_;
 
-	Entity* pressToStartEntity;
+	Entity* continueEntity;
 	Entity* resultEntity;
 public:
 	// Constructora

@@ -1,6 +1,7 @@
 #include "RenderSystem.h"
 #include "../ecs/Manager.h"
-
+#include "NetWorkSystem.h"
+#include "GameCtrlSystem.h"
 // Constructoras
 RenderSystem::RenderSystem() : state(-1), fighterTransform(nullptr), fighterHealth(nullptr), auxTransform(nullptr) {}
 RenderSystem::RenderSystem(int state_) : state(state_), fighterTransform(nullptr), fighterHealth(nullptr), auxTransform(nullptr) {}
@@ -18,6 +19,8 @@ void RenderSystem::onChangeState() {
 	fighterHealth1 = mngr_->getSystem<FighterSystem>()->getFighterHealth1();
 	fighterTransform2 = mngr_->getSystem<FighterSystem>()->getFighterTransform2();
 	fighterHealth2 = mngr_->getSystem<FighterSystem>()->getFighterHealth2();
+
+	name = mngr_->getSystem<GameCtrlSystem>()->getname();
 }
 // Inicializar el sistema, etc.
 void RenderSystem::initSystem() {
@@ -77,7 +80,7 @@ void RenderSystem::update() {
 
 			break;
 		case 3:
-			// PLAY MULTYPLAYER
+			// PLAY MULTIPLAYER
 			renderFighter(fighterTransform1, "Fighter");
 			renderFighter(fighterTransform2, "Fighter");
 			renderLives(fighterHealth1, LIVES_1_POSITION, "Life");
@@ -85,10 +88,14 @@ void RenderSystem::update() {
 			for (Entity* bullet : mngr_->getEntities(_grp_BULLETS)) {
 				renderBullet(bullet, "Bullet");
 			}
+			
+			for (Entity* ui : mngr_->getEntities(_grp_UI)) {
+				//renderUIname(mngr_->getEntities(_grp_UI)[0]);
+			}
 			break;
-		case 4:
+		case 4: case 5:
             for (Entity* ui : mngr_->getEntities(_grp_UI)) {
-                renderUI(ui);
+				renderUI(ui);
             }
 			break;
 		default: break;
@@ -142,8 +149,17 @@ void RenderSystem::renderUI(Entity* t) {
 	dest = build_sdlrect(auxTransform->getPos(), auxTransform->getW(), auxTransform->getH());
 	mngr_->UITextures_[t]->render(dest, auxTransform->getR());
 }
+
 void RenderSystem::renderUIname(Entity* t) {
-	auxTransform = mngr_->getComponent<Transform>(t);
-	dest = build_sdlrect(auxTransform->getPos(), auxTransform->getW(), auxTransform->getH());
-	mngr_->UITextures_[t]->render(dest, auxTransform->getR());
+	if (mngr_->getSystem<NetworkSystem>()->getServer()) {
+		auxTransform = mngr_->getComponent<Transform>(t);
+		dest = build_sdlrect(fighterTransform1->getPos(), auxTransform->getW(), auxTransform->getH());
+		mngr_->UITextures_[t]->render(dest, auxTransform->getR());
+	}
+	else {
+		auxTransform = mngr_->getComponent<Transform>(t);
+		dest = build_sdlrect(fighterTransform2->getPos(), auxTransform->getW(), auxTransform->getH());
+		mngr_->UITextures_[t]->render(dest, auxTransform->getR());
+	}
+	
 }

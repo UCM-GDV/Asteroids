@@ -12,12 +12,21 @@ PlayStateMultiPlayer::PlayStateMultiPlayer() : Manager(), hostButton(nullptr), c
     createClientButton();
 }
  void PlayStateMultiPlayer::createsystems() {
-     //añadir nombre o ip??
      fighterSys_ = addSystem<FighterSystem>(3);
      addSystem<BulletSystem>(3);
      addSystem<CollisionsSystem>(3);
+     //AÑADIR ENTIDAD CON LOS NOMBRES
+     addName(name);
+     //envio un mensaje de la creacion de los nombres
+     networkSys_->sendname(name);
 }
-
+ void PlayStateMultiPlayer::addName(string name) {
+     Entity* nametext = new Entity(_grp_UI);
+     nametext->setContext(this);
+     addComponent<Transform>(nametext, FIGHTER_1_POS, VECTOR_ZERO, BUTTON_WIDTH, BUTTON_HEIGHT, 0);
+     UITextures_[nametext] = new Texture(SDLUtils::instance()->renderer(), name, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_WHITE));
+     addEntity(nametext, _grp_UI);
+ }
 // Destructora
 PlayStateMultiPlayer::~PlayStateMultiPlayer() {
     SDLNet_Quit();
@@ -86,6 +95,7 @@ void PlayStateMultiPlayer::createWaitingTextBox() {
     addComponent<Transform>(waitingText, ONEPLAYER_BUTTON_POSITION, VECTOR_ZERO, BUTTON_WIDTH, BUTTON_HEIGHT, 0);
     UITextures_[waitingText] = new Texture(SDLUtils::instance()->renderer(), WAITING_TEXT, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
     addEntity(waitingText, _grp_UI);
+   
 }
 
 void PlayStateMultiPlayer::createIpTextBox() {
@@ -103,7 +113,7 @@ void PlayStateMultiPlayer::selectButtonAction(bool player) {
 }
 
 void PlayStateMultiPlayer::hostButtonNameAction() {
-    string name = gameCtrlSys_->getname();
+     name = gameCtrlSys_->getname();
 
     deActivateNAMEHUD();
     createWaitingTextBox();
@@ -112,6 +122,7 @@ void PlayStateMultiPlayer::hostButtonNameAction() {
 }
 
 void PlayStateMultiPlayer::clientButtonIPAction() {
+    name = gameCtrlSys_->getname();
     // Reescribe el callback del boton de enter
     getComponent<Callback>(enterButton)->setCallback([&]() {
         deActivateIPHUD();

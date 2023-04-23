@@ -1,4 +1,4 @@
-// Yi (Laura) Wang Qiu & Cristina Mora Velasco (Grupo 20)
+// Cristina Mora Velasco &  Yi (Laura) Wang Qiu(Grupo 20)
 
 #include <iostream>
 #include "game/Game.h"

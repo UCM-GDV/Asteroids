@@ -25,6 +25,7 @@ public:
 private:
 	// Estado actual del juego
 	int state;
+	string name;
 	// Fighter
 	Transform* fighterTransform;
 	Health* fighterHealth;

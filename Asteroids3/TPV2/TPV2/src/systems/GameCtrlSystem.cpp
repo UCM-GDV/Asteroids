@@ -1,6 +1,7 @@
 #include "GameCtrlSystem.h"
 #include "../ecs/Manager.h"
 #include "../game/GameStateMachine.h"
+#include "../states/MainMenuState.h"
 #include "../states/PauseState.h"
 #include "../states/PlayState.h"
 #include "../states/EndState.h"
@@ -37,7 +38,7 @@ void GameCtrlSystem::initSystem() {
 void GameCtrlSystem::update() {
     
     if (InputHandler::instance()->keyDownEvent()) {
-        if (state == 0 || state == 1 || state == 2) {
+        if (state == 0 || state == 1 || state == 2 || state == 5) {
             if (InputHandler::instance()->isKeyDown(SDLK_SPACE)) {
                 // Si esta en PlayState
                 if (state == 1) {
@@ -53,6 +54,10 @@ void GameCtrlSystem::update() {
                 // Si esta en EndState
                 else if (state == 2) {
                     GameStateMachine::instance()->changeState(new PauseState());
+                }
+                // Si esta en EndState del modo multijugador
+                else if (state == 5) {
+					GameStateMachine::instance()->popState();
                 }
             }
         }
@@ -246,8 +251,10 @@ void GameCtrlSystem::onCollision_FighterBullet(int fighterHealth) {
     int health1 = fighterHealth1->getlife();
     int health2 = fighterHealth2->getlife();
     if (health1 <= 0 || health2 <= 0) {
-        // VER SI QUEREMOS CREAR UN ESTADO NUEVO O 
-        // UTILIZAR EL DE ENDSTATE CAMBIANDO EL TEXTO PARA QUE PONGA EL GANADOR
-        GameStateMachine::instance()->changeState(new EndState(1));
+        GameStateMachine::instance()->popState();
+        GameStateMachine::instance()->pushState(new MainMenuState());
+        if (health1 <= 0) winner = 3;
+        else winner = 4;
+        GameStateMachine::instance()->pushState(new EndState(winner));
     }
 }

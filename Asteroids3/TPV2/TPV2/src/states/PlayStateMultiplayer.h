@@ -16,7 +16,7 @@ private:
     GameCtrlSystem* gameCtrlSys_;
     RenderSystem* renderSys_;
     NetworkSystem* networkSys_;
-
+    string name;
     string ip;
 public:
 	// Constructora
@@ -35,6 +35,7 @@ public:
     Entity* enterButton;
     Entity* nameTextBox;
     Entity* waitingText;
+
     Entity* ipTextBox;
 
     void deActivateSELECTHUD();

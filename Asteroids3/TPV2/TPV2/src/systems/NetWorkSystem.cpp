@@ -23,6 +23,7 @@ void NetworkSystem::receive(const Message& m) {
 	}
 }
 
+
 // Crea servidor
 void NetworkSystem::server() {
 	server_ = true;
@@ -47,6 +48,14 @@ void NetworkSystem::server() {
 	p->address = srvadd;
 	socketSet = SDLNet_AllocSocketSet(1);
 	SDLNet_UDP_AddSocket(socketSet, sd);
+
+	  ipText = new Entity(_grp_UI);
+	ipText->setContext(mngr_);
+	mngr_->addComponent<Transform>(ipText, ONEPLAYER_BUTTON_POSITION1, VECTOR_ZERO, BUTTON_WIDTH, BUTTON_HEIGHT, 0);
+
+	std::string str_num = std::to_string(srvadd.host); 
+	mngr_->UITextures_[ipText] = new Texture(SDLUtils::instance()->renderer(),str_num, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
+	mngr_->addEntity(ipText, _grp_UI);
 }
 
 // Conecta con el host y el puerto
@@ -57,7 +66,7 @@ void NetworkSystem::client(const char* host) {
 	sd = SDLNet_UDP_Open(0);
 	string ip = static_cast<PlayStateMultiPlayer*>(mngr_)->getIp();
 	//if (SDLNet_ResolveHost(&srvadd, ip.c_str(), PORT) < 0) {
-		if (SDLNet_ResolveHost(&srvadd, "192.168.1.69", PORT) < 0) {
+		if (SDLNet_ResolveHost(&srvadd, "192.168.1.134", PORT) < 0) {
 		throw("ERROR AL ESTABLECER CONEXION CON EL SERVIDOR");
 	}
 	p = SDLNet_AllocPacket(MAX_PACKET_SIZE);
@@ -73,7 +82,6 @@ void NetworkSystem::client(const char* host) {
 }
 
 void NetworkSystem::initSystem() {
-	//preguntar lo de la ip no?
 }
 
 void NetworkSystem::update() {
@@ -120,11 +128,22 @@ void NetworkSystem::update() {
 			m.add_bullet.rot = mn->add_bullet.rot;
 			mngr_->send(m);
 			break;
+		case _m_NAME:
+			//crear un nombre el nombre 
+
+			static_cast<PlayStateMultiPlayer*>(mngr_)->addName(string(mn->name.name_));
+			break;
 		default: break;
 		}
 	}
 }
-
+void NetworkSystem::sendname(string name) {
+	mn->id = _m_NAME;
+	mn->name.name_ = name;
+	p->len = sizeof(Messagenet);
+	p->address = srvadd;
+	SDLNet_UDP_Send(sd, -1, p);
+}
 void NetworkSystem::fighterUpdate(Vector2D pos, Vector2D vel, double width, double height, float rot) {
 	mn->id = _m_FIGHTERPOSUP;
 	mn->fighter_update.pos = pos;

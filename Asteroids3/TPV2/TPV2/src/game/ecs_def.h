@@ -68,5 +68,6 @@ using msgnetId_type = int;
 enum msgIdnet : msgId_type {
 	_m_CONNECTED,
 	_m_FIGHTERPOSUP,
-	_m_ADDBULLET
+	_m_ADDBULLET,
+	_m_NAME
 };

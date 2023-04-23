@@ -10,6 +10,8 @@ class GameCtrlSystem : public System {
 private:
 	// Estado actual del juego
 	int state; 
+    // Resultado del ganador
+    int winner;
     // Puntero a las vidas del fighter
     Health* fighterHealth;
     Health* fighterHealth1;
@@ -54,7 +56,7 @@ public:
     // empieza una ronda o cuando empieza una nueva partida.
     virtual void update() override;
 
-    inline string getIp() { return ip; }
+    inline string getIp() { return ipWithSpaces; }
     inline string getname() { return name; }
     void onChangeState();
 };

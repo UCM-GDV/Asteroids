@@ -29,9 +29,10 @@ public:
 
 	void fighterUpdate(Vector2D pos, Vector2D vel, double width, double height, float rot);
 	void addBullet(Vector2D pos, Vector2D vel, float rot);
-	
+	void sendname(string name);
 private:
 	UDPpacket* p;
+	Entity* ipText;
 	UDPsocket sd;
 	SDLNet_SocketSet socketSet;
 	Messagenet* mn;
