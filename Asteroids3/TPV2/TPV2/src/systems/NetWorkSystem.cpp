@@ -1,7 +1,8 @@
 ﻿#include "NetWorkSystem.h"
 #include "../ecs/Manager.h"
 #include "../states/PlayStateMultiplayer.h"
-
+#include <string>
+using namespace std;
 // Constructora
 NetworkSystem::NetworkSystem() {
 	if (SDLNet_Init() < 0) {
@@ -139,6 +140,7 @@ void NetworkSystem::update() {
 }
 void NetworkSystem::sendname(string name) {
 	mn->id = _m_NAME;
+	mn->aux = name;
 	mn->name.name_ = name;
 	p->len = sizeof(Messagenet);
 	p->address = srvadd;

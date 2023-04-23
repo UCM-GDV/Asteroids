@@ -2,10 +2,11 @@
 #include "../game/ecs_def.h"
 #include "../ecs/Entity.h"
 #include "../utils/Vector2D.h"
-#include "string"
+#include <string>
 using namespace std;
 struct Messagenet {
 	msgnetId_type id;
+	string aux;
 	// _m_CONNECTED
 	struct {
 
@@ -16,9 +17,10 @@ struct Messagenet {
 		double width, height;
 		float rot;
 	} fighter_update;
+	// _m_NAME
 	struct {
 		double a=1;
-		std::string name_;
+		string name_;
 	} name;
 	// _m_ADDBULLET
 	struct {

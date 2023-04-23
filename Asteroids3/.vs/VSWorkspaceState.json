@@ -4,10 +4,11 @@
     "\\TPV2",
     "\\TPV2\\TPV2",
     "\\TPV2\\TPV2\\src",
+    "\\TPV2\\TPV2\\src\\components",
     "\\TPV2\\TPV2\\src\\ecs",
     "\\TPV2\\TPV2\\src\\states",
     "\\TPV2\\TPV2\\src\\systems"
   ],
-  "SelectedNode": "\\TPV2\\TPV2\\src\\systems\\NetWorkSystem.cpp",
+  "SelectedNode": "\\TPV2\\TPV2.sln",
   "PreviewInSolutionExplorer": false
 }

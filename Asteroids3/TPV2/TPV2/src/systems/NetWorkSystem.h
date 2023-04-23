@@ -3,6 +3,7 @@
 #include "../sdlutils/SDLUtils.h"
 #include <SDL_net.h>
 #include "../components/Messagenet.h"
+#include <string>
 class PlayStateMultiPlayer;
 class NetworkSystem : public System {
 public:
