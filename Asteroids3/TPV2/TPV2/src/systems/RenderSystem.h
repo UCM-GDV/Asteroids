@@ -54,5 +54,5 @@ private:
 	void renderLives(Health* health, Vector2D initialPos, string key);
 	void renderBullet(Entity* b, string key);
 	void renderUI(Entity* t);
-	void renderUIname(Entity* t);
+	void renderUIname();
 };

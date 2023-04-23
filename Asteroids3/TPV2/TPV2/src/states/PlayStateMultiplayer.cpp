@@ -7,7 +7,6 @@ PlayStateMultiPlayer::PlayStateMultiPlayer() : Manager(), hostButton(nullptr), c
     renderSys_ = addSystem<RenderSystem>(4);
     gameCtrlSys_ = addSystem<GameCtrlSystem>(4);
 
-
     createHostButton();
     createClientButton();
 }
@@ -23,7 +22,7 @@ PlayStateMultiPlayer::PlayStateMultiPlayer() : Manager(), hostButton(nullptr), c
  void PlayStateMultiPlayer::addName(string name) {
      Entity* nametext = new Entity(_grp_UI);
      nametext->setContext(this);
-     addComponent<Transform>(nametext, FIGHTER_1_POS, VECTOR_ZERO, BUTTON_WIDTH, BUTTON_HEIGHT, 0);
+     addComponent<Transform>(nametext, FIGHTER_1_POS, VECTOR_ZERO, NAME_WIDTH, NAME_HEIGHT, 0);
      UITextures_[nametext] = new Texture(SDLUtils::instance()->renderer(), name, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_WHITE));
      addEntity(nametext, _grp_UI);
  }

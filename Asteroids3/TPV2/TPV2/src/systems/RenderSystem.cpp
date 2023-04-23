@@ -88,10 +88,9 @@ void RenderSystem::update() {
 			for (Entity* bullet : mngr_->getEntities(_grp_BULLETS)) {
 				renderBullet(bullet, "Bullet");
 			}
+			renderUIname();
 			
-			for (Entity* ui : mngr_->getEntities(_grp_UI)) {
-				//renderUIname(mngr_->getEntities(_grp_UI)[0]);
-			}
+			
 			break;
 		case 4: case 5:
             for (Entity* ui : mngr_->getEntities(_grp_UI)) {
@@ -150,16 +149,27 @@ void RenderSystem::renderUI(Entity* t) {
 	mngr_->UITextures_[t]->render(dest, auxTransform->getR());
 }
 
-void RenderSystem::renderUIname(Entity* t) {
-	if (mngr_->getSystem<NetworkSystem>()->getServer()) {
-		auxTransform = mngr_->getComponent<Transform>(t);
-		dest = build_sdlrect(fighterTransform1->getPos(), auxTransform->getW(), auxTransform->getH());
-		mngr_->UITextures_[t]->render(dest, auxTransform->getR());
+void RenderSystem::renderUIname() {
+	if (mngr_->getEntities(_grp_UI).size() >= 2) {
+		Entity* name1 = mngr_->getEntities(_grp_UI)[0];
+		Entity* name2 = mngr_->getEntities(_grp_UI)[1];
+		Vector2D pos1 = fighterTransform1->getPos() + Vector2D(0, 30);
+		Vector2D pos2 = fighterTransform2->getPos() + Vector2D(0, 30);
+		if (mngr_->getSystem<NetworkSystem>()->getServer()) {
+			auxTransform = mngr_->getComponent<Transform>(name1);
+			dest = build_sdlrect(pos1, auxTransform->getW(), auxTransform->getH());
+			mngr_->UITextures_[name1]->render(dest, auxTransform->getR());
+			auxTransform = mngr_->getComponent<Transform>(name2);
+			dest = build_sdlrect(pos2, auxTransform->getW(), auxTransform->getH());
+			mngr_->UITextures_[name2]->render(dest, auxTransform->getR());
+		}
+		else {
+			auxTransform = mngr_->getComponent<Transform>(name1);
+			dest = build_sdlrect(pos2, auxTransform->getW(), auxTransform->getH());
+			mngr_->UITextures_[name1]->render(dest, auxTransform->getR());
+			auxTransform = mngr_->getComponent<Transform>(name2);
+			dest = build_sdlrect(pos1, auxTransform->getW(), auxTransform->getH());
+			mngr_->UITextures_[name2]->render(dest, auxTransform->getR());
+		}
 	}
-	else {
-		auxTransform = mngr_->getComponent<Transform>(t);
-		dest = build_sdlrect(fighterTransform2->getPos(), auxTransform->getW(), auxTransform->getH());
-		mngr_->UITextures_[t]->render(dest, auxTransform->getR());
-	}
-	
 }

@@ -9,6 +9,8 @@ NetworkSystem::NetworkSystem() {
 		throw SDLNet_GetError();
 	}
 }
+
+// Destructora
 NetworkSystem::~NetworkSystem() {
 	SDLNet_FreePacket(p);
 	SDLNet_FreeSocketSet(socketSet);
@@ -20,6 +22,7 @@ void NetworkSystem::receive(const Message& m) {
 	switch (m.id) {
 	case _m_FIGHTER_UPDATE: fighterUpdate(m.fighter_update.pos, m.fighter_update.vel, m.fighter_update.width, m.fighter_update.height,m.fighter_update.rot); break;
 	case _m_ADD_BULLET: addBullet(m.add_bullet.pos, m.add_bullet.vel, m.add_bullet.rot); break;
+	case _m_DISCONNECT: disconnect(); break;
 	default: break;
 	}
 }
@@ -49,14 +52,6 @@ void NetworkSystem::server() {
 	p->address = srvadd;
 	socketSet = SDLNet_AllocSocketSet(1);
 	SDLNet_UDP_AddSocket(socketSet, sd);
-
-	  ipText = new Entity(_grp_UI);
-	ipText->setContext(mngr_);
-	mngr_->addComponent<Transform>(ipText, ONEPLAYER_BUTTON_POSITION1, VECTOR_ZERO, BUTTON_WIDTH, BUTTON_HEIGHT, 0);
-
-	std::string str_num = std::to_string(srvadd.host); 
-	mngr_->UITextures_[ipText] = new Texture(SDLUtils::instance()->renderer(),str_num, sdlutils().fonts().at("ARIAL24"), build_sdlcolor(COLOR_BLACK), build_sdlcolor(COLOR_WHITE));
-	mngr_->addEntity(ipText, _grp_UI);
 }
 
 // Conecta con el host y el puerto
@@ -87,8 +82,8 @@ void NetworkSystem::initSystem() {
 
 void NetworkSystem::update() {
 	
-	// Esto se encarga de recibir todos los mensajes
-	while (SDLNet_UDP_Recv(sd, p) > 0) {
+	// Si recibe algun mensaje
+	if (SDLNet_UDP_Recv(sd, p) > 0) {
 		switch (mn->id) {
 		case _m_CONNECTED:
 			playState = static_cast<PlayStateMultiPlayer*>(mngr_);
@@ -96,7 +91,7 @@ void NetworkSystem::update() {
 				cout << "connected";
 				srvadd = p->address;
 				// Quita el texto de espera
-				playState->getwaitingText()->setAlive(false);
+				playState->getWaitingText()->setAlive(false);
 
 				// Envia un mensaje de que se ha conectado el servidor
 				mn->id = _m_CONNECTED;
@@ -130,18 +125,27 @@ void NetworkSystem::update() {
 			mngr_->send(m);
 			break;
 		case _m_NAME:
-			//crear un nombre el nombre 
-
-			static_cast<PlayStateMultiPlayer*>(mngr_)->addName(string(mn->name.name_));
+			//se le pasa el nombre al otro usuario
+			othername = string(mn->name);
+			static_cast<PlayStateMultiPlayer*>(mngr_)->addName(othername);
+			break;
+		case _m_DISCONNECTED: 
+			cout << "se desconecta" << endl;
+			m.id = _m_RESET_MULTIPLAYER_STATE;
+			mngr_->send(m);
 			break;
 		default: break;
 		}
 	}
+	//else if (mngr_->getSystem<FighterSystem>()!= NULL) {
+	//	Message m;
+	//	m.id = _m_RESET_MULTIPLAYER_STATE;
+	//	mngr_->send(m);
+	//}
 }
 void NetworkSystem::sendname(string name) {
 	mn->id = _m_NAME;
-	mn->aux = name;
-	mn->name.name_ = name;
+	strcpy_s(mn->name, name.c_str());
 	p->len = sizeof(Messagenet);
 	p->address = srvadd;
 	SDLNet_UDP_Send(sd, -1, p);
@@ -170,4 +174,13 @@ void NetworkSystem::addBullet(Vector2D pos, Vector2D vel, float rot) {
 
 	//reproduce el sonido de disparo del otro jugador
 	SDLUtils::instance()->soundEffects().at("fire").play();
+}
+
+void NetworkSystem::disconnect() {
+	mn->id = _m_DISCONNECTED;
+	p->len = sizeof(Messagenet);
+	p->address = srvadd;
+	SDLNet_UDP_Send(sd, -1, p);
+
+	cout << "se envia el mensaje" << endl;
 }

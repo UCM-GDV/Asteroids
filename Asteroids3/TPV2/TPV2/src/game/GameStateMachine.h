@@ -26,4 +26,6 @@ public:
     void changeState(Manager* newState);
     // Borra los punteros de los estados a borrar
     void clearStatesToErase();
+    // Devuelve si esta la pila vacia o no
+    inline bool isEmpty() { return gameStates.empty(); }
 };

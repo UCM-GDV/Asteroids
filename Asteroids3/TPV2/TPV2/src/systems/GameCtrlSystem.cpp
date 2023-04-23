@@ -9,8 +9,8 @@
 #include "../states/PlayStateMultiplayer.h"
 
 // Constructoras
-GameCtrlSystem::GameCtrlSystem() : fighterHealth(nullptr), name("") {}
-GameCtrlSystem::GameCtrlSystem(int state_) : state(state_), fighterHealth(nullptr), name("") {}
+GameCtrlSystem::GameCtrlSystem() : fighterHealth(nullptr), fighterHealth1(nullptr), fighterHealth2(nullptr), name("") {}
+GameCtrlSystem::GameCtrlSystem(int state_) : state(state_), fighterHealth(nullptr), fighterHealth1(nullptr), fighterHealth2(nullptr), name("") {}
 
 // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 void GameCtrlSystem::receive(const Message& m) {
@@ -18,7 +18,8 @@ void GameCtrlSystem::receive(const Message& m) {
     case _m_FIGTHER_ASTEROID_COLLIDED: onCollision_FighterAsteroid(); break;
     case _m_ASTEROIDS_EXTINCTION: onAsteroidsExtinction(); break;
     case _m_CHANGE_STATE: onChangeState();  break;
-    case _m_FIGHTER_BULLET_COLLIDED: onCollision_FighterBullet(m.fighter_bullet_coll.fighterHealth); break;
+    case _m_FIGHTER_BULLET_COLLIDED: case _m_FIGHTER_FIGHTER_COLLIDED: onCollision_Multiplayer(m.fighter_bullet_coll.fighterHealth); break;
+    case _m_RESET_MULTIPLAYER_STATE: GameStateMachine::instance()->changeState(new PlayStateMultiPlayer()); break;
     default: break;
     }
 }
@@ -36,7 +37,10 @@ void GameCtrlSystem::initSystem() {
 //  Tiene que enviar mensajes correspondientes cuando
 // empieza una ronda o cuando empieza una nueva partida.
 void GameCtrlSystem::update() {
-    
+    if (InputHandler::instance()->closeWindowEvent()) {
+        quit();
+    }
+
     if (InputHandler::instance()->keyDownEvent()) {
         if (state == 0 || state == 1 || state == 2 || state == 5) {
             if (InputHandler::instance()->isKeyDown(SDLK_SPACE)) {
@@ -127,7 +131,7 @@ void GameCtrlSystem::onCollision_FighterAsteroid() {
 	Message m;
     if (fighterHealth->getlife() <= 0) {
 		m.id = _m_ONDEFEAT;
-        GameStateMachine::instance()->pushState(new EndState(2));
+        GameStateMachine::instance()->pushState(new EndState(GAME_OVER_LOSE_TEXT));
     }
     else {
 		m.id = _m_ROUND_FINISHED;
@@ -136,26 +140,62 @@ void GameCtrlSystem::onCollision_FighterAsteroid() {
     mngr_->send(m);
 }
 
+// Si hay colision entre fighter y bullet o fighter y fighter en el modo multijugador
+// Gestiona las vidas y si alguno llega a 0, se coloca el endState
+void GameCtrlSystem::onCollision_Multiplayer(int fighterHealth) {
+	//repoduce sonido de la explosion
+	sdlutils().soundEffects().at("explosion").play();
+
+	// Actualiza las vidas
+	if (fighterHealth == 1) fighterHealth1->decreaseLives();
+	else if (fighterHealth == 2) fighterHealth2->decreaseLives();
+	else {
+		fighterHealth1->decreaseLives();
+		fighterHealth2->decreaseLives();
+	}
+
+	int health1 = fighterHealth1->getlife();
+	int health2 = fighterHealth2->getlife();
+	if (health1 <= 0 || health2 <= 0) {
+		GameStateMachine::instance()->popState();
+		GameStateMachine::instance()->pushState(new MainMenuState());
+		NetworkSystem* net = mngr_->getSystem<NetworkSystem>();
+		if (net->getServer()) {
+			//si eres servidor
+			//si ganas tu
+			if (health1 <= 0) winner = net->othername;
+			//si gana el otro
+			else winner = name;
+		}
+		else {
+			//si eres cliente 
+			//si gana el otro
+			if (health1 <= 0) winner = name;
+			//si ganas tu
+			else  winner = net->othername;
+		}
+
+		GameStateMachine::instance()->pushState(new EndState(winner));
+	}
+}
+
 // Para gestionar el mensaje de que no hay más asteroides. Tiene que avisar que
 // ha acabado la ronda y además que ha acabado el juego (y quien es el ganador)
 void GameCtrlSystem::onAsteroidsExtinction() {
     Message m;
     m.id = _m_ONVICTORY;
     mngr_->send(m);
-    GameStateMachine::instance()->pushState(new EndState(1));
+    GameStateMachine::instance()->pushState(new EndState(GAME_OVER_WIN_TEXT));
 }
 
-// Devuelve si el cursor esta encima de un boton o no
-bool GameCtrlSystem::isOver(Entity* button, std::pair<Sint32, Sint32> mousePos) const {
-    Transform* buttonTransform = mngr_->getComponent<Transform>(button);
-    if (buttonTransform != nullptr) {
-        Vector2D position = buttonTransform->getPos();
-        return mousePos.first > position.getX()
-            && mousePos.first < position.getX() + buttonTransform->getW()
-            && mousePos.second > position.getY()
-            && mousePos.second < position.getY() + buttonTransform->getH();
-    }
-    else return false;
+// Cambio del estado de seleccion al de juego multijugador
+void GameCtrlSystem::onChangeState() {
+	state = 3;
+
+	// Coge las referencias
+	fighterHealth1 = mngr_->getSystem<FighterSystem>()->getFighterHealth1();
+	fighterHealth2 = mngr_->getSystem<FighterSystem>()->getFighterHealth2();
+	(mngr_->getSystem<NetworkSystem>()->getServer()) ? fighterHealth = fighterHealth1 : fighterHealth = fighterHealth2;
 }
 
 // Anade caracteres en la textura del nombre
@@ -226,35 +266,12 @@ void GameCtrlSystem::addNumberOrDot() {
     ip += n;
 }
 
-void GameCtrlSystem::onChangeState() {
-    // Cambia del modo de seleccion al juego
-	state = 3;  
-
-    // Coge las referencias
-    fighterHealth1 = mngr_->getSystem<FighterSystem>()->getFighterHealth1();
-    fighterHealth2 = mngr_->getSystem<FighterSystem>()->getFighterHealth2();
-    (mngr_->getSystem<NetworkSystem>()->getServer()) ? fighterHealth = fighterHealth1 : fighterHealth = fighterHealth2;
-}
-
-// Si hay colision entre fighter y bullet en el modo multijugador
-// Gestiona las vidas y si alguno llega a 0, se coloca el endState
-void GameCtrlSystem::onCollision_FighterBullet(int fighterHealth) {
-    cout << "GS: ONCOL" << endl;
-
-    //repoduce sonido de la explosion
-    sdlutils().soundEffects().at("explosion").play();
-
-    // Actualiza las vidas
-    if (fighterHealth == 1) fighterHealth1->decreaseLives();
-    else if (fighterHealth == 2) fighterHealth2->decreaseLives();
-
-    int health1 = fighterHealth1->getlife();
-    int health2 = fighterHealth2->getlife();
-    if (health1 <= 0 || health2 <= 0) {
-        GameStateMachine::instance()->popState();
-        GameStateMachine::instance()->pushState(new MainMenuState());
-        if (health1 <= 0) winner = 3;
-        else winner = 4;
-        GameStateMachine::instance()->pushState(new EndState(winner));
+// Cierra el programa
+void GameCtrlSystem::quit() {
+    if (state == 3) {
+		Message m;
+		m.id = _m_DISCONNECT;
+		mngr_->send(m);
     }
+	GameStateMachine::instance()->clearStates();
 }

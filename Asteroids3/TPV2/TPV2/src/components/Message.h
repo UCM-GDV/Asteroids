@@ -5,14 +5,6 @@
 
 struct Message {
 	msgId_type id;
-	// _m_ROUND_STARTED
-	struct {
-
-	} round_started;
-	// _m_ROUND_FINISHED
-	struct {
-
-	} round_finished;
 	// _m_FIGHTER_SHOOT
 	struct {
 		Vector2D pos, vel;

@@ -3,7 +3,8 @@
 #include "NetWorkSystem.h"
 
 // Constructora
-FighterSystem::FighterSystem(int state_) : state(state_) {}
+FighterSystem::FighterSystem(int state_) : state(state_), fighter(nullptr), fighterTransform(nullptr), fighterHealth(nullptr),
+fighter1(nullptr), fighterTransform1(nullptr), fighterHealth1(nullptr), fighter2(nullptr), fighterTransform2(nullptr), fighterHealth2(nullptr) {}
 
 // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 void FighterSystem::receive(const Message& m) {
@@ -168,7 +169,7 @@ Health* FighterSystem::getFighterHealth() { return fighterHealth; }
 Transform* FighterSystem::getFighterTransform1() { return fighterTransform1; }
 // Devuelve el transform del fighter 2
 Transform* FighterSystem::getFighterTransform2() { return fighterTransform2; }
-Transform* FighterSystem::setFighterTransform2() { return fighterTransform2; }
+
 // Devuelve el health del fighter 1
 Health* FighterSystem::getFighterHealth1() { return fighterHealth1; }
 // Devuelve el health del fighter 2
@@ -178,13 +179,11 @@ Health* FighterSystem::getFighterHealth2() { return fighterHealth2; }
 // un asteroide. Poner el caza en el centro con velocidad (0,0) y rotación 0. No
 // hace falta desactivar la entidad (no dibujarla si el juego está parado).
 void FighterSystem::onCollision_FighterAsteroid() {
-	cout << "FS_FA" << endl;
 	resetFighter();
 }
 
 // Para gestionar el mensaje de que ha acabado una ronda. Desactivar el sistema.
 void FighterSystem::onRoundOver() {
-	cout << "FS_ROUND" << endl;
 	resetFighter();
 	resetLives();
 }
@@ -223,6 +222,5 @@ void FighterSystem::updateNet(Vector2D pos, Vector2D vel, double width, double h
 }
 
 void FighterSystem::onCollision_FighterBullet() {
-	cout << "FS_FB" << endl;
 	resetFighter();
 }

@@ -39,8 +39,8 @@ const unsigned long COLOR_transparent = 0xff000020;
 // BUTTONS
 const int BUTTON_WIDTH = 400;
 const int BUTTON_HEIGHT = 40;
-const int NAME_WIDTH = 100;
-const int NAME_HEIGHT = 20;
+const int NAME_WIDTH = 60;
+const int NAME_HEIGHT = 10;
 const Vector2D ONEPLAYER_BUTTON_POSITION = Vector2D(WIN_HALF_WIDTH - BUTTON_WIDTH / 2, WIN_HEIGHT / 3);
 const Vector2D ONEPLAYER_BUTTON_POSITION1 = Vector2D(WIN_HALF_WIDTH - BUTTON_WIDTH / 2, WIN_HEIGHT / 2);
 const Vector2D MULTIPLAYER_BUTTON_POSITION = Vector2D(WIN_HALF_WIDTH - BUTTON_WIDTH / 2, WIN_HEIGHT / 2);
@@ -52,8 +52,6 @@ const string NAME_TEXT_BOX = "ESCRIBE TU NOMBRE...";
 const string ENTER_TEXT = "ENTER";
 const string WAITING_TEXT = "Waiting for other player...";
 const string IP_TEXT = "ESCRIBE LA IP...";
-const string PLAYER1WINS = "PLAYER 1 WINS!";
-const string PLAYER2WINS = "PLAYER 2 WINS!";
 const string GO_TO_MAIN_MENU_TEXT = "GO TO MAIN MENU";
 
 // FIGHTER

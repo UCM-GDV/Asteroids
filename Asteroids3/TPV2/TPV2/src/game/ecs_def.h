@@ -62,12 +62,16 @@ enum msgId : msgId_type {
 	_m_NET_FIGHTER_UPDATE,
 	_m_NET_ADD_BULLET,
 	_m_CHANGE_STATE,
-	_m_FIGHTER_BULLET_COLLIDED
+	_m_FIGHTER_BULLET_COLLIDED,
+	_m_FIGHTER_FIGHTER_COLLIDED,
+	_m_RESET_MULTIPLAYER_STATE,
+	_m_DISCONNECT
 };
 using msgnetId_type = int;
 enum msgIdnet : msgId_type {
 	_m_CONNECTED,
 	_m_FIGHTERPOSUP,
 	_m_ADDBULLET,
-	_m_NAME
+	_m_NAME,
+	_m_DISCONNECTED
 };

@@ -30,6 +30,7 @@ Game::~Game() {
 void Game::run() {
 	uint32_t startTime, frameTime;
 	startTime = SDL_GetTicks();
+    SDL_Event e;
 
 	while (!exit) {
 		refresh();
@@ -40,16 +41,22 @@ void Game::run() {
 			startTime = SDL_GetTicks();
 		}
 	}
+
 	GameStateMachine::instance()->clearStates();
 }
 
 // Actualiza el juego
 void Game::update() {
-	GameStateMachine::instance()->currentState()->update();
-	GameStateMachine::instance()->clearStatesToErase();
+	if (!GameStateMachine::instance()->isEmpty()) {
+		GameStateMachine::instance()->currentState()->update();
+		GameStateMachine::instance()->clearStatesToErase();
+	}
+	else exit = true;
 }
 
 // Actualiza el juego en función del estado actual
 void Game::refresh() {
-	GameStateMachine::instance()->currentState()->refresh();
+	if (!GameStateMachine::instance()->isEmpty()) {
+		GameStateMachine::instance()->currentState()->refresh();
+	}
 }

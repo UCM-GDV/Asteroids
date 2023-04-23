@@ -7,6 +7,7 @@
 class PlayStateMultiPlayer;
 class NetworkSystem : public System {
 public:
+
 	// Idenficador
 	constexpr static sysId_type id = _sys_NETWORK;
 	// Constructora
@@ -31,6 +32,8 @@ public:
 	void fighterUpdate(Vector2D pos, Vector2D vel, double width, double height, float rot);
 	void addBullet(Vector2D pos, Vector2D vel, float rot);
 	void sendname(string name);
+	string othername;
+	void disconnect();
 private:
 	UDPpacket* p;
 	Entity* ipText;

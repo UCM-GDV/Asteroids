@@ -35,7 +35,6 @@ void  CollisionsSystem::collisionNet(vector<Entity*> v) {
 		Transform* bulletTransform = mngr_->getComponent<Transform>(v[i]);
 
 		if (collisionEntities(bulletTransform, f1)) {
-			cout << "bala-f1" << endl;
 			// MANDA UN MENSAJE ESPECIFICANDO CUAL FIGHTERHEALTH RESTARLE VIDA
 			m.id = _m_FIGHTER_BULLET_COLLIDED;
 			m.fighter_bullet_coll.fighterHealth = 1;
@@ -44,7 +43,6 @@ void  CollisionsSystem::collisionNet(vector<Entity*> v) {
 			end = true;
 		}
 		else if (collisionEntities(bulletTransform, f2)) {
-			cout << "bala-f2" << endl;
 			// MANDA UN MENSAJE ESPECIFICANDO CUAL FIGHTERHEALTH RESTARLE VIDA
 			m.id = _m_FIGHTER_BULLET_COLLIDED;
 			m.fighter_bullet_coll.fighterHealth = 2;
@@ -56,10 +54,9 @@ void  CollisionsSystem::collisionNet(vector<Entity*> v) {
 	}
 
 	if (collisionEntities(f2, f1)) {
-		//MANDAR MENSAJE COLISION ENTRE DOS FIGHTERS
-		//RESTAR VIDA A LOS DOS Y RESETEAR
-		cout << "f2-f1" << endl;
-
+		// MANDA UN MENSAJE COLISION ENTRE DOS FIGHTERS
+		m.id = _m_FIGHTER_FIGHTER_COLLIDED;
+		mngr_->send(m);
 	}
 }
 

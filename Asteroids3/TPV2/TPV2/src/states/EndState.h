@@ -15,5 +15,5 @@ private:
 	Entity* resultEntity;
 public:
 	// Constructora
-	EndState(int resultString);
+	EndState(string resultString);
 };
