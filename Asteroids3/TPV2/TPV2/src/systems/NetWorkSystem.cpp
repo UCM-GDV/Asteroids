@@ -61,8 +61,7 @@ void NetworkSystem::client(const char* host) {
 	// coge el socket abierto 
 	sd = SDLNet_UDP_Open(0);
 	string ip = static_cast<PlayStateMultiPlayer*>(mngr_)->getIp();
-	//if (SDLNet_ResolveHost(&srvadd, ip.c_str(), PORT) < 0) {
-		if (SDLNet_ResolveHost(&srvadd, "192.168.1.134", PORT) < 0) {
+	if (SDLNet_ResolveHost(&srvadd, ip.c_str(), PORT) < 0) {
 		throw("ERROR AL ESTABLECER CONEXION CON EL SERVIDOR");
 	}
 	p = SDLNet_AllocPacket(MAX_PACKET_SIZE);
@@ -77,11 +76,11 @@ void NetworkSystem::client(const char* host) {
 	//cambio de estado
 }
 
-void NetworkSystem::initSystem() {
-}
+//inicializa el sistema
+void NetworkSystem::initSystem() {}
 
+//actualiza el sistema 
 void NetworkSystem::update() {
-	
 	// Si recibe algun mensaje
 	if (SDLNet_UDP_Recv(sd, p) > 0) {
 		switch (mn->id) {
@@ -106,8 +105,8 @@ void NetworkSystem::update() {
 			mngr_->send(m);
 			break;
 		case _m_FIGHTERPOSUP:
-			//llama a fightersystem para que actualize la pos y rot 1  o 2
-			//manda un mensaje normal para que actualice la pos
+			// Llama a fighterSystem para que actualize la pos y rot 1 o 2
+			// Manda un mensaje normal para que actualice la pos
 			m.id = _m_NET_FIGHTER_UPDATE;
 			m.fighterposup.pos = mn->fighter_update.pos;
 			m.fighterposup.vel = mn->fighter_update.vel;
@@ -117,7 +116,7 @@ void NetworkSystem::update() {
 			mngr_->send(m);
 			break;
 		case _m_ADDBULLET:
-			//para crear la bala cog pos, rot y vel y la crea
+			// Coge pos, rot y vel y crea la bala
 			m.id = _m_NET_ADD_BULLET;
 			m.add_bullet.pos = mn->add_bullet.pos;
 			m.add_bullet.vel = mn->add_bullet.vel;
@@ -130,19 +129,15 @@ void NetworkSystem::update() {
 			static_cast<PlayStateMultiPlayer*>(mngr_)->addName(othername);
 			break;
 		case _m_DISCONNECTED: 
-			cout << "se desconecta" << endl;
+		//resetea el sistema
 			m.id = _m_RESET_MULTIPLAYER_STATE;
 			mngr_->send(m);
 			break;
 		default: break;
 		}
 	}
-	//else if (mngr_->getSystem<FighterSystem>()!= NULL) {
-	//	Message m;
-	//	m.id = _m_RESET_MULTIPLAYER_STATE;
-	//	mngr_->send(m);
-	//}
 }
+//envia el nombre del usuario 
 void NetworkSystem::sendname(string name) {
 	mn->id = _m_NAME;
 	strcpy_s(mn->name, name.c_str());
@@ -150,6 +145,7 @@ void NetworkSystem::sendname(string name) {
 	p->address = srvadd;
 	SDLNet_UDP_Send(sd, -1, p);
 }
+//envia la posicion del usuario 
 void NetworkSystem::fighterUpdate(Vector2D pos, Vector2D vel, double width, double height, float rot) {
 	mn->id = _m_FIGHTERPOSUP;
 	mn->fighter_update.pos = pos;
@@ -175,7 +171,7 @@ void NetworkSystem::addBullet(Vector2D pos, Vector2D vel, float rot) {
 	//reproduce el sonido de disparo del otro jugador
 	SDLUtils::instance()->soundEffects().at("fire").play();
 }
-
+//mensaje de desconexion
 void NetworkSystem::disconnect() {
 	mn->id = _m_DISCONNECTED;
 	p->len = sizeof(Messagenet);

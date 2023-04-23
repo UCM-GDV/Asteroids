@@ -1,12 +1,17 @@
 #include "GameStateMachine.h"
+#include "Game.h"
 
 // Constructora
-GameStateMachine::GameStateMachine() {}
+GameStateMachine::GameStateMachine() : game(nullptr) {}
 
 // Destructora
 GameStateMachine::~GameStateMachine() {
     clearStates();
     clearStatesToErase();
+}
+
+void GameStateMachine::init(Game* game_) {
+    game = game_;
 }
 
 // Anade un estado a la pila
@@ -40,4 +45,8 @@ void GameStateMachine::clearStatesToErase() {
         delete(gameStatesToErase.top());
         gameStatesToErase.pop();
     }
+}
+
+void GameStateMachine::quitGame() {
+    game->exitGame();
 }

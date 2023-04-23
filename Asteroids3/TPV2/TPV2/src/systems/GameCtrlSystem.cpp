@@ -273,5 +273,5 @@ void GameCtrlSystem::quit() {
 		m.id = _m_DISCONNECT;
 		mngr_->send(m);
     }
-	GameStateMachine::instance()->clearStates();
+    GameStateMachine::instance()->quitGame();
 }

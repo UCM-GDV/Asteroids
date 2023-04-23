@@ -45,9 +45,6 @@ void BulletSystem::shoot(Vector2D pos, Vector2D vel, double width, double height
 
 	addBullet(bPos, bVel, rot);
 
-	// Sonido
-	SDLUtils::instance()->soundEffects().at("fire").play();
-
 	// Si esta en el estado de PlayStateMultiplayer, 
 	// debe contactar con el otro para que se anada
 	// una bala en su escena
@@ -83,6 +80,9 @@ void BulletSystem::onRoundOver() {
 
 // Anade una bala a la escena
 void BulletSystem::addBullet(Vector2D pos, Vector2D vel, float rot) {
+	// Sonido
+	SDLUtils::instance()->soundEffects().at("fire").play();
+
 	Entity* bullet = new Entity(_grp_BULLETS);
 	mngr_->addComponent<Transform>(bullet, pos, vel, BULLET_WIDTH, BULLET_HEIGHT, rot);
 	mngr_->addEntity(bullet, _grp_BULLETS);

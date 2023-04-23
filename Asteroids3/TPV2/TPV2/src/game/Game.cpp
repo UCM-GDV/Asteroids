@@ -15,7 +15,7 @@ Game::Game() {
 
 	exit = false;
 
-	// Anade los nuevos estados
+	GameStateMachine::instance()->init(this);
 	GameStateMachine::instance()->pushState(new MainMenuState());
 }
 
@@ -30,7 +30,6 @@ Game::~Game() {
 void Game::run() {
 	uint32_t startTime, frameTime;
 	startTime = SDL_GetTicks();
-    SDL_Event e;
 
 	while (!exit) {
 		refresh();
@@ -47,16 +46,11 @@ void Game::run() {
 
 // Actualiza el juego
 void Game::update() {
-	if (!GameStateMachine::instance()->isEmpty()) {
-		GameStateMachine::instance()->currentState()->update();
-		GameStateMachine::instance()->clearStatesToErase();
-	}
-	else exit = true;
+	GameStateMachine::instance()->currentState()->update();
+	GameStateMachine::instance()->clearStatesToErase();
 }
 
 // Actualiza el juego en función del estado actual
 void Game::refresh() {
-	if (!GameStateMachine::instance()->isEmpty()) {
-		GameStateMachine::instance()->currentState()->refresh();
-	}
+	GameStateMachine::instance()->currentState()->refresh();
 }

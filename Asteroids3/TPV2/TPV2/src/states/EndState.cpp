@@ -2,19 +2,19 @@
 
 // Constructora
 EndState::EndState(string result) : Manager() {
-	// Mensajes
+	// MENSAJE DE QUIEN HA GANADO
 	resultEntity = new Entity(_grp_UI);
 	resultEntity->setContext(this);
 	addComponent<Transform>(resultEntity, GAME_OVER_TEXT_POSITION, VECTOR_ZERO, TEXT_WIDTH, TEXT_HEIGHT, 0);
 	addEntity(resultEntity, _grp_UI);
-
+	//MENSAJE PARA IDICAR QUE PUEDE CONTINUAR
     continueEntity = new Entity(_grp_UI);
     continueEntity->setContext(this);
     addComponent<Transform>(continueEntity, TEXT_POSITION, VECTOR_ZERO, TEXT_WIDTH, TEXT_HEIGHT, 0);
     addEntity(continueEntity, _grp_UI);
 
 	string resultString, continueString; unsigned long color;
-	if (result == GAME_OVER_WIN_TEXT) {
+	if (result == GAME_OVER_WIN_TEXT) {//SI HAS GANADO
 		resultString = result;
 		color = COLOR_GREEN;
 		continueString = PRESS_TO_START_TEXT;
@@ -23,7 +23,7 @@ EndState::EndState(string result) : Manager() {
 		gameCtrlSys_ = addSystem<GameCtrlSystem>(2);
 		renderSys_ = addSystem<RenderSystem>(2);
 	}
-	else if (result == GAME_OVER_LOSE_TEXT) {
+	else if (result == GAME_OVER_LOSE_TEXT) {//SI HAS PERDIDO
 		resultString = result;
 		color = COLOR_RED;
 		continueString = PRESS_TO_START_TEXT;
@@ -32,7 +32,7 @@ EndState::EndState(string result) : Manager() {
 		gameCtrlSys_ = addSystem<GameCtrlSystem>(2);
 		renderSys_ = addSystem<RenderSystem>(2);
 	}
-	else {
+	else {//INDICA CUAL DE LOS DOS HA GANADO
 		resultString = result + " wins!";
 		color = COLOR_GREEN;
 		continueString = GO_TO_MAIN_MENU_TEXT;

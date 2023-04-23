@@ -37,7 +37,7 @@ public:
     Entity* waitingText;
 
     Entity* ipTextBox;
-
+    //CAMBIOS EN LA UI
     void deActivateSELECTHUD();
     void deActivateNAMEHUD();
     void deActivateIPHUD();

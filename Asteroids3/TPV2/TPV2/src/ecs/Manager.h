@@ -33,6 +33,12 @@ public:
 			}
 		}
 
+		for (auto& sys : sys_) {
+			if (sys != nullptr) {
+				delete sys;
+			}
+		}
+
 		for (auto it = UITextures_.begin(); it != UITextures_.end(); ++it) {
 			delete UITextures_[it->first];
 		}
