@@ -11,6 +11,7 @@ void FighterSystem::receive(const Message& m) {
         case _m_ROUND_FINISHED: onCollision_FighterAsteroid(); break;
 		case _m_ONVICTORY: case _m_ONDEFEAT: onRoundOver(); break;
 		case _m_NET_FIGHTER_UPDATE: updateNet(m.fighterposup.pos, m.fighterposup.vel, m.fighterposup.width, m.fighterposup.height, m.fighterposup.rot);
+		case _m_FIGHTER_BULLET_COLLIDED: onCollision_FighterBullet(); break;
         default: break;
     }
 }
@@ -103,6 +104,7 @@ void FighterSystem::move() {
 		
 		}
 	}
+
 	m.id = _m_FIGHTER_UPDATE;
 	m.fighter_update.rot = fighterTransform->getR();
 	m.fighter_update.pos = fighterTransform->getPos();
@@ -110,17 +112,11 @@ void FighterSystem::move() {
 	m.fighter_update.width = fighterTransform->getW();
 	m.fighter_update.height = fighterTransform->getH();
 	mngr_->send(m);
-
-	
 }
 
 void FighterSystem::update() {
 	switch (state) {
-	case 1:
-		move();
-
-		break;
-
+	case 1: move(); break;
 	case 3: 
 		// Pregunta constantemente por el transform
 		if (mngr_->getSystem<NetworkSystem>()->getServer()) {
@@ -133,9 +129,7 @@ void FighterSystem::update() {
 		}
 		move();
 		break;
-
-	default: 
-		break;
+	default: break;
 	}
 	
 }
@@ -226,4 +220,8 @@ void FighterSystem::updateNet(Vector2D pos, Vector2D vel, double width, double h
 		fighterTransform1->setH(height);
 		fighterTransform1->setRot(rot);
 	}
+}
+
+void FighterSystem::onCollision_FighterBullet() {
+	resetFighter();
 }

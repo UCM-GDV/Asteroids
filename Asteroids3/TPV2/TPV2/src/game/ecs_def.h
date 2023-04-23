@@ -58,14 +58,15 @@ enum msgId : msgId_type {
 	_m_ONVICTORY,
 	_m_ONDEFEAT,
 	_m_FIGHTER_UPDATE,
-	_m_BULLET_UPDATE,
+	_m_ADD_BULLET,
 	_m_NET_FIGHTER_UPDATE,
-	_m_NET_BULLET_UPDATE,
-	_m_CHANGE_STATE
+	_m_NET_ADD_BULLET,
+	_m_CHANGE_STATE,
+	_m_FIGHTER_BULLET_COLLIDED
 };
 using msgnetId_type = int;
 enum msgIdnet : msgId_type {
 	_m_CONNECTED,
 	_m_FIGHTERPOSUP,
-	_m_BULLETPOSUP
+	_m_ADDBULLET
 };

@@ -23,6 +23,9 @@ private:
     // Para gestionar el mensaje de que no hay más asteroides. Tiene que avisar que
     // ha acabado la ronda y además que ha acabado el juego (y quien es el ganador)
     void onAsteroidsExtinction();
+    // Si hay colision entre fighter y bullet en el modo multijugador
+    // Gestiona las vidas y si alguno llega a 0, se coloca el endState
+    void onCollision_FighterBullet(int fighterHealth);
 
     // UI
     string name;

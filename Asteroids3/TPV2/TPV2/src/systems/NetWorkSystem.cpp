@@ -17,8 +17,8 @@ NetworkSystem::~NetworkSystem() {
 // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 void NetworkSystem::receive(const Message& m) {
 	switch (m.id) {
-	case _m_FIGHTER_UPDATE: fighterUpdate( m.fighter_update.pos, m.fighter_update.vel, m.fighter_update.width, m.fighter_update.height,m.fighter_update.rot); break;
-	case _m_BULLET_UPDATE: bulletUpdate(); break;
+	case _m_FIGHTER_UPDATE: fighterUpdate(m.fighter_update.pos, m.fighter_update.vel, m.fighter_update.width, m.fighter_update.height,m.fighter_update.rot); break;
+	case _m_ADD_BULLET: addBullet(m.add_bullet.pos, m.add_bullet.vel, m.add_bullet.rot); break;
 	default: break;
 	}
 }
@@ -56,7 +56,7 @@ void NetworkSystem::client(const char* host) {
 	// coge el socket abierto 
 	sd = SDLNet_UDP_Open(0);
 
-	if (SDLNet_ResolveHost(&srvadd, "192.168.1.134", PORT) < 0) {
+	if (SDLNet_ResolveHost(&srvadd, "192.168.1.69", PORT) < 0) {
 		//if (SDLNet_ResolveHost(&srvadd, host, port) < 0) {
 		throw("ERROR AL ESTABLECER CONEXION CON EL SERVIDOR");
 	}
@@ -90,14 +90,18 @@ void NetworkSystem::update() {
 				// Quita el texto de espera
 				playState->getwaitingText()->setAlive(false);
 
+				// Envia un mensaje de que se ha conectado el servidor
+				Messagenet* sendMessage = reinterpret_cast<Messagenet*>(p->data);
+				mn->id = _m_CONNECTED;
+				p->len = sizeof(Messagenet);
+				p->address = srvadd;
+				SDLNet_UDP_Send(sd, -1, p);
 			}
 			// Anade los sistemas necesarios para el multijugador
 			playState->createsystems();
 			// Cambia del modo de seleccion al juego multijugador
 			m.id = _m_CHANGE_STATE;
 			mngr_->send(m);
-			
-		
 			break;
 		case _m_FIGHTERPOSUP:
 			//llama a fightersystem para que actualize la pos y rot 1  o 2
@@ -109,12 +113,15 @@ void NetworkSystem::update() {
 			m.fighterposup.height = mn->fighter_update.height;
 			m.fighterposup.rot = mn->fighter_update.rot;
 			mngr_->send(m);
-
 			break;
-		case _m_BULLETPOSUP:
+		case _m_ADDBULLET:
 			//para crear la bala cog pos, rot y vel y la crea
+			m.id = _m_NET_ADD_BULLET;
+			m.add_bullet.pos = mn->add_bullet.pos;
+			m.add_bullet.vel = mn->add_bullet.vel;
+			m.add_bullet.rot = mn->add_bullet.rot;
+			mngr_->send(m);
 			break;
-
 		default: break;
 		}
 	}
@@ -132,9 +139,18 @@ void NetworkSystem::fighterUpdate(Vector2D pos, Vector2D vel, double width, doub
 	p->len = sizeof(Messagenet);
 	p->address = srvadd;
 
+	cout << pos << endl;
 	SDLNet_UDP_Send(sd, -1, p);
 }
 
-void NetworkSystem::bulletUpdate() {
-
+void NetworkSystem::addBullet(Vector2D pos, Vector2D vel, float rot) {
+	// Anade una bala en el programa del otro
+	mn = reinterpret_cast<Messagenet*>(p->data);
+	mn->id = _m_ADDBULLET;
+	mn->add_bullet.pos = pos;
+	mn->add_bullet.vel = vel;
+	mn->add_bullet.rot = rot;
+	p->len = sizeof(Messagenet);
+	p->address = srvadd;
+	SDLNet_UDP_Send(sd, -1, p);
 }

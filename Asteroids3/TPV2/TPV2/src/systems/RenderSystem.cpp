@@ -36,8 +36,7 @@ void RenderSystem::initSystem() {
 void RenderSystem::update() {
 	SDL_SetRenderDrawColor(sdlutils().renderer(), 0, 30, 50, 0);
 	SDL_RenderClear(sdlutils().renderer());
-	switch (state)
-	{
+	switch (state) {
 		case -1:
 			//Main Menu
 			for (Entity* ui : mngr_->getEntities(_grp_UI)) {

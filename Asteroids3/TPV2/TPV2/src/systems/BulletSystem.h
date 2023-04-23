@@ -10,6 +10,8 @@ public:
 	// Identificador
     constexpr static sysId_type id = _sys_BULLET;
 
+    // Constructora
+    BulletSystem(int state_ = 1);
     // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
     void receive(const Message& m) override;
     // Inicializar el sistema, etc.
@@ -18,8 +20,11 @@ public:
     // desactivar las que salen de la ventana como en la práctica 1.
     virtual void update() override;
 private:
+    // Estado actual del juego
+    int state;
     // Fighter
-   // Transform* fighterTransform;
+    // Transform* fighterTransform;
+    
     // Para gestionar el mensaje de que el jugador ha disparado. Añadir una bala al
     // juego, como en la práctica 1. Recuerda que la rotación de la bala sería
     // vel.angle(Vector2D(0.0f,-1.0f))
@@ -32,4 +37,6 @@ private:
     // Para gestionar el mensaje de que ha acabado la ronda. Desactivar todas las
     // balas, y desactivar el sistema.
     void onRoundOver();
+    // Anade una bala a la escena
+    void addBullet(Vector2D pos, Vector2D vel, float rot);
 };

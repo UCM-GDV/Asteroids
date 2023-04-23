@@ -23,29 +23,38 @@ void CollisionsSystem::update() {
 		collision(mngr_->getEntities(_grp_ASTEROIDS_YELLOW));
 	}
 	if (state == 3) { //colision el grupo de balas con algun fighter y luego fighter fighter
-
 		collisionNet(mngr_->getEntities(_grp_BULLETS));
 	}
 }
+
 void  CollisionsSystem::collisionNet(vector<Entity*> v) {
 	int i = 0; bool end = false;
 	Transform* f1 = mngr_->getSystem<FighterSystem>()->getFighterTransform1();
 	Transform* f2 = mngr_->getSystem<FighterSystem>()->getFighterTransform2();
 	while (i < v.size() && !end) {
 		Transform* bulletTransform = mngr_->getComponent<Transform>(v[i]);
-		if (collisionEntities(bulletTransform, f1)) {
-			//MANDAR MENSAJE COLISION F1 Y BALA
-			//DESTRUIR BALA, QUITAR VIDA y RESETEAR 
-			cout << "bala-f1" << endl;
 
+		if (collisionEntities(bulletTransform, f1)) {
+			cout << "bala-f1" << endl;
+			// MANDA UN MENSAJE ESPECIFICANDO CUAL FIGHTERHEALTH RESTARLE VIDA
+			m.id = _m_FIGHTER_BULLET_COLLIDED;
+			m.fighter_bullet_coll.fighterHealth = 1;
+			mngr_->send(m);
+
+			end = true;
 		}
 		else if (collisionEntities(bulletTransform, f2)) {
-			//MANDAR MENSAJE COLISION F2 Y BALA
-			//DESTRUIR BALA, QUITAR VIDA RESETEAR
 			cout << "bala-f2" << endl;
+			// MANDA UN MENSAJE ESPECIFICANDO CUAL FIGHTERHEALTH RESTARLE VIDA
+			m.id = _m_FIGHTER_BULLET_COLLIDED;
+			m.fighter_bullet_coll.fighterHealth = 2;
+			mngr_->send(m);
 
+			end = true;
 		}
+		else ++i;
 	}
+
 	if (collisionEntities(f2, f1)) {
 		//MANDAR MENSAJE COLISION ENTRE DOS FIGHTERS
 		//RESTAR VIDA A LOS DOS Y RESETEAR
@@ -53,6 +62,7 @@ void  CollisionsSystem::collisionNet(vector<Entity*> v) {
 
 	}
 }
+
 // Detecta las colisiones dependendiendo del grupo de asteroide
 void CollisionsSystem::collision(vector<Entity*> v) {
 	int i = 0; bool end = false;

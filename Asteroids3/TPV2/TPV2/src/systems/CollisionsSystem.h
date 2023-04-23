@@ -23,6 +23,7 @@ private:
 	Collisions* col;
 	// Estado actual del juego
 	int state;
+	Message m;
 	// Detecta las colisiones dependendiendo del grupo de asteroide
 	void collision(vector<Entity*> v);
 	// Detecta las colisiones dependendiendo del grupo de asteroide

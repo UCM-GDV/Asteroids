@@ -36,4 +36,13 @@ struct Message {
 		float rot;
 		double width, height;
 	} fighterposup;
+	// _m_ADD_BULLET
+	struct {
+		Vector2D pos, vel;
+		float rot;
+	} add_bullet;
+	// _m_FIGHTER_BULLET_COLLIDED
+	struct {
+		int fighterHealth;
+	} fighter_bullet_coll;
 };

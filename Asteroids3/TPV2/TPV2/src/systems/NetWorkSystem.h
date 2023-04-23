@@ -28,7 +28,7 @@ public:
 	}
 
 	void fighterUpdate(Vector2D pos, Vector2D vel, double width, double height, float rot);
-	void bulletUpdate();
+	void addBullet(Vector2D pos, Vector2D vel, float rot);
 private:
 	UDPpacket* p;
 	UDPsocket sd;

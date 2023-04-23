@@ -18,6 +18,7 @@ void GameCtrlSystem::receive(const Message& m) {
     case _m_FIGTHER_ASTEROID_COLLIDED: onCollision_FighterAsteroid(); break;
     case _m_ASTEROIDS_EXTINCTION: onAsteroidsExtinction(); break;
     case _m_CHANGE_STATE: onChangeState();  break;
+    case _m_FIGHTER_BULLET_COLLIDED: onCollision_FighterBullet(m.fighter_bullet_coll.fighterHealth); break;
     default: break;
     }
 }
@@ -212,6 +213,25 @@ void GameCtrlSystem::addNumberOrDot() {
 void GameCtrlSystem::onChangeState() {
     // Cambia del modo de seleccion al juego
 	state = 3;  
+
     // Coge las referencias
+    fighterHealth1 = mngr_->getSystem<FighterSystem>()->getFighterHealth1();
+    fighterHealth2 = mngr_->getSystem<FighterSystem>()->getFighterHealth2();
     (mngr_->getSystem<NetworkSystem>()->getServer()) ? fighterHealth = fighterHealth1 : fighterHealth = fighterHealth2;
+}
+
+// Si hay colision entre fighter y bullet en el modo multijugador
+// Gestiona las vidas y si alguno llega a 0, se coloca el endState
+void GameCtrlSystem::onCollision_FighterBullet(int fighterHealth) {
+    // Actualiza las vidas
+    if (fighterHealth == 1) fighterHealth1->decreaseLives();
+    else if (fighterHealth == 2) fighterHealth2->decreaseLives();
+
+    int health1 = fighterHealth1->getlife();
+    int health2 = fighterHealth2->getlife();
+    if (health1 <= 0 || health2 <= 0) {
+        // VER SI QUEREMOS CREAR UN ESTADO NUEVO O 
+        // UTILIZAR EL DE ENDSTATE CAMBIANDO EL TEXTO PARA QUE PONGA EL GANADOR
+        GameStateMachine::instance()->changeState(new EndState(1));
+    }
 }

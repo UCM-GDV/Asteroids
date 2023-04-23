@@ -80,17 +80,37 @@ private:
 	// Decrementa el numero de vidas actual
 	inline void decreaseLives() { fighterHealth->decreaseLives(); }
 	// Resetea el numero de vidas actual
-	inline void resetLives() { fighterHealth->setlife(NUMBER_LIVES); }
+	inline void resetLives() { 
+		if (state == 1) {
+			fighterHealth->setlife(NUMBER_LIVES);
+		}
+		else if (state == 3) {
+			fighterHealth1->setlife(NUMBER_LIVES);
+			fighterHealth2->setlife(NUMBER_LIVES);
+		}
+	}
 
 	// Reestablece la posicion, velocidad y rotacion del fighter
 	inline void resetFighter() {
-		fighterTransform->setPos({ WIN_HALF_WIDTH, WIN_HALF_HEIGHT });
-		fighterTransform->setVel(FIGHTER_VELOCITY);
-		fighterTransform->setRot(0);
+		if (state == 1) {
+			fighterTransform->setPos(FIGHTER_POS);
+			fighterTransform->setVel(FIGHTER_VELOCITY);
+			fighterTransform->setRot(FIGHTER_ROTATION);
+		}
+		else if (state == 3) {
+			fighterTransform1->setPos(FIGHTER_1_POS);
+			fighterTransform1->setVel(FIGHTER_VELOCITY);
+			fighterTransform1->setRot(FIGHTER_1_ROTATION);
+
+			fighterTransform2->setPos(FIGHTER_2_POS);
+			fighterTransform2->setVel(FIGHTER_VELOCITY);
+			fighterTransform2->setRot(FIGHTER_2_ROTATION);
+		}
 	}
 
 	// Pasa de grados a radianes
 	inline float degreesToRadians(float degrees_) { return (degrees_ * (M_PI / 180)); }
 
     void updateNet(Vector2D pos, Vector2D vel, double width, double height, float rot);
+	void onCollision_FighterBullet();
 };

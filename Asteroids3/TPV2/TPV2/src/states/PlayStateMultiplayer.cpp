@@ -13,8 +13,8 @@ PlayStateMultiPlayer::PlayStateMultiPlayer() : Manager(), hostButton(nullptr), c
 }
  void PlayStateMultiPlayer::createsystems() {
      fighterSys_ = addSystem<FighterSystem>(3);
-     addSystem<BulletSystem>();
-     addSystem<CollisionsSystem>();
+     addSystem<BulletSystem>(3);
+     addSystem<CollisionsSystem>(3);
 }
 
 // Destructora
