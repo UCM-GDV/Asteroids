@@ -142,3 +142,8 @@ void RenderSystem::renderUI(Entity* t) {
 	dest = build_sdlrect(auxTransform->getPos(), auxTransform->getW(), auxTransform->getH());
 	mngr_->UITextures_[t]->render(dest, auxTransform->getR());
 }
+void RenderSystem::renderUIname(Entity* t) {
+	auxTransform = mngr_->getComponent<Transform>(t);
+	dest = build_sdlrect(auxTransform->getPos(), auxTransform->getW(), auxTransform->getH());
+	mngr_->UITextures_[t]->render(dest, auxTransform->getR());
+}

@@ -118,6 +118,8 @@ void GameCtrlSystem::update() {
 // es el ganador).
 void GameCtrlSystem::onCollision_FighterAsteroid() {
     fighterHealth->decreaseLives();
+    sdlutils().soundEffects().at("explosion").play();
+
 	Message m;
     if (fighterHealth->getlife() <= 0) {
 		m.id = _m_ONDEFEAT;
@@ -154,34 +156,41 @@ bool GameCtrlSystem::isOver(Entity* button, std::pair<Sint32, Sint32> mousePos) 
 
 // Anade caracteres en la textura del nombre
 void GameCtrlSystem::addCharacter() {
-    string c = "";
-    if (InputHandler::instance()->isKeyDown(SDLK_a)) c = "a";
-    if (InputHandler::instance()->isKeyDown(SDLK_b)) c = "b";
-    if (InputHandler::instance()->isKeyDown(SDLK_c)) c = "c";
-    if (InputHandler::instance()->isKeyDown(SDLK_d)) c = "d";
-    if (InputHandler::instance()->isKeyDown(SDLK_e)) c = "e";
-    if (InputHandler::instance()->isKeyDown(SDLK_f)) c = "f";
-    if (InputHandler::instance()->isKeyDown(SDLK_g)) c = "g";
-    if (InputHandler::instance()->isKeyDown(SDLK_h)) c = "h";
-    if (InputHandler::instance()->isKeyDown(SDLK_i)) c = "i";
-    if (InputHandler::instance()->isKeyDown(SDLK_j)) c = "j";
-    if (InputHandler::instance()->isKeyDown(SDLK_k)) c = "k";
-    if (InputHandler::instance()->isKeyDown(SDLK_l)) c = "l";
-    if (InputHandler::instance()->isKeyDown(SDLK_m)) c = "m";
-    if (InputHandler::instance()->isKeyDown(SDLK_n)) c = "n";
-    if (InputHandler::instance()->isKeyDown(SDLK_o)) c = "o";
-    if (InputHandler::instance()->isKeyDown(SDLK_p)) c = "p";
-    if (InputHandler::instance()->isKeyDown(SDLK_q)) c = "q";
-    if (InputHandler::instance()->isKeyDown(SDLK_r)) c = "r";
-    if (InputHandler::instance()->isKeyDown(SDLK_s)) c = "s";
-    if (InputHandler::instance()->isKeyDown(SDLK_t)) c = "t";
-    if (InputHandler::instance()->isKeyDown(SDLK_u)) c = "u";
-    if (InputHandler::instance()->isKeyDown(SDLK_v)) c = "v";
-    if (InputHandler::instance()->isKeyDown(SDLK_w)) c = "w";
-    if (InputHandler::instance()->isKeyDown(SDLK_x)) c = "x";
-    if (InputHandler::instance()->isKeyDown(SDLK_y)) c = "y";
-    if (InputHandler::instance()->isKeyDown(SDLK_z)) c = "z";
-    name += c;
+    if (name.size() < 10) {
+        string c = "";
+         if (InputHandler::instance()->isKeyDown(SDLK_e)) c = "e";
+        else if (InputHandler::instance()->isKeyDown(SDLK_a)) c = "a";
+        else if (InputHandler::instance()->isKeyDown(SDLK_o)) c = "o";
+        else if (InputHandler::instance()->isKeyDown(SDLK_s)) c = "s";
+        else if (InputHandler::instance()->isKeyDown(SDLK_r)) c = "r";
+        else if (InputHandler::instance()->isKeyDown(SDLK_n)) c = "n";
+        else if (InputHandler::instance()->isKeyDown(SDLK_i)) c = "i";
+        else if (InputHandler::instance()->isKeyDown(SDLK_d)) c = "d";
+        else if (InputHandler::instance()->isKeyDown(SDLK_l)) c = "l";
+        else if (InputHandler::instance()->isKeyDown(SDLK_c)) c = "c";
+        else if (InputHandler::instance()->isKeyDown(SDLK_t)) c = "t";
+        else if (InputHandler::instance()->isKeyDown(SDLK_u)) c = "u";
+        else if (InputHandler::instance()->isKeyDown(SDLK_m)) c = "m";
+        else if (InputHandler::instance()->isKeyDown(SDLK_p)) c = "p";
+        else if (InputHandler::instance()->isKeyDown(SDLK_b)) c = "b";
+        else if (InputHandler::instance()->isKeyDown(SDLK_g)) c = "g";
+        else if (InputHandler::instance()->isKeyDown(SDLK_f)) c = "f";
+        else if (InputHandler::instance()->isKeyDown(SDLK_h)) c = "h";
+        else if (InputHandler::instance()->isKeyDown(SDLK_j)) c = "j";
+        else if (InputHandler::instance()->isKeyDown(SDLK_k)) c = "k";
+        else if (InputHandler::instance()->isKeyDown(SDLK_q)) c = "q";
+        else if (InputHandler::instance()->isKeyDown(SDLK_v)) c = "v";
+        else if (InputHandler::instance()->isKeyDown(SDLK_w)) c = "w";
+        else if (InputHandler::instance()->isKeyDown(SDLK_x)) c = "x";
+        else if (InputHandler::instance()->isKeyDown(SDLK_y)) c = "y";
+        else if (InputHandler::instance()->isKeyDown(SDLK_z)) c = "z";
+       
+        name += c;
+    }
+    if (InputHandler::instance()->isKeyDown(SDLK_BACKSPACE)) {
+        if (name.size() > 0) name.pop_back();
+    };
+   
 }
 
 // Anade espacios para que se vea bien
@@ -196,16 +205,19 @@ void GameCtrlSystem::addSpaces(string text, string& textWithSpaces) {
 void GameCtrlSystem::addNumberOrDot() {
     string n = "";
     if (InputHandler::instance()->isKeyDown(SDLK_0)) n = "0";
-    if (InputHandler::instance()->isKeyDown(SDLK_1)) n = "1";
-    if (InputHandler::instance()->isKeyDown(SDLK_2)) n = "2";
-    if (InputHandler::instance()->isKeyDown(SDLK_3)) n = "3";
-    if (InputHandler::instance()->isKeyDown(SDLK_4)) n = "4";
-    if (InputHandler::instance()->isKeyDown(SDLK_5)) n = "5";
-    if (InputHandler::instance()->isKeyDown(SDLK_6)) n = "6";
-    if (InputHandler::instance()->isKeyDown(SDLK_7)) n = "7";
-    if (InputHandler::instance()->isKeyDown(SDLK_8)) n = "8";
-    if (InputHandler::instance()->isKeyDown(SDLK_9)) n = "9";
-    if (InputHandler::instance()->isKeyDown(SDLK_PERIOD)) n = ".";
+    else if (InputHandler::instance()->isKeyDown(SDLK_1)) n = "1";
+    else if (InputHandler::instance()->isKeyDown(SDLK_2)) n = "2";
+    else if (InputHandler::instance()->isKeyDown(SDLK_3)) n = "3";
+    else if (InputHandler::instance()->isKeyDown(SDLK_4)) n = "4";
+    else if (InputHandler::instance()->isKeyDown(SDLK_5)) n = "5";
+    else if (InputHandler::instance()->isKeyDown(SDLK_6)) n = "6";
+    else if (InputHandler::instance()->isKeyDown(SDLK_7)) n = "7";
+    else if (InputHandler::instance()->isKeyDown(SDLK_8)) n = "8";
+    else if (InputHandler::instance()->isKeyDown(SDLK_9)) n = "9";
+    else if (InputHandler::instance()->isKeyDown(SDLK_PERIOD)) n = ".";
+    else if (InputHandler::instance()->isKeyDown(SDLK_BACKSPACE)) {
+        if (ip.size() > 0) ip.pop_back();
+    };
 
     ip += n;
 }
@@ -223,6 +235,9 @@ void GameCtrlSystem::onChangeState() {
 // Si hay colision entre fighter y bullet en el modo multijugador
 // Gestiona las vidas y si alguno llega a 0, se coloca el endState
 void GameCtrlSystem::onCollision_FighterBullet(int fighterHealth) {
+    //repoduce sonido de la explosion
+    sdlutils().soundEffects().at("explosion").play();
+
     // Actualiza las vidas
     if (fighterHealth == 1) fighterHealth1->decreaseLives();
     else if (fighterHealth == 2) fighterHealth2->decreaseLives();

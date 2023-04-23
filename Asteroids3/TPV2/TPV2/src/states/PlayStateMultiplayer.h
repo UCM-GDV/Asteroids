@@ -53,4 +53,5 @@ public:
     void hostButtonNameAction();
     void clientButtonIPAction();
     void createsystems();
+    void addName(string name);
 };

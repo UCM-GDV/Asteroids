@@ -55,8 +55,8 @@ void NetworkSystem::client(const char* host) {
 
 	// coge el socket abierto 
 	sd = SDLNet_UDP_Open(0);
-
-	if (SDLNet_ResolveHost(&srvadd, "192.168.1.69", PORT) < 0) {
+	string ip = static_cast<PlayStateMultiPlayer*>(mngr_)->getIp();
+	if (SDLNet_ResolveHost(&srvadd, ip.c_str(), PORT) < 0) {
 		//if (SDLNet_ResolveHost(&srvadd, host, port) < 0) {
 		throw("ERROR AL ESTABLECER CONEXION CON EL SERVIDOR");
 	}
@@ -91,7 +91,7 @@ void NetworkSystem::update() {
 				playState->getwaitingText()->setAlive(false);
 
 				// Envia un mensaje de que se ha conectado el servidor
-				Messagenet* sendMessage = reinterpret_cast<Messagenet*>(p->data);
+				//Messagenet* sendMessage = reinterpret_cast<Messagenet*>(p->data);
 				mn->id = _m_CONNECTED;
 				p->len = sizeof(Messagenet);
 				p->address = srvadd;
@@ -112,6 +112,7 @@ void NetworkSystem::update() {
 			m.fighterposup.width = mn->fighter_update.width;
 			m.fighterposup.height = mn->fighter_update.height;
 			m.fighterposup.rot = mn->fighter_update.rot;
+			cout << "NS: " << m.fighterposup.vel << "\n" << m.fighterposup.rot << endl;
 			mngr_->send(m);
 			break;
 		case _m_ADDBULLET:
@@ -128,7 +129,6 @@ void NetworkSystem::update() {
 }
 
 void NetworkSystem::fighterUpdate(Vector2D pos, Vector2D vel, double width, double height, float rot) {
-	mn = reinterpret_cast<Messagenet*>(p->data);
 	mn->id = _m_FIGHTERPOSUP;
 	mn->fighter_update.pos = pos;
 	mn->fighter_update.vel = vel;
@@ -139,13 +139,12 @@ void NetworkSystem::fighterUpdate(Vector2D pos, Vector2D vel, double width, doub
 	p->len = sizeof(Messagenet);
 	p->address = srvadd;
 
-	cout << pos << endl;
+	cout << "fighter update: " << vel << "\n" << rot << endl;
 	SDLNet_UDP_Send(sd, -1, p);
 }
 
 void NetworkSystem::addBullet(Vector2D pos, Vector2D vel, float rot) {
 	// Anade una bala en el programa del otro
-	mn = reinterpret_cast<Messagenet*>(p->data);
 	mn->id = _m_ADDBULLET;
 	mn->add_bullet.pos = pos;
 	mn->add_bullet.vel = vel;
@@ -153,4 +152,6 @@ void NetworkSystem::addBullet(Vector2D pos, Vector2D vel, float rot) {
 	p->len = sizeof(Messagenet);
 	p->address = srvadd;
 	SDLNet_UDP_Send(sd, -1, p);
+	//reproduce el sonido de disparo del otro jugador
+	SDLUtils::instance()->soundEffects().at("fire").play();
 }

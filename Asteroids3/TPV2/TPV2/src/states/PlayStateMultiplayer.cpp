@@ -12,6 +12,7 @@ PlayStateMultiPlayer::PlayStateMultiPlayer() : Manager(), hostButton(nullptr), c
     createClientButton();
 }
  void PlayStateMultiPlayer::createsystems() {
+     //añadir nombre o ip??
      fighterSys_ = addSystem<FighterSystem>(3);
      addSystem<BulletSystem>(3);
      addSystem<CollisionsSystem>(3);
@@ -36,6 +37,7 @@ void PlayStateMultiPlayer::deActivateNAMEHUD() {
 
 void PlayStateMultiPlayer::deActivateIPHUD() {
     // QUITA LOS BOTONES DE IP Y ENTER
+    ip = gameCtrlSys_->getIp();
     ipTextBox->setAlive(false);
     enterButton->setAlive(false);
 }
@@ -101,6 +103,8 @@ void PlayStateMultiPlayer::selectButtonAction(bool player) {
 }
 
 void PlayStateMultiPlayer::hostButtonNameAction() {
+    string name = gameCtrlSys_->getname();
+    cout << name<<" llega el nombre al stado";
     deActivateNAMEHUD();
     createWaitingTextBox();
 

@@ -87,31 +87,35 @@ void FighterSystem::move() {
 
 				startTime = SDL_GetTicks();
 			}
-			m.id = _m_FIGHTER_UPDATE;
-			
 		}
 		// FIGHTERCONTROL
 		if (InputHandler::instance()->isKeyDown(SDLK_LEFT)) {
+			cout << "Se llama al rotate1" << endl;
 			rotate(-(FIGHTER_ROTATION_SPEED));
 			
 		}
 		else if (InputHandler::instance()->isKeyDown(SDLK_RIGHT)) {
+            cout << "Se llama al rotate1" << endl;
 			rotate(FIGHTER_ROTATION_SPEED);
 			
 		}
 		else if (InputHandler::instance()->isKeyDown(SDLK_UP)) {
+            cout << "Se llama al accelerate" << endl;
 			accelerate();
-		
 		}
 	}
+	if (state == 3) {
+		m.id = _m_FIGHTER_UPDATE;
+		m.fighter_update.rot = fighterTransform->getR();
+		m.fighter_update.pos = fighterTransform->getPos();
+		m.fighter_update.vel = fighterTransform->getVel();
+		m.fighter_update.width = fighterTransform->getW();
+		m.fighter_update.height = fighterTransform->getH();
 
-	m.id = _m_FIGHTER_UPDATE;
-	m.fighter_update.rot = fighterTransform->getR();
-	m.fighter_update.pos = fighterTransform->getPos();
-	m.fighter_update.vel = fighterTransform->getVel();
-	m.fighter_update.width = fighterTransform->getW();
-	m.fighter_update.height = fighterTransform->getH();
-	mngr_->send(m);
+		cout << "FS: " << fighterTransform->getVel() << "\n" << fighterTransform->getR() << endl;
+
+		mngr_->send(m);
+	}
 }
 
 void FighterSystem::update() {
@@ -205,6 +209,7 @@ void FighterSystem::rotate(float r_) {
 
 void FighterSystem::updateNet(Vector2D pos, Vector2D vel, double width, double height, float rot) {
 	if (mngr_->getSystem<NetworkSystem>()->getServer()) {
+		cout << "updateNet2: " << vel << "\n" << rot << endl;
 		//si eres server actualizas client
 		fighterTransform2->setPos(pos);
 		fighterTransform2->setVel(vel);
@@ -213,6 +218,7 @@ void FighterSystem::updateNet(Vector2D pos, Vector2D vel, double width, double h
 		fighterTransform2->setRot(rot);
 	}
 	else {
+		cout << "updateNet1: " << vel << "\n" << rot << endl;
 		// si eres cliente actualizas server
 		fighterTransform1->setPos(pos);
 		fighterTransform1->setVel(vel);

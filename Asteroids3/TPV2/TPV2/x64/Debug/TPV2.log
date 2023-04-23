@@ -1,16 +1,2 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(503,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
-  NetWorkSystem.cpp
-C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\game\constants.h(16,25): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
-C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\game\constants.h(16,25): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\game\constants.h(17,26): warning C4838: la conversión de 'float' en 'int' requiere una conversión de restricción
-C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\game\constants.h(17,26): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\components\Transform.h(17,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\components\Transform.h(18,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\components\Transform.h(19,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\components\Transform.h(20,12): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\components\Transform.h(42,42): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\systems\FighterSystem.h(98,29): warning C4244: 'argumento': conversión de 'const float' a 'int'; posible pérdida de datos
-C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\systems\FighterSystem.h(103,30): warning C4244: 'argumento': conversión de 'const float' a 'int'; posible pérdida de datos
-C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\systems\FighterSystem.h(107,30): warning C4244: 'argumento': conversión de 'const float' a 'int'; posible pérdida de datos
-C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids3\TPV2\TPV2\src\systems\FighterSystem.h(112,67): warning C4244: 'return': conversión de 'double' a 'float'; posible pérdida de datos
-  TPV2.vcxproj -> C:\Users\lwq20\OneDrive\Documentos\GitHub\Asteroids\Asteroids3\TPV2\bin\TPV2Debug.exe
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(520,5): warning MSB8004: El directorio Output no termina con una barra diagonal final. Esta instancia de compilación agregará la barra diagonal porque es necesaria para que se pueda evaluar correctamente el directorio Output.
+  TPV2.vcxproj -> C:\Users\AliciaMoraVelasco\Documents\GitHub\Asteroids\Asteroids3\TPV2\bin\TPV2Debug.exe
