@@ -56,8 +56,8 @@ void NetworkSystem::client(const char* host) {
 	// coge el socket abierto 
 	sd = SDLNet_UDP_Open(0);
 	string ip = static_cast<PlayStateMultiPlayer*>(mngr_)->getIp();
-	if (SDLNet_ResolveHost(&srvadd, ip.c_str(), PORT) < 0) {
-		//if (SDLNet_ResolveHost(&srvadd, host, port) < 0) {
+	//if (SDLNet_ResolveHost(&srvadd, ip.c_str(), PORT) < 0) {
+		if (SDLNet_ResolveHost(&srvadd, "192.168.1.69", PORT) < 0) {
 		throw("ERROR AL ESTABLECER CONEXION CON EL SERVIDOR");
 	}
 	p = SDLNet_AllocPacket(MAX_PACKET_SIZE);
@@ -80,7 +80,6 @@ void NetworkSystem::update() {
 	
 	// Esto se encarga de recibir todos los mensajes
 	while (SDLNet_UDP_Recv(sd, p) > 0) {
-		
 		switch (mn->id) {
 		case _m_CONNECTED:
 			playState = static_cast<PlayStateMultiPlayer*>(mngr_);
@@ -91,7 +90,6 @@ void NetworkSystem::update() {
 				playState->getwaitingText()->setAlive(false);
 
 				// Envia un mensaje de que se ha conectado el servidor
-				//Messagenet* sendMessage = reinterpret_cast<Messagenet*>(p->data);
 				mn->id = _m_CONNECTED;
 				p->len = sizeof(Messagenet);
 				p->address = srvadd;
@@ -112,7 +110,6 @@ void NetworkSystem::update() {
 			m.fighterposup.width = mn->fighter_update.width;
 			m.fighterposup.height = mn->fighter_update.height;
 			m.fighterposup.rot = mn->fighter_update.rot;
-			cout << "NS: " << m.fighterposup.vel << "\n" << m.fighterposup.rot << endl;
 			mngr_->send(m);
 			break;
 		case _m_ADDBULLET:
@@ -135,11 +132,8 @@ void NetworkSystem::fighterUpdate(Vector2D pos, Vector2D vel, double width, doub
 	mn->fighter_update.width = width;
 	mn->fighter_update.height = height;
 	mn->fighter_update.rot = rot;
-
 	p->len = sizeof(Messagenet);
 	p->address = srvadd;
-
-	cout << "fighter update: " << vel << "\n" << rot << endl;
 	SDLNet_UDP_Send(sd, -1, p);
 }
 
@@ -152,6 +146,7 @@ void NetworkSystem::addBullet(Vector2D pos, Vector2D vel, float rot) {
 	p->len = sizeof(Messagenet);
 	p->address = srvadd;
 	SDLNet_UDP_Send(sd, -1, p);
+
 	//reproduce el sonido de disparo del otro jugador
 	SDLUtils::instance()->soundEffects().at("fire").play();
 }

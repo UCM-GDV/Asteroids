@@ -14,7 +14,6 @@ GameCtrlSystem::GameCtrlSystem(int state_) : state(state_), fighterHealth(nullpt
 // Reaccionar a los mensajes recibidos (llamando a métodos correspondientes).
 void GameCtrlSystem::receive(const Message& m) {
     switch (m.id) {
-        // colision asteroide con fighter
     case _m_FIGTHER_ASTEROID_COLLIDED: onCollision_FighterAsteroid(); break;
     case _m_ASTEROIDS_EXTINCTION: onAsteroidsExtinction(); break;
     case _m_CHANGE_STATE: onChangeState();  break;
@@ -235,6 +234,8 @@ void GameCtrlSystem::onChangeState() {
 // Si hay colision entre fighter y bullet en el modo multijugador
 // Gestiona las vidas y si alguno llega a 0, se coloca el endState
 void GameCtrlSystem::onCollision_FighterBullet(int fighterHealth) {
+    cout << "GS: ONCOL" << endl;
+
     //repoduce sonido de la explosion
     sdlutils().soundEffects().at("explosion").play();
 

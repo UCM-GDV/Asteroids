@@ -104,7 +104,7 @@ void PlayStateMultiPlayer::selectButtonAction(bool player) {
 
 void PlayStateMultiPlayer::hostButtonNameAction() {
     string name = gameCtrlSys_->getname();
-    cout << name<<" llega el nombre al stado";
+
     deActivateNAMEHUD();
     createWaitingTextBox();
 
@@ -115,12 +115,7 @@ void PlayStateMultiPlayer::clientButtonIPAction() {
     // Reescribe el callback del boton de enter
     getComponent<Callback>(enterButton)->setCallback([&]() {
         deActivateIPHUD();
-        // TODO ---------------------------------------
-        const char* ip = gameCtrlSys_->getIp().c_str();
-        cout << ip << endl;
-        // --------------------------------------------
-
-        networkSys_->client(ip);
+        networkSys_->client(gameCtrlSys_->getIp().c_str());
     });
 
     nameTextBox->setAlive(false);
