@@ -160,15 +160,18 @@ void GameCtrlSystem::onCollision_Multiplayer(int fighterHealth) {
 		GameStateMachine::instance()->popState();
 		GameStateMachine::instance()->pushState(new MainMenuState());
 		NetworkSystem* net = mngr_->getSystem<NetworkSystem>();
-		if (net->getServer()) {
-			//si eres servidor
+
+        // si ambos se quedaron sin vidas a la vez
+        if (health1 <= 0 && health2 <= 0) winner = "MUERTE";
+        //si eres servidor
+        else if (net->getServer()) {
 			//si ganas tu
 			if (health1 <= 0) winner = net->othername;
 			//si gana el otro
 			else winner = name;
 		}
+        //si eres cliente 
 		else {
-			//si eres cliente 
 			//si gana el otro
 			if (health1 <= 0) winner = name;
 			//si ganas tu
